@@ -2,7 +2,6 @@ body {
 	padding: 8px;
 	margin: auto;
 	font-family: sans-serif;
-	-webkit
 }
 
 #navbar > span {
@@ -29,10 +28,6 @@ body {
 
 #pse-foto {
 	max-width: 600px;
-}
-
-.daten-atommasse:hover {
-	font-weight: 900;
 }
 
 .daten-wert, .daten-name {
