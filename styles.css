@@ -1,6 +1,5 @@
 body {
-	margin: auto;
-	font-family: sans-serif;
+	font-family: Inter, sans-serif;
 }
 
 #navbar {
@@ -21,13 +20,13 @@ body {
 	padding: 12px;
 }
 
-.navbar-left {
+/*.navbar-left {
 	float: left;
 }
 
 .navbar-right {
 	float: right;
-}
+}*/
 
 .navbar-icon {
 	width: 1em;
@@ -44,8 +43,17 @@ body {
 	max-width: 600px;
 }
 
+h1 {
+	font-size: 64px;
+	line-height: 0.5;
+}
+
+#introduction {
+	font-weight: 600;
+}
+
 main, #header-text {
-	margin: 20px;
+	margin: 64px;
 }
 
 .daten-wert,
