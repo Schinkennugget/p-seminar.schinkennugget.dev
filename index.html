@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de_DE" />
+<html lang="de_DE">
 
 <head>
 	<meta charset="UTF-8" />
@@ -23,22 +23,31 @@
 					<i data-lucide="flask-conical" class="navbar-icon"></i>
 					Experimente
 				</span>
-				<span class="navbar-right">Seite herunterladen</span>
-				<span class="navbar-right">Hell/Dunkel</span>
+				<span style="visibility: hidden; width: 100%">:)</span>
+				<span class="navbar-right">
+					<i data-lucide="download" class="navbar-icon"></i>
+					Seite&nbsp;herunterladen
+				</span>
+				<span class="navbar-right">
+					<i data-lucide="sun" class="navbar-icon"></i>
+					<i data-lucide="moon" class="navbar-icon"></i>
+				</span>
 			</div>
 		</nav>
-		
+
 		<nav>
 			<div id="periodensystem">
 				<img src="https://sciencenotes.org/wp-content/uploads/2014/09/Das_Periodensystem_der_Elemente.png" alt="Periodensystem der Elemente" id="pse-foto" />
 			</div>
 		</nav>
 
-		<h1>Zink</h1>
+		<div id="header-text">
+			<h1>Zink</h1>
 
-		<p class="daten-atommasse">
-			Zink Metall, welches seit Anbeginn der Menschheit für uns wichtig war. Zusammen mit Kupfer kann man daraus Messing herstellen, welches historisch eine große Rolle spielte. Außerdem ist Zink beispielsweise im Körper Bestandteil von einigen Enzymen und wird in der Industrie zum Rostschutz eingesetzt. tes
-		</p>
+			<p class="daten-atommasse">
+				Zink ist ein Metall, welches seit Anbeginn der Menschheit für uns wichtig war. Zusammen mit Kupfer kann man daraus Messing herstellen, welches historisch eine große Rolle spielte. Außerdem ist Zink beispielsweise im Körper Bestandteil von einigen Enzymen und wird in der Industrie zum Rostschutz eingesetzt.
+			</p>
+		</div>
 	</header>
 
 
@@ -59,14 +68,17 @@
 
 						</div>
 					</td>
+				</tr>
 
-
+				<tr>
+					<th class="daten-protonenzahl">Protonenzahl (Ordnungszahl)</th>
+					<td class="daten-protonenzahl" class="daten-wert" id="daten-protonenzahl-wert">30</td>
 				</tr>
 			</table>
 		</div>
 	</main>
-	
-	
+
+
 	<!-- Icons -->
 	<script src="https://unpkg.com/lucide@latest"></script>
 	<script>

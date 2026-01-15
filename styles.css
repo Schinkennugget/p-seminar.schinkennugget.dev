@@ -1,11 +1,24 @@
 body {
-	padding: 8px;
 	margin: auto;
 	font-family: sans-serif;
 }
 
-#navbar > span {
-	padding: 0 8px;
+#navbar {
+	padding: 4px;
+	margin: 0;
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	background-color: ghostwhite;
+	font-weight: 600;
+}
+
+#navbar>span {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	gap: 0.3em;
+	padding: 12px;
 }
 
 .navbar-left {
@@ -19,6 +32,7 @@ body {
 .navbar-icon {
 	width: 1em;
 	height: 1em;
+	stroke-width: 2.5px;
 }
 
 #periodensystem {
@@ -30,7 +44,12 @@ body {
 	max-width: 600px;
 }
 
-.daten-wert, .daten-name {
+main, #header-text {
+	margin: 20px;
+}
+
+.daten-wert,
+.daten-name {
 	vertical-align: baseline;
 	border: 1px solid #ddd;
 	border-collapse: collapse;
@@ -44,26 +63,27 @@ body {
 	float: right;
 }
 
-h1{ }
-
 
 
 /*Brüche*/
 .frac {
-    display: inline-block;
-    position: relative;
-    vertical-align: middle;
-    letter-spacing: 0.001em;
-    text-align: center;
+	display: inline-block;
+	position: relative;
+	vertical-align: middle;
+	letter-spacing: 0.001em;
+	text-align: center;
 }
-.frac > span {
-    display: block;
-    padding: 0.1em;
-	 font-size: 0.75em;
+
+.frac>span {
+	display: block;
+	padding: 0.1em;
+	font-size: 0.75em;
 }
+
 .frac span.bottom {
-    border-top: thin solid black;
+	border-top: thin solid black;
 }
+
 .frac span.symbol {
-    display: none;
-} 
+	display: none;
+}
