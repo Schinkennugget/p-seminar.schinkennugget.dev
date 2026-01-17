@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="styles.css" />
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 	<title>Zink</title>
 </head>
 
@@ -57,37 +57,200 @@
 		</header>
 
 
-
-
 		<div id="daten-abschnitt">
-			<h3>Daten</h3>
+			<button id="daten-header">
+				<h3>Daten</h3>
+				<!-- <div id="daten-header-info">
+					<i data-lucide="info" class="daten-icon"></i>
+					<span>Tipp: Hover mit dem Cursor über die Begriffe für Zusammenhänge und mehr Informationen!</span>
+				</div> -->
+
+				<!-- <span>Ausklappen</span> -->
+				<i data-lucide="chevron-right" class="daten-header-icon"></i>
+			</button>
+
 
 			<div id="daten-werte-abschnitt">
-				<div id="element-werte-grafik">
-					<span>hi</span>
+				<div id="daten-grafik">
+					<div id="daten-grafik-atommasse" class="daten-grafik-wert" class="daten-atommmasse">65,38</div>
+
+					<div id="daten-grafik-protonenzahl" class="daten-grafik-wert" class="daten-protonenzahl">30</div>
+
+					<div id="daten-grafik-elementsymbol" class="daten-grafik-wert" class="daten-elementsymbol">Zn</div>
+
+					<div id="daten-grafik-elementname" class="daten-grafik-wert" class="daten-elementname">Zink</div>
+
+					<!-- <div id="daten-grafik-modifikation" class="daten-grafik-wert" class="daten-modifikation"></div> -->
+
+					<div id="daten-grafik-atomradius" class="daten-grafik-wert" class="daten-atomradius">133</div>
+
+					<div id="daten-grafik-siedetemperatur" class="daten-grafik-wert" class="daten-siedetemperatur">906</div>
+
+					<div id="daten-grafik-ionenradius-oxidationszahl" class="daten-grafik-wert" class="daten-ionenradius-oxidationszahl">74 (+II)</div>
+
+					<div id="daten-grafik-schmelztemperatur" class="daten-grafik-wert" class="daten-schmelztemperatur">419</div>
+
+					<div id="daten-grafik-ionisierungsenergie" class="daten-grafik-wert" class="daten-ionisierungsenergie">913</div>
+
+					<div id="daten-grafik-dichte" class="daten-grafik-wert" class="daten-dichte">7,14</div>
+
+					<div id="daten-grafik-elektronegativitaet" class="daten-grafik-wert" class="daten-elektronegativitaet">1,65 (II)</div>
+
+					<div id="daten-grafik-anteil-haeufigstes-isotop" class="daten-grafik-wert" class="daten-anteil-haeufigstes-isotop">48,6</div>
+
 				</div>
 
+
+
 				<table id="daten-liste">
+					<tr class="daten-elementname">
+						<th class="daten-elementname">
+							<i data-lucide="tag" class="daten-icon"></i>
+							Elementname
+						</th>
+						<td class="daten-elementname" class="daten-wert" id="daten-elementname-wert">Zink</td>
+					</tr>
+
 					<tr>
-						<th class="daten-atommasse">Atommasse</th>
+						<th class="daten-elementsymbol">
+							<i data-lucide="a-large-small" class="daten-icon"></i>
+							Elementsymbol
+						</th>
+						<td class="daten-elementsymbol" class="daten-wert" id="daten-elementsymbol-wert">
+							Zn
+							<div id="daten-info-elementsymbol" class="daten-info">Das Elementsymbol ist die Kurzschreibweise des Elementnames. Es wird z.B. in chemischen Gleichungen verwendet. Das Elementsymbol ist meist eine Abkürzung des lateinischen Namens des Elements und ist so international gleich.</div>
+						</td>
+					</tr>
+
+					<tr>
+						<th class="daten-protonenzahl">
+							<i data-lucide="badge-plus" class="daten-icon"></i>
+							Protonenzahl (Ordnungszahl)
+						</th>
+						<td class="daten-protonenzahl" class="daten-wert" id="daten-protonenzahl-wert">
+							30
+							<div id="daten-info-protonenzahl" class="daten-info">Die Anzahl der Protonen im Nukleus (Atomkern).</div>
+						</td>
+					</tr>
+
+
+					<tr>
+						<th class="daten-atommasse">
+							<i data-lucide="weight-tilde" class="daten-icon"></i>
+							Atommasse
+						</th>
 						<td class="daten-atommasse" class="daten-wert" id="daten-atommasse-wert">
 							65,38
 							<div class="frac">
 								<span>g</span>
 								<span class="symbol">/</span>
 								<span class="bottom">mol</span>
-
 							</div>
+							<div id="daten-info-atommasse" class="daten-info"><em>WIP</em></div>
 						</td>
 					</tr>
 
 					<tr>
-						<th class="daten-protonenzahl">Protonenzahl (Ordnungszahl)</th>
-						<td class="daten-protonenzahl" class="daten-wert" id="daten-protonenzahl-wert">30</td>
+						<th class="daten-atomradius">
+							<i data-lucide="atom" class="daten-icon"></i>
+							Atomradius
+						</th>
+						<td class="daten-atomradius" class="daten-wert" id="daten-atomradius-wert">133pm
+						<div id="daten-info-atomradius" class="daten-info"><em>WIP</em></div></td>
 					</tr>
+
+					<tr>
+						<th class="daten-ionenradius-oxidationszahl">
+							<i data-lucide="radius" class="daten-icon"></i>
+							Ionenradius (Oxidationszahl)
+						</th>
+						<td class="daten-ionenradius-oxidationszahl" class="daten-wert" id="daten-ionenradius-oxidationszahl-wert">74 (+II)
+						<div id="daten-info-ionenradius-oxidationszahl" class="daten-info"><em>WIP</em></div>
+						</td>
+					</tr>
+
+					<tr>
+						<th class="daten-siedetemperatur">
+							<i data-lucide="thermometer-sun" class="daten-icon"></i>
+							Siedetemperatur
+						</th>
+						<td class="daten-siedetemperatur" class="daten-wert" id="daten-siedetemperatur-wert">906 &#8451;
+						<div id="daten-info-siedetemperatur" class="daten-info"><em>WIP</em></div>
+						</td>
+					</tr>
+
+					<tr>
+						<th class="daten-schmelztemperatur">
+							<i data-lucide="thermometer-snowflake" class="daten-icon"></i>
+							Schmelztemperatur
+						</th>
+						<td class="daten-schmelztemperatur" class="daten-wert" id="daten-schmelztemperatur-wert">419 &#8451;
+						<div id="daten-info-schmelztemperatur" class="daten-info"><em>WIP</em></div>
+						</td>
+						
+					</tr>
+
+					<tr>
+						<th class="daten-ionisierungsenergie">
+							<i data-lucide="circle-minus" class="daten-icon"></i>
+							1. Ionisierungsenergie
+						</th>
+						<td class="daten-ionisierungsenergie" class="daten-wert" id="daten-schmelztemperatur-wert">913
+							<div class="frac">
+								<span>kJ</span>
+								<span class="symbol">/</span>
+								<span class="bottom">mol</span>
+							</div>
+							bei 25 &#8451;
+							<div id="daten-info-ionisierungsenergie" class="daten-info"><em>WIP</em></div>
+						</td>
+					</tr>
+
+					<tr>
+						<th class="daten-dichte">
+							<i data-lucide="fold-horizontal" class="daten-icon"></i>
+							Dichte
+						</th>
+						<td class="daten-dichte" class="daten-wert" id="daten-dichte-wert">7,14
+							<div class="frac">
+								<span>g</span>
+								<span class="symbol">/</span>
+								<span class="bottom">cm<sup>3</sup></span>
+							</div>
+							<div id="daten-info-ionisierungsenergie" class="daten-info"><em>WIP</em></div>
+						</td>
+					</tr>
+
+					<tr>
+						<th class="daten-elektronegativitaet">
+							<i data-lucide="minus" class="daten-icon"></i>
+							Elektronegativität (für Oxidationsstufe)
+						</th>
+						<td class="daten-elektronegativitaet" class="daten-wert" id="daten-elektronegativitaet-wert">1,65 (II)
+							<div id="daten-info-elektronegativitaet" class="daten-info"><em>WIP</em></div>
+						</td>
+
+					</tr>
+
+					<tr>
+						<th class="daten-anteil-haeufigstes-isotop">
+							<i data-lucide="chart-pie" class="daten-icon"></i>
+							Teilchenanzahlanteil des häuf. Isotops am nat. Gemisch
+						</th>
+						<td class="daten-anteil-haeufigstes-isotop" class="daten-wert" id="daten-anteil-haeufigstes-isotop-wert">48,6%
+							<div id="daten-info-anteil-haeufigstes-isotop" class="daten-info"><em>WIP</em></div>
+						</td>
+					</tr>
+
 				</table>
+
+				<p id="daten-infotext"><i data-lucide="info" class="daten-infotext-icon"></i><em>Tipp: Hover mit der Maus über die Tabelle für mehr Informationen und Zusammenhänge!</em><br /><br />Eine ausführlichere Liste an chem. und physikalischen Daten findest du im <a href="https://de.wikipedia.org/wiki/zink?wprov=sfti1" target="_blank">Wikipedia-Artikel</a>.</p>
 			</div>
 		</div>
+		</div>
+
+
+
 
 		<div id="allgemeines">
 			<h2>Allgemeines</h2>
