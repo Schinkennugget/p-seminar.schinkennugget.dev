@@ -1,3 +1,18 @@
+/*Animations*/
+@-webkit-keyframes fadeIn {
+    from { opacity: 0; }
+      to { opacity: 1; }
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+      to { opacity: 1; }
+}
+
+
+
+
+
+
 html {
 	font-size: 16px;
 	font-weight: 450;
@@ -8,6 +23,7 @@ body {
 	font-family: Inter, sans-serif;
 	margin: 0;
 	padding: 0;
+	word-wrap: break-word;
 }
 
 
@@ -27,12 +43,23 @@ body {
 	border-bottom: 1px solid #ddd;
 }
 
-#navbar > span {
+.navbar-item {
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
-	grid-gap: 0.3em;
-	padding: 12px;
+	gap: 0.3em;
+	padding: 0.4rem;
+	margin: 0.3rem;
+	border: 1px solid ghostwhite;
+	text-decoration: none;
+	color: #000;
+	border-radius: 0.8rem;
+	transition: background-color 0.15s linear, border 0.2s linear;
+}
+
+.navbar-item:hover {
+	background-color: #ededed;
+	border: 1px solid #e1e1e1;
 }
 
 .navbar-icon {
@@ -76,6 +103,7 @@ h3 {
 #introduction {
 	font-weight: 600;
 	font-size: 1.2rem;
+	margin-bottom: 2rem;
 }
 
 main {
@@ -177,7 +205,10 @@ main {
 	grid-area: infotext;
 }
 
-#daten-infotext > * { height: 0.9em; stroke-width: 0.15rem; }
+#daten-infotext > * {
+	height: 0.9em;
+	stroke-width: 0.15rem;
+}
 
 #daten-grafik-elementsymbol,
 #daten-grafik-elementname {
@@ -194,6 +225,7 @@ main {
 .daten-grafik-wert {
 	align-items: center;
 	font-weight: 750;
+	transition: font-weight 0.3s;
 }
 
 .daten-grafik-wert:hover {
@@ -224,6 +256,7 @@ main {
 	align-items: center;
 	min-height: 2em;
 	position: relative;
+	transition: background-color 0.2s;
 }
 
 #daten-liste tr:first-child {
@@ -242,7 +275,7 @@ div.daten-info {
 	max-width: 30rem;
 	box-shadow: 0.1rem 0.2rem 0.3rem rgba(0, 0, 0, 0.2);
 	left: 1rem;
-	bottom: 2.3rem;
+	bottom: 100%;
 	z-index: 1;
 	border: 1px solid lightgray;
 	border-radius: 1rem;
@@ -251,7 +284,9 @@ div.daten-info {
 }
 
 tr:hover .daten-info {
-	display: block;
+    display: block;
+    -webkit-animation: fadeIn 0.2s;
+    animation: fadeIn 0.2s;
 }
 
 #daten-liste tr th {
@@ -281,6 +316,36 @@ tr:hover .daten-info {
 	clear: both;
 	display: table;
 }
+
+
+
+/*TEXTE*/
+div.text {
+	margin-top: 3rem;
+}
+
+h2.text-header {
+	line-height: 0.9em;
+	margin-bottom: 0;
+}
+
+.text-header-icon {
+	height: 0.7em;
+	stroke-width: 0.09em;
+	margin-left: 0.5rem;
+	color: lightgray;
+	opacity: 0;
+	transition: opacity 0.15s linear;
+}
+
+h2.text-header:hover .text-header-icon {
+	opacity: 1;
+}
+
+p.text {
+	line-height: 1.5rem;
+}
+
 
 
 
