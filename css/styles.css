@@ -110,6 +110,11 @@ main {
 	margin: 64px;
 }
 
+noscript {
+	color: orange;
+	font-size: 0.75rem;
+}
+
 
 
 
