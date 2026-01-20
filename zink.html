@@ -48,17 +48,15 @@
 	<main>
 
 		<p style="font-size: 10px;">Die Webseite ist derzeit noch in Arbeit. Einige Features funktionieren nur eingeschränkt oder gar nicht, hauptsächlich JavaScript-basierte, interaktive Funktionen.</p>
-		
+
 		<noscript>Hinweis: JavaScript-Funktionen können nicht geladen werden, vermutlich weil dein Browser diese nicht unterstützt oder weil du JavaScript deaktiviert hast. Dadurch ist die Webseite visuell und funktional eingeschränkt.</noscript>
 
 		<header>
-			<nav>
-				<div id="periodensystem">
-					<figure>
-						<img src="https://sciencenotes.org/wp-content/uploads/2014/09/Das_Periodensystem_der_Elemente.png" alt="Periodensystem der Elemente" id="pse-foto" />
-						<figcaption style="font-size: 10px;">Dies ist nur ein Platzhalter. Er wird in Zukunft noch durch eine dynamische Ansicht ersetzt, bei der man auf ein Element klicken kann und dadurch auf den zugehörigen Artikel kommt.</figcaption>
-					</figure>
-				</div>
+			<nav id="periodensystem">
+				<figure>
+					<img src="https://sciencenotes.org/wp-content/uploads/2014/09/Das_Periodensystem_der_Elemente.png" alt="Periodensystem der Elemente" id="pse-foto" height="612" width="792" />
+					<figcaption style="font-size: 10px;">Dies ist nur ein Platzhalter. Er wird in Zukunft noch durch eine dynamische Ansicht ersetzt, bei der man auf ein Element klicken kann und dadurch auf den zugehörigen Artikel kommt.</figcaption>
+				</figure>
 			</nav>
 
 			<div id="header-text">
@@ -74,12 +72,6 @@
 		<div id="daten-abschnitt">
 			<button id="daten-header">
 				<h3>Daten</h3>
-				<!-- <div id="daten-header-info">
-					<i data-lucide="info" class="daten-icon"></i>
-					<span>Tipp: Hover mit dem Cursor über die Begriffe für Zusammenhänge und mehr Informationen!</span>
-				</div> -->
-
-				<!-- <span>Ausklappen</span> -->
 				<i data-lucide="chevron-right" class="daten-header-icon"></i>
 			</button>
 
@@ -117,7 +109,7 @@
 
 
 				<table id="daten-liste">
-					<tr class="daten-elementname">
+					<tr tabindex="0" class="daten-elementname">
 						<th class="daten-elementname">
 							<i data-lucide="tag" class="daten-icon"></i>
 							Elementname
@@ -125,7 +117,7 @@
 						<td class="daten-elementname" class="daten-wert" id="daten-elementname-wert">Zink</td>
 					</tr>
 
-					<tr>
+					<tr tabindex="0">
 						<th class="daten-elementsymbol">
 							<i data-lucide="a-large-small" class="daten-icon"></i>
 							Elementsymbol
@@ -136,7 +128,7 @@
 						</td>
 					</tr>
 
-					<tr>
+					<tr tabindex="0">
 						<th class="daten-protonenzahl">
 							<i data-lucide="badge-plus" class="daten-icon"></i>
 							Protonenzahl (Ordnungszahl)
@@ -148,7 +140,7 @@
 					</tr>
 
 
-					<tr>
+					<tr tabindex="0">
 						<th class="daten-atommasse">
 							<i data-lucide="weight-tilde" class="daten-icon"></i>
 							Atommasse
@@ -164,7 +156,7 @@
 						</td>
 					</tr>
 
-					<tr>
+					<tr tabindex="0">
 						<th class="daten-atomradius">
 							<i data-lucide="atom" class="daten-icon"></i>
 							Atomradius
@@ -174,7 +166,7 @@
 						</td>
 					</tr>
 
-					<tr>
+					<tr tabindex="0">
 						<th class="daten-ionenradius-oxidationszahl">
 							<i data-lucide="radius" class="daten-icon"></i>
 							Ionenradius (Oxidationszahl)
@@ -184,7 +176,7 @@
 						</td>
 					</tr>
 
-					<tr>
+					<tr tabindex="0">
 						<th class="daten-siedetemperatur">
 							<i data-lucide="thermometer-sun" class="daten-icon"></i>
 							Siedetemperatur
@@ -194,7 +186,7 @@
 						</td>
 					</tr>
 
-					<tr>
+					<tr tabindex="0">
 						<th class="daten-schmelztemperatur">
 							<i data-lucide="thermometer-snowflake" class="daten-icon"></i>
 							Schmelztemperatur
@@ -205,7 +197,7 @@
 
 					</tr>
 
-					<tr>
+					<tr tabindex="0">
 						<th class="daten-ionisierungsenergie">
 							<i data-lucide="circle-minus" class="daten-icon"></i>
 							1. Ionisierungsenergie
@@ -221,7 +213,7 @@
 						</td>
 					</tr>
 
-					<tr>
+					<tr tabindex="0">
 						<th class="daten-dichte">
 							<i data-lucide="fold-horizontal" class="daten-icon"></i>
 							Dichte
@@ -236,7 +228,7 @@
 						</td>
 					</tr>
 
-					<tr>
+					<tr tabindex="0">
 						<th class="daten-elektronegativitaet">
 							<i data-lucide="minus" class="daten-icon"></i>
 							Elektronegativität (für Oxidationsstufe)
@@ -247,7 +239,7 @@
 
 					</tr>
 
-					<tr>
+					<tr tabindex="0">
 						<th class="daten-anteil-haeufigstes-isotop">
 							<i data-lucide="chart-pie" class="daten-icon"></i>
 							Teilchenanzahlanteil des häuf. Isotops am nat. Gemisch
@@ -259,7 +251,7 @@
 
 				</table>
 
-				<p id="daten-infotext"><i data-lucide="info" class="daten-infotext-icon"></i><em>Tipp: Hover mit der Maus über die Werte für mehr Informationen und Zusammenhänge!</em><br /><br />Eine ausführlichere Liste an chem. und physikalischen Daten findest du im <a href="https://de.wikipedia.org/wiki/zink?wprov=sfti1" target="_blank">Wikipedia-Artikel</a>.</p>
+				<p id="daten-infotext"><i data-lucide="info" class="daten-infotext-icon"></i><em>Tipp: Hover/Tippe auf die Werte für mehr Informationen und Zusammenhänge!</em><br /><br />Eine ausführlichere Liste an chem. und physikalischen Daten findest du im <a href="https://de.wikipedia.org/wiki/zink?wprov=sfti1" target="_blank">Wikipedia-Artikel</a>.</p>
 			</div>
 		</div>
 		</div>
@@ -268,16 +260,18 @@
 
 
 		<div id="allgemeines" class="text">
-			<h2 class="text-header">Allgemeines
-				<i data-lucide="link" class="text-header-icon"></i></h2>
+			<h2 tabindex="0" class="text-header">Allgemeines
+				<i data-lucide="link" class="text-header-icon"></i>
+			</h2>
 			<p class="text">
 				Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
 			</p>
 		</div>
 
 		<div id="vorkommen-und-herstellung" class="text">
-			<h2 class="text-header" onclick='navigator.clipboard.writeText("https://p-seminar.schinkennugget.dev/zink.html#vorkommen-und-herstellung")'>Vorkommen und Herstellung
-				<i data-lucide="link" class="text-header-icon"></i></h2>
+			<h2 tabindex="0" class="text-header" onclick='navigator.clipboard.writeText("https://p-seminar.schinkennugget.dev/zink.html#vorkommen-und-herstellung")'>Vorkommen und Herstellung
+				<i data-lucide="link" class="text-header-icon"></i>
+			</h2>
 			<p class="text">
 				Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
 			</p>
