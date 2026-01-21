@@ -1,11 +1,22 @@
 /*Animations*/
 @-webkit-keyframes fadeIn {
-    from { opacity: 0; }
-      to { opacity: 1; }
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
 }
+
 @keyframes fadeIn {
-    from { opacity: 0; }
-      to { opacity: 1; }
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
 }
 
 :root {
@@ -30,7 +41,6 @@
 		--accent3: #444;
 		--accent4: #555;
 		--accent5: #666;
-		/*--shadow: rgba(20, 20, 20, 0.2);*/
 		--text: #fff;
 		--link-color: #66f;
 	}
@@ -45,84 +55,14 @@ html {
 
 body {
 	font-family: Inter, sans-serif;
-	margin: 0;
+	margin: auto;
 	padding: 0;
 	word-wrap: break-word;
 	background-color: var(--background);
 	color: var(--text);
+	max-width: 1500px;
 }
 
-
-
-/*Navbar*/
-#navbar {
-	padding: 4px;
-	display: flex;
-	flex-wrap: nowrap;
-	justify-content: space-between;
-	background-color: var(--accent1);
-	font-weight: 600;
-	position: fixed;
-	top: 0;
-	width: 99.4%;
-	z-index: 2;
-	border-bottom: 1px solid var(--accent3);
-}
-
-@supports (backdrop-filter: blur()) {
-	#navbar {
-		background-color: var(--accent1-transparent);
-		backdrop-filter: blur(6px);
-	}
-}
-	
-
-.navbar-item {
-	display: flex;
-	justify-content: space-evenly;
-	align-items: center;
-	gap: 0.3em;
-	padding: 0.4rem;
-	margin: 0.3rem;
-	/*border: 1px solid var(--accent1);*/
-	text-decoration: none;
-	color: var(--text);
-	border-radius: 0.8rem;
-	transition: background-color 0.15s linear, border 0.2s linear;
-}
-
-.navbar-item:hover, .navbar-item:active {
-	background-color: var(--accent4);
-	/*border: 1px solid var(--accent3-transparent);*/
-}
-
-.navbar-icon {
-	width: 1em;
-	height: 1em;
-	stroke-width: /*0.15625rem*/2.5px;
-}
-
-
-
-
-
-/*Periodensystem*/
-#periodensystem {
-	display: flex;
-	justify-content: center;
-}
-
-#periodensystem > * {
-	max-width: 600px;
-}
-
-#periodensystem figcaption {
-	text-align: center;
-}
-
-
-
-/*Allgemein*/
 h1 {
 	font-size: 4rem;
 	line-height: 0.5;
@@ -146,6 +86,12 @@ main {
 	margin: 64px;
 }
 
+@media screen and (max-width: 850px) {
+	main {
+		margin: 64px 32px 32px 32px;
+	}
+}
+
 noscript {
 	color: orange;
 	font-size: 0.75rem;
@@ -153,6 +99,124 @@ noscript {
 
 a {
 	color: var(--link-color);
+}
+
+/*
+ TO-DO MEDIA QUERIES
+ 
+ - zooming in on really large screens
+ - mobil klein mit burger bar
+ - mobil groß ohne burger bar
+ */
+
+
+
+/* --- NAVBAR --- */
+
+
+#navbar {
+	padding: 4px;
+	margin: 0;
+	list-style-type: none;
+	background-color: var(--accent1);
+	font-weight: 600;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 99.5%;
+	z-index: 3;
+	border-bottom: 1px solid var(--accent3);
+}
+
+#burger-bar-background {
+	display: none;
+	position: fixed;
+	inset: 0;
+	z-index: 2;
+	background-color: var(--shadow);
+}
+
+@supports (backdrop-filter: blur()) {
+	#navbar {
+		background-color: var(--accent1-transparent);
+		backdrop-filter: blur(6px);
+	}
+
+	#burger-bar-background {
+		backdrop-filter: blur(6px);
+	}
+}
+
+li[class|="navbar-item"] > * {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	gap: 0.3em;
+	padding: 0.4rem;
+	margin: 0.25rem;
+	height: 0.7rem;
+	text-decoration: none;
+	color: var(--text);
+	border-radius: 0.8rem;
+	transition: background-color 0.15s linear;
+}
+
+li[class|="navbar-item"]:hover,
+li[class|="navbar-item"]:active {
+	background-color: var(--accent4);
+}
+
+li.navbar-item-left {
+	float: left;
+	transition: background-color 0.15s linear;
+	border-radius: 0.8rem;
+	margin: 0.3rem;
+}
+
+li.navbar-item-right {
+	float: right;
+	transition: background-color 0.15s linear;
+	border-radius: 0.8rem;
+	margin: 0.3rem;
+}
+
+.navbar-icon {
+	width: 1em;
+	height: 1em;
+	stroke-width:
+		/*0.15625rem*/
+		2.5px;
+}
+
+@media screen and (max-width: 400px) {
+	[class|="navbar-text"] {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.navbar-text-3 {
+		display: none;
+	}
+}
+
+
+
+
+
+/*Periodensystem*/
+#periodensystem {
+	display: flex;
+	justify-content: center;
+}
+
+#periodensystem > img {
+	width: 80%;
+	height: auto;
+}
+
+#periodensystem figcaption {
+	text-align: center;
 }
 
 
@@ -190,7 +254,7 @@ a {
 	stroke-width: 0.2rem;
 	height: 2em;
 	width: 2em;
-	color: #444;
+	color: var(--accent5);
 	rotate: 90deg;
 }
 
@@ -214,9 +278,9 @@ a {
 
 #daten-werte-abschnitt {
 	display: grid;
-	grid-template-columns: 17rem auto;
-	grid-template-rows: 17.5rem auto;
-	grid-template-areas: 'grafik liste' 'infotext liste';
+	grid-template-columns: 15rem auto;
+	grid-template-rows: 17.5rem auto auto;
+	grid-template-areas: 'grafik liste' 'infotext liste' 'zusatz liste';
 	grid-gap: 1rem;
 	padding: 1.95rem;
 	margin-top: 0;
@@ -239,18 +303,6 @@ a {
 	background-color: forestgreen;
 	grid-area: grafik;
 	border-radius: 1rem;
-}
-
-#daten-werte-abschnitt p {
-	padding: 0;
-	margin-top: 1rem;
-	grid-row: 2 / span 1;
-	grid-area: infotext;
-}
-
-#daten-infotext > * {
-	height: 0.9em;
-	stroke-width: 0.15rem;
 }
 
 #daten-grafik-elementsymbol,
@@ -284,12 +336,31 @@ a {
 	text-align: right;
 }
 
+/*Andere Bestandteile*/
+#daten-infotext {
+	padding: 0;
+	margin-top: 1rem;
+	grid-row: 2 / span 1;
+	grid-area: infotext;
+}
+
+#daten-infotext > * {
+	height: 0.9em;
+	stroke-width: 0.15rem;
+}
+
+#daten-zusatz {
+	grid-area: zusatz;
+	margin: 0;
+	padding: 0;
+}
+
 
 /*Liste*/
 #daten-liste {
 	grid-area: liste;
 	margin: 0;
-	grid-row: 1 / span 2;
+	grid-row: 1 / span 3;
 }
 
 #daten-liste tr {
@@ -327,9 +398,9 @@ div.daten-info {
 }
 
 tr:hover .daten-info {
-    display: block;
-    -webkit-animation: fadeIn 0.2s;
-    animation: fadeIn 0.2s;
+	display: block;
+	-webkit-animation: fadeIn 0.2s;
+	animation: fadeIn 0.2s;
 }
 
 #daten-liste tr th {
@@ -346,7 +417,7 @@ tr:hover .daten-info {
 
 #daten-liste tr td {
 	padding: 4px;
-
+	min-width: 150px;
 }
 
 .daten-icon {
@@ -358,6 +429,48 @@ tr:hover .daten-info {
 	content: "";
 	clear: both;
 	display: table;
+}
+
+@media screen and (max-width: 850px) {
+	#daten-werte-abschnitt {
+		font-size: 0.9rem;
+		grid-template-columns: 12.5rem auto;
+	}
+
+	#daten-grafik {
+		width: 12.5rem;
+	}
+
+	#daten-liste tr td {
+		min-width: 130px;
+	}
+}
+
+@media screen and (max-width: 700px) {
+	#daten-werte-abschnitt {
+		grid-template-columns: auto;
+		grid-template-rows: auto 14.5rem auto auto;
+		grid-template-areas: 'infotext' 'grafik' 'liste' 'zusatz';
+		grid-gap: 1rem;
+		padding: 0 1.5rem 1.5rem;
+	}
+	
+	#daten-liste {
+		grid-row: 3 / span 1;
+	}
+	
+	#daten-infotext {
+		margin: 0;
+	}
+	
+	#daten-grafik {
+		justify-self: center;
+		width: 15rem;
+		max-width: 100%;
+		height: 15rem;
+		border-radius: 0.8rem;
+		font-size: 1.1rem;
+	}
 }
 
 
