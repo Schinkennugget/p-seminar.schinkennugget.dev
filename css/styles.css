@@ -92,6 +92,12 @@ main {
 	}
 }
 
+@media screen and (max-width: 500px) {
+	main {
+		margin: 64px 16px 16px;
+	}
+}
+
 noscript {
 	color: orange;
 	font-size: 0.75rem;
@@ -101,13 +107,6 @@ a {
 	color: var(--link-color);
 }
 
-/*
- TO-DO MEDIA QUERIES
- 
- - zooming in on really large screens
- - mobil klein mit burger bar
- - mobil groß ohne burger bar
- */
 
 
 
@@ -447,12 +446,16 @@ tr:hover .daten-info {
 }
 
 @media screen and (max-width: 700px) {
+	#daten-header {
+		padding: 1.5rem;
+	}
+	
 	#daten-werte-abschnitt {
 		grid-template-columns: auto;
 		grid-template-rows: auto 14.5rem auto auto;
 		grid-template-areas: 'infotext' 'grafik' 'liste' 'zusatz';
 		grid-gap: 1rem;
-		padding: 0 1.5rem 1.5rem;
+		padding: 0 1rem 1rem;
 	}
 	
 	#daten-liste {
@@ -470,6 +473,14 @@ tr:hover .daten-info {
 		height: 15rem;
 		border-radius: 0.8rem;
 		font-size: 1.1rem;
+	}
+	
+	#daten-ionisierungsenergie-wert {
+		font-size: 0.8rem;
+	}
+	
+	#daten-liste tr td {
+		min-width: 100px;
 	}
 }
 
@@ -501,11 +512,6 @@ h2.text-header:hover .text-header-icon {
 
 p.text {
 	line-height: 1.5rem;
-}
-
-video {
-	width: 100%;
-	height: auto;
 }
 
 
