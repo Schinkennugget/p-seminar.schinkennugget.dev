@@ -355,6 +355,8 @@ li.navbar-item-right {
 }
 
 
+
+
 /*Liste*/
 #daten-liste {
 	grid-area: liste;
@@ -364,7 +366,6 @@ li.navbar-item-right {
 
 #daten-liste tr {
 	border-top: 1px solid var(--accent5);
-	vertical-align: center;
 	display: flex;
 	align-items: center;
 	min-height: 2em;
@@ -405,6 +406,7 @@ tr:hover .daten-info {
 #daten-liste tr th {
 	display: flex;
 	align-items: center;
+	justify-content: flex-start;
 	gap: 0.5em;
 	text-align: left;
 	font-weight: 500;
@@ -422,6 +424,8 @@ tr:hover .daten-info {
 .daten-icon {
 	width: 1.2em;
 	height: 1.2em;
+	min-height: 1.2em;
+	min-width: 1.2em;
 }
 
 #daten-abschnitt::after {
@@ -443,13 +447,20 @@ tr:hover .daten-info {
 	#daten-liste tr td {
 		min-width: 130px;
 	}
+
+	.daten-icon {
+		width: 1em;
+		height: 1em;
+		min-height: 1em;
+		min-width: 1em;
+	}
 }
 
 @media screen and (max-width: 700px) {
 	#daten-header {
 		padding: 1.5rem;
 	}
-	
+
 	#daten-werte-abschnitt {
 		grid-template-columns: auto;
 		grid-template-rows: auto 14.5rem auto auto;
@@ -457,15 +468,15 @@ tr:hover .daten-info {
 		grid-gap: 1rem;
 		padding: 0 1rem 1rem;
 	}
-	
+
 	#daten-liste {
 		grid-row: 3 / span 1;
 	}
-	
+
 	#daten-infotext {
 		margin: 0;
 	}
-	
+
 	#daten-grafik {
 		justify-self: center;
 		width: 15rem;
@@ -474,13 +485,18 @@ tr:hover .daten-info {
 		border-radius: 0.8rem;
 		font-size: 1.1rem;
 	}
-	
+
 	#daten-ionisierungsenergie-wert {
 		font-size: 0.8rem;
 	}
-	
+
 	#daten-liste tr td {
-		min-width: 100px;
+		min-width: 70px;
+		width: 40%;
+	}
+
+	#daten-liste tr th {
+		width: 60%;
 	}
 }
 
