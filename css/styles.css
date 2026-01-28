@@ -197,6 +197,10 @@ li.navbar-item-right {
 		2.5px;
 }
 
+li.navbar-active {
+	background-color: var(--accent3);
+}
+
 @media screen and (max-width: 400px) {
 	[class|="navbar-text"] {
 		display: none;
@@ -540,6 +544,10 @@ h2.text-header:hover .text-header-icon {
 
 p.text {
 	line-height: 1.5rem;
+}
+
+h3.text-context-header {
+	
 }
 
 

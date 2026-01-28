@@ -1,5 +1,3 @@
-</html>
-
 <!DOCTYPE html>
 <html lang="de_DE">
 
@@ -22,7 +20,6 @@
 	<link rel="shortcut icon" href="images/favicon-zink/favicon.ico" />
 	<link rel="apple-touch-icon" sizes="180x180" href="images/favicon-zink/apple-touch-icon.png" />
 	<link rel="manifest" href="images/favicon-zink/site.webmanifest" /> -->
-	<meta http-equiv="refresh" content="3; zink.html" />
 
 	<title>Zink</title>
 </head>
@@ -31,19 +28,19 @@
 
 	<nav>
 		<ul id="navbar">
-			<li class="navbar-item-left navbar-active">
+			<li class="navbar-item-left">
 				<a href="index.html" tabindex="0">
 					<i data-lucide="house" class="navbar-icon"></i>
 					<span class="navbar-text-1">Startseite</span>
 				</a>
 			</li>
-			<li class="navbar-item-left">
+			<li class="navbar-item-left navbar-active">
 				<a href="experimente.html" tabindex="0">
 					<i data-lucide="flask-conical" class="navbar-icon"></i>
 					<span class="navbar-text-2">Experimente</span>
 				</a>
 			</li>
-
+			
 			<li class="navbar-item-right" tabindex="0" onclick="toggleDarkMode()">
 				<span>
 					<i data-lucide="sun" class="navbar-icon"></i>
@@ -83,12 +80,25 @@
 			window.addEventListener("resize", updateScreenWidth);
 		</script> -->
 
+		<header>
+			<!-- <nav id="periodensystem">
+				<figure>
+					<img src="https://sciencenotes.org/wp-content/uploads/2014/09/Das_Periodensystem_der_Elemente.png" alt="Periodensystem der Elemente" id="pse-foto" height="612" width="792" />
+					<figcaption style="font-size: 10px;">Dies ist nur ein Platzhalter. Er wird in Zukunft noch durch eine dynamische Ansicht ersetzt, bei der man auf ein Element klicken kann und dadurch auf den zugehörigen Artikel kommt.</figcaption>
+				</figure>
+			</nav> -->
 
-		<body>
-			Die Startseite ist derzeit noch in Arbeit. Du solltest automatisch zum Artikel über Zink weitergeleitet werden. Sollte dies nicht funktionieren, klicke bitte <a href="zink.html">hier</a>.
-		</body>
+			<div id="header-text">
+				<h1>Alle Experimente</h1>
+
+				<p id="introduction">
+					Noch keine Experimente hochgeladen
+				</p>
+			</div>
+		</header>
 
 
+		
 
 	</main>
 
