@@ -11,7 +11,7 @@
 	<meta name="msapplication-navbutton-color" content="#228b22">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="#228b22">
-	<link rel="stylesheet" href="css/styles.css" />
+	<link rel="stylesheet" href="../css/styles.css" />
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
@@ -21,7 +21,7 @@
 	<link rel="apple-touch-icon" sizes="180x180" href="images/favicon-zink/apple-touch-icon.png" />
 	<link rel="manifest" href="images/favicon-zink/site.webmanifest" /> -->
 
-	<title>Zink</title>
+	<title>Alle Experimente</title>
 </head>
 
 <body tabindex="0">
@@ -29,25 +29,25 @@
 	<nav>
 		<ul id="navbar">
 			<li class="navbar-item-left">
-				<a href="index.html" tabindex="0">
+				<a href="../index.html" tabindex="0">
 					<i data-lucide="house" class="navbar-icon"></i>
 					<span class="navbar-text-1">Startseite</span>
 				</a>
 			</li>
 			<li class="navbar-item-left navbar-active">
-				<a href="experimente.html" tabindex="0">
+				<a href="experimente/alle-experimente.html" tabindex="0">
 					<i data-lucide="flask-conical" class="navbar-icon"></i>
 					<span class="navbar-text-2">Experimente</span>
 				</a>
 			</li>
-			
+
 			<li class="navbar-item-right" tabindex="0" onclick="toggleDarkMode()">
 				<span>
 					<i data-lucide="sun" class="navbar-icon"></i>
 					<i data-lucide="moon" class="navbar-icon"></i>
 				</span>
 			</li>
-			<li class="navbar-item-right" tabindex="0">
+			<li class="navbar-item-right" tabindex="0" onclick="window.print();">
 				<span>
 					<i data-lucide="download" class="navbar-icon"></i>
 					<span class="navbar-text-3">Seite herunterladen</span>
@@ -97,8 +97,16 @@
 			</div>
 		</header>
 
+		To-Do:
+		<ul>
+			<li>Suche</li>
+			<li>Filter</li>
+			<li>Kategorien (z.B. Explosion, Elektrizität, ...)</li>
+			<li>Fachbegriffe</li>
+		</ul>
 
-		
+
+
 
 	</main>
 
