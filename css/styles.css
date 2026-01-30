@@ -34,6 +34,7 @@
 	--accent1-transparent: rgba(248, 248, 255, 0.75);
 	--accent1: #f8f8ff;
 	--accent2: #f5f5f6;
+	--daten-hover-background: var(--accent1);
 	--accent3: #ededef;
 	--accent4: #e0e0e2;
 	--accent5: #444;
@@ -48,6 +49,7 @@
 		--accent1-transparent: rgba(50, 50, 50, 0.75);
 		--accent1: #222;
 		--accent2: #333;
+		--daten-hover-background: var(--accent2);
 		--accent3: #444;
 		--accent4: #555;
 		--accent5: #666;
@@ -247,6 +249,12 @@ li.navbar-active {
 	background-color: var(--accent2);
 	margin: 0;
 	border-radius: 2rem;
+	transition: background-color 0.3s;
+	overflow-x: scroll;
+}
+
+#daten-abschnitt:hover {
+	background-color: var(--daten-hover-background);
 }
 
 /*Daten Header*/
@@ -269,7 +277,7 @@ li.navbar-active {
 	height: 5rem;
 }
 
-.daten-header-icon {
+#daten-header-icon {
 	stroke-width: 0.2rem;
 	height: 2em;
 	width: 2em;
@@ -304,7 +312,7 @@ li.navbar-active {
 	padding: 1.95rem;
 	margin-top: 0;
 	padding-top: 0;
-	/*display: none;*/
+	overflow-y: hidden;
 }
 
 /*Grafik*/
