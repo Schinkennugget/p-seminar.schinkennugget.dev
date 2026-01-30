@@ -43,8 +43,8 @@
 
 			<li class="navbar-item-right" tabindex="0" onclick="toggleDarkMode()">
 				<span>
-					<i data-lucide="sun" class="navbar-icon"></i>
-					<i data-lucide="moon" class="navbar-icon"></i>
+					<i data-lucide="sun" class="navbar-icon" id="navbar-icon-sun"></i>
+					<i data-lucide="moon" class="navbar-icon" id="navbar-icon-moon"></i>
 				</span>
 			</li>
 			<li class="navbar-item-right" tabindex="0" onclick="window.print();">
@@ -63,30 +63,6 @@
 		<p style="font-size: 10px;">Die Webseite ist derzeit noch in Arbeit. Einige Features funktionieren nur eingeschränkt oder gar nicht, hauptsächlich JavaScript-basierte, interaktive Funktionen.</p>
 
 		<noscript>Hinweis: JavaScript-Funktionen können nicht geladen werden, vermutlich weil dein Browser diese nicht unterstützt oder weil du JavaScript deaktiviert hast. Dadurch ist die Webseite visuell und funktional eingeschränkt.</noscript>
-
-		<!-- <div id="screenWidth"></div>
-
-		<script>
-			function updateScreenWidth() {
-				const width = window.innerWidth;
-				document.getElementById("screenWidth").textContent =
-					"Aktuelle Bildschirmbreite: " + width + "px";
-			}
-
-			// initial setzen
-			updateScreenWidth();
-
-			// bei Resize aktualisieren
-			window.addEventListener("resize", updateScreenWidth);
-		</script> -->
-
-		<header>
-			<!-- <nav id="periodensystem">
-				<figure>
-					<img src="https://sciencenotes.org/wp-content/uploads/2014/09/Das_Periodensystem_der_Elemente.png" alt="Periodensystem der Elemente" id="pse-foto" height="612" width="792" />
-					<figcaption style="font-size: 10px;">Dies ist nur ein Platzhalter. Er wird in Zukunft noch durch eine dynamische Ansicht ersetzt, bei der man auf ein Element klicken kann und dadurch auf den zugehörigen Artikel kommt.</figcaption>
-				</figure>
-			</nav> -->
 
 			<div id="header-text">
 				<h1>Alle Experimente</h1>
