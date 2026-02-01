@@ -109,15 +109,16 @@
 
 			<div id="daten-werte-abschnitt">
 				<div id="daten-grafik">
-					<div id="daten-grafik-atommasse" class="daten-grafik-wert" class="daten-atommmasse">65,38</div>
+					<!-- Werden über datenLoader.js geladen -->
+
+
+					<!-- <div id="daten-grafik-atommasse" class="daten-grafik-wert" class="daten-atommmasse">65,38</div>
 
 					<div id="daten-grafik-protonenzahl" class="daten-grafik-wert" class="daten-protonenzahl">30</div>
 
 					<div id="daten-grafik-elementsymbol" class="daten-grafik-wert" class="daten-elementsymbol">Zn</div>
 
 					<div id="daten-grafik-elementname" class="daten-grafik-wert" class="daten-elementname">Zink</div>
-
-					<!-- <div id="daten-grafik-modifikation" class="daten-grafik-wert" class="daten-modifikation"></div> -->
 
 					<div id="daten-grafik-atomradius" class="daten-grafik-wert" class="daten-atomradius">133</div>
 
@@ -133,7 +134,7 @@
 
 					<div id="daten-grafik-elektronegativitaet" class="daten-grafik-wert" class="daten-elektronegativitaet">1,65 (II)</div>
 
-					<div id="daten-grafik-anteil-haeufigstes-isotop" class="daten-grafik-wert" class="daten-anteil-haeufigstes-isotop">48,6</div>
+					<div id="daten-grafik-anteil-haeufigstes-isotop" class="daten-grafik-wert" class="daten-anteil-haeufigstes-isotop">48,6</div> -->
 
 				</div>
 
@@ -294,7 +295,7 @@
 
 
 
-		<div id="allgemeines" class="text">
+		<!-- <div id="allgemeines" class="text">
 			<h2 tabindex="0" class="text-header" onclick='navigator.clipboard.writeText("https://p-seminar.schinkennugget.dev/zink.html#allgemeines")'>Allgemeines
 				<i data-lucide="link" class="text-header-icon"></i>
 			</h2>
@@ -302,14 +303,14 @@
 				Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
 			</p>
 
-		</div>
+		</div> -->
 
 		<div id="vorkommen-und-herstellung" class="text">
 			<h2 tabindex="0" class="text-header" onclick='navigator.clipboard.writeText("https://p-seminar.schinkennugget.dev/zink.html#vorkommen-und-herstellung")'>Vorkommen und Herstellung
 				<i data-lucide="link" class="text-header-icon"></i>
 			</h2>
 			<p class="text">
-				Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+				Zink ist auf der Erde mit einem Gehalt von 0,00076% an der Erdkruste ein relativ häufiges Element. Sollte man die Elemente anhand ihrer Häufigkeit ordnen, stände Zink an 24. Stelle. Es ist somit häufiger als Kupfer oder Blei. Man findet es überwiegend gebunden in Erzen, Zinksulfiderze sind die wichtigsten für die industrielle Gewinnung. (Überleitung) Laut Stand 2024 sind insgesamt mehr als 330 Zink-Minerale bekannt. Um diese Mengen an Zink lagern zu können benötigt man gewisse Lagerstätte. Große Lagerstätten existieren in Nordamerika, Australien, der Volksrepublik China und Kasachstan. Auch in Deutschland gab es Zinkerzlagerstätte, beispielsweise im Raum Eschweiler Stolberg im Rheinland am Rammelsberg im Harz oder bei Ramsbeck im Sauerland, jedoch wurden Zink-Erzlagerstätten in Deutschland oft wegen der unzureichenden Wirtschaftlichkeit, der Konkurrenz durch billigere Importe und veralteter Abbaumethoden geschlossen. (Jahr wann geschlossen nicht gefunden)
 			</p>
 		</div>
 		<div id="im-koerper" class="text">
@@ -317,7 +318,7 @@
 				<i data-lucide="link" class="text-header-icon"></i>
 			</h2>
 			<p class="text">
-				Zink ist ein sog. Cosubstrat, d.h. es ist ein Bestandteil von Enzymen. Forschende konnten nachweisen, dass
+				Zink ist ein sog. <span class="fachbegriff">Cosubstrat</span><span class="fachbegriff-info"></span>, d.h. es ist ein Bestandteil von Enzymen. Forschende konnten nachweisen, dass
 			</p>
 		</div>
 
@@ -328,7 +329,11 @@
 
 	<!-- Icons -->
 	<script src="javascript/scripts.js"></script>
-	
+
+	<script src="javascript/datenLoader.js">
+		// loadDaten();
+	</script>
+
 	<script src="https://unpkg.com/lucide@latest"></script>
 	<script>
 		lucide.createIcons();

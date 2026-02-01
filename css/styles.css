@@ -31,7 +31,6 @@
 	--shadow: rgba(0, 0, 0, 0.2);
 	--text: #000;
 	--link-color: #11a;
-	--daten-werte-height: 100px;
 }
 
 @media screen and (prefers-color-scheme: dark) {
@@ -397,7 +396,7 @@ li.navbar-active {
 	background-color: var(--accent3);
 }
 
-div.daten-info {
+div.daten-info, span.fachbegriff-info {
 	display: none;
 	position: absolute;
 	background-color: var(--accent1);
@@ -413,7 +412,7 @@ div.daten-info {
 	padding: 1rem 1.15rem;
 }
 
-tr:hover .daten-info {
+tr:hover .daten-info, .fachbegriff:hover .fachbegriff-info {
 	display: block;
 	-webkit-animation: fadeIn 0.2s;
 	animation: fadeIn 0.2s;
@@ -548,8 +547,12 @@ p.text {
 	line-height: 1.5rem;
 }
 
-h3.text-context-header {}
+/*fachbegriff-info oben bei der Daten-Liste*/
 
+.fachbegriff {
+	position: relative;
+	text-decoration: underline dotted 0.075rem;
+}
 
 
 
