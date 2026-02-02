@@ -31,7 +31,7 @@ function toggleDarkMode() {
 
   if (darkModeEnabled) {
     cssRoot.style.setProperty('--background', backgroundDark);
-    cssRoot.style.setProperty('--accent1-transparent', accent1TransparentLight);
+    cssRoot.style.setProperty('--accent1-transparent', accent1TransparentDark);
     cssRoot.style.setProperty('--accent1', accent1Dark);
     cssRoot.style.setProperty('--accent2', accent2Dark);
     cssRoot.style.setProperty('--accent3', accent3Dark);
@@ -39,27 +39,18 @@ function toggleDarkMode() {
     cssRoot.style.setProperty('--accent5', accent5Dark);
     cssRoot.style.setProperty('--text', textColorDark);
     cssRoot.style.setProperty('--link-color', linkColorDark);
-    // cssRoot.style.setProperty('--background', '#111');
-    // cssRoot.style.setProperty('--accent1-transparent', 'rgba(50, 50, 50, 0.75)');
-    // cssRoot.style.setProperty('--accent1', '#222');
-    // cssRoot.style.setProperty('--accent2', '#333');
-    // cssRoot.style.setProperty('--accent3', '#444');
-    // cssRoot.style.setProperty('--accent4', '#555');
-    // cssRoot.style.setProperty('--accent5', '#666');
-    // cssRoot.style.setProperty('--text', '#fff');
-    // cssRoot.style.setProperty('--link-color', '#66f');
     document.getElementById("navbar-icon-moon").style.display = "none";
     document.getElementById("navbar-icon-sun").style.display = "inline";
   } else {
-    cssRoot.style.setProperty('--background', '#fff');
-    cssRoot.style.setProperty('--accent1-transparent', 'rgba(248, 248, 255, 0.75)');
-    cssRoot.style.setProperty('--accent1', '#f8f8ff');
-    cssRoot.style.setProperty('--accent2', '#f5f5f6');
-    cssRoot.style.setProperty('--accent3', '#ededef');
-    cssRoot.style.setProperty('--accent4', '#e0e0e2');
-    cssRoot.style.setProperty('--accent5', '#444');
-    cssRoot.style.setProperty('--text', '#000');
-    cssRoot.style.setProperty('--link-color', '#11a');
+    cssRoot.style.setProperty('--background', backgroundLight);
+    cssRoot.style.setProperty('--accent1-transparent', accent1TransparentLight);
+    cssRoot.style.setProperty('--accent1', accent1Light);
+    cssRoot.style.setProperty('--accent2', accent2Light);
+    cssRoot.style.setProperty('--accent3', accent3Light);
+    cssRoot.style.setProperty('--accent4', accent4Light);
+    cssRoot.style.setProperty('--accent5', accent5Light);
+    cssRoot.style.setProperty('--text', textColorLight);
+    cssRoot.style.setProperty('--link-color', linkColorLight);
     document.getElementById("navbar-icon-sun").style.display = "none";
     document.getElementById("navbar-icon-moon").style.display = "inline";
   }

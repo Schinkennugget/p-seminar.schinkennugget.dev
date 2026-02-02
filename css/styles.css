@@ -216,18 +216,13 @@ li.navbar-active {
 
 /*Periodensystem*/
 #periodensystem {
-	display: flex;
-	justify-content: center;
+	margin: 0 auto;
+  width: auto;
+  max-width: 600px;
+  height: auto;
 }
 
-#periodensystem > img {
-	width: 80%;
-	height: auto;
-}
 
-#periodensystem figcaption {
-	text-align: center;
-}
 
 
 
