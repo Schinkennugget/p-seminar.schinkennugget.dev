@@ -61,9 +61,9 @@ toggleDarkMode(media.matches);
 
 // live changes vom dark mode
 if (media.addEventListener) {
-  media.addEventListener('change', e => updateDarkMode(e.matches));
+  media.addEventListener('change', e => toggleDarkMode(e.matches));
 } else {
-  media.addListener(e => updateDarkMode(e.matches));
+  media.addListener(e => toggleDarkMode(e.matches));
 }
 
 
@@ -81,7 +81,7 @@ function toggleDaten() {
   if (datenShown) {
     //Finde die Höhe, die es ausgeklappt hätte, setze die Höhe auf 0, zeig das
     //Element, setze die Höhe auf die vorher bestimmte Höhe, setze nach Verzögerung
-    //für Animation die Höhe auf auto (damit Bilschirm resized werden kann)
+    //für Animation die Höhe auf auto (damit Bildschirm resized werden kann)
 
     datenWerteAbschnitt.style.transition = "none";
     datenWerteAbschnitt.style.display = "grid";
@@ -93,7 +93,8 @@ function toggleDaten() {
 
     document.getElementById("daten-header-icon").style.rotate = "90deg";
     datenWerteAbschnitt.style.height = datenHeight + "px";
-    datenWerteAbschnitt.style.transform = "scaleY(1)";
+    datenWerteAbschnitt.style.transform = "scaleY(1.05)";
+    setTimeout(() => datenWerteAbschnitt.style.transform = "scaleY(1)", 300);
 
     // setTimeout(function() {
     datenWerteAbschnitt.style.height = "auto";

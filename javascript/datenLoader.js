@@ -18,7 +18,7 @@ function loadDaten() {
 	let datenGrafikContent = "";
 	zinkDaten.forEach(function(value, key) {
 		datenGrafikContent += '<div id="daten-grafik-' + key +
-			'" class="daten-grafik-wert" class="daten-' + key + '">' + value + '</div>';
+			'" class="daten-grafik-wert daten-' + key + '">' + value + '</div>';
 	});
 
 

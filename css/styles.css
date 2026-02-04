@@ -3,22 +3,38 @@
 	from {
 		opacity: 0;
 	}
-
 	to {
 		opacity: 1;
 	}
 }
-
 @keyframes fadeIn {
 	from {
 		opacity: 0;
 	}
-
 	to {
 		opacity: 1;
 	}
 }
 
+@-webkit-keyframes fadeOut {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+@keyframes fadeOut {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+
+/*Auch in JS ändern!*/
 :root {
 	--background: #fff;
 	--accent1-transparent: rgba(248, 248, 255, 0.75);
@@ -217,7 +233,7 @@ li.navbar-active {
 /*Periodensystem*/
 #periodensystem {
 	margin: 0 auto;
-  width: auto;
+  width: 90vw;
   max-width: 600px;
   height: auto;
 }
@@ -328,12 +344,13 @@ li.navbar-active {
 .daten-grafik-wert {
 	align-items: center;
 	font-weight: 750;
-	transition: font-weight 0.3s;
+	transition: font-weight 0.3s, color 0.3s;
 }
 
 .daten-grafik-wert:hover {
 	font-weight: 900;
 	text-shadow: 0.15em 0.15em 0.15em var(--shadow);
+  color: #ddd;
 }
 
 #daten-grafik-protonenzahl,
