@@ -17,8 +17,7 @@ const zinkDaten = new Map([
 function loadDaten() {
 	let datenGrafikContent = "";
 	zinkDaten.forEach(function(value, key) {
-		datenGrafikContent += '<div id="daten-grafik-' + key +
-			'" class="daten-grafik-wert daten-' + key + '">' + value + '</div>';
+		datenGrafikContent += `<div id="daten-grafik-${key}" class="daten-grafik-wert daten-${key}">${value}</div>`;
 	});
 
 

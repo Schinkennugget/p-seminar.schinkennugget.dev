@@ -98,42 +98,16 @@
     </header>
 
 
-    <div id="daten-abschnitt" tabindex="0">
-      <button id="daten-header" onclick="toggleDaten()">
+    <div id="daten-abschnitt" class="expandable" data-expanded="0" tabindex="0">
+      <button id="daten-header" class="expandable-header" onclick="toggleExpandableA(this.parentElement)">
         <h3>Daten</h3>
-        <i data-lucide="chevron-right" id="daten-header-icon"></i>
+        <i data-lucide="chevron-right" class="expandable-header-icon"></i>
       </button>
 
 
-      <div id="daten-werte-abschnitt">
+      <div id="daten-werte-abschnitt" class="expandable-content">
         <div id="daten-grafik">
           <!-- Werden über datenLoader.js geladen -->
-
-
-          <!-- <div id="daten-grafik-atommasse" class="daten-grafik-wert" class="daten-atommmasse">65,38</div>
-
-					<div id="daten-grafik-protonenzahl" class="daten-grafik-wert" class="daten-protonenzahl">30</div>
-
-					<div id="daten-grafik-elementsymbol" class="daten-grafik-wert" class="daten-elementsymbol">Zn</div>
-
-					<div id="daten-grafik-elementname" class="daten-grafik-wert" class="daten-elementname">Zink</div>
-
-					<div id="daten-grafik-atomradius" class="daten-grafik-wert" class="daten-atomradius">133</div>
-
-					<div id="daten-grafik-siedetemperatur" class="daten-grafik-wert" class="daten-siedetemperatur">906</div>
-
-					<div id="daten-grafik-ionenradius-oxidationszahl" class="daten-grafik-wert" class="daten-ionenradius-oxidationszahl">74 (+II)</div>
-
-					<div id="daten-grafik-schmelztemperatur" class="daten-grafik-wert" class="daten-schmelztemperatur">419</div>
-
-					<div id="daten-grafik-ionisierungsenergie" class="daten-grafik-wert" class="daten-ionisierungsenergie">913</div>
-
-					<div id="daten-grafik-dichte" class="daten-grafik-wert" class="daten-dichte">7,14</div>
-
-					<div id="daten-grafik-elektronegativitaet" class="daten-grafik-wert" class="daten-elektronegativitaet">1,65 (II)</div>
-
-					<div id="daten-grafik-anteil-haeufigstes-isotop" class="daten-grafik-wert" class="daten-anteil-haeufigstes-isotop">48,6</div> -->
-
         </div>
 
 
@@ -288,27 +262,197 @@
         </p>
       </div>
     </div>
+
+    
+    
+    <div id="vorkommen-und-herstellung" class="text">
+      <h2 tabindex="0" class="text-header" onclick="copyURIWithID(this.parentElement.id)">Vorkommen und Herstellung
+        <i data-lucide="link" class="text-header-icon"></i>
+      </h2>
+      <p class="text">
+        <span data-sources="1">Zink ist auf der Erde mit einem Gehalt von 0,00076% an der Erdkruste ein relativ häufiges Element. Ordnet man die Elemente nach Häufigkeit, steht Zink an 24. Stelle, noch vor beispielsweise Kupfer oder Blei. Man findet es überwiegend gebunden in Erzen, Zinksulfiderze sind dabei die wichtigsten für die industrielle Gewinnung. 2024 sind insgesamt mehr als 330 Zink-Minerale bekannt.</span> <span data-sources='1,2'>Große Lagerstätten existieren in Nordamerika, Australien, China und Kasachstan. Auch in Deutschland gibt es Zinkvorkommen, beispielsweise im Raum Eschweiler-Stolberg im Rheinland, am Rammelsberg im Harz oder bei Ramsbeck im Sauerland, jedoch wurde die Zinkgewinnung in Deutschland oft wegen der unzureichenden Wirtschaftlichkeit, der Konkurrenz durch billigere Importe und veralteter Abbaumethoden geschlossen.</span>
+        <br />
+        <i>hier tabelle einfügen</i>
+        <br />
+        <br />
+        Das wichtigste Mineral für die Zinkgewinnung ist Sphalerit (ZnS), im Bergbau auch als Zinkblende bekannt. Das bedeutet das außer Zink im Konzentrat noch etwa 20 % Schwefel enthalten sind. Ein weiterer Vorteil ist, dass Zinkkonzentrate immer Eisen, Silber und Blei in unterschiedlichen Anteilen mit sich bringen, das diese Elemente oft in den Erzen gemeinsam vorkommen. Die Kunst ist weniger die Gewinnung von Zink, sondern die Abtrennung der Begleitelemente so, dass man sie als Nebenprodukte nutzen kann. Dafür wir zuerst das Konzentrat auf über 900 Grad Celsius erhitzt, sodass ZnS zu ZnO reagiert. Der Fachmann spricht von einer Röstung. Anschließend folgt eine Reduktion (meist hydrometallurgisch per Elektrolyse) zu einem reinem Metall. Über 90 % des Zinks entstehen durch dieses nasse Verfahren, der Rest pyrometallurgisch im Schachtofen. Pyrometallurgisch bedeutet, dass Zinkoxid mit Kohle in Öfen reduziert. Der Siedepunkt von Zink ist mit 907 Grad Cellsius relativ niedrig. Dadurch entsteht Zinkdampf, welcher im Anschluss auskondensiert wird. Gleichzeitig verbindet sich Schwefel mit Sauerstoff zu gasförmigem Schwefeldioxid (SO<sub>2</sub>). In speziellen Anlagen wird aus dem Schwefeldioxid Schwefelsäure gewonnen, welche man zum Beispiel für die Herstellung von Düngemitteln benötigt. Zink wird zudem in erheblichem Maße durch das Recycling von Schrott (Sekundärzink) gewonnen.
+      </p>
+    </div>
+    
+    
+    <div id="daten-abschnitt" class="expandable" data-expanded="0" tabindex="0">
+      <button id="daten-header" class="expandable-header" onclick="toggleExpandableB(this.parentElement)">
+        <h3>Daten</h3>
+        <i data-lucide="chevron-right" class="expandable-header-icon"></i>
+      </button>
+
+
+      <div id="daten-werte-abschnitt" class="expandable-content">
+        <div id="daten-grafik">
+          <!-- Werden über datenLoader.js geladen -->
+        </div>
+
+
+
+        <table id="daten-liste">
+          <tr id="daten-liste-elementname">
+            <th class="daten-elementname">
+              <i data-lucide="tag" class="daten-icon"></i>
+              Elementname
+            </th>
+            <td class="daten-elementname" class="daten-wert" id="daten-elementname-wert">Zink</td>
+          </tr>
+
+          <tr>
+            <th class="daten-elementsymbol">
+              <i data-lucide="a-large-small" class="daten-icon"></i>
+              Elementsymbol
+            </th>
+            <td class="daten-elementsymbol" class="daten-wert" id="daten-elementsymbol-wert">
+              Zn
+              <div id="daten-info-elementsymbol" class="daten-info">Das Elementsymbol ist die Kurzschreibweise des Elementnames. Es wird z.B. in chemischen Gleichungen verwendet. Das Elementsymbol ist meist eine Abkürzung des lateinischen Namens des Elements und ist so international gleich.</div>
+            </td>
+          </tr>
+
+          <tr>
+            <th class="daten-protonenzahl">
+              <i data-lucide="badge-plus" class="daten-icon"></i>
+              Protonenzahl (Ordnungszahl)
+            </th>
+            <td class="daten-protonenzahl" class="daten-wert" id="daten-protonenzahl-wert">
+              30
+              <div id="daten-info-protonenzahl" class="daten-info">Die Anzahl der Protonen im Nukleus (Atomkern).</div>
+            </td>
+          </tr>
+
+
+          <tr>
+            <th class="daten-atommasse">
+              <i data-lucide="weight-tilde" class="daten-icon"></i>
+              Atommasse
+            </th>
+            <td class="daten-atommasse" class="daten-wert" id="daten-atommasse-wert">
+              65,38
+              <div class="frac">
+                <span>g</span>
+                <span class="symbol">/</span>
+                <span class="bottom">mol</span>
+              </div>
+              <div id="daten-info-atommasse" class="daten-info"><em>WIP</em></div>
+            </td>
+          </tr>
+
+          <tr>
+            <th class="daten-atomradius">
+              <i data-lucide="atom" class="daten-icon"></i>
+              Atomradius
+            </th>
+            <td class="daten-atomradius" class="daten-wert" id="daten-atomradius-wert">133pm
+              <div id="daten-info-atomradius" class="daten-info"><em>WIP</em></div>
+            </td>
+          </tr>
+
+          <tr>
+            <th class="daten-ionenradius-oxidationszahl">
+              <i data-lucide="radius" class="daten-icon"></i>
+              Ionenradius (Oxidationszahl)
+            </th>
+            <td class="daten-ionenradius-oxidationszahl" class="daten-wert" id="daten-ionenradius-oxidationszahl-wert">74 (+II)
+              <div id="daten-info-ionenradius-oxidationszahl" class="daten-info"><em>WIP</em></div>
+            </td>
+          </tr>
+
+          <tr>
+            <th class="daten-siedetemperatur">
+              <i data-lucide="thermometer-sun" class="daten-icon"></i>
+              Siedetemperatur
+            </th>
+            <td class="daten-siedetemperatur" class="daten-wert" id="daten-siedetemperatur-wert">906 &#8451;
+              <div id="daten-info-siedetemperatur" class="daten-info"><em>WIP</em></div>
+            </td>
+          </tr>
+
+          <tr>
+            <th class="daten-schmelztemperatur">
+              <i data-lucide="thermometer-snowflake" class="daten-icon"></i>
+              Schmelztemperatur
+            </th>
+            <td class="daten-schmelztemperatur" class="daten-wert" id="daten-schmelztemperatur-wert">419&nbsp;&#8451;
+              <div id="daten-info-schmelztemperatur" class="daten-info"><em>WIP</em></div>
+            </td>
+
+          </tr>
+
+          <tr>
+            <th class="daten-ionisierungsenergie">
+              <i data-lucide="circle-minus" class="daten-icon"></i>
+              1. Ionisierungsenergie
+            </th>
+            <td class="daten-ionisierungsenergie" class="daten-wert" id="daten-ionisierungsenergie-wert">913
+              <div class="frac">
+                <span>kJ</span>
+                <span class="symbol">/</span>
+                <span class="bottom">mol</span>
+              </div>
+              bei 25&nbsp;&#8451;
+              <div id="daten-info-ionisierungsenergie" class="daten-info"><em>WIP</em></div>
+            </td>
+          </tr>
+
+          <tr>
+            <th class="daten-dichte">
+              <i data-lucide="fold-horizontal" class="daten-icon"></i>
+              Dichte
+            </th>
+            <td class="daten-dichte" class="daten-wert" id="daten-dichte-wert">7,14
+              <div class="frac">
+                <span>g</span>
+                <span class="symbol">/</span>
+                <span class="bottom">cm<sup>3</sup></span>
+              </div>
+              <div id="daten-info-ionisierungsenergie" class="daten-info"><em>WIP</em></div>
+            </td>
+          </tr>
+
+          <tr>
+            <th class="daten-elektronegativitaet">
+              <i data-lucide="minus" class="daten-icon"></i>
+              Elektronegativität (für Oxidationsstufe)
+            </th>
+            <td class="daten-elektronegativitaet" class="daten-wert" id="daten-elektronegativitaet-wert">1,65 (II)
+              <div id="daten-info-elektronegativitaet" class="daten-info"><em>WIP</em></div>
+            </td>
+
+          </tr>
+
+          <tr>
+            <th class="daten-anteil-haeufigstes-isotop">
+              <i data-lucide="chart-pie" class="daten-icon"></i>
+              Teilchenanzahlanteil des häuf. Isotops am nat. Gemisch
+            </th>
+            <td class="daten-anteil-haeufigstes-isotop" class="daten-wert" id="daten-anteil-haeufigstes-isotop-wert">48,6%
+              <div id="daten-info-anteil-haeufigstes-isotop" class="daten-info"><em>WIP</em></div>
+            </td>
+          </tr>
+
+        </table>
+
+        <p id="daten-infotext"><i data-lucide="info" class="daten-infotext-icon"></i><em>Tipp: Hover/Tippe auf die Werte für mehr Informationen und Zusammenhänge!</em>
+        </p>
+
+        <p id="daten-zusatz">Eine ausführlichere Liste an chem. und physikalischen Daten findest du im <a href="https://de.wikipedia.org/wiki/zink?wprov=sfti1" target="_blank">Wikipedia-Artikel</a>.
+        </p>
+      </div>
     </div>
 
 
 
-
-    <!-- <div id="allgemeines" class="text">
-			<h2 tabindex="0" class="text-header" onclick='navigator.clipboard.writeText("https://p-seminar.schinkennugget.dev/zink.html#allgemeines")'>Allgemeines
-				<i data-lucide="link" class="text-header-icon"></i>
-			</h2>
-			<p class="text">
-				Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-			</p>
-
-		</div> -->
-
     <div id="vorkommen-und-herstellung" class="text">
-      <h2 tabindex="0" class="text-header" onclick='navigator.clipboard.writeText("https://p-seminar.schinkennugget.dev/zink.html#vorkommen-und-herstellung")'>Vorkommen und Herstellung
+      <h2 tabindex="0" class="text-header" onclick="copyURIWithID(this.parentElement.id)">Vorkommen und Herstellung
         <i data-lucide="link" class="text-header-icon"></i>
       </h2>
       <p class="text">
-        <span source="1">Zink ist auf der Erde mit einem Gehalt von 0,00076% an der Erdkruste ein relativ häufiges Element. Würde man die Elemente anhand ihrer Häufigkeit ordnen, stände Zink an 24. Stelle.</span> Es ist somit häufiger als Kupfer oder Blei. Man findet es überwiegend gebunden in Erzen, Zinksulfiderze sind dabei die wichtigsten für die industrielle Gewinnung. 2024 sind insgesamt mehr als 330 Zink-Minerale bekannt. Große Lagerstätten existieren in Nordamerika, Australien, China und Kasachstan. Auch in Deutschland gibt es Zinkvorkommen, beispielsweise im Raum Eschweiler Stolberg im Rheinland, am Rammelsberg im Harz oder bei Ramsbeck im Sauerland, jedoch wurde die Zinkgewinnung in Deutschland oft wegen der unzureichenden Wirtschaftlichkeit, der Konkurrenz durch billigere Importe und veralteter Abbaumethoden geschlossen.
+        <span data-sources="1">Zink ist auf der Erde mit einem Gehalt von 0,00076% an der Erdkruste ein relativ häufiges Element. Ordnet man die Elemente nach Häufigkeit, steht Zink an 24. Stelle, noch vor beispielsweise Kupfer oder Blei. Man findet es überwiegend gebunden in Erzen, Zinksulfiderze sind dabei die wichtigsten für die industrielle Gewinnung. 2024 sind insgesamt mehr als 330 Zink-Minerale bekannt.</span> <span data-sources='1,2'>Große Lagerstätten existieren in Nordamerika, Australien, China und Kasachstan. Auch in Deutschland gibt es Zinkvorkommen, beispielsweise im Raum Eschweiler-Stolberg im Rheinland, am Rammelsberg im Harz oder bei Ramsbeck im Sauerland, jedoch wurde die Zinkgewinnung in Deutschland oft wegen der unzureichenden Wirtschaftlichkeit, der Konkurrenz durch billigere Importe und veralteter Abbaumethoden geschlossen.</span>
         <br />
         <i>hier tabelle einfügen</i>
         <br />
@@ -317,12 +461,24 @@
       </p>
     </div>
     <div id="im-koerper" class="text">
-      <h2 tabindex="0" class="text-header" onclick='navigator.clipboard.writeText("https://p-seminar.schinkennugget.dev/zink.html#im-koerper")'>Bedeutung im Körper
+      <h2 tabindex="0" class="text-header" onclick="copyURIWithID(this.parentElement.id)">Bedeutung im Körper
         <i data-lucide="link" class="text-header-icon"></i>
       </h2>
       <p class="text">
         Zink ist ein sog. <span class="fachbegriff">Cosubstrat</span><span class="fachbegriff-info"></span>, d.h. es ist ein Bestandteil von Enzymen. Forschende konnten nachweisen, dass<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
       </p>
+    </div>
+
+    <div id="quellen" class="expandable" data-expanded="0">
+      <button id="quellen-header" class="expandable-header" onclick="toggleExpandable(this.parentElement)">
+        <h3>Quellen</h3>
+        <i data-lucide="chevron-right" class="expandable-header-icon"></i>
+      </button>
+
+      <div></div>
+
+
+
     </div>
 
 

@@ -74,40 +74,155 @@ if (media.addEventListener) {
 
 
 
-function toggleDaten() {
-  datenShown = datenShown ? false : true;
-  const datenWerteAbschnitt = document.getElementById("daten-werte-abschnitt");
+function toggleExpandableA(expandableContainerElement) {
+  //expanded-Attribut vom Parent in Boolean umwandeln
+  let expanded = false;
+  try {
+    expanded = Boolean(Number(expandableContainerElement.dataset.expanded));
+    expanded = expanded ? false : true;
+    // Als Attribut setzen
+    expandableContainerElement.dataset.expanded = String(Number(expanded));
+  } catch (err) {
+    console.log(err.message);
+  }
 
-  if (datenShown) {
+  const expandableContentElement = expandableContainerElement.querySelector(".expandable-content");
+
+  expandableContentElement.style.display = "grid";
+  expandableContentElement.style.transition = "none";
+  expandableContentElement.style.height = "auto";
+  const expandableContentHeight = expandableContentElement.offsetHeight;
+  // expandableContentElement.style.height = "0"; 
+  // Kann man aktivieren, dann ist die Animation an sich schöner, aber es ruckelt
+  expandableContentElement.style.transition = "height 0.3s, transform 0.3s";
+
+  if (expanded) {
     //Finde die Höhe, die es ausgeklappt hätte, setze die Höhe auf 0, zeig das
     //Element, setze die Höhe auf die vorher bestimmte Höhe, setze nach Verzögerung
     //für Animation die Höhe auf auto (damit Bildschirm resized werden kann)
 
-    datenWerteAbschnitt.style.transition = "none";
-    datenWerteAbschnitt.style.display = "grid";
-    datenWerteAbschnitt.style.height = "auto";
-    const datenHeight = datenWerteAbschnitt.offsetHeight;
-    // console.log(datenHeight + "px");
-    datenWerteAbschnitt.style.height = "0";
-    datenWerteAbschnitt.style.transition = "height 0.3s, transform 0.3s";
+    expandableContainerElement.querySelector(".expandable-header-icon").style.rotate = "90deg";
+    setTimeout(function() {
+      expandableContentElement.style.height = (expandableContentHeight * 1.05) + "px";
+      // console.log("höhe beim bounce: " + expandableContentElement.offsetHeight);
+      // console.log("höhe beim bounce (style): " + expandableContentElement.style.height);
+      // console.log("scrollHeight beim bounce: " + expandableContentElement.scrollHeight);
+      expandableContentElement.style.transform = "scaleY(1.05)";
+    }, 0);
+    setTimeout(function() {
+      expandableContentElement.style.height = expandableContentHeight + "px";
+      // console.log("höhe beim normal: " + expandableContentElement.offsetHeight);
+      // console.log("höhe beim normal (style): " + expandableContentElement.style.height);
+      // console.log("scrollHeight bei normal: " + expandableContentElement.scrollHeight);
+      expandableContentElement.style.transform = "scaleY(1)";
 
-    document.getElementById("daten-header-icon").style.rotate = "90deg";
-    datenWerteAbschnitt.style.height = datenHeight + "px";
-    datenWerteAbschnitt.style.transform = "scaleY(1.05)";
-    setTimeout(() => datenWerteAbschnitt.style.transform = "scaleY(1)", 300);
+      setTimeout(() => expandableContentElement.style.height = "auto", 1000);
+    }, 300);
 
-    // setTimeout(function() {
-    datenWerteAbschnitt.style.height = "auto";
-    // }, 500);
+
   } else {
-
-    datenWerteAbschnitt.style.transition = "height 0.3s, transform 0.15s";
-    datenWerteAbschnitt.style.transform = "scaleY(0.1)";
-    document.getElementById("daten-header-icon").style.rotate = "0deg";
-
+    expandableContentElement.style.transform = "scaleY(0.1)";
+    expandableContainerElement.querySelector(".expandable-header-icon").style.rotate = "0deg";
+    setTimeout(function() {
+      expandableContentElement.style.height = expandableContentHeight;
+      setTimeout(() => expandableContentElement.style.height = "0", 1);
+    }, 1);
 
     setTimeout(function() {
-      datenWerteAbschnitt.style.display = "none";
-    }, 100);
+      expandableContentElement.style.display = "none";
+    }, 300);
   }
+}
+
+
+function toggleExpandableB(expandableContainerElement) {
+  //expanded-Attribut vom Parent in Boolean umwandeln
+  let expanded = false;
+  try {
+    expanded = Boolean(Number(expandableContainerElement.dataset.expanded));
+    expanded = expanded ? false : true;
+    // Als Attribut setzen
+    expandableContainerElement.dataset.expanded = String(Number(expanded));
+  } catch (err) {
+    console.log(err.message);
+  }
+
+  const expandableContentElement = expandableContainerElement.querySelector(".expandable-content");
+
+  expandableContentElement.style.display = "grid";
+  expandableContentElement.style.transition = "none";
+  expandableContentElement.style.height = "auto";
+  const expandableContentHeight = expandableContentElement.offsetHeight;
+  expandableContentElement.style.height = "0"; 
+  // Kann man aktivieren, dann ist die Animation an sich schöner, aber es ruckelt
+  expandableContentElement.style.transition = "height 0.3s, transform 0.3s";
+
+  if (expanded) {
+    //Finde die Höhe, die es ausgeklappt hätte, setze die Höhe auf 0, zeig das
+    //Element, setze die Höhe auf die vorher bestimmte Höhe, setze nach Verzögerung
+    //für Animation die Höhe auf auto (damit Bildschirm resized werden kann)
+
+    expandableContainerElement.querySelector(".expandable-header-icon").style.rotate = "90deg";
+    setTimeout(function() {
+      expandableContentElement.style.height = (expandableContentHeight * 1.05) + "px";
+      // console.log("höhe beim bounce: " + expandableContentElement.offsetHeight);
+      // console.log("höhe beim bounce (style): " + expandableContentElement.style.height);
+      // console.log("scrollHeight beim bounce: " + expandableContentElement.scrollHeight);
+      expandableContentElement.style.transform = "scaleY(1.05)";
+    }, 0);
+    setTimeout(function() {
+      expandableContentElement.style.height = expandableContentHeight + "px";
+      // console.log("höhe beim normal: " + expandableContentElement.offsetHeight);
+      // console.log("höhe beim normal (style): " + expandableContentElement.style.height);
+      // console.log("scrollHeight bei normal: " + expandableContentElement.scrollHeight);
+      expandableContentElement.style.transform = "scaleY(1)";
+
+      setTimeout(() => expandableContentElement.style.height = "auto", 1000);
+    }, 300);
+
+
+  } else {
+    expandableContentElement.style.transform = "scaleY(0.1)";
+    expandableContainerElement.querySelector(".expandable-header-icon").style.rotate = "0deg";
+    setTimeout(function() {
+      expandableContentElement.style.height = expandableContentHeight;
+      setTimeout(() => expandableContentElement.style.height = "0", 1);
+    }, 1);
+
+    setTimeout(function() {
+      expandableContentElement.style.display = "none";
+    }, 300);
+  }
+}
+
+function injectSourceNotes() {
+  try {
+    document.querySelectorAll("[data-sources]").forEach(elementWithSource => {
+      //sources-Attribut vom Element (getrennt mit Leerzeichen oder ,) in einen Array umwandeln
+      const sources = elementWithSource.dataset.sources.split(/[,\s]+/).map(Number);
+      sources.forEach(source => {
+        const sourceEl = document.createElement("sup");
+        sourceEl.innerHTML = `[${source}]`;
+        sourceEl.tabIndex = "0";
+        sourceEl.className = "source";
+        sourceEl.style.color = "var(--link-color)";
+        elementWithSource.appendChild(sourceEl);
+      });
+    });
+  } catch (err) {
+    alert(err.description)
+  }
+}
+
+injectSourceNotes();
+
+
+function injectSourceFooterContent() {
+
+}
+
+
+
+function copyURIWithID(id) {
+  navigator.clipboard.writeText(`${document.baseURI}#${id}`)
 }
