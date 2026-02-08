@@ -24,8 +24,6 @@ const textColorDark = "#fff";
 const linkColorLight = "#11a";
 const linkColorDark = "#66f";
 
-let datenShown = false;
-
 function toggleDarkMode() {
   darkModeEnabled = darkModeEnabled ? false : true;
 
@@ -71,129 +69,127 @@ if (media.addEventListener) {
 
 
 
+// function toggleExpandable(expandableContainerElement) {
+//   //expanded-Attribut vom Parent in Boolean umwandeln
+//   let expanded = false;
+//   try {
+//     expanded = Boolean(Number(expandableContainerElement.dataset.expanded));
+//     expanded = expanded ? false : true;
+//     // Als Attribut setzen
+//     expandableContainerElement.dataset.expanded = String(Number(expanded));
+//   } catch (err) {
+//     console.log(err.message);
+//   }
+
+//   const expandableContentElement = expandableContainerElement.querySelector(".expandable-content");
+
+//   expandableContentElement.style.display = "grid";
+//   expandableContentElement.style.transition = "none";
+//   expandableContentElement.style.height = "auto";
+//   const expandableContentHeight = expandableContentElement.offsetHeight;
+//   // expandableContentElement.style.height = "0"; 
+//   // Kann man aktivieren, dann ist die Animation an sich schöner, aber es ruckelt
+//   expandableContentElement.style.transition = "height 0.3s, transform 0.3s";
+
+//   if (expanded) {
+//     //Finde die Höhe, die es ausgeklappt hätte, setze die Höhe auf 0, zeig das
+//     //Element, setze die Höhe auf die vorher bestimmte Höhe, setze nach Verzögerung
+//     //für Animation die Höhe auf auto (damit Bildschirm resized werden kann)
+
+//     expandableContainerElement.querySelector(".expandable-header-icon").style.rotate = "90deg";
+//     setTimeout(function() {
+//       expandableContentElement.style.height = (expandableContentHeight * 1.05) + "px";
+//       expandableContentElement.style.transform = "scaleY(1.05)";
+//     }, 0);
+//     setTimeout(function() {
+//       expandableContentElement.style.height = expandableContentHeight + "px";
+
+//       expandableContentElement.style.transform = "scaleY(1)";
+
+//       setTimeout(() => expandableContentElement.style.height = "auto", 1000);
+//     }, 300);
 
 
+//   } else {
+//     expandableContentElement.style.transform = "scaleY(0.1)";
+//     expandableContainerElement.querySelector(".expandable-header-icon").style.rotate = "90deg";
 
-function toggleExpandableA(expandableContainerElement) {
-  //expanded-Attribut vom Parent in Boolean umwandeln
-  let expanded = false;
-  try {
-    expanded = Boolean(Number(expandableContainerElement.dataset.expanded));
-    expanded = expanded ? false : true;
-    // Als Attribut setzen
-    expandableContainerElement.dataset.expanded = String(Number(expanded));
-  } catch (err) {
-    console.log(err.message);
+//     expandableContentElement.
+//   }
+// }
+
+//Event Listener für expandable
+try {
+  let i = 0;
+  for ( ; i < document.getElementsByClassName("expandable-header").length; i++) {
+    document.getElementsByClassName("expandable-header")[i]
+      .addEventListener("click", toggleExpandable);
+      
   }
-
-  const expandableContentElement = expandableContainerElement.querySelector(".expandable-content");
-
-  expandableContentElement.style.display = "grid";
-  expandableContentElement.style.transition = "none";
-  expandableContentElement.style.height = "auto";
-  const expandableContentHeight = expandableContentElement.offsetHeight;
-  // expandableContentElement.style.height = "0"; 
-  // Kann man aktivieren, dann ist die Animation an sich schöner, aber es ruckelt
-  expandableContentElement.style.transition = "height 0.3s, transform 0.3s";
-
-  if (expanded) {
-    //Finde die Höhe, die es ausgeklappt hätte, setze die Höhe auf 0, zeig das
-    //Element, setze die Höhe auf die vorher bestimmte Höhe, setze nach Verzögerung
-    //für Animation die Höhe auf auto (damit Bildschirm resized werden kann)
-
-    expandableContainerElement.querySelector(".expandable-header-icon").style.rotate = "90deg";
-    setTimeout(function() {
-      expandableContentElement.style.height = (expandableContentHeight * 1.05) + "px";
-      // console.log("höhe beim bounce: " + expandableContentElement.offsetHeight);
-      // console.log("höhe beim bounce (style): " + expandableContentElement.style.height);
-      // console.log("scrollHeight beim bounce: " + expandableContentElement.scrollHeight);
-      expandableContentElement.style.transform = "scaleY(1.05)";
-    }, 0);
-    setTimeout(function() {
-      expandableContentElement.style.height = expandableContentHeight + "px";
-      // console.log("höhe beim normal: " + expandableContentElement.offsetHeight);
-      // console.log("höhe beim normal (style): " + expandableContentElement.style.height);
-      // console.log("scrollHeight bei normal: " + expandableContentElement.scrollHeight);
-      expandableContentElement.style.transform = "scaleY(1)";
-
-      setTimeout(() => expandableContentElement.style.height = "auto", 1000);
-    }, 300);
-
-
-  } else {
-    expandableContentElement.style.transform = "scaleY(0.1)";
-    expandableContainerElement.querySelector(".expandable-header-icon").style.rotate = "0deg";
-    setTimeout(function() {
-      expandableContentElement.style.height = expandableContentHeight;
-      setTimeout(() => expandableContentElement.style.height = "0", 1);
-    }, 1);
-
-    setTimeout(function() {
-      expandableContentElement.style.display = "none";
-    }, 300);
-  }
+  console.debug("Added click event listeners for " + i + " expandables.")
+} catch(err) {
+  console.error(`Event Listener for expandable could not be registered.\nError: ${err.name}\nMessage: ${err.message}`)
 }
 
 
-function toggleExpandableB(expandableContainerElement) {
-  //expanded-Attribut vom Parent in Boolean umwandeln
-  let expanded = false;
-  try {
-    expanded = Boolean(Number(expandableContainerElement.dataset.expanded));
-    expanded = expanded ? false : true;
-    // Als Attribut setzen
-    expandableContainerElement.dataset.expanded = String(Number(expanded));
-  } catch (err) {
-    console.log(err.message);
-  }
+function toggleExpandable(event) {
+  const expandableHeaderEl = event.currentTarget;
+  const expandableContainerEl = expandableHeaderEl.parentElement;
+  const expandableContentEl = expandableContainerEl.getElementsByClassName("expandable-content")[0];
+  let expanded = Boolean(Number(expandableContainerEl.dataset.expanded));
 
-  const expandableContentElement = expandableContainerElement.querySelector(".expandable-content");
+  expanded = !expanded;
+  expandableContainerEl.dataset.expanded = String(Number(expanded));
+  
+  if (expanded) { //Soll ausklappen
+    expandableContentEl.style.display = "";
+    expandableContentEl.style.height = expandableContentEl.scrollHeight + "px";
+    expandableContentEl.style.transform = "scaleY(1)";
+    expandableContainerEl.querySelector(".expandable-header-icon").style.rotate = "-90deg";
 
-  expandableContentElement.style.display = "grid";
-  expandableContentElement.style.transition = "none";
-  expandableContentElement.style.height = "auto";
-  const expandableContentHeight = expandableContentElement.offsetHeight;
-  expandableContentElement.style.height = "0"; 
-  // Kann man aktivieren, dann ist die Animation an sich schöner, aber es ruckelt
-  expandableContentElement.style.transition = "height 0.3s, transform 0.3s";
-
-  if (expanded) {
-    //Finde die Höhe, die es ausgeklappt hätte, setze die Höhe auf 0, zeig das
-    //Element, setze die Höhe auf die vorher bestimmte Höhe, setze nach Verzögerung
-    //für Animation die Höhe auf auto (damit Bildschirm resized werden kann)
-
-    expandableContainerElement.querySelector(".expandable-header-icon").style.rotate = "90deg";
-    setTimeout(function() {
-      expandableContentElement.style.height = (expandableContentHeight * 1.05) + "px";
-      // console.log("höhe beim bounce: " + expandableContentElement.offsetHeight);
-      // console.log("höhe beim bounce (style): " + expandableContentElement.style.height);
-      // console.log("scrollHeight beim bounce: " + expandableContentElement.scrollHeight);
-      expandableContentElement.style.transform = "scaleY(1.05)";
-    }, 0);
-    setTimeout(function() {
-      expandableContentElement.style.height = expandableContentHeight + "px";
-      // console.log("höhe beim normal: " + expandableContentElement.offsetHeight);
-      // console.log("höhe beim normal (style): " + expandableContentElement.style.height);
-      // console.log("scrollHeight bei normal: " + expandableContentElement.scrollHeight);
-      expandableContentElement.style.transform = "scaleY(1)";
-
-      setTimeout(() => expandableContentElement.style.height = "auto", 1000);
-    }, 300);
-
-
+    // nach der Animation auf auto setzen
+    expandableContentEl.addEventListener("transitionend", function handler() {
+      expandableContentEl.style.height = "auto";
+      expandableContentEl.removeEventListener("transitionend", handler);
+    });
   } else {
-    expandableContentElement.style.transform = "scaleY(0.1)";
-    expandableContainerElement.querySelector(".expandable-header-icon").style.rotate = "0deg";
-    setTimeout(function() {
-      expandableContentElement.style.height = expandableContentHeight;
-      setTimeout(() => expandableContentElement.style.height = "0", 1);
-    }, 1);
-
-    setTimeout(function() {
-      expandableContentElement.style.display = "none";
-    }, 300);
+    
+    expandableContainerEl.querySelector(".expandable-header-icon").style.rotate = "90deg";
+    expandableContentEl.style.transform = "scaleY(0.01)";
+    expandableContentEl.style.height = expandableContentEl.offsetHeight + "px";
+    requestAnimationFrame(() => {
+      expandableContentEl.style.height = "0";
+    });
+    
+    expandableContentEl.addEventListener("transitionend", function handler() {
+      expandableContentEl.style.display = "none";
+      expandableContentEl.removeEventListener("transitionend", handler);
+    });
   }
 }
+
+/*document.getElementsByClassName("expandable-header").onclick = () => {
+  if (!open) {
+    // von 0 -> echte Höhe
+    box.style.height = box.scrollHeight + "px";
+
+    // nach der Animation auf auto setzen
+    box.addEventListener("transitionend", function handler() {
+      box.style.height = "auto";
+      box.removeEventListener("transitionend", handler);
+    });
+
+  } else {
+    // von auto -> px -> 0
+    box.style.height = box.scrollHeight + "px";
+    requestAnimationFrame(() => {
+      box.style.height = "0px";
+    });
+  }
+
+  open = !open;
+};*/
+
 
 function injectSourceNotes() {
   try {
@@ -220,6 +216,8 @@ injectSourceNotes();
 function injectSourceFooterContent() {
 
 }
+
+
 
 
 
