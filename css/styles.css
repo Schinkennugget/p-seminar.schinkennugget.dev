@@ -287,7 +287,7 @@ li.navbar-active {
 .expandable-content {
   height: 0;
   padding: 1.95rem;
-  transform: scaleY(0.1);
+  /*transform: scaleY(0.1);*/
   transform-origin: top;
   transition: height 0.3s ease, transform 0.3s ease;
   box-sizing: border-box;

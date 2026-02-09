@@ -69,54 +69,7 @@ if (media.addEventListener) {
 
 
 
-// function toggleExpandable(expandableContainerElement) {
-//   //expanded-Attribut vom Parent in Boolean umwandeln
-//   let expanded = false;
-//   try {
-//     expanded = Boolean(Number(expandableContainerElement.dataset.expanded));
-//     expanded = expanded ? false : true;
-//     // Als Attribut setzen
-//     expandableContainerElement.dataset.expanded = String(Number(expanded));
-//   } catch (err) {
-//     console.log(err.message);
-//   }
 
-//   const expandableContentElement = expandableContainerElement.querySelector(".expandable-content");
-
-//   expandableContentElement.style.display = "grid";
-//   expandableContentElement.style.transition = "none";
-//   expandableContentElement.style.height = "auto";
-//   const expandableContentHeight = expandableContentElement.offsetHeight;
-//   // expandableContentElement.style.height = "0"; 
-//   // Kann man aktivieren, dann ist die Animation an sich schöner, aber es ruckelt
-//   expandableContentElement.style.transition = "height 0.3s, transform 0.3s";
-
-//   if (expanded) {
-//     //Finde die Höhe, die es ausgeklappt hätte, setze die Höhe auf 0, zeig das
-//     //Element, setze die Höhe auf die vorher bestimmte Höhe, setze nach Verzögerung
-//     //für Animation die Höhe auf auto (damit Bildschirm resized werden kann)
-
-//     expandableContainerElement.querySelector(".expandable-header-icon").style.rotate = "90deg";
-//     setTimeout(function() {
-//       expandableContentElement.style.height = (expandableContentHeight * 1.05) + "px";
-//       expandableContentElement.style.transform = "scaleY(1.05)";
-//     }, 0);
-//     setTimeout(function() {
-//       expandableContentElement.style.height = expandableContentHeight + "px";
-
-//       expandableContentElement.style.transform = "scaleY(1)";
-
-//       setTimeout(() => expandableContentElement.style.height = "auto", 1000);
-//     }, 300);
-
-
-//   } else {
-//     expandableContentElement.style.transform = "scaleY(0.1)";
-//     expandableContainerElement.querySelector(".expandable-header-icon").style.rotate = "90deg";
-
-//     expandableContentElement.
-//   }
-// }
 
 //Event Listener für expandable
 try {
@@ -142,20 +95,22 @@ function toggleExpandable(event) {
   expandableContainerEl.dataset.expanded = String(Number(expanded));
   
   if (expanded) { //Soll ausklappen
+    expandableContentEl.style.overflow = "hidden";
     expandableContentEl.style.display = "";
     expandableContentEl.style.height = expandableContentEl.scrollHeight + "px";
-    expandableContentEl.style.transform = "scaleY(1)";
+    // expandableContentEl.style.transform = "scaleY(1)";
     expandableContainerEl.querySelector(".expandable-header-icon").style.rotate = "-90deg";
 
     // nach der Animation auf auto setzen
     expandableContentEl.addEventListener("transitionend", function handler() {
       expandableContentEl.style.height = "auto";
+      expandableContentEl.style.overflow = "show";
       expandableContentEl.removeEventListener("transitionend", handler);
     });
   } else {
     
     expandableContainerEl.querySelector(".expandable-header-icon").style.rotate = "90deg";
-    expandableContentEl.style.transform = "scaleY(0.01)";
+    // expandableContentEl.style.transform = "scaleY(0.01)";
     expandableContentEl.style.height = expandableContentEl.offsetHeight + "px";
     requestAnimationFrame(() => {
       expandableContentEl.style.height = "0";
@@ -168,27 +123,7 @@ function toggleExpandable(event) {
   }
 }
 
-/*document.getElementsByClassName("expandable-header").onclick = () => {
-  if (!open) {
-    // von 0 -> echte Höhe
-    box.style.height = box.scrollHeight + "px";
 
-    // nach der Animation auf auto setzen
-    box.addEventListener("transitionend", function handler() {
-      box.style.height = "auto";
-      box.removeEventListener("transitionend", handler);
-    });
-
-  } else {
-    // von auto -> px -> 0
-    box.style.height = box.scrollHeight + "px";
-    requestAnimationFrame(() => {
-      box.style.height = "0px";
-    });
-  }
-
-  open = !open;
-};*/
 
 
 function injectSourceNotes() {
@@ -203,19 +138,27 @@ function injectSourceNotes() {
         sourceEl.className = "source";
         sourceEl.style.color = "var(--link-color)";
         elementWithSource.appendChild(sourceEl);
+        sourceEl.addEventListener("click", showSourceMenu)
       });
     });
   } catch (err) {
-    alert(err.description)
+    console.error(`could not inject source notes.\n${err.name}\n${err.message}`);
   }
 }
 
 injectSourceNotes();
+function showSourceMenu(event) {
+  const sourceEl = event.currentTarget
+}
+
 
 
 function injectSourceFooterContent() {
-
+  
 }
+
+
+
 
 
 
