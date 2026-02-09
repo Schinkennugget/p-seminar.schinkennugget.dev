@@ -109,6 +109,7 @@ function toggleExpandable(event) {
     });
   } else {
     
+    expandableContentEl.style.overflow = "hidden";
     expandableContainerEl.querySelector(".expandable-header-icon").style.rotate = "90deg";
     // expandableContentEl.style.transform = "scaleY(0.01)";
     expandableContentEl.style.height = expandableContentEl.offsetHeight + "px";
@@ -118,6 +119,7 @@ function toggleExpandable(event) {
     
     expandableContentEl.addEventListener("transitionend", function handler() {
       expandableContentEl.style.display = "none";
+      expandableContentEl.style.overflow = "show";
       expandableContentEl.removeEventListener("transitionend", handler);
     });
   }
