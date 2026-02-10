@@ -1,6 +1,6 @@
 "use strict";
 
-const media = window.matchMedia('(prefers-color-scheme: dark)');
+
 let darkModeEnabled = false;
 const cssRoot = document.documentElement;
 
@@ -24,8 +24,12 @@ const textColorDark = "#fff";
 const linkColorLight = "#11a";
 const linkColorDark = "#66f";
 
-function toggleDarkMode() {
+function toggleDarkMode(enabled) {
   darkModeEnabled = darkModeEnabled ? false : true;
+  
+  if (typeof enabled == typeof true) {
+    darkModeEnabled = enabled;
+  } 
 
   if (darkModeEnabled) {
     cssRoot.style.setProperty('--background', backgroundDark);
@@ -54,14 +58,20 @@ function toggleDarkMode() {
   }
 }
 
+
+try {
+const media = window.matchMedia('(prefers-color-scheme: dark)');
 // initialisierung dark mode
-toggleDarkMode(media.matches);
+toggleDarkMode(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
 
 // live changes vom dark mode
 if (media.addEventListener) {
   media.addEventListener('change', e => toggleDarkMode(e.matches));
 } else {
   media.addListener(e => toggleDarkMode(e.matches));
+}
+} catch(err) {
+  console.error("could not initialize dark mode.")
 }
 
 
