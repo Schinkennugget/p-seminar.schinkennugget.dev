@@ -79,7 +79,7 @@ try {
       .addEventListener("click", toggleExpandable);
       
   }
-  console.debug("Added click event listeners for " + i + " expandables.")
+  // console.debug("Added click event listeners for " + i + " expandables.")
 } catch(err) {
   console.error(`Event Listener for expandable could not be registered.\nError: ${err.name}\nMessage: ${err.message}`)
 }
