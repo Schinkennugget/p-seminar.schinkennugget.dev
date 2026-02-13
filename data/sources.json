@@ -1,4 +1,16 @@
 "zink": {
-  "1": {"name": "PSE-Info", "description": "Online-Datenbank des Periodensystems", "url": "https://pse-info.de/de/data"},
-  "2": {"name": "Wikipedia"}
+  "1": {
+    "name": "PSE-Info",
+    "description": "Online-Datenbank des Periodensystems",
+    "url": "https://pse-info.de/de/data"
+  },
+  "2": {
+    "name": "Wikipedia",
+    "description": "Wikipedia: Zink",
+    "url": "https://de.wikipedia.org/wiki/Zink"
+  },
+  "3": {
+    "name": "zink.de",
+    "url": "https://www.zink.de/zink/herstellung-von-zink/gewinnung/"
+  }
 }

@@ -52,6 +52,7 @@
   --shadow: rgba(0, 0, 0, 0.2);
   --text: #000;
   --link-color: #11a;
+  --link-hover: #00a;
 }
 
 @media screen and (prefers-color-scheme: dark) {
@@ -64,8 +65,15 @@
     --accent4: #555;
     --accent5: #666;
     --text: #fff;
-    --link-color: #66f;
+    --link-color: #55f;
+    --link-hover: #77f;
   }
+
+  .darkmode-invert {
+    filter: invert(1);
+  }
+
+  /*Auch in JS wechseln!*/
 }
 
 
@@ -137,6 +145,12 @@ noscript {
 
 a {
   color: var(--link-color);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--link-hover);
+  text-decoration: underline;
 }
 
 
@@ -562,6 +576,10 @@ p.text {
   text-align: justify;
 }
 
+p.text > p {
+  display: inline-block;
+}
+
 /*fachbegriff-info oben bei der Daten-Liste*/
 
 .fachbegriff {
@@ -569,12 +587,35 @@ p.text {
   text-decoration: underline dotted 0.075rem;
 }
 
+.text-image {
+  break-inside: avoid;
+  page-break-inside: avoid;
+
+  display: inline-block;
+  width: 90%;
+  margin: 1rem 5%;
+}
+
+.text-image > img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+p.text
+
 @media screen and (min-width: 800px) {
   p.text {
     column-count: 2;
     column-gap: 2rem;
   }
 }
+
+
+
+
+
+
 
 
 

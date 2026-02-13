@@ -43,6 +43,8 @@ function toggleDarkMode(enabled) {
     cssRoot.style.setProperty('--link-color', linkColorDark);
     document.getElementById("navbar-icon-moon").style.display = "none";
     document.getElementById("navbar-icon-sun").style.display = "inline";
+    
+    document.querySelectorAll(".darkmode-invert").forEach(elem => elem.style.filter = "invert(1)");
   } else {
     cssRoot.style.setProperty('--background', backgroundLight);
     cssRoot.style.setProperty('--accent1-transparent', accent1TransparentLight);
@@ -55,6 +57,8 @@ function toggleDarkMode(enabled) {
     cssRoot.style.setProperty('--link-color', linkColorLight);
     document.getElementById("navbar-icon-sun").style.display = "none";
     document.getElementById("navbar-icon-moon").style.display = "inline";
+    
+    document.querySelectorAll(".darkmode-invert").forEach(elem => elem.style.filter = "invert(0)");
   }
 }
 
@@ -71,7 +75,7 @@ if (media.addEventListener) {
   media.addListener(e => toggleDarkMode(e.matches));
 }
 } catch(err) {
-  console.error("could not initialize dark mode.")
+  console.error(`Could not initialize dark mode:\n${err.name}\n${err.message}`);
 }
 
 
@@ -168,6 +172,7 @@ function showSourceMenu(event) {
 function injectSourceFooterContent() {
   
 }
+
 
 
 
