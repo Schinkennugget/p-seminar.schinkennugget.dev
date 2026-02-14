@@ -51,7 +51,7 @@
   --accent5: #444;
   --shadow: rgba(0, 0, 0, 0.2);
   --text: #000;
-  --link-color: #11a;
+  --link-color: #22d;
   --link-hover: #00a;
 }
 
@@ -151,6 +151,10 @@ a {
 a:hover {
   color: var(--link-hover);
   text-decoration: underline;
+}
+
+.on-hover-background-accent3:hover {
+  background: var(--accent3);
 }
 
 
@@ -276,6 +280,7 @@ li.navbar-active {
 
 .expandable-header {
   background: none;
+  border-radius: 2rem;
   border: none;
   display: flex;
   align-items: center;
@@ -283,7 +288,9 @@ li.navbar-active {
   padding: 1.95rem;
   width: 100%;
   height: 5rem;
+  transition: background 0.15s linear;
 }
+
 
 .expandable-header-icon {
   stroke-width: 0.2rem;
@@ -588,28 +595,27 @@ p.text > p {
 }
 
 .text-image {
-  break-inside: avoid;
-  page-break-inside: avoid;
-
-  display: inline-block;
-  width: 90%;
-  margin: 1rem 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 1rem 0;
 }
 
 .text-image > img {
+  max-height: 500px;
   max-width: 100%;
   height: auto;
   display: block;
 }
 
-p.text
-
-@media screen and (min-width: 800px) {
+/*@media screen and (min-width: 800px) {
   p.text {
     column-count: 2;
     column-gap: 2rem;
   }
-}
+}*/
 
 
 

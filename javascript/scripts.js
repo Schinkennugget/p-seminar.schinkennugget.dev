@@ -2,7 +2,7 @@
 
 
 let darkModeEnabled = false;
-const cssRoot = document.documentElement;
+const rootStyle = document.documentElement.style;
 
 // Alle Farben
 const backgroundLight = "#fff";
@@ -21,60 +21,64 @@ const accent5Light = "#444";
 const accent5Dark = "#666";
 const textColorLight = "#000";
 const textColorDark = "#fff";
-const linkColorLight = "#11a";
+const linkColorLight = "#22d";
 const linkColorDark = "#66f";
+const linkHoverLight = "#00a";
+const linkHoverDark = "#77f";
 
 function toggleDarkMode(enabled) {
   darkModeEnabled = darkModeEnabled ? false : true;
-  
+
   if (typeof enabled == typeof true) {
     darkModeEnabled = enabled;
-  } 
+  }
 
   if (darkModeEnabled) {
-    cssRoot.style.setProperty('--background', backgroundDark);
-    cssRoot.style.setProperty('--accent1-transparent', accent1TransparentDark);
-    cssRoot.style.setProperty('--accent1', accent1Dark);
-    cssRoot.style.setProperty('--accent2', accent2Dark);
-    cssRoot.style.setProperty('--accent3', accent3Dark);
-    cssRoot.style.setProperty('--accent4', accent4Dark);
-    cssRoot.style.setProperty('--accent5', accent5Dark);
-    cssRoot.style.setProperty('--text', textColorDark);
-    cssRoot.style.setProperty('--link-color', linkColorDark);
+    rootStyle.setProperty('--background', backgroundDark);
+    rootStyle.setProperty('--accent1-transparent', accent1TransparentDark);
+    rootStyle.setProperty('--accent1', accent1Dark);
+    rootStyle.setProperty('--accent2', accent2Dark);
+    rootStyle.setProperty('--accent3', accent3Dark);
+    rootStyle.setProperty('--accent4', accent4Dark);
+    rootStyle.setProperty('--accent5', accent5Dark);
+    rootStyle.setProperty('--text', textColorDark);
+    rootStyle.setProperty('--link-color', linkColorDark);
+    rootStyle.setProperty('--link-hover', linkHoverDark);
     document.getElementById("navbar-icon-moon").style.display = "none";
     document.getElementById("navbar-icon-sun").style.display = "inline";
-    
+
     document.querySelectorAll(".darkmode-invert").forEach(elem => elem.style.filter = "invert(1)");
   } else {
-    cssRoot.style.setProperty('--background', backgroundLight);
-    cssRoot.style.setProperty('--accent1-transparent', accent1TransparentLight);
-    cssRoot.style.setProperty('--accent1', accent1Light);
-    cssRoot.style.setProperty('--accent2', accent2Light);
-    cssRoot.style.setProperty('--accent3', accent3Light);
-    cssRoot.style.setProperty('--accent4', accent4Light);
-    cssRoot.style.setProperty('--accent5', accent5Light);
-    cssRoot.style.setProperty('--text', textColorLight);
-    cssRoot.style.setProperty('--link-color', linkColorLight);
+    rootStyle.setProperty('--background', backgroundLight);
+    rootStyle.setProperty('--accent1-transparent', accent1TransparentLight);
+    rootStyle.setProperty('--accent1', accent1Light);
+    rootStyle.setProperty('--accent2', accent2Light);
+    rootStyle.setProperty('--accent3', accent3Light);
+    rootStyle.setProperty('--accent4', accent4Light);
+    rootStyle.setProperty('--accent5', accent5Light);
+    rootStyle.setProperty('--text', textColorLight);
+    rootStyle.setProperty('--link-color', linkColorLight);
+    rootStyle.setProperty('--link-hover', linkHoverLight);
     document.getElementById("navbar-icon-sun").style.display = "none";
     document.getElementById("navbar-icon-moon").style.display = "inline";
-    
+
     document.querySelectorAll(".darkmode-invert").forEach(elem => elem.style.filter = "invert(0)");
   }
 }
 
 
 try {
-const media = window.matchMedia('(prefers-color-scheme: dark)');
-// initialisierung dark mode
-toggleDarkMode(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  const media = window.matchMedia('(prefers-color-scheme: dark)');
+  // initialisierung dark mode
+  toggleDarkMode(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
 
-// live changes vom dark mode
-if (media.addEventListener) {
-  media.addEventListener('change', e => toggleDarkMode(e.matches));
-} else {
-  media.addListener(e => toggleDarkMode(e.matches));
-}
-} catch(err) {
+  // live changes vom dark mode
+  if (media.addEventListener) {
+    media.addEventListener('change', e => toggleDarkMode(e.matches));
+  } else {
+    media.addListener(e => toggleDarkMode(e.matches));
+  }
+} catch (err) {
   console.error(`Could not initialize dark mode:\n${err.name}\n${err.message}`);
 }
 
@@ -88,15 +92,29 @@ if (media.addEventListener) {
 //Event Listener für expandable
 try {
   let i = 0;
-  for ( ; i < document.getElementsByClassName("expandable-header").length; i++) {
+  for (; i < document.getElementsByClassName("expandable-header").length; i++) {
     document.getElementsByClassName("expandable-header")[i]
       .addEventListener("click", toggleExpandable);
-      
+
+    //Damit es am Anfang schon mal gesetzt ist und nicht in HTML jedes mal eingefügt werden muss
+    document.getElementsByClassName("expandable-header")[i]
+      .classList.add("on-hover-background-accent3");
   }
   // console.debug("Added click event listeners for " + i + " expandables.")
-} catch(err) {
+} catch (err) {
   console.error(`Event Listener for expandable could not be registered.\nError: ${err.name}\nMessage: ${err.message}`)
 }
+
+// function expandableHeaderOnHover(event) {
+//   const expandableHeaderEl = event.currentTarget;
+//   const expandableContainerEl = expandableHeaderEl.parentElement;
+//   let expanded = Boolean(Number(expandableContainerEl.dataset.expanded));
+
+//   if (expanded) {
+
+//   }
+// }
+
 
 
 function toggleExpandable(event) {
@@ -107,8 +125,9 @@ function toggleExpandable(event) {
 
   expanded = !expanded;
   expandableContainerEl.dataset.expanded = String(Number(expanded));
-  
+
   if (expanded) { //Soll ausklappen
+    expandableHeaderEl.classList.remove("on-hover-background-accent3");
     expandableContentEl.style.overflow = "hidden";
     expandableContentEl.style.display = "";
     expandableContentEl.style.height = expandableContentEl.scrollHeight + "px";
@@ -122,7 +141,8 @@ function toggleExpandable(event) {
       expandableContentEl.removeEventListener("transitionend", handler);
     });
   } else {
-    
+    expandableHeaderEl.classList.add("on-hover-background-accent3");
+
     expandableContentEl.style.overflow = "hidden";
     expandableContainerEl.querySelector(".expandable-header-icon").style.rotate = "90deg";
     // expandableContentEl.style.transform = "scaleY(0.01)";
@@ -130,7 +150,7 @@ function toggleExpandable(event) {
     requestAnimationFrame(() => {
       expandableContentEl.style.height = "0";
     });
-    
+
     expandableContentEl.addEventListener("transitionend", function handler() {
       expandableContentEl.style.display = "none";
       expandableContentEl.style.overflow = "show";
@@ -163,6 +183,7 @@ function injectSourceNotes() {
 }
 
 injectSourceNotes();
+
 function showSourceMenu(event) {
   const sourceEl = event.currentTarget
 }
@@ -170,7 +191,7 @@ function showSourceMenu(event) {
 
 
 function injectSourceFooterContent() {
-  
+
 }
 
 

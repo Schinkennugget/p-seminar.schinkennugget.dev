@@ -51,14 +51,12 @@
       </li>
       <li class="navbar-item-right" tabindex="0" onclick="window.print();">
         <span>
-          <i data-lucide="download" class="navbar-icon"></i>
-          <span class="navbar-text-3">Seite herunterladen</span>
+          <i data-lucide="printer" class="navbar-icon"></i>
+          <span class="navbar-text-3">Seite drucken</span>
         </span>
       </li>
     </ul>
   </nav>
-
-  <!-- <div id="burger-bar-background"></div> -->
 
   <main>
 
@@ -66,7 +64,7 @@
 
     <noscript>Hinweis: JavaScript-Funktionen können nicht geladen werden, vermutlich weil dein Browser diese nicht unterstützt oder weil du JavaScript deaktiviert hast. Dadurch ist die Webseite visuell und funktional eingeschränkt.</noscript>
 
-    <!-- <div id="screenWidth"></div>
+    <div id="screenWidth"></div>
 
 		<script>
 			function updateScreenWidth() {
@@ -80,7 +78,7 @@
 
 			// bei Resize aktualisieren
 			window.addEventListener("resize", updateScreenWidth);
-		</script> -->
+		</script>
 
     <header>
       <img src="images/pse.png" id="periodensystem" />
@@ -98,8 +96,8 @@
     </header>
 
 
-    <div id="daten-abschnitt" class="expandable" data-expanded="0" tabindex="0">
-      <button id="daten-header" class="expandable-header">
+    <div id="daten-abschnitt" class="expandable" data-expanded="0">
+      <button id="daten-header" class="expandable-header" tabindex="0">
         <h3>Daten</h3>
         <i data-lucide="chevron-right" class="expandable-header-icon"></i>
       </button>
@@ -292,7 +290,7 @@
     </div>
 
     <div id="quellen-container" class="expandable" data-expanded="0">
-      <button id="quellen-header" class="expandable-header">
+      <button id="quellen-header" class="expandable-header" tabindex="0">
         <h3>Quellen</h3>
         <i data-lucide="chevron-right" class="expandable-header-icon"></i>
       </button>
