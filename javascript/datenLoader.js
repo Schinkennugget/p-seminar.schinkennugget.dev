@@ -19,13 +19,13 @@ let elementDaten = undefined;
 
 
 
-fetch("../data/elements.json")
+fetch("data/elements.json")
   .then((response) => {
     console.log(response);
     return response.json();
   })
   .then(function(data) {
-    document.getElementById("test").innerHTML = data;
+    
   })
   .catch(err =>
     console.error(`Could not load periodic table data from json.\n${err.name}\n${err.message}`)
