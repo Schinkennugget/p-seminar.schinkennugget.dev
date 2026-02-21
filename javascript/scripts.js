@@ -25,61 +25,69 @@ const linkColorLight = "#22d";
 const linkColorDark = "#66f";
 const linkHoverLight = "#00a";
 const linkHoverDark = "#77f";
+const missingLinkLight = "#d11";
+const missingLinkDark = "#e00"
+  const missingLinkHoverLight = "#a00";
+const missingLinkHoverDark = "#f00"
 
 function toggleDarkMode(enabled) {
-	darkModeEnabled = darkModeEnabled ? false : true;
+  darkModeEnabled = darkModeEnabled ? false : true;
 
-	if (typeof enabled == typeof true) {
-		darkModeEnabled = enabled;
-	}
+  if (typeof enabled == typeof true) {
+    darkModeEnabled = enabled;
+  }
 
-	if (darkModeEnabled) {
-		rootStyle.setProperty('--background', backgroundDark);
-		rootStyle.setProperty('--accent1-transparent', accent1TransparentDark);
-		rootStyle.setProperty('--accent1', accent1Dark);
-		rootStyle.setProperty('--accent2', accent2Dark);
-		rootStyle.setProperty('--accent3', accent3Dark);
-		rootStyle.setProperty('--accent4', accent4Dark);
-		rootStyle.setProperty('--accent5', accent5Dark);
-		rootStyle.setProperty('--text', textColorDark);
-		rootStyle.setProperty('--link-color', linkColorDark);
-		rootStyle.setProperty('--link-hover', linkHoverDark);
-		document.getElementById("navbar-icon-moon").style.display = "none";
-		document.getElementById("navbar-icon-sun").style.display = "inline";
+  if (darkModeEnabled) {
+    rootStyle.setProperty('--background', backgroundDark);
+    rootStyle.setProperty('--accent1-transparent', accent1TransparentDark);
+    rootStyle.setProperty('--accent1', accent1Dark);
+    rootStyle.setProperty('--accent2', accent2Dark);
+    rootStyle.setProperty('--accent3', accent3Dark);
+    rootStyle.setProperty('--accent4', accent4Dark);
+    rootStyle.setProperty('--accent5', accent5Dark);
+    rootStyle.setProperty('--text', textColorDark);
+    rootStyle.setProperty('--link-color', linkColorDark);
+    rootStyle.setProperty('--link-hover', linkHoverDark);
+    rootStyle.setProperty('--missing-link', missingLinkDark);
+    rootStyle.setProperty('--missing-link-hover', missingLinkHoverDark);
+    document.getElementById("navbar-icon-moon").style.display = "none";
+    document.getElementById("navbar-icon-sun").style.display = "inline";
 
-		document.querySelectorAll(".darkmode-invert").forEach(elem => elem.style.filter = "invert(1)");
-	} else {
-		rootStyle.setProperty('--background', backgroundLight);
-		rootStyle.setProperty('--accent1-transparent', accent1TransparentLight);
-		rootStyle.setProperty('--accent1', accent1Light);
-		rootStyle.setProperty('--accent2', accent2Light);
-		rootStyle.setProperty('--accent3', accent3Light);
-		rootStyle.setProperty('--accent4', accent4Light);
-		rootStyle.setProperty('--accent5', accent5Light);
-		rootStyle.setProperty('--text', textColorLight);
-		rootStyle.setProperty('--link-color', linkColorLight);
-		rootStyle.setProperty('--link-hover', linkHoverLight);
-		document.getElementById("navbar-icon-sun").style.display = "none";
-		document.getElementById("navbar-icon-moon").style.display = "inline";
+    document.querySelectorAll(".darkmode-invert").forEach(elem => elem.style.filter = "invert(1)");
+  } else {
+    rootStyle.setProperty('--background', backgroundLight);
+    rootStyle.setProperty('--accent1-transparent', accent1TransparentLight);
+    rootStyle.setProperty('--accent1', accent1Light);
+    rootStyle.setProperty('--accent2', accent2Light);
+    rootStyle.setProperty('--accent3', accent3Light);
+    rootStyle.setProperty('--accent4', accent4Light);
+    rootStyle.setProperty('--accent5', accent5Light);
+    rootStyle.setProperty('--text', textColorLight);
+    rootStyle.setProperty('--link-color', linkColorLight);
+    rootStyle.setProperty('--link-hover', linkHoverLight);
+    rootStyle.setProperty('--missing-link', missingLinkLight);
+    rootStyle.setProperty('--missing-link-hover', missingLinkHoverLight);
+    document.getElementById("navbar-icon-sun").style.display = "none";
+    document.getElementById("navbar-icon-moon").style.display = "inline";
 
-		document.querySelectorAll(".darkmode-invert").forEach(elem => elem.style.filter = "invert(0)");
-	}
+    document.querySelectorAll(".darkmode-invert").forEach(elem => elem.style.filter = "invert(0)");
+  }
 }
 
 
 try {
-	const media = window.matchMedia('(prefers-color-scheme: dark)');
-	// initialisierung dark mode
-	toggleDarkMode(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  const media = window.matchMedia('(prefers-color-scheme: dark)');
+  // initialisierung dark mode
+  toggleDarkMode(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
 
-	// live changes vom dark mode
-	if (media.addEventListener) {
-		media.addEventListener('change', e => toggleDarkMode(e.matches));
-	} else {
-		media.addListener(e => toggleDarkMode(e.matches));
-	}
+  // live changes vom dark mode
+  if (media.addEventListener) {
+    media.addEventListener('change', e => toggleDarkMode(e.matches));
+  } else {
+    media.addListener(e => toggleDarkMode(e.matches));
+  }
 } catch (err) {
-	console.error(`Could not initialize dark mode:\n${err.name}\n${err.message}`);
+  console.error(`Could not initialize dark mode:\n${err.name}\n${err.message}`);
 }
 
 
@@ -91,91 +99,95 @@ try {
 
 //Event Listener für expandable
 try {
-	let i = 0;
-	for (; i < document.getElementsByClassName("expandable-header").length; i++) {
-		document.getElementsByClassName("expandable-header")[i]
-			.addEventListener("click", toggleExpandable);
+  let i = 0;
+  for (; i < document.getElementsByClassName("expandable-header").length; i++) {
+    document.getElementsByClassName("expandable-header")[i]
+      .addEventListener("click", toggleExpandable);
 
-		//Damit es am Anfang schon mal gesetzt ist und nicht in HTML jedes mal eingefügt werden muss
-		document.getElementsByClassName("expandable-header")[i]
-			.classList.add("on-hover-background-accent3");
-	}
-	// console.debug("Added click event listeners for " + i + " expandables.")
+    //Damit es am Anfang schon mal gesetzt ist und nicht in HTML jedes mal eingefügt werden muss
+    document.getElementsByClassName("expandable-header")[i]
+      .classList.add("on-hover-background-accent3");
+  }
+  // console.debug("Added click event listeners for " + i + " expandables.")
 } catch (err) {
-	console.error(`Event Listener for expandable could not be registered.\nError: ${err.name}\nMessage: ${err.message}`)
+  console.error(`Event Listener for expandable could not be registered.\nError: ${err.name}\nMessage: ${err.message}`)
 }
 
 
 
 function toggleExpandable(event) {
-	const expandableHeaderEl = event.currentTarget;
-	const expandableContainerEl = expandableHeaderEl.parentElement;
-	const expandableContentEl = expandableContainerEl.getElementsByClassName("expandable-content")[0];
-	let expanded = Boolean(Number(expandableContainerEl.dataset.expanded));
+  const expandableHeaderEl = event.currentTarget;
+  const expandableContainerEl = expandableHeaderEl.parentElement;
+  const expandableContentEl = expandableContainerEl.getElementsByClassName("expandable-content")[0];
+  let expanded = Boolean(Number(expandableContainerEl.dataset.expanded));
 
-	expanded = !expanded;
-	expandableContainerEl.dataset.expanded = String(Number(expanded));
+  expanded = !expanded;
+  expandableContainerEl.dataset.expanded = String(Number(expanded));
 
-	if (expanded) { //Soll ausklappen
-		expandableHeaderEl.classList.remove("on-hover-background-accent3");
-		expandableContentEl.style.overflow = "hidden";
-		expandableContentEl.style.display = "";
-		expandableContentEl.style.height = expandableContentEl.scrollHeight + "px";
-		// expandableContentEl.style.transform = "scaleY(1)";
-		expandableContainerEl.querySelector(".expandable-header-icon").style.rotate = "-90deg";
+  if (expanded) { //Soll ausklappen
+    expandableHeaderEl.classList.remove("on-hover-background-accent3");
+    expandableContentEl.style.overflow = "hidden";
+    expandableContentEl.style.display = "";
+    expandableContentEl.style.transition =
+      `height ${expandableContentEl.scrollHeight / 2000}s ease`;
+    expandableContentEl.style.height = expandableContentEl.scrollHeight + "px";
+    // expandableContentEl.style.transform = "scaleY(1)";
+    expandableContainerEl.querySelector(".expandable-header-icon").style.rotate = "-90deg";
 
-		// nach der Animation auf auto setzen
-		expandableContentEl.addEventListener("transitionend", function handler() {
-			expandableContentEl.style.height = "auto";
-			expandableContentEl.style.overflow = "show";
-			expandableContentEl.removeEventListener("transitionend", handler);
-		});
-	} else {
+    // nach der Animation auf auto setzen
+    expandableContentEl.addEventListener("transitionend", function handler() {
+      expandableContentEl.style.height = "auto";
+      expandableContentEl.style.overflow = "show";
+      expandableContentEl.removeEventListener("transitionend", handler);
+    });
+  } else {
 
-		expandableContentEl.style.overflow = "hidden";
-		expandableContainerEl.querySelector(".expandable-header-icon").style.rotate = "90deg";
-		// expandableContentEl.style.transform = "scaleY(0.01)";
-		expandableContentEl.style.height = expandableContentEl.offsetHeight + "px";
-		requestAnimationFrame(() => {
-			expandableContentEl.style.height = "0";
-		});
+    expandableContentEl.style.transition =
+      `height ${expandableContentEl.scrollHeight / 2000}s cubic-bezier(.59,0,.59,.81)`;
+    expandableContentEl.style.overflow = "hidden";
+    expandableContainerEl.querySelector(".expandable-header-icon").style.rotate = "90deg";
+    // expandableContentEl.style.transform = "scaleY(0.01)";
+    expandableContentEl.style.height = expandableContentEl.offsetHeight + "px";
+    requestAnimationFrame(() => {
+      expandableContentEl.style.height = "0";
+    });
 
-		expandableContentEl.addEventListener("transitionend", function handler() {
-			expandableContentEl.style.display = "none";
-			expandableContentEl.style.overflow = "show";
-			expandableHeaderEl.classList.add("on-hover-background-accent3");
-			expandableContentEl.removeEventListener("transitionend", handler);
-		});
-	}
+    expandableContentEl.addEventListener("transitionend", function handler() {
+      expandableContentEl.style.display = "none";
+      expandableContentEl.style.overflow = "show";
+      expandableHeaderEl.classList.add("on-hover-background-accent3");
+      expandableContentEl.removeEventListener("transitionend", handler);
+    });
+  }
 }
 
 
 
 
 function injectSourceNotes() {
-	try {
-		document.querySelectorAll("[data-sources]").forEach(elementWithSource => {
-			//sources-Attribut vom Element (getrennt mit Leerzeichen oder ,) in einen Array umwandeln
-			const sources = elementWithSource.dataset.sources.split(/[,\s]+/).map(Number);
-			sources.forEach(source => {
-				const sourceEl = document.createElement("sup");
-				sourceEl.innerHTML = `[${source}]`;
-				sourceEl.tabIndex = "0";
-				sourceEl.className = "source";
-				sourceEl.style.color = "var(--link-color)";
-				elementWithSource.appendChild(sourceEl);
-				sourceEl.addEventListener("click", showSourceMenu)
-			});
-		});
-	} catch (err) {
-		console.error(`could not inject source notes.\n${err.name}\n${err.message}`);
-	}
+  try {
+    document.querySelectorAll("[data-sources]").forEach(elementWithSource => {
+      //sources-Attribut vom Element (getrennt mit Leerzeichen oder ,) in einen Array umwandeln
+      const sources = elementWithSource.dataset.sources.split(/[,\s]+/).map(Number);
+      sources.forEach(source => {
+        const sourceEl = document.createElement("sup");
+        sourceEl.innerHTML = `[${source}]`;
+        sourceEl.tabIndex = "0";
+        sourceEl.className = "source";
+        sourceEl.style.color = "var(--link-color)";
+        elementWithSource.appendChild(sourceEl);
+        sourceEl.addEventListener("click", showSourceMenu)
+      });
+    });
+  } catch (err) {
+    console.error(`could not inject source notes.\n${err.name}\n${err.message}`);
+  }
 }
 
 injectSourceNotes();
 
 function showSourceMenu(event) {
-	const sourceEl = event.currentTarget
+  const sourceEl = event.currentTarget
 }
 
 
@@ -193,5 +205,5 @@ function injectSourceFooterContent() {
 
 
 function copyURIWithID(id) {
-	navigator.clipboard.writeText(`${document.baseURI}#${id}`)
+  navigator.clipboard.writeText(`${document.baseURI}#${id}`)
 }

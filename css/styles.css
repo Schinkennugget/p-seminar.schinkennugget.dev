@@ -53,6 +53,8 @@
   --text: #000;
   --link-color: #22d;
   --link-hover: #00a;
+  --missing-link: #d11;
+  --missing-link-hover: #a00;
 }
 
 @media screen and (prefers-color-scheme: dark) {
@@ -67,6 +69,8 @@
     --text: #fff;
     --link-color: #55f;
     --link-hover: #77f;
+    --missing-link: #e00;
+  --missing-link-hover: #f11;
   }
 
   .darkmode-invert {
@@ -151,6 +155,14 @@ a {
 a:hover {
   color: var(--link-hover);
   text-decoration: underline;
+}
+
+a.missing {
+  color: var(--missing-link);
+}
+
+a.missing:hover {
+  color: var(--missing-link-hover);
 }
 
 .on-hover-background-accent3:hover {
@@ -595,19 +607,21 @@ p.text > p {
 }
 
 .text-image {
-  display: flex;
+  display: inline-flex;
+  float: right;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  margin: 1rem 0;
+  /*width: 100%;*/
+  margin: 1rem;
 }
 
 .text-image > img {
-  max-height: 500px;
+  max-height: 300px;
   max-width: 100%;
+  width: auto;
   height: auto;
-  display: block;
+  display: inline-block;
 }
 
 /*@media screen and (min-width: 800px) {
