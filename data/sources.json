@@ -2,15 +2,41 @@
   "1": {
     "name": "PSE-Info",
     "description": "Online-Datenbank des Periodensystems",
-    "url": "https://pse-info.de/de/data"
+    "url": "https://pse-info.de/de/data",
+    "visited": ""
   },
   "2": {
     "name": "Wikipedia",
     "description": "Wikipedia: Zink",
-    "url": "https://de.wikipedia.org/wiki/Zink"
+    "url": "https://de.wikipedia.org/wiki/Zink",
+    "visited": ""
   },
   "3": {
     "name": "zink.de",
-    "url": "https://www.zink.de/zink/herstellung-von-zink/gewinnung/"
+    "url": "https://www.zink.de/zink/herstellung-von-zink/gewinnung/",
+    "visited": ""
+  },
+  "4": {
+    "name": "Institut Seltene Erden",
+    "url": "https://institut-seltene-erden.de/seltene-erden-und-metalle/basismetalle/zink/",
+    "visited": ""
+  },
+  "5": {
+    "name": "Wikipedia",
+    "description": "Wikipedia: Unedle Metalle",
+    "url": "https://de.wikipedia.org/wiki/Unedle_Metalle",
+    "visited": "26.02.2026"
+  },
+  "6": {
+    "name": "chemie.de",
+    "description": "chemie.de: Übergangsmetalle",
+    "url": "https://www.chemie.de/lexikon/Übergangsmetalle.html",
+    "visited": "26.02.2026"
+  },
+  "7": {
+    "name": "GESTIS-Stoffdatenbank",
+    "description": "Zink, Pulver oder Staub, nicht stabilisiert",
+    "url": "https://gestis.dguv.de/data?name=008250",
+    "visited": "26.02.2026"
   }
 }

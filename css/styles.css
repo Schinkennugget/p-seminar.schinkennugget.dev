@@ -157,11 +157,11 @@ a:hover {
   text-decoration: underline;
 }
 
-a.missing {
+a[href=""] {
   color: var(--missing-link);
 }
 
-a.missing:hover {
+a.[href=""]:hover {
   color: var(--missing-link-hover);
 }
 
@@ -624,12 +624,6 @@ p.text > p {
   display: inline-block;
 }
 
-/*@media screen and (min-width: 800px) {
-  p.text {
-    column-count: 2;
-    column-gap: 2rem;
-  }
-}*/
 
 
 
