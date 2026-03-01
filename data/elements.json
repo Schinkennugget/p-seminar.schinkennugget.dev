@@ -279,7 +279,7 @@
       "fr": "Hydrogène"
     }
   },
-  
+
   "h": {
     "elementname": "Wasserstoff",
     "elementsymbol": "H",
@@ -292,8 +292,29 @@
       "value": 133,
       "unit": "pm"
     },
-		"ionenradius": ""
+    "ionenradius": "",
+    "oxidationszahl": "",
+    "siedepunkt": {
+      "value": 11,
+      "unit": "K",
+      "space-seperated": true,
+    },
+    "schmelzpunkt": {
+      "value": 11,
+      "unit": "K",
+      "space-seperated": true,
+    },
+    "ionisierungsenergie": {
+      "value": 11,
+      "unit": "<div class='frac'><span>kJ</span><span class='symbol'>/</span><span class='bottom'>mol</span></div>",
+      "at": "25&nbsp;&#8451;"
+    },
+    "dichte": {
+      "value": 11,
+      "unit": "<div class='frac'><span>g</span><span class='symbol'>/</span><span class='bottom'>cm<sup>3</sup></span></div>"
+    },
     
+
   }
-  
+
 }

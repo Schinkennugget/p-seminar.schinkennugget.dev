@@ -612,21 +612,33 @@ p.text > p {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /*width: 100%;*/
+  max-width: 60%;
   margin: 1rem;
 }
 
 .text-image > img {
-  max-height: 300px;
   max-width: 100%;
-  width: auto;
   height: auto;
   display: inline-block;
 }
 
+.text-image > * {
+  max-width: min-content;
+}
 
-
-
+@media screen and (max-width: 500px) {
+  .text-image {
+    display: flex;
+    max-width: 100%;
+    width: 100%;
+    margin: 1rem auto;
+    float: left;
+  }
+  
+  .text-image > img {
+    max-height: 250px;
+  }
+}
 
 
 
