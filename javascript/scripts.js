@@ -199,11 +199,12 @@ function injectSourceFooterContent() {
 
 
 
-
-
-
-
-
 function copyURIWithID(id) {
   navigator.clipboard.writeText(`${document.baseURI}#${id}`)
 }
+
+
+
+
+
+// Execute every time the window gets resized

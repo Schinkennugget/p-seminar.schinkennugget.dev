@@ -17,15 +17,51 @@ const zinkDaten = new Map([
 let elementDaten = undefined;
 
 
+let obj = {};
 
-
-fetch("data/elements.json")
+fetch("https://raw.githubusercontent.com/Bowserinator/Periodic-Table-JSON/refs/heads/master/PeriodicTableJSON.json")
   .then((response) => {
-    console.log(response);
     return response.json();
   })
-  .then(function(data) {
-    
+  .then(function(jsonData) {
+    function roundNumber(number, digits) {
+      var multiple = Math.pow(10, digits);
+      var rndedNum = Math.round(number * multiple) / multiple;
+      return rndedNum;
+    }
+
+    for (let element of jsonData.elements) {
+      obj[element.symbol.toLowerCase()] = {
+        elementname: "",
+        elementsymbol: element.symbol,
+        ordnungszahl: element.number,
+        atommasse: roundNumber(element.atomic_mass, 5),
+        atomradius: "",
+        ionenradius: "",
+        oxidationszahl: "",
+        siedepunkt: roundNumber(element.boil - 273.15, 1),
+        schmelzpunkt: roundNumber(element.melt - 273.15, 1),
+        ionisierungsenergie: roundNumber(element.ionization_energies[0], 0),
+        dichte: roundNumber(element.density, 1),
+        elektronegativitaet: element.electronegativity_pauling,
+        anteil_haeufigstes_isotop: ""
+      };
+    }
+
+    fetch("https://raw.githubusercontent.com/komed3/periodic-table/master/_db/elements.json")
+      .then((response) => {
+        return response.json();
+      })
+      .then(function(jsonData) {
+        for (let key in jsonData) {
+          obj[key].elementname = jsonData[key].names.de;
+        }
+
+        console.log(JSON.stringify(obj))
+      })
+      .catch(err =>
+        console.error(`Could not load periodic table data from json.\n${err.name}\n${err.message}`)
+      );
   })
   .catch(err =>
     console.error(`Could not load periodic table data from json.\n${err.name}\n${err.message}`)
