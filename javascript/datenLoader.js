@@ -53,6 +53,9 @@ export async function insertDatenIntoGrafik(elementName) {
       if (value === "" || value === undefined) {
         value = "?";
       }
+      if (typeof value == typeof 1) {
+        value = value.toLocaleString();
+      }
 
       let divEl = document.createElement("div");
       divEl.id = "daten-grafik-" + key;
@@ -60,10 +63,10 @@ export async function insertDatenIntoGrafik(elementName) {
       divEl.classList.add("daten-grafik-" + key);
       divEl.style.gridArea = key;
       divEl.innerHTML = value;
-      if (key == "ionenradius" && elementObj.ionenradius != "?" && elementObj.oxidationszahl != "?" && elementObj.oxidationszahl != "" && elementObj.oxidationszahl != undefined) {
-        divEl.innerHTML += " (" + elementObj.oxidationszahl + ")";
-      }
-      if (key != "oxidationszahl" && key != "background_color") {
+      // if (key == "ionenradius" && elementObj.ionenradius != "?" && elementObj.oxidationszahl != "?" && elementObj.oxidationszahl != "" && elementObj.oxidationszahl != undefined) {
+      //   divEl.innerHTML += " (" + elementObj.oxidationszahl + ")";
+      // }
+      if (key != "background_color") {
         grafikEl.append(divEl);
       }
 
@@ -116,21 +119,34 @@ export async function insertDatenIntoDatenliste(elementName) {
       const iconEl = lucide.createElement(lucide[icon])
 
       let value = elementObj[key];
+      if (typeof value == typeof 1) {
+        value = value.toLocaleString();
+      }
       let unit = unitObj[key] ?? "";
 
 
       iconEl.classList.add("daten-icon")
       thEl.prepend(iconEl);
-      thEl.innerHTML += datenName;
       thEl.classList.add("daten-" + key);
+      thEl.innerHTML += datenName;
+      if (key == "ionenradius") {
+        if (value.includes("I") || value.includes("V")) {
+          thEl.innerHTML += " (für Oxidationszahl)";
+        } else {
+          thEl.innerHTML += " (bei Ladung)";
+        }
+      }
 
       tdEl.classList.add("daten-" + key);
       tdEl.classList.add("daten-wert");
       tdEl.id = "daten-" + key + "-wert";
-      if (value != "" && value != "?" && value != undefined) {
+      //Setzt den Wert auf den Wert mit Einheit, sonst auf unbekannt oder -
+      if (value == "-") {
+        tdEl.innerHTML = "–";
+      } else if (value != "" && value != "?" && value != undefined) {
         tdEl.innerHTML = value + unit;
       } else { tdEl.innerHTML = "<i>unbekannt</i>" }
-      
+
       if (info) {
         let infoEl = document.createElement("div");
         infoEl.classList.add("daten-info-" + key);
@@ -205,21 +221,21 @@ export async function insertDatenIntoDatenliste(elementName) {
       datenName: "1. Ionisierungsenergie",
       info: " "
     });
-    
+
     addListenElement({
       icon: "FoldHorizontal",
       key: "dichte",
       datenName: "Dichte",
       info: " "
     });
-    
+
     addListenElement({
       icon: "CircleMinus",
-      key: "eletronegativitaet",
+      key: "elektronegativitaet",
       datenName: "Elektronegativität",
       info: " "
     });
-    
+
     addListenElement({
       icon: "ChartPie",
       key: "anteil_haeufigstes_isotop",
