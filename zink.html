@@ -11,7 +11,7 @@
   <meta name="msapplication-navbutton-color" content="#228b22">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="#228b22">
-  <link rel="stylesheet" href="css/styles.css" />
+  <!-- <link rel="stylesheet" href="css/styles.css" /> -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
@@ -20,11 +20,6 @@
   <link rel="shortcut icon" href="images/favicon-zink/favicon.ico" />
   <link rel="apple-touch-icon" sizes="180x180" href="images/favicon-zink/apple-touch-icon.png" />
   <link rel="manifest" href="images/favicon-zink/site.webmanifest" />
-
-  <!-- Vorübergehend -->
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <meta http-equiv="Pragma" content="no-cache">
-  <meta http-equiv="Expires" content="0">
 
   <title>Zink</title>
 </head>
@@ -215,18 +210,36 @@
 
 
   <!-- Icons -->
-  <script src="javascript/scripts.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    //NUR FÜR DEVOLOPMENT, DEAKTIVIERT CACHING
+    const v = Date.now(); // neuer Wert bei jedem Seitenaufruf
+    const linkCSS = document.createElement("link");
+    linkCSS.rel = "stylesheet";
+    linkCSS.href = "css/styles.css?v=" + v;
+    document.head.append(linkCSS);
+    
+    const scripts = document.createElement("script");
+    scripts.src = "javascript/scripts.js?v=" + v;
+    document.body.append(scripts);
+    
+    const datenLoaderEl = document.createElement("script");
+    datenLoaderEl.type = "module";
+    datenLoaderEl.src = "javascript/datenLoader.js?v=" + v;
+    document.body.append(datenLoaderEl);
+  </script>
+  
+  <!-- <script src="javascript/scripts.js"></script> -->
 
-  <script type="module" src="javascript/datenLoader.js"></script>
+  <!-- <script type="module" src="javascript/datenLoader.js"></script> -->
   <script type="module">
     import * as datenLoader from "./javascript/datenLoader.js";
-    
+
     datenLoader.insertDatenIntoGrafik("Zink");
     datenLoader.insertDatenIntoDatenliste("Zink");
     // datenLoader.loadDaten();
   </script>
 
-  <script src="https://unpkg.com/lucide@latest"></script>
   <script>
     lucide.createIcons();
   </script>
