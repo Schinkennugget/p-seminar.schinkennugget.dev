@@ -137,7 +137,7 @@ function toggleExpandable(event) {
     // nach der Animation auf auto setzen
     expandableContentEl.addEventListener("transitionend", function handler() {
       expandableContentEl.style.height = "auto";
-      expandableContentEl.style.overflow = "show";
+      expandableContentEl.style.overflow = "";
       expandableContentEl.removeEventListener("transitionend", handler);
     });
   } else {
@@ -154,7 +154,7 @@ function toggleExpandable(event) {
 
     expandableContentEl.addEventListener("transitionend", function handler() {
       expandableContentEl.style.display = "none";
-      expandableContentEl.style.overflow = "show";
+      expandableContentEl.style.overflow = "";
       expandableHeaderEl.classList.add("on-hover-background-accent3");
       expandableContentEl.removeEventListener("transitionend", handler);
     });

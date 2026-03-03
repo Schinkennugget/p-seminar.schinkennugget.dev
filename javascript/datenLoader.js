@@ -17,6 +17,226 @@ const zinkDaten = new Map([
 let elementDaten = undefined;
 
 
+
+let alleElemente = null;
+
+async function loadElemente() {
+  if (!alleElemente) {
+    const response = await fetch('data/elements.json');
+    alleElemente = await response.json();
+  }
+  return alleElemente;
+}
+
+async function findElementWithName(name) {
+  const elemente = await loadElemente();
+  for (let key in elemente) {
+    if (elemente[key].elementname === name) {
+      return elemente[key];
+    }
+  }
+  return null; // explizit null zurückgeben
+}
+
+export async function insertDatenIntoGrafik(elementName) {
+  try {
+    const elementObj = await findElementWithName(elementName);
+    const grafikEl = document.getElementById("daten-grafik");
+
+    if (!elementObj) {
+      console.error(`Kein Element mit dem Namen "${elementName}" gefunden.`);
+      return;
+    }
+
+    for (let key in elementObj) {
+      let value = elementObj[key];
+      if (value === "" || value === undefined) {
+        value = "?";
+      }
+
+      let divEl = document.createElement("div");
+      divEl.id = "daten-grafik-" + key;
+      divEl.classList.add("daten-grafik-wert");
+      divEl.classList.add("daten-grafik-" + key);
+      divEl.style.gridArea = key;
+      divEl.innerHTML = value;
+      if (key == "ionenradius" && elementObj.ionenradius != "?" && elementObj.oxidationszahl != "?" && elementObj.oxidationszahl != "" && elementObj.oxidationszahl != undefined) {
+        divEl.innerHTML += " (" + elementObj.oxidationszahl + ")";
+      }
+      if (key != "oxidationszahl" && key != "background_color") {
+        grafikEl.append(divEl);
+      }
+
+      grafikEl.style.backgroundColor = elementObj.background_color || "darkgray";
+    }
+
+  } catch (err) {
+    console.error(err.name + "\n" + err.message); // .description → .message
+  }
+}
+
+
+
+
+export async function insertDatenIntoDatenliste(elementName) {
+  try {
+    const elementObj = await findElementWithName(elementName);
+    let alleElementeObj = await loadElemente() ?? {};
+    let unitObj = alleElementeObj.units;
+    const listeEl = document.getElementById("daten-liste");
+
+    if (!elementObj) {
+      console.error(`No elements found with name "${elementName}"`);
+      return;
+    }
+
+    if (!unitObj) {
+      console.error("Units could not be loaded");
+      unitObj = {};
+    }
+
+    function addListenElement({ icon, key, datenName, info }) {
+      /* Adds an element like this:
+        
+        <tr>
+          <th class="daten-*key*">
+            <i data-lucide="*icon*" class="daten-icon"></i>
+            *datenName*
+          </th>
+          <td class="daten-*key* daten-wert" id="daten-*key*-wert">
+            *value + unit*
+            <div id="daten-info-*key*" class="daten-info">*info*</div>
+          </td>
+        </tr>
+                
+        */
+      let trEl = document.createElement("tr");
+      let thEl = document.createElement("th");
+      let tdEl = document.createElement("td");
+      const iconEl = lucide.createElement(lucide[icon])
+
+      let value = elementObj[key];
+      let unit = unitObj[key] ?? "";
+
+
+      iconEl.classList.add("daten-icon")
+      thEl.prepend(iconEl);
+      thEl.innerHTML += datenName;
+      thEl.classList.add("daten-" + key);
+
+      tdEl.classList.add("daten-" + key);
+      tdEl.classList.add("daten-wert");
+      tdEl.id = "daten-" + key + "-wert";
+      if (value != "" && value != "?" && value != undefined) {
+        tdEl.innerHTML = value + unit;
+      } else { tdEl.innerHTML = "<i>unbekannt</i>" }
+      
+      if (info) {
+        let infoEl = document.createElement("div");
+        infoEl.classList.add("daten-info-" + key);
+        infoEl.classList.add("daten-info");
+        infoEl.innerHTML = info;
+        thEl.append(infoEl);
+      }
+
+      trEl.append(thEl);
+      trEl.append(tdEl);
+      listeEl.append(trEl);
+    }
+
+    addListenElement({
+      icon: "Tag",
+      key: "elementname",
+      datenName: "Elementname"
+    });
+
+    addListenElement({
+      icon: "ALargeSmall",
+      key: "elementsymbol",
+      datenName: "Elementsymbol",
+      info: "Das Elementsymbol ist die Kurzschreibweise des Elementnames. Es wird z.B. in chemischen Gleichungen verwendet. Das Elementsymbol ist meist eine Abkürzung des lateinischen Namens des Elements und ist so international gleich."
+    });
+
+    addListenElement({
+      icon: "BadgePlus",
+      key: "ordnungszahl",
+      datenName: "Ordnungszahl/Protonenzahl",
+      info: "Die Anzahl der Protonen im Atomkern. Anders als die Neutronenzahl ist sie bei jedem Element eindeutig und bestimmt die Stellung im PSE, deswegen auch Ordnugszahl."
+    });
+
+    addListenElement({
+      icon: "WeightTilde",
+      key: "atommasse",
+      datenName: "Atommasse (Massenzahl)",
+      info: " "
+    });
+
+    addListenElement({
+      icon: "Atom",
+      key: "atomradius",
+      datenName: "Atomradius",
+      info: " "
+    });
+
+    addListenElement({
+      icon: "Radius",
+      key: "ionenradius",
+      datenName: "Ionenradius",
+      info: " "
+    });
+
+    addListenElement({
+      icon: "ThermometerSun",
+      key: "siedepunkt",
+      datenName: "Siedepunkt",
+      info: " "
+    });
+
+    addListenElement({
+      icon: "ThermometerSnowflake",
+      key: "schmelzpunkt",
+      datenName: "Schmelzpunkt",
+      info: " "
+    });
+
+    addListenElement({
+      icon: "Zap",
+      key: "ionisierungsenergie",
+      datenName: "1. Ionisierungsenergie",
+      info: " "
+    });
+    
+    addListenElement({
+      icon: "FoldHorizontal",
+      key: "dichte",
+      datenName: "Dichte",
+      info: " "
+    });
+    
+    addListenElement({
+      icon: "CircleMinus",
+      key: "eletronegativitaet",
+      datenName: "Elektronegativität",
+      info: " "
+    });
+    
+    addListenElement({
+      icon: "ChartPie",
+      key: "anteil_haeufigstes_isotop",
+      datenName: "Anteil des häufigsten Isotops",
+      info: " "
+    });
+
+  } catch (err) {
+    console.error(err.name + "\n" + err.message); // .description → .message
+  }
+}
+
+
+
+
+/*
+Loads the periodic table data
 let obj = {};
 
 fetch("https://raw.githubusercontent.com/Bowserinator/Periodic-Table-JSON/refs/heads/master/PeriodicTableJSON.json")
@@ -35,15 +255,15 @@ fetch("https://raw.githubusercontent.com/Bowserinator/Periodic-Table-JSON/refs/h
         elementname: "",
         elementsymbol: element.symbol,
         ordnungszahl: element.number,
-        atommasse: roundNumber(element.atomic_mass, 5),
+        atommasse: roundNumber(element.atomic_mass, 5) ?? "?",
         atomradius: "",
         ionenradius: "",
         oxidationszahl: "",
-        siedepunkt: roundNumber(element.boil - 273.15, 1),
-        schmelzpunkt: roundNumber(element.melt - 273.15, 1),
-        ionisierungsenergie: roundNumber(element.ionization_energies[0], 0),
-        dichte: roundNumber(element.density, 1),
-        elektronegativitaet: element.electronegativity_pauling,
+        siedepunkt: roundNumber(element.boil - 273.15, 1) ?? "?",
+        schmelzpunkt: roundNumber(element.melt - 273.15, 1) ?? "?",
+        ionisierungsenergie: roundNumber(element.ionization_energies[0], 0) ?? "?",
+        dichte: roundNumber(element.density, 1) ?? "?",
+        elektronegativitaet: element.electronegativity_pauling ?? "?",
         anteil_haeufigstes_isotop: ""
       };
     }
@@ -65,10 +285,10 @@ fetch("https://raw.githubusercontent.com/Bowserinator/Periodic-Table-JSON/refs/h
   })
   .catch(err =>
     console.error(`Could not load periodic table data from json.\n${err.name}\n${err.message}`)
-  );
+  ); */
 
 
-function loadDaten() {
+export function loadDaten() {
   let datenGrafikContent = "";
   zinkDaten.forEach(function(value, key) {
     datenGrafikContent += `<div id="daten-grafik-${key}" class="daten-grafik-wert daten-${key}">${value}</div>`;
@@ -83,8 +303,3 @@ function loadDaten() {
     }
   } catch (err) {}
 }
-
-
-
-
-loadDaten();

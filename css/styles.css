@@ -368,9 +368,17 @@ li.navbar-active {
 	padding: 1rem;
 	margin: 0;
 	box-sizing: border-box;
-	background-color: forestgreen;
+	/*background-color: forestgreen;*/
 	grid-area: grafik;
 	border-radius: 1rem;
+  grid-template-areas: 
+  "atommasse ordnungszahl"
+  "elementsymbol elementsymbol"
+  "elementname elementname"
+  "atomradius siedepunkt"
+  "ionenradius schmelzpunkt"
+  "ionisierungsenergie dichte"
+  "elektronegativitaet anteil_haeufigstes_isotop";
 }
 
 #daten-grafik-elementsymbol,
@@ -397,13 +405,18 @@ li.navbar-active {
 	color: #ddd;
 }
 
-#daten-grafik-protonenzahl,
-#daten-grafik-siedetemperatur,
-#daten-grafik-schmelztemperatur,
+#daten-grafik-oxidationszahl {
+    background-color: red;
+}
+
+#daten-grafik-ordnungszahl,
+#daten-grafik-siedepunkt,
+#daten-grafik-schmelzpunkt,
 #daten-grafik-dichte,
-#daten-grafik-anteil-haeufigstes-isotop {
+#daten-grafik-anteil_haeufigstes_isotop {
 	justify-content: right;
 	text-align: right;
+  align-self: right;
 }
 
 /*Andere Bestandteile*/
@@ -435,6 +448,7 @@ li.navbar-active {
 	grid-area: liste;
 	margin: 0;
 	grid-row: 1 / span 3;
+  overflow: show;
 }
 
 #daten-liste tr {
