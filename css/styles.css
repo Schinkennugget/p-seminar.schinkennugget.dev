@@ -396,13 +396,15 @@ li.navbar-active {
 .daten-grafik-wert {
 	align-items: center;
 	font-weight: 750;
-	transition: font-weight 0.3s, color 0.3s;
+	transition: font-weight 0.3s, color 0.3s, transform 0.3s;
 }
 
-.daten-grafik-wert:hover {
+div.daten-on-hover {
 	font-weight: 900;
 	text-shadow: 0.15em 0.15em 0.15em var(--shadow);
-	color: #ddd;
+	color: #aaa;
+  transform: scale(1.1);
+  transition: font-weight 0.3s, color 0.3s, transform 0.3s;
 }
 
 #daten-grafik-oxidationszahl {
@@ -464,7 +466,7 @@ li.navbar-active {
 	border-top: none;
 }
 
-#daten-liste tr:hover {
+tr.daten-on-hover {
 	background-color: var(--accent3);
 }
 

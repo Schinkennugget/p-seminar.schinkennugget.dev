@@ -34,8 +34,13 @@ function touchHandler(event) {
     document.getElementById("test").innerHTML = `x: ${touch.clientX} | y: ${touch.clientY}`;
 }
 
+function mouseHandler(event) {
+  document.getElementById("test").innerHTML = `x: ${event.clientX} | y: ${event.clientY}`;
+}
+
 document.documentElement.addEventListener("touchstart", touchHandler);
 document.documentElement.addEventListener("touchmove", touchHandler);
+document.documentElement.addEventListener("mousemove", mouseHandler);
 
 
 document.documentElement.addEventListener("touchend", function handleEvent(event) {

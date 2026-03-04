@@ -124,13 +124,13 @@
 
 
       <div id="daten-werte-abschnitt" class="expandable-content" style="display:none;">
-        <div id="daten-grafik">
+        <div id="daten-grafik" class="daten-element">
           <!-- Werden über datenLoader.js geladen -->
         </div>
 
 
 
-        <table id="daten-liste">
+        <table id="daten-liste" class="daten-element">
           <!-- Werden über datenLoader.js geladen (siehe script unten) -->
 
         </table>
@@ -216,17 +216,23 @@
     const v = Date.now(); // neuer Wert bei jedem Seitenaufruf
     const linkCSS = document.createElement("link");
     linkCSS.rel = "stylesheet";
-    linkCSS.href = "css/styles.css?v=" + v;
-    document.head.append(linkCSS);
+    linkCSS.href = "css/styles.css"
+    
     
     const scripts = document.createElement("script");
-    scripts.src = "javascript/scripts.js?v=" + v;
+    scripts.src = "javascript/scripts.js";
+    
+    if (document.baseURI.includes("p-seminar.schinkennugget.dev")) {
+      scripts.src += "?v=" + v;
+      linkCSS.href += "?v=" + v;
+    }
+    document.head.append(linkCSS);
     document.body.append(scripts);
     
-    const datenLoaderEl = document.createElement("script");
-    datenLoaderEl.type = "module";
-    datenLoaderEl.src = "javascript/datenLoader.js?v=" + v;
-    document.body.append(datenLoaderEl);
+    // const datenLoaderEl = document.createElement("script");
+    // datenLoaderEl.type = "module";
+    // datenLoaderEl.src = "javascript/datenLoader.js?v=" + v;
+    // document.body.append(datenLoaderEl);
   </script>
   
   <!-- <script src="javascript/scripts.js"></script> -->

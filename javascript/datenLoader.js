@@ -1,21 +1,5 @@
 "use strict";
 
-const zinkDaten = new Map([
-  ["atommasse", "65,38"],
-  ["protonenzahl", "30"],
-  ["elementsymbol", "Zn"],
-  ["elementname", "Zink"],
-  ["atomradius", "133"],
-  ["siedetemperatur", "906"],
-  ["ionenradius-oxidationszahl", "74 (+II)"],
-  ["schmelztemperatur", "419"],
-  ["ionisierungsenergie", "913"],
-  ["dichte", "7,14"],
-  ["elektronegativitaet", "1,65 (II)"],
-  ["anteil-haeufigstes-isotop", "48,6"]
-]);
-let elementDaten = undefined;
-
 
 
 let alleElemente = null;
@@ -29,7 +13,8 @@ async function loadElemente() {
 }
 
 async function findElementWithName(name) {
-  const elemente = await loadElemente();
+  const all = await loadElemente();
+  const elemente = all.elements;
   for (let key in elemente) {
     if (elemente[key].elementname === name) {
       return elemente[key];
@@ -37,6 +22,11 @@ async function findElementWithName(name) {
   }
   return null; // explizit null zurückgeben
 }
+
+
+//const atomradien = `{"h":53,"he":31,"li":167,"be":112,"b":87,"c":67,"n":56,"o":48,"f":42,"ne":38,"na":190,"mg":145,"al":118,"si":111,"p":98,"s":88,"cl":79,"ar":71,"k":243,"ca":194,"sc":184,"ti":176,"v":171,"cr":166,"mn":161,"fe":156,"co":152,"ni":149,"cu":145,"zn":142,"ga":136,"ge":125,"as":114,"se":103,"br":94,"kr":88,"rb":265,"sr":219,"y":212,"zr":206,"nb":198,"mo":190,"tc":183,"ru":178,"rh":173,"pd":169,"ag":165,"cd":161,"in":156,"sn":145,"sb":133,"te":123,"i":115,"xe":108,"cs":298,"ba":253,"pr":247,"nd":206,"pm":205,"sm":238,"eu":231,"gd":233,"tb":225,"dy":228,"ho":226,"er":226,"tm":222,"yb":222,"lu":217,"hf":208,"ta":200,"w":193,"re":188,"os":185,"ir":180,"pt":177,"au":174,"hg":171,"tl":156,"pb":154,"bi":143,"po":135,"at":127,"rn":120}`;
+
+
 
 export async function insertDatenIntoGrafik(elementName) {
   try {
@@ -49,28 +39,37 @@ export async function insertDatenIntoGrafik(elementName) {
     }
 
     for (let key in elementObj) {
-      let value = elementObj[key];
-      if (value === "" || value === undefined) {
-        value = "?";
-      }
-      if (typeof value == typeof 1) {
-        value = value.toLocaleString();
-      }
+      if (key != "additional_data") {
+        let value = elementObj[key];
+        if (value === "" || value === undefined) {
+          value = "?";
+        }
+        if (typeof value == typeof 1) {
+          value = value.toLocaleString();
+        }
 
-      let divEl = document.createElement("div");
-      divEl.id = "daten-grafik-" + key;
-      divEl.classList.add("daten-grafik-wert");
-      divEl.classList.add("daten-grafik-" + key);
-      divEl.style.gridArea = key;
-      divEl.innerHTML = value;
-      // if (key == "ionenradius" && elementObj.ionenradius != "?" && elementObj.oxidationszahl != "?" && elementObj.oxidationszahl != "" && elementObj.oxidationszahl != undefined) {
-      //   divEl.innerHTML += " (" + elementObj.oxidationszahl + ")";
-      // }
-      if (key != "background_color") {
+        let divEl = document.createElement("div");
+        divEl.id = "daten-grafik-" + key;
+        divEl.classList.add("daten-grafik-wert");
+        divEl.classList.add("daten-" + key);
+        divEl.dataset.datatype = key
+        divEl.style.gridArea = key;
+        divEl.innerHTML = value;
+        if (key == "ionenradius") {
+          divEl.innerHTML += ` (${elementObj.additional_data.ionenradius_ladung})`;
+        }
+        if (key == "elektronegativitaet") {
+          divEl.innerHTML += ` (${elementObj.additional_data.elektronegativitaet_oxidationszahl})`;
+        }
+        // if (key == "ionenradius" && elementObj.ionenradius != "?" && elementObj.oxidationszahl != "?" && elementObj.oxidationszahl != "" && elementObj.oxidationszahl != undefined) {
+        //   divEl.innerHTML += " (" + elementObj.oxidationszahl + ")";
+        // }
+
         grafikEl.append(divEl);
-      }
 
-      grafikEl.style.backgroundColor = elementObj.background_color || "darkgray";
+        grafikEl.style.backgroundColor = elementObj.additional_data.background_color || "darkgray";
+      }
+      // console.debug(grafikEl.outerHTML);
     }
 
   } catch (err) {
@@ -98,7 +97,12 @@ export async function insertDatenIntoDatenliste(elementName) {
       unitObj = {};
     }
 
-    function addListenElement({ icon, key, datenName, info }) {
+    function addListenElement({
+      icon,
+      key,
+      datenName,
+      info
+    }) {
       /* Adds an element like this:
         
         <tr>
@@ -143,9 +147,29 @@ export async function insertDatenIntoDatenliste(elementName) {
       //Setzt den Wert auf den Wert mit Einheit, sonst auf unbekannt oder -
       if (value == "-") {
         tdEl.innerHTML = "–";
+        
+        //Beim Ionenradius muss der Ert zusammengesetzt werden aus Radius und Ladung/Oxidationszahl
+      } else if (key == "ionenradius" && elementObj.additional_data.ionenradius_ladung) {
+        if (elementObj.additional_data.ionenradius_ladung.includes("I") || elementObj.additional_data.ionenradius_ladung.includes("V")) {
+          
+          value + unit + "bei " + elementObj.elementsymbol + `(${elementObj.additional_data.ionenradius_ladung})`
+        } else {
+
+          tdEl.innerHTML = 
+          value + unit + " bei " + elementObj.elementsymbol + `<sup>${elementObj.additional_data.ionenradius_ladung}</sup>`
+        }
+        
+      } else if (key == "elektronegativitaet" && elementObj.additional_data.elektronegativitaet_oxidationszahl) {
+        
+          tdEl.innerHTML = 
+          value + ` (${elementObj.additional_data.elektronegativitaet_oxidationszahl})`
+        
       } else if (value != "" && value != "?" && value != undefined) {
         tdEl.innerHTML = value + unit;
-      } else { tdEl.innerHTML = "<i>unbekannt</i>" }
+        
+      } else {
+        tdEl.innerHTML = "<i>unbekannt</i>"
+      }
 
       if (info) {
         let infoEl = document.createElement("div");
@@ -157,6 +181,8 @@ export async function insertDatenIntoDatenliste(elementName) {
 
       trEl.append(thEl);
       trEl.append(tdEl);
+      trEl.dataset.datatype = key;
+      trEl.classList.add("daten-" + key)
       listeEl.append(trEl);
     }
 
@@ -232,7 +258,7 @@ export async function insertDatenIntoDatenliste(elementName) {
     addListenElement({
       icon: "CircleMinus",
       key: "elektronegativitaet",
-      datenName: "Elektronegativität",
+      datenName: "Elektronegativität (für Oxidationszahl",
       info: " "
     });
 
@@ -243,11 +269,70 @@ export async function insertDatenIntoDatenliste(elementName) {
       info: " "
     });
 
+    // console.debug(listeEl.outerHTML);
+
   } catch (err) {
     console.error(err.name + "\n" + err.message); // .description → .message
   }
 }
 
+async function promptDaten() {
+  try {
+    const allData = await loadElemente();
+    const alleElementeObj = allData.elements;
+    const newAlleElementeObj = {};
+
+    for (let key in alleElementeObj) {
+      const elementKey = key;
+      const element = alleElementeObj[key]
+
+      //Für jeden Datensatz eines Elements
+      for (let key in element) {
+        // if (element[key] == "-" && key == "atomradius") {
+        //   let answer = prompt(key + " " + element.elementname);
+        //   if (!answer) {
+        //     console.log(JSON.stringify(newAlleElementeObj));
+        //     return;
+        //   }
+        //   if (Number(answer)) {
+        //     answer = Number(answer);
+        //   }
+        //   element[key] = answer;
+        // }
+        // if (key == "elektronegativitaet" && !elektro.includes("(") && elektro != "-") {
+        //   let answer = prompt(key + " " + element.elementname, elektro + " (");
+        //   if (!answer) {
+        //     console.log(JSON.stringify(newAlleElementeObj));
+        //     return;
+        //   }
+        //   if (answer.includes("(")) {
+        //     answer += ")";
+        //   }
+        //   element[key] = answer;
+        // }
+        if (key == "elektronegativitaet" && element.elektronegativitaet.includes(" (")) {
+          let elektro = element.elektronegativitaet.split(" (")[0];
+          let oxi = element.elektronegativitaet.split(" (")[1];
+          elektro = elektro.replace(",", ".");
+          elektro = Number(elektro);
+
+          element.elektronegativitaet = elektro;
+
+          oxi = oxi.replace(")", "");
+          element.additional_data ??= {};
+          element.additional_data.elektronegativitaet_oxidationszahl = oxi;
+        }
+
+
+      }
+      newAlleElementeObj[key] = element;
+    }
+    console.log(JSON.stringify(newAlleElementeObj));
+  } catch (err) {
+    console.error(err.name + " " + err.message);
+  }
+}
+// promptDaten();
 
 
 
@@ -255,67 +340,48 @@ export async function insertDatenIntoDatenliste(elementName) {
 Loads the periodic table data
 let obj = {};
 
-fetch("https://raw.githubusercontent.com/Bowserinator/Periodic-Table-JSON/refs/heads/master/PeriodicTableJSON.json")
+fetch("https://raw.githubusercontent.com/komed3/periodic-table/master/_db/elements.json")
   .then((response) => {
     return response.json();
   })
-  .then(function(jsonData) {
-    function roundNumber(number, digits) {
-      var multiple = Math.pow(10, digits);
-      var rndedNum = Math.round(number * multiple) / multiple;
-      return rndedNum;
-    }
+  .then(function(jsonDataa) {
+    // function roundNumber(number, digits) {
+    //   var multiple = Math.pow(10, digits);
+    //   var rndedNum = Math.round(number * multiple) / multiple;
+    //   return rndedNum;
+    // }
+    let obj = {}
 
-    for (let element of jsonData.elements) {
-      obj[element.symbol.toLowerCase()] = {
-        elementname: "",
-        elementsymbol: element.symbol,
-        ordnungszahl: element.number,
-        atommasse: roundNumber(element.atomic_mass, 5) ?? "?",
-        atomradius: "",
-        ionenradius: "",
-        oxidationszahl: "",
-        siedepunkt: roundNumber(element.boil - 273.15, 1) ?? "?",
-        schmelzpunkt: roundNumber(element.melt - 273.15, 1) ?? "?",
-        ionisierungsenergie: roundNumber(element.ionization_energies[0], 0) ?? "?",
-        dichte: roundNumber(element.density, 1) ?? "?",
-        elektronegativitaet: element.electronegativity_pauling ?? "?",
-        anteil_haeufigstes_isotop: ""
-      };
-    }
-
-    fetch("https://raw.githubusercontent.com/komed3/periodic-table/master/_db/elements.json")
-      .then((response) => {
-        return response.json();
-      })
-      .then(function(jsonData) {
-        for (let key in jsonData) {
-          obj[key].elementname = jsonData[key].names.de;
+    for (let key in jsonDataa) {
+      const andereObj = jsonDataa[key];
+      // console.log(andereObj.radius)
+      if (andereObj) {
+        if (andereObj.radius) {
+          if (andereObj.radius.calculated) {
+            let radiusi = andereObj.radius.calculated.value ?? "-";
+            obj[key] = radiusi;
+          }
         }
+      }
+    }
 
-        console.log(JSON.stringify(obj))
-      })
-      .catch(err =>
-        console.error(`Could not load periodic table data from json.\n${err.name}\n${err.message}`)
-      );
+    console.log(JSON.stringify(obj));
   })
+      fetch("https://raw.githubusercontent.com/komed3/periodic-table/master/_db/elements.json")
+        .then((response) => {
+          return response.json();
+        })
+        .then(function(jsonData) {
+          for (let key in jsonData) {
+            obj[key].elementname = jsonData[key].names.de;
+          }
+
+          console.log(JSON.stringify(obj))
+        })
+        .catch(err =>
+          console.error(`Could not load periodic table data from json.\n${err.name}\n${err.message}`)
+        );
+    })
   .catch(err =>
     console.error(`Could not load periodic table data from json.\n${err.name}\n${err.message}`)
-  ); */
-
-
-export function loadDaten() {
-  let datenGrafikContent = "";
-  zinkDaten.forEach(function(value, key) {
-    datenGrafikContent += `<div id="daten-grafik-${key}" class="daten-grafik-wert daten-${key}">${value}</div>`;
-  });
-
-  try {
-    const grafikEl = document.getElementById("daten-grafik");
-    if (grafikEl != undefined && grafikEl != null) {
-      document.getElementById("daten-grafik").innerHTML = datenGrafikContent;
-    } else {
-      // console.debug("The page doesn't contain an element with id 'daten-grafik'.")
-    }
-  } catch (err) {}
-}
+  );*/

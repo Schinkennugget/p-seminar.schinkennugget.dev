@@ -27,7 +27,7 @@ const linkHoverLight = "#00a";
 const linkHoverDark = "#77f";
 const missingLinkLight = "#d11";
 const missingLinkDark = "#e00"
-  const missingLinkHoverLight = "#a00";
+const missingLinkHoverLight = "#a00";
 const missingLinkHoverDark = "#f00"
 
 function toggleDarkMode(enabled) {
@@ -161,6 +161,38 @@ function toggleExpandable(event) {
   }
 }
 
+function datenElementHoverOn(event) {
+  const hoverEl = event.currentTarget;
+  const hoverDataType = hoverEl.dataset.datatype;
+
+  document.querySelectorAll(".daten-" + hoverDataType).forEach(elem => {
+    elem.classList.add("daten-on-hover");
+  });
+}
+
+function datenElementHoverOff(event) {
+  const hoverEl = event.currentTarget;
+  const hoverDataType = hoverEl.dataset.datatype;
+
+  document.querySelectorAll(".daten-" + hoverDataType).forEach(elem => {
+    elem.classList.remove("daten-on-hover");
+  });
+}
+
+function addDatenHoverEventListener() {
+  const observer = new MutationObserver(() => {
+    document.querySelectorAll(".daten-element > *").forEach(element => {
+      element.addEventListener("mouseover", datenElementHoverOn);
+      element.addEventListener("mouseout", datenElementHoverOff);
+    });
+  });
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true
+  });
+}
+addDatenHoverEventListener();
+
 
 
 
@@ -173,7 +205,7 @@ function injectSourceNotes() {
         const sourceEl = document.createElement("sup");
         sourceEl.innerHTML = `[${source}]`;
         sourceEl.tabIndex = "0";
-        sourceEl.className = "source";
+        sourceEl.classList.add("source");
         sourceEl.style.color = "var(--link-color)";
         elementWithSource.appendChild(sourceEl);
         sourceEl.addEventListener("click", showSourceMenu)
@@ -201,6 +233,12 @@ function injectSourceFooterContent() {
 
 function copyURIWithID(id) {
   navigator.clipboard.writeText(`${document.baseURI}#${id}`)
+}
+
+function addURICopyEventListener() {
+  document.querySelectorAll("h2.text-header").forEach(elem => {
+    elem.onclick = copyURIWithID(this.parentElement.id);
+  });
 }
 
 
