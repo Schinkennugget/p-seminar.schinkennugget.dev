@@ -23,75 +23,201 @@ async function findElementWithName(name) {
   return null; // explizit null zurückgeben
 }
 
+// favicon.js
 
-
-export async function createFavicon(elementName) {
+export async function generateAndInjectFavicon(elementName) {
   try {
     const elementObj = await findElementWithName(elementName);
-
     const FAVICON_TEXT = elementObj.elementsymbol;
-    const FAVICON_BG = elementObj?.additional_data?.background_color ?? "darkgrey";
-    // const FAVICON_TEXT = "Zz";
-    // const FAVICON_BG = "forestgreen"
-    // const FAVICON_COLOR = "#ffffff";
+    const FAVICON_BG_COLOR = elementObj?.additional_data?.background_color;
+    const FAVICON_TEXT_COLOR = "#ffffff";
 
-    function drawFavicon(size) {
-      try {
-        const canvas = document.createElement('canvas');
-        canvas.width = canvas.height = size;
-        const ctx = canvas.getContext('2d');
+    // --- SVG (scalable, modern browsers) ---
+    const svgContent = `
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+      <rect width="100" height="100" rx="15" fill="${FAVICON_BG_COLOR}"/>
+      <text
+        x="50" y="54"
+        dominant-baseline="middle"
+        text-anchor="middle"
+        font-family="Arial, sans-serif"
+        font-weight="bold"
+        font-size="${FAVICON_TEXT.length > 2 ? '36' : FAVICON_TEXT.length > 1 ? '48' : '60'}"
+        fill="${FAVICON_TEXT_COLOR}"
+      >${FAVICON_TEXT}</text>
+    </svg>`.trim();
 
-        const radius = size * 0.15;
-        const fontSize = Math.round(size * 0.4);
-        const letters = FAVICON_TEXT;
+    const svgDataUrl = `data:image/svg+xml;base64,${btoa(svgContent)}`;
 
-        // Hintergrund
-        ctx.fillStyle = FAVICON_BG;
-        ctx.beginPath();
-        ctx.roundRect(0, 0, size, size, radius);
-        ctx.fill();
+    // --- Canvas helper: renders icon at given px size, returns data URL ---
+    function renderToCanvas(size) {
+      const canvas = document.createElement("canvas");
+      canvas.width = size;
+      canvas.height = size;
+      const ctx = canvas.getContext("2d");
+      const r = size * 0.15;
 
-        // Text
-        ctx.fillStyle = FAVICON_COLOR;
-        ctx.font = `bold ${fontSize}px sans-serif`;
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'middle';
-        ctx.fillText(letters, size / 2, size / 2);
+      // Rounded rect background
+      ctx.beginPath();
+      ctx.moveTo(r, 0);
+      ctx.lineTo(size - r, 0);
+      ctx.quadraticCurveTo(size, 0, size, r);
+      ctx.lineTo(size, size - r);
+      ctx.quadraticCurveTo(size, size, size - r, size);
+      ctx.lineTo(r, size);
+      ctx.quadraticCurveTo(0, size, 0, size - r);
+      ctx.lineTo(0, r);
+      ctx.quadraticCurveTo(0, 0, r, 0);
+      ctx.closePath();
+      ctx.fillStyle = FAVICON_BG_COLOR;
+      ctx.fill();
 
-        return canvas.toDataURL('image/png');
-      } catch (err) {
-        console.error(err.name + "\n" + err.message);
-      }
+      // Text
+      const fontSize = FAVICON_TEXT.length > 2 ? size * 0.36 : FAVICON_TEXT.length > 1 ? size * 0.48 : size * 0.60;
+      ctx.font = `bold ${fontSize}px Arial, sans-serif`;
+      ctx.fillStyle = FAVICON_TEXT_COLOR;
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.fillText(FAVICON_TEXT, size / 2, size / 2);
+
+      return canvas.toDataURL("image/png");
     }
 
-    function generateSVGFavicon() {
-      try {
-        const letters = FAVICON_TEXT.slice(0, 2).toUpperCase();
-        const svg = `
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96">
-        <rect width="96" height="96" rx="14" fill="${FAVICON_BG}"/>
-        <text x="48" y="48" font-family="sans-serif" font-weight="bold"
-              font-size="38" fill="${FAVICON_COLOR}"
-              text-anchor="middle" dominant-baseline="central">${letters}</text>
-      </svg>`.trim();
-        return 'data:image/svg+xml;base64,' + btoa(svg);
-      } catch (err) {
-        console.error(err.name + "\n" + err.message);
-      }
+    // --- ICO: encode a 32x32 PNG inside an ICO container ---
+    async function buildIcoDataUrl() {
+      const png32 = renderToCanvas(32);
+      const pngBytes = await fetch(png32).then((r) => r.arrayBuffer());
+      const pngArray = new Uint8Array(pngBytes);
+
+      const icoHeader = new Uint8Array(6);
+      const view = new DataView(icoHeader.buffer);
+      view.setUint16(0, 0, true); // reserved
+      view.setUint16(2, 1, true); // type: ICO
+      view.setUint16(4, 1, true); // image count
+
+      const dirEntry = new Uint8Array(16);
+      const de = new DataView(dirEntry.buffer);
+      de.setUint8(0, 32); // width
+      de.setUint8(1, 32); // height
+      de.setUint8(2, 0); // color palette
+      de.setUint8(3, 0); // reserved
+      de.setUint16(4, 1, true); // color planes
+      de.setUint16(6, 32, true); // bits per pixel
+      de.setUint32(8, pngArray.byteLength, true); // image size
+      de.setUint32(12, 6 + 16, true); // offset to image data
+
+      const ico = new Uint8Array(6 + 16 + pngArray.byteLength);
+      ico.set(icoHeader, 0);
+      ico.set(dirEntry, 6);
+      ico.set(pngArray, 22);
+
+      const blob = new Blob([ico], {
+        type: "image/x-icon"
+      });
+      return URL.createObjectURL(blob);
     }
 
-    document.addEventListener('DOMContentLoaded', () => {
-      document.getElementById('favicon-96').href = drawFavicon(96);
-      document.getElementById('favicon-ico').href = drawFavicon(32); // .ico → 32px PNG als Fallback
-      document.getElementById('favicon-apple').href = drawFavicon(180);
-      document.getElementById('favicon-svg').href = generateSVGFavicon();
+    // --- Inject all favicons into <head> ---
+    function setOrCreate(id, rel, type, sizes) {
+      let el = document.getElementById(id);
+      if (!el) {
+        el = document.createElement("link");
+        el.id = id;
+        el.rel = rel;
+        if (type) el.type = type;
+        if (sizes) el.sizes = sizes;
+        document.head.appendChild(el);
+      }
+      return el;
+    }
+
+    // PNG 96×96
+    setOrCreate("favicon-96", "icon", "image/png", "96x96").href = renderToCanvas(96);
+
+    // SVG
+    setOrCreate("favicon-svg", "icon", "image/svg+xml").href = svgDataUrl;
+
+    // Apple Touch Icon 180×180
+    setOrCreate("favicon-apple", "apple-touch-icon", "image/png", "180x180").href = renderToCanvas(180);
+
+    // ICO (async, injected when ready)
+    buildIcoDataUrl().then((icoUrl) => {
+      setOrCreate("favicon-ico", "shortcut icon", "image/x-icon").href = icoUrl;
     });
   } catch (err) {
     console.error(err.name + "\n" + err.message)
   }
 }
+// generateAndInjectFavicon("Zink");
 
-// createFavicon("Zink");
+export async function createFavicon(elementName) {
+  alert(1)
+  try {
+    const elementObj = await findElementWithName(elementName);
+
+    const FAVICON_TEXT = elementObj.elementsymbol;
+    const FAVICON_BG = elementObj?.additional_data?.background_color ?? "darkgrey";
+    const FAVICON_COLOR = "#ffffff";
+
+    function drawFavicon(size) {
+      alert(2)
+      const canvas = document.createElement('canvas');
+      canvas.width = canvas.height = size;
+      const ctx = canvas.getContext('2d');
+
+      const radius = size * 0.15;
+      const fontSize = Math.round(size * 0.6);
+
+      ctx.fillStyle = FAVICON_BG;
+      ctx.beginPath();
+      ctx.roundRect(0, 0, size, size, radius);
+      ctx.fill();
+
+      ctx.fillStyle = FAVICON_COLOR;
+      ctx.font = `bold ${fontSize}px sans-serif`;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(FAVICON_TEXT, size / 2, size / 2);
+
+      return canvas.toDataURL('image/png');
+    }
+
+    function generateSVGFavicon() {
+      alert(3)
+      const letters = FAVICON_TEXT.slice(0, 2).toUpperCase();
+      const svg = `
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96">
+          <rect width="96" height="96" rx="14" fill="${FAVICON_BG}"/>
+          <text x="48" y="48" font-family="sans-serif" font-weight="bold"
+                font-size="38" fill="${FAVICON_COLOR}"
+                text-anchor="middle" dominant-baseline="central">${letters}</text>
+        </svg>`.trim();
+      return 'data:image/svg+xml;base64,' + btoa(svg);
+    }
+
+    function applyFavicons() {
+      alert(4)
+      document.getElementById('favicon-96').href = drawFavicon(96);
+      document.getElementById('favicon-ico').href = drawFavicon(32);
+      document.getElementById('favicon-apple').href = drawFavicon(180);
+      document.getElementById('favicon-svg').href = generateSVGFavicon();
+    }
+
+    // ✅ Fix: DOM schon bereit? Sofort ausführen, sonst warten.
+    if (document.readyState === 'loading') {
+      alert(5)
+      document.addEventListener('DOMContentLoaded', applyFavicons);
+    } else {
+      alert(6)
+      applyFavicons();
+    }
+
+  } catch (err) {
+    console.error(err.name + "\n" + err.message);
+  }
+}
+
+//createFavicon("Zink")
 
 
 
