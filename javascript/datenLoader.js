@@ -24,7 +24,103 @@ async function findElementWithName(name) {
 }
 
 
-//const atomradien = `{"h":53,"he":31,"li":167,"be":112,"b":87,"c":67,"n":56,"o":48,"f":42,"ne":38,"na":190,"mg":145,"al":118,"si":111,"p":98,"s":88,"cl":79,"ar":71,"k":243,"ca":194,"sc":184,"ti":176,"v":171,"cr":166,"mn":161,"fe":156,"co":152,"ni":149,"cu":145,"zn":142,"ga":136,"ge":125,"as":114,"se":103,"br":94,"kr":88,"rb":265,"sr":219,"y":212,"zr":206,"nb":198,"mo":190,"tc":183,"ru":178,"rh":173,"pd":169,"ag":165,"cd":161,"in":156,"sn":145,"sb":133,"te":123,"i":115,"xe":108,"cs":298,"ba":253,"pr":247,"nd":206,"pm":205,"sm":238,"eu":231,"gd":233,"tb":225,"dy":228,"ho":226,"er":226,"tm":222,"yb":222,"lu":217,"hf":208,"ta":200,"w":193,"re":188,"os":185,"ir":180,"pt":177,"au":174,"hg":171,"tl":156,"pb":154,"bi":143,"po":135,"at":127,"rn":120}`;
+
+export async function createFavicon(elementName) {
+  try {
+    const elementObj = await findElementWithName(elementName);
+
+    const FAVICON_TEXT = elementObj.elementsymbol;
+    const FAVICON_BG = elementObj?.additional_data?.background_color ?? "darkgrey";
+    // const FAVICON_TEXT = "Zz";
+    // const FAVICON_BG = "forestgreen"
+    // const FAVICON_COLOR = "#ffffff";
+
+    function drawFavicon(size) {
+      try {
+        const canvas = document.createElement('canvas');
+        canvas.width = canvas.height = size;
+        const ctx = canvas.getContext('2d');
+
+        const radius = size * 0.15;
+        const fontSize = Math.round(size * 0.4);
+        const letters = FAVICON_TEXT;
+
+        // Hintergrund
+        ctx.fillStyle = FAVICON_BG;
+        ctx.beginPath();
+        ctx.roundRect(0, 0, size, size, radius);
+        ctx.fill();
+
+        // Text
+        ctx.fillStyle = FAVICON_COLOR;
+        ctx.font = `bold ${fontSize}px sans-serif`;
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(letters, size / 2, size / 2);
+
+        return canvas.toDataURL('image/png');
+      } catch (err) {
+        console.error(err.name + "\n" + err.message);
+      }
+    }
+
+    function generateSVGFavicon() {
+      try {
+        const letters = FAVICON_TEXT.slice(0, 2).toUpperCase();
+        const svg = `
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96">
+        <rect width="96" height="96" rx="14" fill="${FAVICON_BG}"/>
+        <text x="48" y="48" font-family="sans-serif" font-weight="bold"
+              font-size="38" fill="${FAVICON_COLOR}"
+              text-anchor="middle" dominant-baseline="central">${letters}</text>
+      </svg>`.trim();
+        return 'data:image/svg+xml;base64,' + btoa(svg);
+      } catch (err) {
+        console.error(err.name + "\n" + err.message);
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('favicon-96').href = drawFavicon(96);
+      document.getElementById('favicon-ico').href = drawFavicon(32); // .ico → 32px PNG als Fallback
+      document.getElementById('favicon-apple').href = drawFavicon(180);
+      document.getElementById('favicon-svg').href = generateSVGFavicon();
+    });
+  } catch (err) {
+    console.error(err.name + "\n" + err.message)
+  }
+}
+
+// createFavicon("Zink");
+
+
+
+
+export async function insertPSE() {
+  try {
+    const alleElementDatenObj = await loadElemente();
+    const alleElementeObj = alleElementDatenObj.elements;
+    const pseElem = document.getElementById("pse-container")
+
+    for (let key in alleElementeObj) {
+      const elementElem = document.createElement("div");
+      const elementsymbolElem = document.createElement("div");
+
+      elementsymbolElem.innerHTML = alleElementeObj[key].elementsymbol;
+      elementsymbolElem.classList.add("pse-item-elementname");
+
+      elementElem.append(elementsymbolElem);
+      elementElem.style.gridArea = key;
+      elementElem.classList.add("pse-item");
+      elementElem.style.backgroundColor = alleElementeObj[key]?.additional_data?.background_color ?? "lightgrey";
+      pseElem.append(elementElem);
+    }
+  } catch (err) {
+    console.error(err.name + "\n" + err.message)
+  }
+}
+insertPSE();
+
 
 
 
@@ -52,7 +148,7 @@ export async function insertDatenIntoGrafik(elementName) {
         divEl.id = "daten-grafik-" + key;
         divEl.classList.add("daten-grafik-wert");
         divEl.classList.add("daten-" + key);
-        divEl.dataset.datatype = key
+        divEl.dataset.datatype = key;
         divEl.style.gridArea = key;
         divEl.innerHTML = value;
         if (key == "ionenradius") {
@@ -147,26 +243,26 @@ export async function insertDatenIntoDatenliste(elementName) {
       //Setzt den Wert auf den Wert mit Einheit, sonst auf unbekannt oder -
       if (value == "-") {
         tdEl.innerHTML = "–";
-        
+
         //Beim Ionenradius muss der Ert zusammengesetzt werden aus Radius und Ladung/Oxidationszahl
       } else if (key == "ionenradius" && elementObj.additional_data.ionenradius_ladung) {
         if (elementObj.additional_data.ionenradius_ladung.includes("I") || elementObj.additional_data.ionenradius_ladung.includes("V")) {
-          
-          value + unit + "bei " + elementObj.elementsymbol + `(${elementObj.additional_data.ionenradius_ladung})`
+          tdEl.innerHTML =
+            value + unit + " bei " + elementObj.elementsymbol + `(${elementObj.additional_data.ionenradius_ladung})`
         } else {
 
-          tdEl.innerHTML = 
-          value + unit + " bei " + elementObj.elementsymbol + `<sup>${elementObj.additional_data.ionenradius_ladung}</sup>`
+          tdEl.innerHTML =
+            value + unit + " bei " + elementObj.elementsymbol + `<sup>${elementObj.additional_data.ionenradius_ladung}</sup>`
         }
-        
+
       } else if (key == "elektronegativitaet" && elementObj.additional_data.elektronegativitaet_oxidationszahl) {
-        
-          tdEl.innerHTML = 
+
+        tdEl.innerHTML =
           value + ` (${elementObj.additional_data.elektronegativitaet_oxidationszahl})`
-        
+
       } else if (value != "" && value != "?" && value != undefined) {
         tdEl.innerHTML = value + unit;
-        
+
       } else {
         tdEl.innerHTML = "<i>unbekannt</i>"
       }
@@ -258,7 +354,7 @@ export async function insertDatenIntoDatenliste(elementName) {
     addListenElement({
       icon: "CircleMinus",
       key: "elektronegativitaet",
-      datenName: "Elektronegativität (für Oxidationszahl",
+      datenName: "Elektronegativität (für Oxidationszahl)",
       info: " "
     });
 
@@ -276,6 +372,12 @@ export async function insertDatenIntoDatenliste(elementName) {
   }
 }
 
+export function insertDaten() {
+  const elementName = document.querySelector("#header-text > h1").innerText;
+  insertDatenIntoGrafik(elementName);
+  insertDatenIntoDatenliste(elementName);
+}
+
 async function promptDaten() {
   try {
     const allData = await loadElemente();
@@ -288,17 +390,17 @@ async function promptDaten() {
 
       //Für jeden Datensatz eines Elements
       for (let key in element) {
-        // if (element[key] == "-" && key == "atomradius") {
-        //   let answer = prompt(key + " " + element.elementname);
-        //   if (!answer) {
-        //     console.log(JSON.stringify(newAlleElementeObj));
-        //     return;
-        //   }
-        //   if (Number(answer)) {
-        //     answer = Number(answer);
-        //   }
-        //   element[key] = answer;
-        // }
+        if (element[key] == "" && key == "anteil_haeufigstes_isotop") {
+          let answer = prompt(key + " " + element.elementname);
+          if (!answer) {
+            console.log(JSON.stringify(newAlleElementeObj));
+            return;
+          }
+          if (Number(answer)) {
+            answer = Number(answer);
+          }
+          element[key] = answer;
+        }
         // if (key == "elektronegativitaet" && !elektro.includes("(") && elektro != "-") {
         //   let answer = prompt(key + " " + element.elementname, elektro + " (");
         //   if (!answer) {
@@ -310,18 +412,18 @@ async function promptDaten() {
         //   }
         //   element[key] = answer;
         // }
-        if (key == "elektronegativitaet" && element.elektronegativitaet.includes(" (")) {
-          let elektro = element.elektronegativitaet.split(" (")[0];
-          let oxi = element.elektronegativitaet.split(" (")[1];
-          elektro = elektro.replace(",", ".");
-          elektro = Number(elektro);
+        // if (key == "elektronegativitaet" && element.elektronegativitaet.includes(" (")) {
+        //   let elektro = element.elektronegativitaet.split(" (")[0];
+        //   let oxi = element.elektronegativitaet.split(" (")[1];
+        //   elektro = elektro.replace(",", ".");
+        //   elektro = Number(elektro);
 
-          element.elektronegativitaet = elektro;
+        //   element.elektronegativitaet = elektro;
 
-          oxi = oxi.replace(")", "");
-          element.additional_data ??= {};
-          element.additional_data.elektronegativitaet_oxidationszahl = oxi;
-        }
+        //   oxi = oxi.replace(")", "");
+        //   element.additional_data ??= {};
+        //   element.additional_data.elektronegativitaet_oxidationszahl = oxi;
+        // }
 
 
       }

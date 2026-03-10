@@ -15,11 +15,17 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/png" href="images/favicon-zink/favicon-96x96.png" sizes="96x96" />
+  <!-- <link rel="icon" type="image/png" href="images/favicon-zink/favicon-96x96.png" sizes="96x96" />
   <link rel="icon" type="image/svg+xml" href="images/favicon-zink/favicon.svg" />
   <link rel="shortcut icon" href="images/favicon-zink/favicon.ico" />
   <link rel="apple-touch-icon" sizes="180x180" href="images/favicon-zink/apple-touch-icon.png" />
-  <link rel="manifest" href="images/favicon-zink/site.webmanifest" />
+  <link rel="manifest" href="images/favicon-zink/site.webmanifest" /> -->
+
+  <link id="favicon-96" rel="icon" type="image/png" sizes="96x96">
+  <link id="favicon-svg" rel="icon" type="image/svg+xml">
+  <link id="favicon-ico" rel="shortcut icon">
+  <link id="favicon-apple" rel="apple-touch-icon" sizes="180x180">
+  <link rel="manifest" href="images/favicon-zink/site.webmanifest">
 
   <title>Zink</title>
 </head>
@@ -82,6 +88,10 @@
 
     <header>
       <img src="images/pse.png" id="periodensystem" />
+
+      <nav id="pse-container">
+
+      </nav>
 
       <!-- <a href="experimente/alle-experimente.html" class="testlink">Wasserstoff</a>
       <a href="experimente/alle-experimente.html" class="testlink">Helium</a>
@@ -209,6 +219,7 @@
 
 
 
+
   <!-- Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
   <script>
@@ -217,32 +228,31 @@
     const linkCSS = document.createElement("link");
     linkCSS.rel = "stylesheet";
     linkCSS.href = "css/styles.css"
-    
-    
+
+
     const scripts = document.createElement("script");
     scripts.src = "javascript/scripts.js";
-    
+
     if (document.baseURI.includes("p-seminar.schinkennugget.dev")) {
       scripts.src += "?v=" + v;
       linkCSS.href += "?v=" + v;
     }
     document.head.append(linkCSS);
     document.body.append(scripts);
-    
+
     // const datenLoaderEl = document.createElement("script");
     // datenLoaderEl.type = "module";
     // datenLoaderEl.src = "javascript/datenLoader.js?v=" + v;
     // document.body.append(datenLoaderEl);
   </script>
-  
+
   <!-- <script src="javascript/scripts.js"></script> -->
 
   <!-- <script type="module" src="javascript/datenLoader.js"></script> -->
   <script type="module">
     import * as datenLoader from "./javascript/datenLoader.js";
 
-    datenLoader.insertDatenIntoGrafik("Zink");
-    datenLoader.insertDatenIntoDatenliste("Zink");
+    datenLoader.insertDaten();
     // datenLoader.loadDaten();
   </script>
 
@@ -255,7 +265,9 @@
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js">
     window.MathJax = {
       tex: {
-        packages: { '[+]': ['mhchem'] }
+        packages: {
+          '[+]': ['mhchem']
+        }
       }
     };
   </script>

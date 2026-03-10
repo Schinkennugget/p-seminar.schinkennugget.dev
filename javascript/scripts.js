@@ -163,11 +163,16 @@ function toggleExpandable(event) {
 
 function datenElementHoverOn(event) {
   const hoverEl = event.currentTarget;
+  //"Datatype" ist der Key des Elements, zb elementsymbol oder ordnungszahl
   const hoverDataType = hoverEl.dataset.datatype;
 
+  //Zusammengehörige Elemente haben immer class .daten-elementname beispielsweise
   document.querySelectorAll(".daten-" + hoverDataType).forEach(elem => {
     elem.classList.add("daten-on-hover");
   });
+  if (hoverEl.tagName == "TR") {
+    hoverEl.classList.add("daten-liste-elem-on-hover");
+  }
 }
 
 function datenElementHoverOff(event) {
@@ -176,6 +181,7 @@ function datenElementHoverOff(event) {
 
   document.querySelectorAll(".daten-" + hoverDataType).forEach(elem => {
     elem.classList.remove("daten-on-hover");
+    elem.classList.remove("daten-liste-elem-on-hover");
   });
 }
 
