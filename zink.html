@@ -21,13 +21,13 @@
   <link rel="apple-touch-icon" sizes="180x180" href="images/favicon-zink/apple-touch-icon.png" />
   <link rel="manifest" href="images/favicon-zink/site.webmanifest" /> -->
 
-  <link id="favicon-96"     rel="icon" type="image/png" sizes="96x96">
-<link id="favicon-svg"    rel="icon" type="image/svg+xml">
-<link id="favicon-ico"    rel="shortcut icon">
-<link id="favicon-apple"  rel="apple-touch-icon" sizes="180x180">
-<link rel="manifest" href="images/favicon-zink/site.webmanifest">
+  <link id="favicon-96" rel="icon" type="image/png" sizes="96x96">
+  <link id="favicon-svg" rel="icon" type="image/svg+xml">
+  <link id="favicon-ico" rel="shortcut icon">
+  <link id="favicon-apple" rel="apple-touch-icon" sizes="180x180">
+  <link rel="manifest" href="images/favicon-zink/site.webmanifest">
 
-<script>
+  <!-- <script>
   const FAVICON_TEXT  = "XY";
   const FAVICON_BG    = "#00ff00";
   const FAVICON_COLOR = "#ffffff";
@@ -78,7 +78,7 @@
 
   <script>
     
-  </script>
+  </script> -->
 
   <title>Zink</title>
 </head>
@@ -305,7 +305,10 @@
   <script type="module">
     import * as datenLoader from "./javascript/datenLoader.js";
 
-    datenLoader.insertDaten();
+    const elementName = document.querySelector("#header-text > h1").innerText;
+    datenLoader.insertDatenIntoGrafik(elementName);
+    datenLoader.insertDatenIntoDatenliste(elementName);
+    datenLoader.generateAndInjectFavicon(elementName);
     // datenLoader.loadDaten();
   </script>
 

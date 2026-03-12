@@ -148,7 +148,6 @@ export async function generateAndInjectFavicon(elementName) {
     console.error(err.name + "\n" + err.message)
   }
 }
-// generateAndInjectFavicon("Zink");
 
 export async function createFavicon(elementName) {
   alert(1)
@@ -561,55 +560,3 @@ async function promptDaten() {
   }
 }
 // promptDaten();
-
-
-
-/*
-Loads the periodic table data
-let obj = {};
-
-fetch("https://raw.githubusercontent.com/komed3/periodic-table/master/_db/elements.json")
-  .then((response) => {
-    return response.json();
-  })
-  .then(function(jsonDataa) {
-    // function roundNumber(number, digits) {
-    //   var multiple = Math.pow(10, digits);
-    //   var rndedNum = Math.round(number * multiple) / multiple;
-    //   return rndedNum;
-    // }
-    let obj = {}
-
-    for (let key in jsonDataa) {
-      const andereObj = jsonDataa[key];
-      // console.log(andereObj.radius)
-      if (andereObj) {
-        if (andereObj.radius) {
-          if (andereObj.radius.calculated) {
-            let radiusi = andereObj.radius.calculated.value ?? "-";
-            obj[key] = radiusi;
-          }
-        }
-      }
-    }
-
-    console.log(JSON.stringify(obj));
-  })
-      fetch("https://raw.githubusercontent.com/komed3/periodic-table/master/_db/elements.json")
-        .then((response) => {
-          return response.json();
-        })
-        .then(function(jsonData) {
-          for (let key in jsonData) {
-            obj[key].elementname = jsonData[key].names.de;
-          }
-
-          console.log(JSON.stringify(obj))
-        })
-        .catch(err =>
-          console.error(`Could not load periodic table data from json.\n${err.name}\n${err.message}`)
-        );
-    })
-  .catch(err =>
-    console.error(`Could not load periodic table data from json.\n${err.name}\n${err.message}`)
-  );*/
