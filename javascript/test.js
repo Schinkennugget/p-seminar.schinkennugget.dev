@@ -18,31 +18,31 @@
 //     lastClickedElement = event.currentTarget;
 //   }));
 
-document.querySelectorAll(".test").forEach(elem => {
-  elem.addEventListener("touchstart", function handleEvent(event) {
-    event.preventDefault();
-    event.currentTarget.classList.toggle("testhover")
-  });
+// document.querySelectorAll(".test").forEach(elem => {
+//   elem.addEventListener("touchstart", function handleEvent(event) {
+//     event.preventDefault();
+//     event.currentTarget.classList.toggle("testhover")
+//   });
 
-  elem.addEventListener("touchend", function handleEvent(event) {
+//   elem.addEventListener("touchend", function handleEvent(event) {
 
-  });
-});
+//   });
+// });
 
-function touchHandler(event) {
-  const touch = event.touches[0]; // erster Finger
-    document.getElementById("test").innerHTML = `x: ${touch.clientX} | y: ${touch.clientY}`;
-}
+// function touchHandler(event) {
+//   const touch = event.touches[0]; // erster Finger
+//     document.getElementById("test").innerHTML = `x: ${touch.clientX} | y: ${touch.clientY}`;
+// }
 
-function mouseHandler(event) {
-  document.getElementById("test").innerHTML = `x: ${event.clientX} | y: ${event.clientY}`;
-}
+// function mouseHandler(event) {
+//   document.getElementById("test").innerHTML = `x: ${event.clientX} | y: ${event.clientY}`;
+// }
 
-document.documentElement.addEventListener("touchstart", touchHandler);
-document.documentElement.addEventListener("touchmove", touchHandler);
-document.documentElement.addEventListener("mousemove", mouseHandler);
+// document.documentElement.addEventListener("touchstart", touchHandler);
+// document.documentElement.addEventListener("touchmove", touchHandler);
+// document.documentElement.addEventListener("mousemove", mouseHandler);
 
 
-document.documentElement.addEventListener("touchend", function handleEvent(event) {
-  document.getElementById("test").innerText = "Kein Touch";
-});
+// document.documentElement.addEventListener("touchend", function handleEvent(event) {
+//   document.getElementById("test").innerText = "Kein Touch";
+// });

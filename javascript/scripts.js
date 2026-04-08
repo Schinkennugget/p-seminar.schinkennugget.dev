@@ -5,30 +5,31 @@ let darkModeEnabled = false;
 const rootStyle = document.documentElement.style;
 
 // Alle Farben
-const backgroundLight = "#fff";
-const backgroundDark = "#111";
-const accent1TransparentLight = "rgba(248, 248, 255, 0.75)";
-const accent1TransparentDark = "rgba(50, 50, 50, 0.75)";
-const accent1Light = "#f8f8ff";
-const accent1Dark = "#222";
-const accent2Light = "#f5f5f6";
-const accent2Dark = "#333";
-const accent3Light = "#ededef";
-const accent3Dark = "#444";
-const accent4Light = "#e0e0e2";
-const accent4Dark = "#555";
-const accent5Light = "#444";
-const accent5Dark = "#666";
-const textColorLight = "#000";
-const textColorDark = "#fff";
+const bgBodyLight = "hsl(0 0 100)";
+const bgElevatedLight = "hsl(0 0 95)";
+const bgHighlightLight = "hsl(0 0 90)";
+const bgNavbarLight = "rgba(248, 248, 255, 0.75)";
+const bgNavbarSolidLight = "rgb(248, 248, 255)";
+const textColorLight = "hsl(0 0 0)";
+const mutedTextColorLight = "hsl(0 0 5)";
 const linkColorLight = "#22d";
-const linkColorDark = "#66f";
 const linkHoverLight = "#00a";
-const linkHoverDark = "#77f";
 const missingLinkLight = "#d11";
-const missingLinkDark = "#e00"
 const missingLinkHoverLight = "#a00";
-const missingLinkHoverDark = "#f00"
+const shadowLight = "rgba(0, 0, 0, 0.2)";
+
+const bgBodyDark = "hsl(0 0 0)";
+const bgElevatedDark = "hsl(0 0 12)";
+const bgHighlightDark = "hsl(0 0 20)";
+const bgNavbarDark = "rgba(50, 50, 50, 0.75)";
+const bgNavbarSolidDark = "rgb(50, 50, 50)";
+const textColorDark = "hsl(0 0 95)";
+const mutedTextColorDark = "hsl(0 0 90)";
+const linkColorDark = "#66f";
+const linkHoverDark = "#77f";
+const missingLinkDark = "#e00"
+const missingLinkHoverDark = "#f00";
+const shadowDark = "rgba(0, 0, 0, 0.2)";
 
 function toggleDarkMode(enabled) {
   darkModeEnabled = darkModeEnabled ? false : true;
@@ -38,35 +39,35 @@ function toggleDarkMode(enabled) {
   }
 
   if (darkModeEnabled) {
-    rootStyle.setProperty('--background', backgroundDark);
-    rootStyle.setProperty('--accent1-transparent', accent1TransparentDark);
-    rootStyle.setProperty('--accent1', accent1Dark);
-    rootStyle.setProperty('--accent2', accent2Dark);
-    rootStyle.setProperty('--accent3', accent3Dark);
-    rootStyle.setProperty('--accent4', accent4Dark);
-    rootStyle.setProperty('--accent5', accent5Dark);
+    rootStyle.setProperty('--bg-body', bgBodyDark);
+    rootStyle.setProperty('--bg-elevated', bgElevatedDark);
+    rootStyle.setProperty('--bg-highlight', bgHighlightDark);
+    rootStyle.setProperty('--bg-navbar', bgNavbarDark);
+    rootStyle.setProperty('--bg-navbar-solid', bgNavbarSolidDark);
     rootStyle.setProperty('--text', textColorDark);
+    rootStyle.setProperty('--text-muted', mutedTextColorDark);
     rootStyle.setProperty('--link-color', linkColorDark);
     rootStyle.setProperty('--link-hover', linkHoverDark);
     rootStyle.setProperty('--missing-link', missingLinkDark);
     rootStyle.setProperty('--missing-link-hover', missingLinkHoverDark);
+    rootStyle.setProperty('--shadow-color', shadowDark);
     document.getElementById("navbar-icon-moon").style.display = "none";
     document.getElementById("navbar-icon-sun").style.display = "inline";
 
     document.querySelectorAll(".darkmode-invert").forEach(elem => elem.style.filter = "invert(1)");
   } else {
-    rootStyle.setProperty('--background', backgroundLight);
-    rootStyle.setProperty('--accent1-transparent', accent1TransparentLight);
-    rootStyle.setProperty('--accent1', accent1Light);
-    rootStyle.setProperty('--accent2', accent2Light);
-    rootStyle.setProperty('--accent3', accent3Light);
-    rootStyle.setProperty('--accent4', accent4Light);
-    rootStyle.setProperty('--accent5', accent5Light);
+    rootStyle.setProperty('--bg-body', bgBodyLight);
+    rootStyle.setProperty('--bg-elevated', bgElevatedLight);
+    rootStyle.setProperty('--bg-highlight', bgHighlightLight);
+    rootStyle.setProperty('--bg-navbar', bgNavbarLight);
+    rootStyle.setProperty('--bg-navbar-solid', bgNavbarSolidLight);
     rootStyle.setProperty('--text', textColorLight);
+    rootStyle.setProperty('--text-muted', mutedTextColorLight);
     rootStyle.setProperty('--link-color', linkColorLight);
     rootStyle.setProperty('--link-hover', linkHoverLight);
     rootStyle.setProperty('--missing-link', missingLinkLight);
     rootStyle.setProperty('--missing-link-hover', missingLinkHoverLight);
+    rootStyle.setProperty('--shadow-color', shadowLight);
     document.getElementById("navbar-icon-sun").style.display = "none";
     document.getElementById("navbar-icon-moon").style.display = "inline";
 
@@ -93,10 +94,6 @@ try {
 
 
 
-
-
-
-
 //Event Listener für expandable
 try {
   let i = 0;
@@ -113,85 +110,129 @@ try {
   console.error(`Event Listener for expandable could not be registered.\nError: ${err.name}\nMessage: ${err.message}`)
 }
 
-
-
 function toggleExpandable(event) {
   const expandableHeaderEl = event.currentTarget;
   const expandableContainerEl = expandableHeaderEl.parentElement;
-  const expandableContentEl = expandableContainerEl.getElementsByClassName("expandable-content")[0];
-  let expanded = Boolean(Number(expandableContainerEl.dataset.expanded));
+  const expandableContentEl = expandableContainerEl.querySelector(".expandable-content");
 
-  expanded = !expanded;
+  // Laufende Transition sofort abbrechen
+  expandableContentEl.style.transition = "none";
+  const currentHeight = expandableContentEl.offsetHeight; // Aktuellen Zwischenstand einfrieren
+  expandableContentEl.style.height = currentHeight + "px";
+
+  // Alten transitionend-Handler entfernen
+  const oldHandler = expandableContentEl._transitionHandler;
+  if (oldHandler) {
+    expandableContentEl.removeEventListener("transitionend", oldHandler);
+    delete expandableContentEl._transitionHandler;
+  }
+
+  const expanded = !Boolean(Number(expandableContainerEl.dataset.expanded));
   expandableContainerEl.dataset.expanded = String(Number(expanded));
 
-  if (expanded) { //Soll ausklappen
-    expandableHeaderEl.classList.remove("on-hover-background-accent3");
-    expandableContentEl.style.overflow = "hidden";
+  if (expanded) {
+    expandableHeaderEl.classList.remove("on-hover-bg-highlight");
     expandableContentEl.style.display = "";
-    expandableContentEl.style.transition =
-      `height ${expandableContentEl.scrollHeight / 2000}s ease`;
-    expandableContentEl.style.height = expandableContentEl.scrollHeight + "px";
-    // expandableContentEl.style.transform = "scaleY(1)";
-    expandableContainerEl.querySelector(".expandable-header-icon").style.rotate = "-90deg";
+    expandableContentEl.style.overflow = "hidden";
 
-    // nach der Animation auf auto setzen
-    expandableContentEl.addEventListener("transitionend", function handler() {
+    const targetHeight = expandableContentEl.scrollHeight;
+    const duration = Math.abs(targetHeight - currentHeight) / 2000;
+
+    requestAnimationFrame(() => {
+      expandableContentEl.style.transition = `height ${duration}s ease`;
+      expandableContentEl.style.height = targetHeight + "px";
+    });
+
+    const handler = function () {
       expandableContentEl.style.height = "auto";
       expandableContentEl.style.overflow = "";
       expandableContentEl.removeEventListener("transitionend", handler);
-    });
-  } else {
+      delete expandableContentEl._transitionHandler;
+    };
+    expandableContentEl._transitionHandler = handler;
+    expandableContentEl.addEventListener("transitionend", handler);
 
-    expandableContentEl.style.transition =
-      `height ${expandableContentEl.scrollHeight / 2000}s cubic-bezier(.59,0,.59,.81)`;
+    expandableContainerEl.querySelector(".expandable-header-icon").style.rotate = "-90deg";
+
+  } else {
     expandableContentEl.style.overflow = "hidden";
-    expandableContainerEl.querySelector(".expandable-header-icon").style.rotate = "90deg";
-    // expandableContentEl.style.transform = "scaleY(0.01)";
-    expandableContentEl.style.height = expandableContentEl.offsetHeight + "px";
+
+    const duration = Math.abs(currentHeight) / 2000;
+
     requestAnimationFrame(() => {
+      expandableContentEl.style.transition = `height ${duration}s cubic-bezier(.59,0,.59,.81)`;
       expandableContentEl.style.height = "0";
     });
 
-    expandableContentEl.addEventListener("transitionend", function handler() {
+    const handler = function () {
       expandableContentEl.style.display = "none";
       expandableContentEl.style.overflow = "";
-      expandableHeaderEl.classList.add("on-hover-background-accent3");
+      expandableHeaderEl.classList.add("on-hover-bg-highlight");
       expandableContentEl.removeEventListener("transitionend", handler);
-    });
+      delete expandableContentEl._transitionHandler;
+    };
+    expandableContentEl._transitionHandler = handler;
+    expandableContentEl.addEventListener("transitionend", handler);
+
+    expandableContainerEl.querySelector(".expandable-header-icon").style.rotate = "90deg";
   }
 }
+
+
+
 
 function datenElementHoverOn(event) {
   const hoverEl = event.currentTarget;
-  //"Datatype" ist der Key des Elements, zb elementsymbol oder ordnungszahl
   const hoverDataType = hoverEl.dataset.datatype;
 
-  //Zusammengehörige Elemente haben immer class .daten-elementname beispielsweise
+  //der datatype ist der key des elements, zb elementname oder atommasse
   document.querySelectorAll(".daten-" + hoverDataType).forEach(elem => {
     elem.classList.add("daten-on-hover");
   });
-  if (hoverEl.tagName == "TR") {
+  if (hoverEl.tagName === "TR") {
     hoverEl.classList.add("daten-liste-elem-on-hover");
   }
-}
 
-function datenElementHoverOff(event) {
-  const hoverEl = event.currentTarget;
-  const hoverDataType = hoverEl.dataset.datatype;
+  function removeDatenHover() {
+    document.querySelectorAll(".daten-" + hoverDataType).forEach(elem => {
+      elem.classList.remove("daten-on-hover");
+      elem.classList.remove("daten-liste-elem-on-hover");
+    });
+  }
 
-  document.querySelectorAll(".daten-" + hoverDataType).forEach(elem => {
-    elem.classList.remove("daten-on-hover");
-    elem.classList.remove("daten-liste-elem-on-hover");
-  });
+  // Maus: einfach pointerleave nutzen
+  if (event.pointerType === "mouse") {
+    hoverEl.addEventListener("pointerleave", removeDatenHover, {
+      once: true
+    });
+    return;
+  }
+
+  // Touch/Pen: pointermove auf window, aber erst nach einem kurzen Delay,
+  // damit das auslösende Event selbst nicht direkt triggert
+  function onPointerMove(e) {
+    if (e.target !== hoverEl && !hoverEl.contains(e.target)) {
+      removeDatenHover();
+      window.removeEventListener("pointerover", onPointerMove);
+    }
+  }
+
+  setTimeout(() => {
+    window.addEventListener("pointerover", onPointerMove);
+  }, 0);
 }
 
 function addDatenHoverEventListener() {
+  // const seen = new WeakSet();
+
   const observer = new MutationObserver(() => {
     document.querySelectorAll(".daten-element > *").forEach(element => {
-      element.addEventListener("mouseover", datenElementHoverOn);
-      element.addEventListener("mouseout", datenElementHoverOff);
+      // if (seen.has(element)) return;
+      // seen.add(element);
+      element.addEventListener("pointerenter", datenElementHoverOn);
     });
   });
+
   observer.observe(document.body, {
     childList: true,
     subtree: true
@@ -200,6 +241,30 @@ function addDatenHoverEventListener() {
 addDatenHoverEventListener();
 
 
+function adjustImageFooterWidth(imageContainerEl) {
+  const img = imageContainerEl.getElementsByTagName("img")[0];
+
+  const applyWidth = () => {
+    const imgWidth = img.offsetWidth;
+    [...imageContainerEl.children].forEach(elem => {
+      elem.style.maxWidth = imgWidth + "px";
+    });
+  };
+
+  if (img.complete) {
+    applyWidth();
+  } else {
+    img.addEventListener("load", applyWidth);
+  }
+}
+
+try {
+  document.querySelectorAll(".text-image").forEach(elem => {
+    adjustImageFooterWidth(elem);
+  });
+} catch (err) {
+  console.error(err.name + "\n" + err.message);
+}
 
 
 function injectSourceNotes() {
@@ -241,14 +306,18 @@ function copyURIWithID(id) {
   navigator.clipboard.writeText(`${document.baseURI}#${id}`)
 }
 
+
+
 function addURICopyEventListener() {
+  function showCopiedAnimation(event) {
+
+  }
+
   document.querySelectorAll("h2.text-header").forEach(elem => {
-    elem.onclick = copyURIWithID(this.parentElement.id);
+    elem.addEventListener("click", event => {
+      copyURIWithID(event.currentTarget.parentElement.id);
+      showCopiedAnimation(event);
+    });
   });
 }
-
-
-
-
-
-// Execute every time the window gets resized
+addURICopyEventListener();

@@ -73,8 +73,8 @@ export async function generateAndInjectFavicon(elementName) {
       ctx.fill();
 
       // Text
-      const fontSize = FAVICON_TEXT.length > 2 ? size * 0.36 : FAVICON_TEXT.length > 1 ? size * 0.48 : size * 0.60;
-      ctx.font = `bold ${fontSize}px Arial, sans-serif`;
+      const fontSize = FAVICON_TEXT.length > 2 ? size * 0.5 : size * 0.60;
+      ctx.font = `bold ${fontSize}px Inter, Helvetica, Arial, sans-serif`;
       ctx.fillStyle = FAVICON_TEXT_COLOR;
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
@@ -259,6 +259,7 @@ export async function insertDatenIntoGrafik(elementName) {
       return;
     }
 
+    grafikEl.innerHTML = "";
     for (let key in elementObj) {
       if (key != "additional_data") {
         let value = elementObj[key];
@@ -407,6 +408,7 @@ export async function insertDatenIntoDatenliste(elementName) {
       listeEl.append(trEl);
     }
 
+    listeEl.innerHTML = "";
     addListenElement({
       icon: "Tag",
       key: "elementname",
@@ -515,7 +517,7 @@ async function promptDaten() {
 
       //Für jeden Datensatz eines Elements
       for (let key in element) {
-        if (element[key] == "" && key == "anteil_haeufigstes_isotop") {
+        if (!element[key]) {
           let answer = prompt(key + " " + element.elementname);
           if (!answer) {
             console.log(JSON.stringify(newAlleElementeObj));

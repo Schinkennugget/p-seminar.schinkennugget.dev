@@ -146,24 +146,8 @@
 
       </nav>
 
-      <!-- <a href="experimente/alle-experimente.html" class="testlink">Wasserstoff</a>
-      <a href="experimente/alle-experimente.html" class="testlink">Helium</a>
-      <a href="experimente/alle-experimente.html" class="testlink">Lithium</a>
-      <a href="experimente/alle-experimente.html" class="testlink">Beryllium</a>
-      <a href="experimente/alle-experimente.html" class="testlink">Bor</a>
-      
-      <div class="test" style="border: 2px solid red">test</div>
-      <div class="test" style="border: 2px solid red">test</div>
-      <div class="test" style="border: 2px solid red">test</div>
-      <div class="test" style="border: 2px solid red">test</div> -->
 
-      <nav id="pse-container">
-
-
-      </nav>
-
-
-      <div id="test">Kein Touch</div>
+      <!-- <div id="test">Kein Touch</div> -->
 
 
 
@@ -189,13 +173,19 @@
       <div id="daten-werte-abschnitt" class="expandable-content" style="display:none;">
         <div id="daten-grafik" class="daten-element">
           <!-- Werden über datenLoader.js geladen -->
+          <i data-lucide="loader-circle" class="loading-wheel"></i>
         </div>
 
 
 
         <table id="daten-liste" class="daten-element">
           <!-- Werden über datenLoader.js geladen (siehe script unten) -->
-
+          <tr>
+            <td style="display:flex">
+            <i data-lucide="loader-circle" class="loading-wheel"></i>
+            &nbsp;Lädt...
+            </td>
+          </tr>
         </table>
 
         <p id="daten-infotext"><i data-lucide="info" class="daten-infotext-icon"></i><em>Hover/Tippe auf die Werte für mehr Informationen und Zusammenhänge!</em>
@@ -208,7 +198,7 @@
 
 
     <div id="eigenschaften" class="text">
-      <h2 tabindex="0" class="text-header" onclick="copyURIWithID(this.parentElement.id)">Eigenschaften
+      <h2 tabindex="0" class="text-header">Eigenschaften
         <i data-lucide="link" class="text-header-icon"></i>
       </h2>
       <p class="text">
@@ -228,7 +218,7 @@
     </div>
 
     <div id="vorkommen-und-herstellung" class="text">
-      <h2 tabindex="0" class="text-header" onclick="copyURIWithID(this.parentElement.id)">Vorkommen und Herstellung
+      <h2 tabindex="0" class="text-header">Vorkommen und Herstellung
         <i data-lucide="link" class="text-header-icon"></i>
       </h2>
       <p class="text">
@@ -246,7 +236,7 @@
 
 
     <div id="im-koerper" class="text">
-      <h2 tabindex="0" class="text-header" onclick="copyURIWithID(this.parentElement.id)">Bedeutung im Körper
+      <h2 tabindex="0" class="text-header">Bedeutung im Körper
         <i data-lucide="link" class="text-header-icon"></i>
       </h2>
       <p class="text">
@@ -285,6 +275,7 @@
 
     const scripts = document.createElement("script");
     scripts.src = "javascript/scripts.js";
+    scripts.async = false;
 
     if (document.baseURI.includes("p-seminar.schinkennugget.dev")) {
       scripts.src += "?v=" + v;

@@ -1,76 +1,33 @@
-/*Animations*/
-@-webkit-keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-@-webkit-keyframes fadeOut {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes fadeOut {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-
 /*Auch in JS ändern!*/
 :root {
-  --background: #fff;
-  --accent1-transparent: rgba(248, 248, 255, 0.75);
-  --accent1: #f8f8ff;
-  --accent2: #f5f5f6;
-  --accent3: #ededef;
-  --accent4: #e0e0e2;
-  --accent5: #444;
-  --shadow: rgba(0, 0, 0, 0.2);
-  --text: #000;
+  --bg-body: hsl(0 0 100);
+  --bg-elevated: hsl(0 0 95);
+  --bg-highlight: hsl(0 0 90);
+  --bg-navbar: rgba(248, 248, 255, 0.75);
+  --bg-navbar-solid: rgb(248, 248, 255);
+  --text: hsl(0 0 0);
+  --text-muted: hsl(0 0 1);
   --link-color: #22d;
   --link-hover: #00a;
   --missing-link: #d11;
   --missing-link-hover: #a00;
+  --shadow-color: rgba(0, 0, 0, 0.2);
 }
 
 @media screen and (prefers-color-scheme: dark) {
   :root {
-    --background: #111;
-    --accent1-transparent: rgba(50, 50, 50, 0.75);
-    --accent1: #222;
-    --accent2: #333;
-    --accent3: #444;
-    --accent4: #555;
-    --accent5: #666;
-    --text: #fff;
+    --bg-body: hsl(0 0 0);
+    --bg-elevated: hsl(0 0 12);
+    --bg-highlight: hsl(0 0 20);
+    --bg-navbar: rgba(50, 50, 50, 0.75);
+    --bg-navbar-solid: rgb(50, 50, 50);
+    --text: hsl(0 0 100);
+    --text-muted: hsl(0 0 95);
     --link-color: #55f;
     --link-hover: #77f;
     --missing-link: #e00;
     --missing-link-hover: #f11;
+    --shadow-color: rgba(0, 0, 0, 0.2);
   }
 
   .darkmode-invert {
@@ -84,6 +41,7 @@
 html {
   font-size: 16px;
   font-weight: 450;
+  /*vielleicht auch 450?*/
 }
 
 
@@ -92,7 +50,7 @@ body {
   margin: auto;
   padding: 0;
   word-wrap: break-word;
-  background-color: var(--background);
+  background-color: var(--bg-body);
   color: var(--text);
   max-width: 1500px;
   -webkit-hyphens: auto;
@@ -161,12 +119,16 @@ a[href=""] {
   color: var(--missing-link);
 }
 
-a.[href=""]:hover {
+a[href=""]:hover {
   color: var(--missing-link-hover);
 }
 
-.on-hover-background-accent3:hover {
-  background: var(--accent3);
+.on-hover-bg-highlight:hover {
+  background: var(--bg-highlight);
+}
+
+.loading-wheel {
+  animation: 1s linear infinite rotate;
 }
 
 
@@ -179,19 +141,19 @@ a.[href=""]:hover {
   padding: 4px;
   margin: 0;
   list-style-type: none;
-  background-color: var(--accent1);
+  background-color: var(--bg-navbar-sold);
   font-weight: 600;
   position: fixed;
   top: 0;
   left: 0;
   width: 99.5%;
   z-index: 3;
-  border-bottom: 1px solid var(--accent3);
+  border-bottom: 1px solid var(--bg-highlight);
 }
 
 @supports (backdrop-filter: blur()) {
   #navbar {
-    background-color: var(--accent1-transparent);
+    background-color: var(--bg-navbar);
     backdrop-filter: blur(6px);
   }
 
@@ -211,12 +173,17 @@ li[class|="navbar-item"] > * {
   text-decoration: none;
   color: var(--text);
   border-radius: 0.8rem;
-  transition: background-color 0.15s linear;
+  transform-origin: center;
+  transition: background-color 0.15s linear, transform 0.15s ease;
 }
 
-li[class|="navbar-item"]:hover,
+li[class|="navbar-item"]:hover {
+  background-color: var(--bg-highlight);
+}
+
 li[class|="navbar-item"]:active {
-  background-color: var(--accent4);
+  transform: scaleY(0.9);
+  transform: scaleX(0.99);
 }
 
 li.navbar-item-left {
@@ -242,7 +209,7 @@ li.navbar-item-right {
 }
 
 li.navbar-active {
-  background-color: var(--accent3);
+  background-color: var(--bg-elevated);
 }
 
 @media screen and (max-width: 400px) {
@@ -303,7 +270,7 @@ li.navbar-active {
 /*Expandable*/
 .expandable {
   margin: 0;
-  background-color: var(--accent2);
+  background-color: var(--bg-elevated);
   border-radius: 2rem;
 }
 
@@ -333,7 +300,7 @@ li.navbar-active {
   stroke-width: 0.2rem;
   height: 2em;
   width: 2em;
-  color: var(--accent5);
+  color: var(--text-muted);
   rotate: 90deg;
   transition: rotate 0.3s;
 }
@@ -413,7 +380,7 @@ li.navbar-active {
 
 div.daten-on-hover {
   font-weight: 900;
-  text-shadow: 0.15em 0.15em 0.15em var(--shadow);
+  text-shadow: 0.15em 0.15em 0.15em var(--shadow-color);
   color: #aaa;
   transform: scale(1.1);
   transition: font-weight 0.3s, color 0.3s, transform 0.3s;
@@ -466,7 +433,7 @@ div.daten-on-hover {
 }
 
 #daten-liste tr {
-  border-top: 1px solid var(--accent5);
+  border-top: 1px solid var(--bg-highlight);
   display: flex;
   align-items: center;
   min-height: 2em;
@@ -479,21 +446,21 @@ div.daten-on-hover {
 }
 
 tr.daten-on-hover {
-  background-color: var(--accent3);
+  background-color: var(--bg-highlight);
 }
 
 div.daten-info,
 span.fachbegriff-info {
   display: none;
   position: absolute;
-  background-color: var(--accent1);
+  background-color: var(--bg-elevated);
   min-width: 0.8rem;
   max-width: 30rem;
-  box-shadow: 0.1rem 0.2rem 0.3rem var(--shadow);
+  box-shadow: 0.1rem 0.2rem 0.3rem var(--shadow-color);
   left: 2rem;
   bottom: 100%;
   z-index: 1;
-  border: 1px solid var(--accent3);
+  border: 1.5px solid var(--bg-highlight);
   border-radius: 1rem;
   box-sizing: border-box;
   padding: 1rem 1.15rem;
@@ -614,6 +581,7 @@ tr.daten-liste-elem-on-hover .daten-info
 /*TEXTE*/
 div.text {
   margin-top: 3rem;
+  color: var(--text-muted);
 }
 
 h2.text-header {
@@ -626,7 +594,7 @@ h2.text-header {
   width: 0.7em;
   stroke-width: 0.09em;
   margin-left: 0.5rem;
-  color: var(--accent4);
+  color: var(--text-muted);
   opacity: 0;
   transition: opacity 0.15s linear;
 }
@@ -638,10 +606,12 @@ h2.text-header:hover .text-header-icon {
 p.text {
   line-height: 1.5rem;
   text-align: justify;
+  color: var(--text-muted);
 }
 
 p.text > p {
   display: inline-block;
+  color: var(--text-muted);
 }
 
 /*fachbegriff-info oben bei der Daten-Liste*/
@@ -653,6 +623,7 @@ p.text > p {
 
 .text-image {
   display: inline-flex;
+  color: var(--text-muted);
   float: right;
   flex-direction: column;
   justify-content: center;
@@ -729,4 +700,55 @@ p.text > p {
 
 .frac span.symbol {
   display: none;
+}
+
+
+
+/*Animations*/
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeOut {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg) }
+  25% { transform: rotate(90deg) }
+  50% { transform: rotate(180deg) }
+  75% { transform: rotate(270deg) }
+  100% { transform: rotate(360deg) }
 }

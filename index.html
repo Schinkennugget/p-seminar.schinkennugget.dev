@@ -2,6 +2,19 @@
 <html lang="de_DE">
 
 <head>
+  <!-- CHANGELOG: 
+   - index.html: Fixed datenLoader.js not being a module
+   - zink.html: Loading wheel for daten
+   - elements.json: Added final data for every element
+   - styles.css: 
+      • Reworked color variables to be cleaner
+      • Added :active for navbar buttons
+   - scripts.js: Lots of fixes for expandable:
+      • Loading indicator
+      • Pointer events for tapping/hovering on datenliste
+      • Hopefully fixed Expandable not working on Firefox
+      • Fixed Expandable not working after spamming 
+   - -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="keywords" content="Chemie, Zink, P-Seminar, WHG" />
@@ -101,7 +114,7 @@
   </script>
 
   <script src="javascript/scripts.js"></script>
-  <script src="javascript/datenLoader.js"></script>
+  <script type="module" src="javascript/datenLoader.js"></script>
 </body>
 
 
