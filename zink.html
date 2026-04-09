@@ -27,6 +27,19 @@
   <link id="favicon-apple" rel="apple-touch-icon" sizes="180x180">
   <link rel="manifest" href="images/favicon-zink/site.webmanifest">
 
+  <script>
+    //NUR FÜR DEVOLOPMENT, DEAKTIVIERT CACHING
+    const v = Date.now(); // neuer Wert bei jedem Seitenaufruf
+    const linkCSS = document.createElement("link");
+    linkCSS.rel = "stylesheet";
+    linkCSS.href = "css/styles.css";
+
+    if (document.baseURI.includes("p-seminar.schinkennugget.dev")) {
+      linkCSS.href += "?v=" + v;
+    }
+    document.head.append(linkCSS);
+  </script>
+
   <!-- <script>
   const FAVICON_TEXT  = "XY";
   const FAVICON_BG    = "#00ff00";
@@ -182,8 +195,8 @@
           <!-- Werden über datenLoader.js geladen (siehe script unten) -->
           <tr>
             <td style="display:flex">
-            <i data-lucide="loader-circle" class="loading-wheel"></i>
-            &nbsp;Lädt...
+              <i data-lucide="loader-circle" class="loading-wheel"></i>
+              &nbsp;Lädt...
             </td>
           </tr>
         </table>
@@ -267,22 +280,19 @@
   <script src="https://unpkg.com/lucide@latest"></script>
   <script>
     //NUR FÜR DEVOLOPMENT, DEAKTIVIERT CACHING
-    const v = Date.now(); // neuer Wert bei jedem Seitenaufruf
-    const linkCSS = document.createElement("link");
-    linkCSS.rel = "stylesheet";
-    linkCSS.href = "css/styles.css"
+    try {
+      const v = Date.now(); // neuer Wert bei jedem Seitenaufruf
+      const scripts = document.createElement("script");
+      scripts.src = "javascript/scripts.js";
+      scripts.async = false;
 
-
-    const scripts = document.createElement("script");
-    scripts.src = "javascript/scripts.js";
-    scripts.async = false;
-
-    if (document.baseURI.includes("p-seminar.schinkennugget.dev")) {
-      scripts.src += "?v=" + v;
-      linkCSS.href += "?v=" + v;
+      if (document.baseURI.includes("p-seminar.schinkennugget.dev")) {
+        scripts.src += "?v=" + v;
+      }
+      document.body.append(scripts);
+    } catch (err) {
+      alert(err.name + ": " + err.message + "\nin line" + err.line)
     }
-    document.head.append(linkCSS);
-    document.body.append(scripts);
 
     // const datenLoaderEl = document.createElement("script");
     // datenLoaderEl.type = "module";
