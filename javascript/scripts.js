@@ -307,10 +307,9 @@ function copyURIWithID(id) {
 }
 
 
-
 function addURICopyEventListener() {
   function showCopiedAnimation(event) {
-
+    // test
   }
 
   document.querySelectorAll("h2.text-header").forEach(elem => {
