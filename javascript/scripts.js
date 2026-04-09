@@ -103,7 +103,7 @@ try {
 
     //Damit es am Anfang schon mal gesetzt ist und nicht in HTML jedes mal eingefügt werden muss
     document.getElementsByClassName("expandable-header")[i]
-      .classList.add("on-hover-background-accent3");
+      .classList.add("on-hover-bg-highlight");
   }
   // console.debug("Added click event listeners for " + i + " expandables.")
 } catch (err) {

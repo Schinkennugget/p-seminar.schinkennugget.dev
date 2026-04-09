@@ -223,10 +223,16 @@ export async function createFavicon(elementName) {
 
 export async function insertPSE() {
   try {
+    const pseElem = document.getElementById("pse-container");
+    const loadingWheel = lucide.createElement(lucide.LoaderCircle);
+    loadingWheel.classList.add("loading-wheel");
+    pseElem.append(loadingWheel);
+    
     const alleElementDatenObj = await loadElemente();
     const alleElementeObj = alleElementDatenObj.elements;
-    const pseElem = document.getElementById("pse-container")
 
+    pseElem.innerHTML = "";
+    
     for (let key in alleElementeObj) {
       const elementElem = document.createElement("div");
       const elementsymbolElem = document.createElement("div");
