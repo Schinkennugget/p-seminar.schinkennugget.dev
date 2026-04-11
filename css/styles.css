@@ -703,6 +703,14 @@ p.text > p {
 }
 
 
+particle {
+  position: fixed;
+  left: 0;
+  top: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+}
 
 /*Animations*/
 @-webkit-keyframes fadeIn {
@@ -751,4 +759,8 @@ p.text > p {
   50% { transform: rotate(180deg) }
   75% { transform: rotate(270deg) }
   100% { transform: rotate(360deg) }
+}
+
+@keyframes rescale-bounce {
+  0% { }
 }

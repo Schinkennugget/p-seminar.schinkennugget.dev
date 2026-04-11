@@ -2,327 +2,327 @@
 <html lang="de">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="keywords" content="Chemie, Zink, P-Seminar, WHG" />
-  <meta name="content" content="P-Seminar Chemie: Zink" />
-  <meta name="author" content="Schinkennugget" />
-  <!-- <meta name="theme-color" content="#228b22" /> -->
-  <!-- <meta name="msapplication-navbutton-color" content="#228b22"> -->
-  <!-- <meta name="apple-mobile-web-app-capable" content="yes"> -->
-  <!-- <meta name="apple-mobile-web-app-status-bar-style" content="#228b22"> -->
-  <!-- <link rel="stylesheet" href="css/styles.css" /> -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="keywords" content="Chemie, Zink, P-Seminar, WHG" />
+	<meta name="content" content="P-Seminar Chemie: Zink" />
+	<meta name="author" content="Schinkennugget" />
+	<!-- <meta name="theme-color" content="#228b22" /> -->
+	<!-- <meta name="msapplication-navbutton-color" content="#228b22"> -->
+	<!-- <meta name="apple-mobile-web-app-capable" content="yes"> -->
+	<!-- <meta name="apple-mobile-web-app-status-bar-style" content="#228b22"> -->
+	<!-- <link rel="stylesheet" href="css/styles.css" /> -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 
-  <link id="favicon-96" rel="icon" type="image/png" sizes="96x96">
-  <link id="favicon-svg" rel="icon" type="image/svg+xml">
-  <link id="favicon-ico" rel="shortcut icon">
-  <link id="favicon-apple" rel="apple-touch-icon" sizes="180x180">
-  <link rel="manifest" href="images/favicon-zink/site.webmanifest">
+	<link id="favicon-96" rel="icon" type="image/png" sizes="96x96">
+	<link id="favicon-svg" rel="icon" type="image/svg+xml">
+	<link id="favicon-ico" rel="shortcut icon">
+	<link id="favicon-apple" rel="apple-touch-icon" sizes="180x180">
+	<link rel="manifest" href="images/favicon-zink/site.webmanifest">
 
-  <script>
-    //NUR FÜR DEVOLOPMENT, DEAKTIVIERT CACHING
-    const v = Date.now(); // neuer Wert bei jedem Seitenaufruf
-    const linkCSS = document.createElement("link");
-    linkCSS.rel = "stylesheet";
-    linkCSS.href = "css/styles.css";
+	<script>
+		//NUR FÜR DEVELOPMENT, DEAKTIVIERT CACHING
+		const v = Date.now(); // neuer Wert bei jedem Seitenaufruf
+		const linkCSS = document.createElement("link");
+		linkCSS.rel = "stylesheet";
+		linkCSS.href = "css/styles.css";
 
-    if (document.baseURI.includes("p-seminar.schinkennugget.dev")) {
-      linkCSS.href += "?v=" + v;
-    }
-    document.head.append(linkCSS);
-  </script>
+		if (document.baseURI.includes("p-seminar.schinkennugget.dev")) {
+			linkCSS.href += "?v=" + v;
+		}
+		document.head.append(linkCSS);
+	</script>
 
-  <!-- <script>
-  const FAVICON_TEXT  = "XY";
-  const FAVICON_BG    = "#00ff00";
-  const FAVICON_COLOR = "#ffffff";
+	<!-- <script>
+const FAVICON_TEXT  = "XY";
+const FAVICON_BG    = "#00ff00";
+const FAVICON_COLOR = "#ffffff";
 
-  function drawFavicon(size) {
-    const canvas = document.createElement('canvas');
-    canvas.width = canvas.height = size;
-    const ctx = canvas.getContext('2d');
+function drawFavicon(size) {
+const canvas = document.createElement('canvas');
+canvas.width = canvas.height = size;
+const ctx = canvas.getContext('2d');
 
-    const radius = size * 0.15;
-    const fontSize = Math.round(size * 0.6);
+const radius = size * 0.15;
+const fontSize = Math.round(size * 0.6);
 
-    // Hintergrund
-    ctx.fillStyle = FAVICON_BG;
-    ctx.beginPath();
-    ctx.roundRect(0, 0, size, size, radius);
-    ctx.fill();
+// Hintergrund
+ctx.fillStyle = FAVICON_BG;
+ctx.beginPath();
+ctx.roundRect(0, 0, size, size, radius);
+ctx.fill();
 
-    // Text
-    ctx.fillStyle = FAVICON_COLOR;
-    ctx.font = `bold ${fontSize}px sans-serif`;
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-    ctx.fillText(FAVICON_TEXT, size / 2, size / 2);
+// Text
+ctx.fillStyle = FAVICON_COLOR;
+ctx.font = `bold ${fontSize}px sans-serif`;
+ctx.textAlign = 'center';
+ctx.textBaseline = 'middle';
+ctx.fillText(FAVICON_TEXT, size / 2, size / 2);
 
-    return canvas.toDataURL('image/png');
-  }
+return canvas.toDataURL('image/png');
+}
 
-  function generateSVGFavicon() {
-    const letters = FAVICON_TEXT.slice(0, 2).toUpperCase();
-    const svg = `
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96">
-        <rect width="96" height="96" rx="14" fill="${FAVICON_BG}"/>
-        <text x="48" y="48" font-family="sans-serif" font-weight="bold"
-              font-size="38" fill="${FAVICON_COLOR}"
-              text-anchor="middle" dominant-baseline="central">${letters}</text>
-      </svg>`.trim();
-    return 'data:image/svg+xml;base64,' + btoa(svg);
-  }
+function generateSVGFavicon() {
+const letters = FAVICON_TEXT.slice(0, 2).toUpperCase();
+const svg = `
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96">
+<rect width="96" height="96" rx="14" fill="${FAVICON_BG}"/>
+<text x="48" y="48" font-family="sans-serif" font-weight="bold"
+    font-size="38" fill="${FAVICON_COLOR}"
+    text-anchor="middle" dominant-baseline="central">${letters}</text>
+</svg>`.trim();
+return 'data:image/svg+xml;base64,' + btoa(svg);
+}
 
-  document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('favicon-96').href   = drawFavicon(96);
-    document.getElementById('favicon-ico').href  = drawFavicon(32);  // .ico → 32px PNG als Fallback
-    document.getElementById('favicon-apple').href = drawFavicon(180);
-    document.getElementById('favicon-svg').href  = generateSVGFavicon();
-  });
+document.addEventListener('DOMContentLoaded', () => {
+document.getElementById('favicon-96').href   = drawFavicon(96);
+document.getElementById('favicon-ico').href  = drawFavicon(32);  // .ico → 32px PNG als Fallback
+document.getElementById('favicon-apple').href = drawFavicon(180);
+document.getElementById('favicon-svg').href  = generateSVGFavicon();
+});
 </script>
 
-  <script>
-    
-  </script> -->
+<script>
 
-  <title>Zink</title>
+</script> -->
+
+	<title>Zink</title>
 </head>
 
 <body tabindex="0">
 
-  <nav>
-    <ul id="navbar">
-      <li class="navbar-item-left">
-        <a href="index.html" tabindex="0">
-          <i data-lucide="house" class="navbar-icon"></i>
-          <span class="navbar-text-1">Startseite</span>
-        </a>
-      </li>
-      <li class="navbar-item-left">
-        <a href="experimente/alle-experimente.html" tabindex="0">
-          <i data-lucide="flask-conical" class="navbar-icon"></i>
-          <span class="navbar-text-2">Experimente</span>
-        </a>
-      </li>
+	<nav>
+		<ul id="navbar">
+			<li class="navbar-item-left">
+				<a href="index.html" tabindex="0">
+					<i data-lucide="house" class="navbar-icon"></i>
+					<span class="navbar-text-1">Startseite</span>
+				</a>
+			</li>
+			<li class="navbar-item-left">
+				<a href="experimente/alle-experimente.html" tabindex="0">
+					<i data-lucide="flask-conical" class="navbar-icon"></i>
+					<span class="navbar-text-2">Experimente</span>
+				</a>
+			</li>
 
-      <!-- 			<span style="visibility: hidden; width: 100%"> :) </span> -->
+			<!-- 			<span style="visibility: hidden; width: 100%"> :) </span> -->
 
-      <li class="navbar-item-right" tabindex="0" onclick="toggleDarkMode()">
-        <span>
-          <i data-lucide="sun" class="navbar-icon" id="navbar-icon-sun"></i>
-          <i data-lucide="moon" class="navbar-icon" id="navbar-icon-moon"></i>
-        </span>
-      </li>
-      <li class="navbar-item-right" tabindex="0" onclick="window.print();">
-        <span>
-          <i data-lucide="printer" class="navbar-icon"></i>
-          <span class="navbar-text-3">Seite drucken</span>
-        </span>
-      </li>
-    </ul>
-  </nav>
+			<li class="navbar-item-right" tabindex="0" onclick="toggleDarkMode()">
+				<span>
+					<i data-lucide="sun" class="navbar-icon" id="navbar-icon-sun"></i>
+					<i data-lucide="moon" class="navbar-icon" id="navbar-icon-moon"></i>
+				</span>
+			</li>
+			<li class="navbar-item-right" tabindex="0" onclick="window.print();">
+				<span>
+					<i data-lucide="printer" class="navbar-icon"></i>
+					<span class="navbar-text-3">Seite drucken</span>
+				</span>
+			</li>
+		</ul>
+	</nav>
 
-  <main>
+	<main>
 
-    <p style="font-size: 10px;">Die Webseite ist derzeit noch in Arbeit. Einige Features funktionieren nur eingeschränkt oder gar nicht, hauptsächlich JavaScript-basierte, interaktive Funktionen.</p>
+		<p style="font-size: 10px;">Die Webseite ist derzeit noch in Arbeit. Einige Features funktionieren nur eingeschränkt oder gar nicht, hauptsächlich JavaScript-basierte, interaktive Funktionen.</p>
 
-    <noscript>Hinweis: JavaScript-Funktionen können nicht geladen werden, vermutlich weil dein Browser diese nicht unterstützt oder weil du JavaScript deaktiviert hast. Dadurch ist die Webseite visuell und funktional eingeschränkt.</noscript>
+		<noscript>Hinweis: JavaScript-Funktionen können nicht geladen werden, vermutlich weil dein Browser diese nicht unterstützt oder weil du JavaScript deaktiviert hast. Dadurch ist die Webseite visuell und funktional eingeschränkt.</noscript>
 
-    <div id="screenWidth"></div>
+		<div id="screenWidth"></div>
 
-    <script>
-      function updateScreenWidth() {
-        const width = window.innerWidth;
-        document.getElementById("screenWidth").textContent =
-          "Aktuelle Bildschirmbreite: " + width + "px";
-      }
+		<script>
+			function updateScreenWidth() {
+				const width = window.innerWidth;
+				document.getElementById("screenWidth").textContent =
+					"Aktuelle Bildschirmbreite: " + width + "px";
+			}
 
-      // initial setzen
-      updateScreenWidth();
+			// initial setzen
+			updateScreenWidth();
 
-      // bei Resize aktualisieren
-      window.addEventListener("resize", updateScreenWidth);
-    </script>
+			// bei Resize aktualisieren
+			window.addEventListener("resize", updateScreenWidth);
+		</script>
 
-    <header>
-      <img src="images/pse.png" id="periodensystem" />
+		<header>
+			<img src="images/pse.png" id="periodensystem" />
 
-      <nav id="pse-container">
+			<nav id="pse-container">
 
-      </nav>
-
-
-      <!-- <div id="test">Kein Touch</div> -->
+			</nav>
 
 
-
-
-      <div id="header-text">
-        <h1>Zink</h1>
-
-        <p id="introduction">
-          Zink ist ein Metall, welches seit Anbeginn der Menschheit für uns wichtig war. Zusammen mit Kupfer kann man daraus Messing herstellen, welches historisch eine große Rolle spielte. Außerdem ist Zink beispielsweise im Körper Bestandteil von einigen Enzymen und wird in der Industrie zum Rostschutz eingesetzt.
-        </p>
-      </div>
-    </header>
-
-
-
-    <div id="daten-abschnitt" class="expandable" data-expanded="0">
-      <button id="daten-header" class="expandable-header" tabindex="0">
-        <h3>Daten</h3>
-        <i data-lucide="chevron-right" class="expandable-header-icon"></i>
-      </button>
-
-
-      <div id="daten-werte-abschnitt" class="expandable-content" style="display:none;">
-        <div id="daten-grafik" class="daten-element">
-          <!-- Werden über datenLoader.js geladen -->
-          <i data-lucide="loader-circle" class="loading-wheel"></i>
-        </div>
-
-
-
-        <table id="daten-liste" class="daten-element">
-          <!-- Werden über datenLoader.js geladen (siehe script unten) -->
-          <tr>
-            <td style="display:flex">
-              <i data-lucide="loader-circle" class="loading-wheel"></i>
-              &nbsp;Lädt...
-            </td>
-          </tr>
-        </table>
-
-        <p id="daten-infotext"><i data-lucide="info" class="daten-infotext-icon"></i><em>Hover/Tippe auf die Werte für mehr Informationen und Zusammenhänge!</em>
-        </p>
-
-        <p id="daten-zusatz">Eine ausführlichere Liste an chem. und physikalischen Daten findest du im <a href="https://de.wikipedia.org/wiki/zink" target="_blank">Wikipedia-Artikel</a>.
-        </p>
-      </div>
-    </div>
-
-
-    <div id="eigenschaften" class="text">
-      <h2 tabindex="0" class="text-header">Eigenschaften
-        <i data-lucide="link" class="text-header-icon"></i>
-      </h2>
-      <p class="text">
-        <span class="text-image">
-          <img width="512" alt="Zinc" src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Zinc_fragment_sublimed_and_1cm3_cube.jpg" />
-          <a title="Alchemist-hp (talk) (www.pse-mendelejew.de), FAL, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Zinc_fragment_sublimed_and_1cm3_cube.jpg">
-            Zink als Würfel, kristallines Bruchstück und sublimiert.
-          </a>
-        </span>
-
-        <span data-sources="2">Zink ist ein bläulich-weißes, unedles Metall.</span>
-        <span data-sources="5">Unedel bedeutet, dass es leicht korrodiert, also „rostet“. Anders als zum Beispiel Eisen, das so lange mit Sauerstoff reagiert, bis es komplett durchgerostet ist, bildet sich bei Zink an der Oberfläche eine Schicht aus quasi „Zinkrost“, der das restliche Metall vor weiterer Korrosion schützt.</span>
-        <span data-sources="2">Diese Schicht besteht aus Zinkoxid und Zinkcarbonat und hat die Summenformel Zn<sub>5</sub>(OH)<sub>6</sub>(CO<sub>3</sub>)<sub>2</sub>. Sie ist so witterungsbeständig, dass man Zink deswegen im Rostschutz einsetzt, zum Beispiel beim <a href="">Verzinken von Eisen</a>.</span>
-        <span data-sources="2,6">Zink gehört zu den Übergangsmetallen, hat wegen seiner abgeschlossenen <a href="">d-Schale</a> aber eher die Eigenschaften von Erdalkalimetallen (Elemente der 2. Hauptgruppe, wie Beryllium oder Magnesium).</span>
-        <span data-sources="7">Feines, nicht stabilisiertes Zinkpulver kann sich an der Luft oder bei Kontakt mit Wasser spontan entzünden, man spricht deshalb von einem pyrophoren Feststoff.</span>
-      </p>
-    </div>
-
-    <div id="vorkommen-und-herstellung" class="text">
-      <h2 tabindex="0" class="text-header">Vorkommen und Herstellung
-        <i data-lucide="link" class="text-header-icon"></i>
-      </h2>
-      <p class="text">
-        <span class="text-image">
-          <img width="512" alt="Evolution production zinc" src="images/zink-produktion-diagramm.png" class="darkmode-invert" />
-          <a title="Borvan53, CC BY 4.0 &lt;https://creativecommons.org/licenses/by/4.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Evolution_production_zinc.svg">
-            Weltweite Zinkproduktion über die Jahre nach Land wejhbflbeulhewr i bweztgb wezgbwektzgb wkuzgbut eriw kizt erth
-          </a>
-        </span>
-        <span data-sources="2">Zink ist auf der Erde mit einem Gehalt von 0,00076% an der Erdkruste ein relativ häufiges Element. Ordnet man die Elemente nach Häufigkeit, steht Zink an 24. Stelle, noch vor beispielsweise Kupfer oder Blei. Man findet es überwiegend gebunden in Erzen, Zinksulfiderze sind dabei die wichtigsten für die industrielle Gewinnung. 2024 sind insgesamt mehr als 330 Zink-Minerale bekannt.</span> <span data-sources='2,3'>Große Lagerstätten existieren in Nordamerika, Australien, China und Kasachstan. Auch in Deutschland gibt es Zinkvorkommen, beispielsweise im Raum Eschweiler-Stolberg im Rheinland, am Rammelsberg im Harz oder bei Ramsbeck im Sauerland, jedoch wurde die Zinkgewinnung in Deutschland oft wegen der unzureichenden Wirtschaftlichkeit, der Konkurrenz durch billigere Importe und veralteter Abbaumethoden geschlossen.</span>
-        <br /><br />
-        <span data-sources="4">Das wichtigste Mineral für die Zinkgewinnung ist Sphalerit (ZnS), im Bergbau auch als Zinkblende bekannt.</span> Das bedeutet das außer Zink im Konzentrat noch etwa 20% Schwefel enthalten sind. Ein weiterer Vorteil ist, dass Zinkkonzentrate immer Eisen, Silber und Blei in unterschiedlichen Anteilen mit sich bringen, das diese Elemente oft in den Erzen gemeinsam vorkommen. <span data-sources="5,6">Die Kunst ist weniger die Gewinnung von Zink, sondern die Abtrennung der Begleitelemente so, dass man sie als Nebenprodukte nutzen kann. Dafür wir zuerst das Konzentrat auf über 900 Grad Celsius erhitzt, sodass ZnS zu ZnO reagiert. Der Fachmann spricht von einer Röstung. Anschließend folgt eine Reduktion (meist hydrometallurgisch per Elektrolyse) zu einem reinem Metall.</span> Über 90 % des Zinks entstehen durch dieses nasse Verfahren, der Rest pyrometallurgisch im Schachtofen. Pyrometallurgisch bedeutet, dass Zinkoxid mit Kohle in Öfen reduziert. Der Siedepunkt von Zink ist mit 907 Grad Cellsius relativ niedrig. Dadurch entsteht Zinkdampf, welcher im Anschluss auskondensiert wird. Gleichzeitig verbindet sich Schwefel mit Sauerstoff zu gasförmigem Schwefeldioxid (SO<sub>2</sub>). In speziellen Anlagen wird aus dem Schwefeldioxid Schwefelsäure gewonnen, welche man zum Beispiel für die Herstellung von Düngemitteln benötigt. Zink wird zudem in erheblichem Maße durch das Recycling von Schrott (Sekundärzink) gewonnen.<span data-sources="2,5"></span>
-      </p>
-    </div>
-
-
-    <div id="im-koerper" class="text">
-      <h2 tabindex="0" class="text-header">Bedeutung im Körper
-        <i data-lucide="link" class="text-header-icon"></i>
-      </h2>
-      <p class="text">
-        Zink ist ein sog. <span class="fachbegriff">Cosubstrat</span><span class="fachbegriff-info"></span>, d.h. es ist ein Bestandteil von Enzymen. <a href="">Schwefel</a><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-      </p>
-    </div>
-
-    <div id="quellen-container" class="expandable" data-expanded="0">
-      <button id="quellen-header" class="expandable-header" tabindex="0">
-        <h3>Quellen</h3>
-        <i data-lucide="chevron-right" class="expandable-header-icon"></i>
-      </button>
-
-      <div id="quellen" class="expandable-content" style="display:none">
-        <i>Quellen konnten nicht geladen werden. Entweder war ich bisher zu faul um das einzuprogrammieren oder es funktioniert nicht :(</i>
-      </div>
-
-
-    </div>
-
-
-  </main>
+			<!-- <div id="test">Kein Touch</div> -->
 
 
 
 
-  <!-- Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
-  <script>
-    //NUR FÜR DEVOLOPMENT, DEAKTIVIERT CACHING
-    try {
-      const v = Date.now(); // neuer Wert bei jedem Seitenaufruf
-      const scripts = document.createElement("script");
-      scripts.src = "javascript/scripts.js";
-      scripts.async = false;
+			<div id="header-text">
+				<h1>Zink</h1>
 
-      if (document.baseURI.includes("p-seminar.schinkennugget.dev")) {
-        scripts.src += "?v=" + v;
-      }
-      document.body.append(scripts);
-    } catch (err) {
-      alert(err.name + ": " + err.message + "\nin line" + err.line)
-    }
+				<p id="introduction">
+					Zink ist ein Metall, welches seit Anbeginn der Menschheit für uns wichtig war. Zusammen mit Kupfer kann man daraus Messing herstellen, welches historisch eine große Rolle spielte. Außerdem ist Zink beispielsweise im Körper Bestandteil von einigen Enzymen und wird in der Industrie zum Rostschutz eingesetzt.
+				</p>
+			</div>
+		</header>
 
-    // const datenLoaderEl = document.createElement("script");
-    // datenLoaderEl.type = "module";
-    // datenLoaderEl.src = "javascript/datenLoader.js?v=" + v;
-    // document.body.append(datenLoaderEl);
-  </script>
 
-  <!-- <script src="javascript/scripts.js"></script> -->
 
-  <!-- <script type="module" src="javascript/datenLoader.js"></script> -->
-  <script type="module">
-    import * as datenLoader from "./javascript/datenLoader.js";
+		<div id="daten-abschnitt" class="expandable" data-expanded="0">
+			<button id="daten-header" class="expandable-header" tabindex="0">
+				<h3>Daten</h3>
+				<i data-lucide="chevron-right" class="expandable-header-icon"></i>
+			</button>
 
-    const elementName = document.querySelector("#header-text > h1").innerText;
-    datenLoader.insertDatenIntoGrafik(elementName);
-    datenLoader.insertDatenIntoDatenliste(elementName);
-    datenLoader.generateAndInjectFavicon(elementName);
-    // datenLoader.loadDaten();
-  </script>
 
-  <script>
-    lucide.createIcons();
-  </script>
+			<div id="daten-werte-abschnitt" class="expandable-content" style="display:none;">
+				<div id="daten-grafik" class="daten-element">
+					<!-- Werden über datenLoader.js geladen -->
+					<i data-lucide="loader-circle" class="loading-wheel"></i>
+				</div>
 
-  <script src="javascript/test.js"></script>
 
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js">
-    window.MathJax = {
-      tex: {
-        packages: {
-          '[+]': ['mhchem']
-        }
-      }
-    };
-  </script>
+
+				<table id="daten-liste" class="daten-element">
+					<!-- Werden über datenLoader.js geladen (siehe script unten) -->
+					<tr>
+						<td style="display:flex">
+							<i data-lucide="loader-circle" class="loading-wheel"></i>
+							&nbsp;Lädt...
+						</td>
+					</tr>
+				</table>
+
+				<p id="daten-infotext"><i data-lucide="info" class="daten-infotext-icon"></i><em>Hover/Tippe auf die Werte für mehr Informationen und Zusammenhänge!</em>
+				</p>
+
+				<p id="daten-zusatz">Eine ausführlichere Liste an chem. und physikalischen Daten findest du im <a href="https://de.wikipedia.org/wiki/zink" target="_blank">Wikipedia-Artikel</a>.
+				</p>
+			</div>
+		</div>
+
+
+		<div id="eigenschaften" class="text">
+			<h2 tabindex="0" class="text-header">Eigenschaften
+				<i data-lucide="link" class="text-header-icon"></i>
+			</h2>
+			<p class="text">
+				<span class="text-image">
+					<img width="512" alt="Zinc" src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Zinc_fragment_sublimed_and_1cm3_cube.jpg" />
+					<a title="Alchemist-hp (talk) (www.pse-mendelejew.de), FAL, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Zinc_fragment_sublimed_and_1cm3_cube.jpg">
+						Zink als Würfel, kristallines Bruchstück und sublimiert.
+					</a>
+				</span>
+
+				<span data-sources="2">Zink ist ein bläulich-weißes, unedles Metall.</span>
+				<span data-sources="5">Unedel bedeutet, dass es leicht korrodiert, also „rostet“. Anders als zum Beispiel Eisen, das so lange mit Sauerstoff reagiert, bis es komplett durchgerostet ist, bildet sich bei Zink an der Oberfläche eine Schicht aus quasi „Zinkrost“, der das restliche Metall vor weiterer Korrosion schützt.</span>
+				<span data-sources="2">Diese Schicht besteht aus Zinkoxid und Zinkcarbonat und hat die Summenformel Zn<sub>5</sub>(OH)<sub>6</sub>(CO<sub>3</sub>)<sub>2</sub>. Sie ist so witterungsbeständig, dass man Zink deswegen im Rostschutz einsetzt, zum Beispiel beim <a href="">Verzinken von Eisen</a>.</span>
+				<span data-sources="2,6">Zink gehört zu den Übergangsmetallen, hat wegen seiner abgeschlossenen <a href="">d-Schale</a> aber eher die Eigenschaften von Erdalkalimetallen (Elemente der 2. Hauptgruppe, wie Beryllium oder Magnesium).</span>
+				<span data-sources="7">Feines, nicht stabilisiertes Zinkpulver kann sich an der Luft oder bei Kontakt mit Wasser spontan entzünden, man spricht deshalb von einem pyrophoren Feststoff.</span>
+			</p>
+		</div>
+
+		<div id="vorkommen-und-herstellung" class="text">
+			<h2 tabindex="0" class="text-header">Vorkommen und Herstellung
+				<i data-lucide="link" class="text-header-icon"></i>
+			</h2>
+			<p class="text">
+				<span class="text-image">
+					<img width="512" alt="Evolution production zinc" src="images/zink-produktion-diagramm.png" class="darkmode-invert" />
+					<a title="Borvan53, CC BY 4.0 &lt;https://creativecommons.org/licenses/by/4.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Evolution_production_zinc.svg">
+						Weltweite Zinkproduktion über die Jahre nach Land wejhbflbeulhewr i bweztgb wezgbwektzgb wkuzgbut eriw kizt erth
+					</a>
+				</span>
+				<span data-sources="2">Zink ist auf der Erde mit einem Gehalt von 0,00076% an der Erdkruste ein relativ häufiges Element. Ordnet man die Elemente nach Häufigkeit, steht Zink an 24. Stelle, noch vor beispielsweise Kupfer oder Blei. Man findet es überwiegend gebunden in Erzen, Zinksulfiderze sind dabei die wichtigsten für die industrielle Gewinnung. 2024 sind insgesamt mehr als 330 Zink-Minerale bekannt.</span> <span data-sources='2,3'>Große Lagerstätten existieren in Nordamerika, Australien, China und Kasachstan. Auch in Deutschland gibt es Zinkvorkommen, beispielsweise im Raum Eschweiler-Stolberg im Rheinland, am Rammelsberg im Harz oder bei Ramsbeck im Sauerland, jedoch wurde die Zinkgewinnung in Deutschland oft wegen der unzureichenden Wirtschaftlichkeit, der Konkurrenz durch billigere Importe und veralteter Abbaumethoden geschlossen.</span>
+				<br /><br />
+				<span data-sources="4">Das wichtigste Mineral für die Zinkgewinnung ist Sphalerit (ZnS), im Bergbau auch als Zinkblende bekannt.</span> Das bedeutet das außer Zink im Konzentrat noch etwa 20% Schwefel enthalten sind. Ein weiterer Vorteil ist, dass Zinkkonzentrate immer Eisen, Silber und Blei in unterschiedlichen Anteilen mit sich bringen, das diese Elemente oft in den Erzen gemeinsam vorkommen. <span data-sources="5,6">Die Kunst ist weniger die Gewinnung von Zink, sondern die Abtrennung der Begleitelemente so, dass man sie als Nebenprodukte nutzen kann. Dafür wir zuerst das Konzentrat auf über 900 Grad Celsius erhitzt, sodass ZnS zu ZnO reagiert. Der Fachmann spricht von einer Röstung. Anschließend folgt eine Reduktion (meist hydrometallurgisch per Elektrolyse) zu einem reinem Metall.</span> Über 90 % des Zinks entstehen durch dieses nasse Verfahren, der Rest pyrometallurgisch im Schachtofen. Pyrometallurgisch bedeutet, dass Zinkoxid mit Kohle in Öfen reduziert. Der Siedepunkt von Zink ist mit 907 Grad Cellsius relativ niedrig. Dadurch entsteht Zinkdampf, welcher im Anschluss auskondensiert wird. Gleichzeitig verbindet sich Schwefel mit Sauerstoff zu gasförmigem Schwefeldioxid (SO<sub>2</sub>). In speziellen Anlagen wird aus dem Schwefeldioxid Schwefelsäure gewonnen, welche man zum Beispiel für die Herstellung von Düngemitteln benötigt. Zink wird zudem in erheblichem Maße durch das Recycling von Schrott (Sekundärzink) gewonnen.<span data-sources="2,5"></span>
+			</p>
+		</div>
+
+
+		<div id="im-koerper" class="text">
+			<h2 tabindex="0" class="text-header">Bedeutung im Körper
+				<i data-lucide="link" class="text-header-icon"></i>
+			</h2>
+			<p class="text">
+				Zink ist ein sog. <span class="fachbegriff">Cosubstrat</span><span class="fachbegriff-info"></span>, d.h. es ist ein Bestandteil von Enzymen. <a href="">Schwefel</a><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+			</p>
+		</div>
+
+		<div id="quellen-container" class="expandable" data-expanded="0">
+			<button id="quellen-header" class="expandable-header" tabindex="0">
+				<h3>Quellen</h3>
+				<i data-lucide="chevron-right" class="expandable-header-icon"></i>
+			</button>
+
+			<div id="quellen" class="expandable-content" style="display:none">
+				<i>Quellen konnten nicht geladen werden. Entweder war ich bisher zu faul um das einzuprogrammieren oder es funktioniert nicht :(</i>
+			</div>
+
+
+		</div>
+
+
+	</main>
+
+
+
+
+	<!-- Icons -->
+	<script src="https://unpkg.com/lucide@latest"></script>
+	<script>
+		//NUR FÜR DEVELOPMENT, DEAKTIVIERT CACHING
+		try {
+			const v = Date.now(); // neuer Wert bei jedem Seitenaufruf
+			const scripts = document.createElement("script");
+			scripts.src = "javascript/scripts.js";
+			scripts.async = false;
+
+			if (document.baseURI.includes("p-seminar.schinkennugget.dev")) {
+				scripts.src += "?v=" + v;
+			}
+			document.body.append(scripts);
+		} catch (err) {
+			alert(err.name + ": " + err.message + "\nin line" + err.line)
+		}
+
+		// const datenLoaderEl = document.createElement("script");
+		// datenLoaderEl.type = "module";
+		// datenLoaderEl.src = "javascript/datenLoader.js?v=" + v;
+		// document.body.append(datenLoaderEl);
+	</script>
+
+	<!-- <script src="javascript/scripts.js"></script> -->
+
+	<!-- <script type="module" src="javascript/datenLoader.js"></script> -->
+	<script type="module">
+		import * as datenLoader from "./javascript/datenLoader.js";
+
+		const elementName = document.querySelector("#header-text > h1").innerText;
+		datenLoader.insertDatenIntoGrafik(elementName);
+		datenLoader.insertDatenIntoDatenliste(elementName);
+		datenLoader.generateAndInjectFavicon(elementName);
+		// datenLoader.loadDaten();
+	</script>
+
+	<script>
+		lucide.createIcons();
+	</script>
+
+	<script src="javascript/test.js"></script>
+
+	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js">
+		window.MathJax = {
+			tex: {
+				packages: {
+					'[+]': ['mhchem']
+				}
+			}
+		};
+	</script>
 </body>
 
 
