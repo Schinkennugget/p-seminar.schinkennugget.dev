@@ -131,6 +131,10 @@ a[href=""]:hover {
   animation: 1s linear infinite rotate;
 }
 
+.icon-error {
+  color: red;
+}
+
 
 
 
@@ -762,5 +766,6 @@ particle {
 }
 
 @keyframes rescale-bounce {
-  0% { }
+  0% { transform: scale(1) }
+	100% { transform: scale(1.3) }
 }

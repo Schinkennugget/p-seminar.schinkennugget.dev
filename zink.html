@@ -35,59 +35,6 @@
 		document.head.append(linkCSS);
 	</script>
 
-	<!-- <script>
-const FAVICON_TEXT  = "XY";
-const FAVICON_BG    = "#00ff00";
-const FAVICON_COLOR = "#ffffff";
-
-function drawFavicon(size) {
-const canvas = document.createElement('canvas');
-canvas.width = canvas.height = size;
-const ctx = canvas.getContext('2d');
-
-const radius = size * 0.15;
-const fontSize = Math.round(size * 0.6);
-
-// Hintergrund
-ctx.fillStyle = FAVICON_BG;
-ctx.beginPath();
-ctx.roundRect(0, 0, size, size, radius);
-ctx.fill();
-
-// Text
-ctx.fillStyle = FAVICON_COLOR;
-ctx.font = `bold ${fontSize}px sans-serif`;
-ctx.textAlign = 'center';
-ctx.textBaseline = 'middle';
-ctx.fillText(FAVICON_TEXT, size / 2, size / 2);
-
-return canvas.toDataURL('image/png');
-}
-
-function generateSVGFavicon() {
-const letters = FAVICON_TEXT.slice(0, 2).toUpperCase();
-const svg = `
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96">
-<rect width="96" height="96" rx="14" fill="${FAVICON_BG}"/>
-<text x="48" y="48" font-family="sans-serif" font-weight="bold"
-    font-size="38" fill="${FAVICON_COLOR}"
-    text-anchor="middle" dominant-baseline="central">${letters}</text>
-</svg>`.trim();
-return 'data:image/svg+xml;base64,' + btoa(svg);
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-document.getElementById('favicon-96').href   = drawFavicon(96);
-document.getElementById('favicon-ico').href  = drawFavicon(32);  // .ico → 32px PNG als Fallback
-document.getElementById('favicon-apple').href = drawFavicon(180);
-document.getElementById('favicon-svg').href  = generateSVGFavicon();
-});
-</script>
-
-<script>
-
-</script> -->
-
 	<title>Zink</title>
 </head>
 

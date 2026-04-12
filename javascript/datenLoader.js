@@ -149,74 +149,6 @@ export async function generateAndInjectFavicon(elementName) {
   }
 }
 
-export async function createFavicon(elementName) {
-  alert(1)
-  try {
-    const elementObj = await findElementWithName(elementName);
-
-    const FAVICON_TEXT = elementObj.elementsymbol;
-    const FAVICON_BG = elementObj?.additional_data?.background_color ?? "darkgrey";
-    const FAVICON_COLOR = "#ffffff";
-
-    function drawFavicon(size) {
-      alert(2)
-      const canvas = document.createElement('canvas');
-      canvas.width = canvas.height = size;
-      const ctx = canvas.getContext('2d');
-
-      const radius = size * 0.15;
-      const fontSize = Math.round(size * 0.6);
-
-      ctx.fillStyle = FAVICON_BG;
-      ctx.beginPath();
-      ctx.roundRect(0, 0, size, size, radius);
-      ctx.fill();
-
-      ctx.fillStyle = FAVICON_COLOR;
-      ctx.font = `bold ${fontSize}px sans-serif`;
-      ctx.textAlign = 'center';
-      ctx.textBaseline = 'middle';
-      ctx.fillText(FAVICON_TEXT, size / 2, size / 2);
-
-      return canvas.toDataURL('image/png');
-    }
-
-    function generateSVGFavicon() {
-      alert(3)
-      const letters = FAVICON_TEXT.slice(0, 2).toUpperCase();
-      const svg = `
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96">
-          <rect width="96" height="96" rx="14" fill="${FAVICON_BG}"/>
-          <text x="48" y="48" font-family="sans-serif" font-weight="bold"
-                font-size="38" fill="${FAVICON_COLOR}"
-                text-anchor="middle" dominant-baseline="central">${letters}</text>
-        </svg>`.trim();
-      return 'data:image/svg+xml;base64,' + btoa(svg);
-    }
-
-    function applyFavicons() {
-      alert(4)
-      document.getElementById('favicon-96').href = drawFavicon(96);
-      document.getElementById('favicon-ico').href = drawFavicon(32);
-      document.getElementById('favicon-apple').href = drawFavicon(180);
-      document.getElementById('favicon-svg').href = generateSVGFavicon();
-    }
-
-    // ✅ Fix: DOM schon bereit? Sofort ausführen, sonst warten.
-    if (document.readyState === 'loading') {
-      alert(5)
-      document.addEventListener('DOMContentLoaded', applyFavicons);
-    } else {
-      alert(6)
-      applyFavicons();
-    }
-
-  } catch (err) {
-    console.error(err.name + "\n" + err.message);
-  }
-}
-
-//createFavicon("Zink")
 
 
 
@@ -228,10 +160,36 @@ export async function insertPSE() {
     loadingWheel.classList.add("loading-wheel");
     pseElem.append(loadingWheel);
     
-    const alleElementDatenObj = await loadElemente();
+    const alleElementDatenObj = await loadElemente()
+    .then(result => {
+      pseElem.innerHTML = ""; return result; })
+    .catch(error => {
+      pseElem.innerHTML = "";
+      const errorIcon = lucide.createElement(lucide.OctagonAlert);
+      errorIcon.classList.add("icon-error");
+      const errorText = document.createElement("span");
+      errorText.innerHTML = `Das Periodensystem konnte nicht geladen werden. (<code>${error.name}: ${error.message}</code>)`;
+      
+      pseElem.append(errorIcon);
+      pseElem.append(errorText);
+      return;
+    })
+    
+    if (!alleElementDatenObj) {
+      console.error(`Could not load elements data for PSE.\n${err.name}: ${err.message}`);
+      pseElem.innerHTML = "";
+      
+      const errorIcon = lucide.createElement(lucide.OctagonX);
+      errorIcon.classList.add("icon-error");
+      const errorText = document.createElement("span");
+      errorText.innerHTML = `Das Periodensystem konnte nicht geladen werden. (<code>${error.name}: ${error.message}</code>)`;
+      
+      pseElem.append(errorIcon);
+      pseElem.append(errorText);
+      return;
+    }
+    
     const alleElementeObj = alleElementDatenObj.elements;
-
-    pseElem.innerHTML = "";
     
     for (let key in alleElementeObj) {
       const elementElem = document.createElement("div");
