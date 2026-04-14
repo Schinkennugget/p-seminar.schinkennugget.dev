@@ -208,8 +208,6 @@ export async function insertPSE() {
     console.error(err.name + "\n" + err.message)
   }
 }
-insertPSE();
-
 
 
 

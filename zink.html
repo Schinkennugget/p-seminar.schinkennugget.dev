@@ -7,14 +7,6 @@
 	<meta name="keywords" content="Chemie, Zink, P-Seminar, WHG" />
 	<meta name="content" content="P-Seminar Chemie: Zink" />
 	<meta name="author" content="Schinkennugget" />
-	<!-- <meta name="theme-color" content="#228b22" /> -->
-	<!-- <meta name="msapplication-navbutton-color" content="#228b22"> -->
-	<!-- <meta name="apple-mobile-web-app-capable" content="yes"> -->
-	<!-- <meta name="apple-mobile-web-app-status-bar-style" content="#228b22"> -->
-	<!-- <link rel="stylesheet" href="css/styles.css" /> -->
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 
 	<link id="favicon-96" rel="icon" type="image/png" sizes="96x96">
 	<link id="favicon-svg" rel="icon" type="image/svg+xml">
@@ -55,9 +47,7 @@
 				</a>
 			</li>
 
-			<!-- 			<span style="visibility: hidden; width: 100%"> :) </span> -->
-
-			<li class="navbar-item-right" tabindex="0" onclick="toggleDarkMode()">
+			<li class="navbar-item-right" tabindex="0" id="navbar-button-darkmode">
 				<span>
 					<i data-lucide="sun" class="navbar-icon" id="navbar-icon-sun"></i>
 					<i data-lucide="moon" class="navbar-icon" id="navbar-icon-moon"></i>
@@ -220,7 +210,7 @@
 
 	<!-- Icons -->
 	<script src="https://unpkg.com/lucide@latest"></script>
-	<script>
+	<!-- <script>
 		//NUR FÜR DEVELOPMENT, DEAKTIVIERT CACHING
 		try {
 			const v = Date.now(); // neuer Wert bei jedem Seitenaufruf
@@ -235,23 +225,24 @@
 		} catch (err) {
 			alert(err.name + ": " + err.message + "\nin line" + err.line)
 		}
-
-		// const datenLoaderEl = document.createElement("script");
-		// datenLoaderEl.type = "module";
-		// datenLoaderEl.src = "javascript/datenLoader.js?v=" + v;
-		// document.body.append(datenLoaderEl);
-	</script>
+	</script> -->
 
 	<!-- <script src="javascript/scripts.js"></script> -->
-
-	<!-- <script type="module" src="javascript/datenLoader.js"></script> -->
 	<script type="module">
 		import * as datenLoader from "./javascript/datenLoader.js";
+    import * as main from "./javascript/scripts.js";
+    
+    main.initializeDarkMode();
+    main.addURICopyEventListener();
+    main.injectSourceNotes();
+    main.addDatenHoverEventListener();
+    main.addExpandableClickListener();
 
 		const elementName = document.querySelector("#header-text > h1").innerText;
 		datenLoader.insertDatenIntoGrafik(elementName);
 		datenLoader.insertDatenIntoDatenliste(elementName);
 		datenLoader.generateAndInjectFavicon(elementName);
+    datenLoader.insertPSE();
 		// datenLoader.loadDaten();
 	</script>
 

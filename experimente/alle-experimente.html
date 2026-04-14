@@ -2,102 +2,95 @@
 <html lang="de_DE">
 
 <head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<meta name="keywords" content="Chemie, Zink, P-Seminar, WHG" />
-	<meta name="content" content="P-Seminar Chemie: Zink" />
-	<meta name="author" content="Schinkennugget" />
-	<!-- <meta name="theme-color" content="#228b22" /> -->
-	<!-- <meta name="msapplication-navbutton-color" content="#228b22"> -->
-	<!-- <meta name="apple-mobile-web-app-capable" content="yes"> -->
-	<!-- <meta name="apple-mobile-web-app-status-bar-style" content="#228b22"> -->
-	<link rel="stylesheet" href="../css/styles.css" />
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-	<!-- <link rel="icon" type="image/png" href="images/favicon-zink/favicon-96x96.png" sizes="96x96" />
-	<link rel="icon" type="image/svg+xml" href="images/favicon-zink/favicon.svg" />
-	<link rel="shortcut icon" href="images/favicon-zink/favicon.ico" />
-	<link rel="apple-touch-icon" sizes="180x180" href="images/favicon-zink/apple-touch-icon.png" />
-	<link rel="manifest" href="images/favicon-zink/site.webmanifest" /> -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="keywords" content="Chemie, Experimente, P-Seminar, WHG" />
+  <meta name="content" content="P-Seminar Chemie: Alle Experimente" />
+  <meta name="author" content="Schinkennugget" />
+  <link rel="stylesheet" href="../css/styles.css" />
 
   <!-- Vorübergehend -->
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
 
-	<title>Alle Experimente</title>
+  <title>Alle Experimente</title>
 </head>
 
 <body tabindex="0">
 
-	<nav>
-		<ul id="navbar">
-			<li class="navbar-item-left">
-				<a href="../index.html" tabindex="0">
-					<i data-lucide="house" class="navbar-icon"></i>
-					<span class="navbar-text-1">Startseite</span>
-				</a>
-			</li>
-			<li class="navbar-item-left navbar-active">
-				<a href="alle-experimente.html" tabindex="0">
-					<i data-lucide="flask-conical" class="navbar-icon"></i>
-					<span class="navbar-text-2">Experimente</span>
-				</a>
-			</li>
+  <nav>
+    <ul id="navbar">
+      <li class="navbar-item-left">
+        <a href="../index.html" tabindex="0">
+          <i data-lucide="house" class="navbar-icon"></i>
+          <span class="navbar-text-1">Startseite</span>
+        </a>
+      </li>
+      <li class="navbar-item-left navbar-active">
+        <a href="alle-experimente.html" tabindex="0">
+          <i data-lucide="flask-conical" class="navbar-icon"></i>
+          <span class="navbar-text-2">Experimente</span>
+        </a>
+      </li>
 
-			<li class="navbar-item-right" tabindex="0" onclick="toggleDarkMode()">
-				<span>
-					<i data-lucide="sun" class="navbar-icon" id="navbar-icon-sun"></i>
-					<i data-lucide="moon" class="navbar-icon" id="navbar-icon-moon"></i>
-				</span>
-			</li>
-			<li class="navbar-item-right" tabindex="0" onclick="window.print();">
-				<span>
-					<i data-lucide="printer" class="navbar-icon"></i>
+      <li class="navbar-item-right" tabindex="0" id="navbar-button-darkmode">
+        <span>
+          <i data-lucide="sun" class="navbar-icon" id="navbar-icon-sun"></i>
+          <i data-lucide="moon" class="navbar-icon" id="navbar-icon-moon"></i>
+        </span>
+      </li>
+      <li class="navbar-item-right" tabindex="0" onclick="window.print();">
+        <span>
+          <i data-lucide="printer" class="navbar-icon"></i>
           <span class="navbar-text-3">Seite drucken</span>
-				</span>
-			</li>
-		</ul>
-	</nav>
+        </span>
+      </li>
+    </ul>
+  </nav>
 
-	<!-- <div id="burger-bar-background"></div> -->
+  <!-- <div id="burger-bar-background"></div> -->
 
-	<main>
+  <main>
 
-		<p style="font-size: 10px;">Die Webseite ist derzeit noch in Arbeit. Einige Features funktionieren nur eingeschränkt oder gar nicht, hauptsächlich JavaScript-basierte, interaktive Funktionen.</p>
+    <p style="font-size: 10px;">Die Webseite ist derzeit noch in Arbeit. Einige Features funktionieren nur eingeschränkt oder gar nicht, hauptsächlich JavaScript-basierte, interaktive Funktionen.</p>
 
-		<noscript>Hinweis: JavaScript-Funktionen können nicht geladen werden, vermutlich weil dein Browser diese nicht unterstützt oder weil du JavaScript deaktiviert hast. Dadurch ist die Webseite visuell und funktional eingeschränkt.</noscript>
+    <noscript>Hinweis: JavaScript-Funktionen können nicht geladen werden, vermutlich weil dein Browser diese nicht unterstützt oder weil du JavaScript deaktiviert hast. Dadurch ist die Webseite visuell und funktional eingeschränkt.</noscript>
 
-			<div id="header-text">
-				<h1>Alle Experimente</h1>
+    <div id="header-text">
+      <h1>Alle Experimente</h1>
 
-				<p id="introduction">
-					Noch keine Experimente hochgeladen
-				</p>
-			</div>
-		</header>
-		
-		<search>
-			<form method="post" action="">
-				<input type="text" name="exp-search" value="" placeholder="Experimente suchen" />
-			</form>
-		</search>
+      <p id="introduction">
+        Noch keine Experimente hochgeladen
+      </p>
+    </div>
+    </header>
 
-
-
-
-	</main>
+    <search>
+      <form method="post" action="">
+        <input type="text" name="exp-search" value="" placeholder="Experimente suchen" />
+      </form>
+    </search>
 
 
 
-	<!-- Icons -->
-	<script src="https://unpkg.com/lucide@latest"></script>
-	<script>
-		lucide.createIcons();
-	</script>
 
-	<script src="../javascript/scripts.js"></script>
+  </main>
+
+
+
+  <!-- Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+
+
+  <script type="module">
+    import * as main from "../javascript/scripts.js";
+
+    main.initializeDarkMode();
+  </script>
 </body>
 
 
