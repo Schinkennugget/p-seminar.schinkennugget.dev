@@ -664,11 +664,15 @@ p.text > p {
 
 
 
-sup.source-notes {
+sup.source-note {
   color: var(--link-color);
+  transition: color 0.15s linear;
   cursor: default;
 }
 
+sup.source-note:hover {
+  color: var(--link-hover);
+}
 
 #quellen-container {
   /*background: none;*/
