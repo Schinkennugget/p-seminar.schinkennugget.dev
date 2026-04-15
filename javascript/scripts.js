@@ -376,17 +376,25 @@ function spawnPoppingParticles({
 }
 
 
-export function addURICopyEventListener() {
+export function addTextHeaderClickListener() {
   document.querySelectorAll("h2.text-header").forEach(elem => {
     elem.addEventListener("click", event => {
 
       copyURIWithID(event.currentTarget.parentElement.id);
 
-      const elemCoords = event.currentTarget.querySelector(".text-header-icon").getBoundingClientRect();
-      spawnPoppingParticles({
-        xPos: elemCoords.x + (elemCoords.width / 2),
-        yPos: elemCoords.y + (elemCoords.height / 2)
-      });
+      const icon = event.currentTarget.querySelector(".text-header-icon");
+
+      icon.style.animation = "rescale-bounce 0.25s ease 0s 2 alternate";
+      setTimeout(() => {
+        const iconCoords = icon.getBoundingClientRect();
+        spawnPoppingParticles({
+          xPos: iconCoords.x + (iconCoords.width / 2),
+          yPos: iconCoords.y + (iconCoords.height / 2)
+        });
+      }, 400);
+      setTimeout(() => {
+        icon.style.animation = "none";
+      }, 500);
     });
   });
 }
