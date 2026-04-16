@@ -119,9 +119,10 @@ export function toggleExpandable(event) {
   const expandableContentEl = expandableContainerEl.querySelector(".expandable-content");
 
   // Laufende Transition sofort abbrechen
-  expandableContentEl.style.transition = "none";
-  const currentHeight = expandableContentEl.offsetHeight; // Aktuellen Zwischenstand einfrieren
-  expandableContentEl.style.height = currentHeight + "px";
+expandableContentEl.style.transition = "none";
+void expandableContentEl.offsetHeight; // Reflow erzwingen
+const currentHeight = expandableContentEl.offsetHeight; // Aktuellen Zwischenstand einfrieren
+expandableContentEl.style.height = currentHeight + "px";
 
   // Alten transitionend-Handler entfernen
   const oldHandler = expandableContentEl._transitionHandler;

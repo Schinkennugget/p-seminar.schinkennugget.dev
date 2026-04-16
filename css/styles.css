@@ -83,7 +83,6 @@ h3 {
 
 main {
   margin: 64px;
-  flex: 1;
 }
 
 sub,
@@ -745,7 +744,7 @@ footer > ul {
 }
 
 footer > ul > li {
-  padding: 15px;
+  padding: 20px;
 }
 
 footer a,
