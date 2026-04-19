@@ -91,7 +91,7 @@ export function initializeDarkMode() {
 }
 
 
-//Event Listener für expandable2
+// Event Listener für expandable
 export function addExpandableClickListener() {
   try {
     let i = 0;

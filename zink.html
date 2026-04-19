@@ -103,14 +103,14 @@
 
 
 
-    <div id="daten-abschnitt" class="expandable" data-expanded="0">
-      <button id="daten-header" class="expandable-header" tabindex="0">
+    <div class="expandable" id="daten-abschnitt" data-expanded="0">
+      <button class="expandable-header" id="daten-header" tabindex="0">
         <h3>Daten</h3>
         <i data-lucide="chevron-right" class="expandable-header-icon"></i>
       </button>
 
 
-      <div id="daten-werte-abschnitt" class="expandable-content" style="display:none;">
+      <div class="expandable-content" id="daten-werte-abschnitt" style="display:none;">
         <div id="daten-grafik" class="daten-element">
           <!-- Werden über datenLoader.js geladen -->
           <i data-lucide="loader-circle" class="loading-wheel"></i>
@@ -204,8 +204,8 @@
     <ul>
       <li><a href="./datenschutz.html">Datenschutz</a></li>
       <li><a href="./impressum.html">Impressum</a></li>
-      <li><a href="https://github.com/Schinkennugget/p-seminar.schinkennugget.dev">Quellcode auf GitHub</a></li>
-      <li><a href="https://github.com/Schinkennugget/p-seminar.schinkennugget.dev/issues/new">Feedback auf GitHub geben</a></li>
+      <li><a target="_blank" href="https://github.com/Schinkennugget/p-seminar.schinkennugget.dev">Quellcode auf GitHub</a></li>
+      <li><a target="_blank" href="https://github.com/Schinkennugget/p-seminar.schinkennugget.dev/issues/new">Feedback auf GitHub geben</a></li>
       </li>
     </ul>
   </footer>
@@ -218,6 +218,8 @@
   <script type="module">
     import * as datenLoader from "./javascript/datenLoader.js";
     import * as main from "./javascript/scripts.js";
+    import * as LabeledIcon from "./javascript/LabeledIcon.js";
+    // import * as Expandable from "./javascript/Expandable.js";
 
     main.initializeDarkMode();
     main.addTextHeaderClickListener();
@@ -230,14 +232,11 @@
     datenLoader.insertDatenIntoDatenliste(elementName);
     datenLoader.generateAndInjectFavicon(elementName);
     datenLoader.insertPSE();
-    // datenLoader.loadDaten();
   </script>
 
   <script>
     lucide.createIcons();
   </script>
-
-  <script src="javascript/test.js"></script>
 
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js">
     window.MathJax = {
