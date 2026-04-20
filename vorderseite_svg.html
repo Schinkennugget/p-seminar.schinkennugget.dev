@@ -37,12 +37,12 @@
 
 
     //Äußere Form
-    svg.appendChild(makeRect(0, 0, 250, 130, false));
 
     for (let i = 0; i < 4; i++) {
       const x = 7.5 + i * 30;
       svg.appendChild(makeRect(5, x, 10, 12.5));
       svg.appendChild(makeRect(17.5, x, 10, 12.5));
+      svg.appendChild(makeRect(30, x + 22.5, 40, 1));
       svg.appendChild(makeRect(35, x, 15, 12.5));
       svg.appendChild(makeRect(55, x, 10, 22.5));
       svg.appendChild(makeRect(72.5, x, 10, 12.5));
@@ -52,13 +52,12 @@
 
       svg.appendChild(makeRect(145, x, 20, 12.5));
       svg.appendChild(makeRect(167.5, x, 10, 12.5));
+      svg.appendChild(makeRect(180, x + 22.5, 40, 1));
       svg.appendChild(makeRect(185, x, 10, 22.5));
       svg.appendChild(makeRect(200, x, 15, 12.5));
       svg.appendChild(makeRect(222.5, x, 10, 12.5));
       svg.appendChild(makeRect(235, x, 10, 12.5));
     }
-    svg.appendChild(makeRect(110, 100, 30, 30));
-    svg.appendChild(makeRect(117.5, 107.5, 15, 25));
 
 
     document.body.appendChild(svg);
