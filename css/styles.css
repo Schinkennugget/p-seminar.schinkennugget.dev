@@ -45,7 +45,7 @@ html {
 
 
 body {
-  font-family: Inter, Helvetica, Arial, sans-serif;
+  font-family: Inter, -apple-system, Helvetica, Arial, sans-serif;
   margin: auto;
   padding: 0;
   word-wrap: break-word;
@@ -137,11 +137,15 @@ a[href=""]:hover {
   color: red;
 }
 
+code {
+  font-family: 'SF Mono', SFMono-Regular, ui-monospace, monospace;
+}
+
+
 
 
 
 /* --- NAVBAR --- */
-
 
 #navbar {
   padding: 4px;

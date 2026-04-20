@@ -120,7 +120,7 @@
         <i data-lucide="link" class="text-header-icon"></i>
       </h2>
       <p class="text">
-        Die Seite, auf die du zugreifen wolltest, konnte nicht gefunden werden. Das könnte zum Beispiel daran liegen:
+        Die Seite <code id="url"></code>, auf die du zugreifen wolltest, konnte nicht gefunden werden. Das könnte zum Beispiel daran liegen:
       <ul>
         <li>Die Seite wurde entfernt oder verschoben</li>
         <li>Du hast den Link falsch eingegeben</li>
@@ -147,6 +147,10 @@
 
   <!-- Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <script>
+    window.addEventListener("DOMContentLoaded", () => { document.querySelector("#url").innerText = document.baseURI })
+  </script>
 
   <script type="module">
     import * as datenLoader from "./javascript/datenLoader.js";
