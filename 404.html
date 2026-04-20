@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="keywords" content="Chemie, 404, P-Seminar, Unquadnilquadium" />
+  <meta name="content" content="P-Seminar Chemie: 404" />
+  <meta name="author" content="Schinkennugget" />
+
+  <link id="favicon-96" rel="icon" type="image/png" sizes="96x96">
+  <link id="favicon-svg" rel="icon" type="image/svg+xml">
+  <link id="favicon-ico" rel="shortcut icon">
+  <link id="favicon-apple" rel="apple-touch-icon" sizes="180x180">
+  <link rel="manifest" href="images/favicon-zink/site.webmanifest">
+
+  <script>
+    //NUR FÜR DEVELOPMENT, DEAKTIVIERT CACHING
+    const v = Date.now(); // neuer Wert bei jedem Seitenaufruf
+    const linkCSS = document.createElement("link");
+    linkCSS.rel = "stylesheet";
+    linkCSS.href = "css/styles.css";
+
+    if (document.baseURI.includes("p-seminar.schinkennugget.dev")) {
+      linkCSS.href += "?v=" + v;
+    }
+    document.head.append(linkCSS);
+  </script>
+
+  <title>Quadnilquadium</title>
+</head>
+
+<body tabindex="0">
+
+  <nav>
+    <ul id="navbar">
+      <li class="navbar-item-left">
+        <a href="index.html" tabindex="0">
+          <i data-lucide="house" class="navbar-icon"></i>
+          <span class="navbar-text-1">Startseite</span>
+        </a>
+      </li>
+      <li class="navbar-item-left">
+        <a href="experimente/alle-experimente.html" tabindex="0">
+          <i data-lucide="flask-conical" class="navbar-icon"></i>
+          <span class="navbar-text-2">Experimente</span>
+        </a>
+      </li>
+
+      <li class="navbar-item-right" tabindex="0" id="navbar-button-darkmode">
+        <span>
+          <i data-lucide="sun" class="navbar-icon" id="navbar-icon-sun"></i>
+          <i data-lucide="moon" class="navbar-icon" id="navbar-icon-moon"></i>
+        </span>
+      </li>
+      <li class="navbar-item-right" tabindex="0" onclick="window.print();">
+        <span>
+          <i data-lucide="printer" class="navbar-icon"></i>
+          <span class="navbar-text-3">Seite drucken</span>
+        </span>
+      </li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <p style="font-size: 10px;">Die Webseite ist derzeit noch in Arbeit. Einige Features funktionieren nur eingeschränkt oder gar nicht, hauptsächlich JavaScript-basierte, interaktive Funktionen.</p>
+
+    <noscript>Hinweis: JavaScript-Funktionen können nicht geladen werden, vermutlich weil dein Browser diese nicht unterstützt oder weil du JavaScript deaktiviert hast. Dadurch ist die Webseite visuell und funktional eingeschränkt.</noscript>
+
+    <header>
+
+      <nav id="pse-container">
+
+      </nav>
+
+
+      <div id="header-text">
+        <h1>Quadnilquadium</h1>
+
+        <p id="introduction">
+          Quadnilquadium ist das 404. Element. Weil sein Kern viel zu groß wäre und sich nicht selbst zusammenhalten würde, würde es sofort zerfallen. Es wurde noch nie erzeugt und noch nie von einem Menschen gesehen.<br />Die Seite, die du gerade aufrufen wolltest, wurde ebenfalls nicht gefunden. Vielleicht ist sie auch dem radioaktiven Zerfall zum Opfer gefallen? Naja, hier kommst du <a href="./index.html">zurück zur Startseite</a>.
+        </p>
+      </div>
+    </header>
+
+
+
+    <div class="expandable" id="daten-abschnitt" data-expanded="0">
+      <button class="expandable-header" id="daten-header" tabindex="0">
+        <h3>Daten</h3>
+        <i data-lucide="chevron-right" class="expandable-header-icon"></i>
+      </button>
+
+
+      <div class="expandable-content" id="daten-werte-abschnitt" style="display:none;">
+        <div id="daten-grafik" class="daten-element">
+          <!-- Werden unten geladen -->
+          <i data-lucide="loader-circle" class="loading-wheel"></i>
+        </div>
+
+
+
+        <table id="daten-liste" class="daten-element">
+          <!-- Werden unten geladen (siehe script unten) -->
+          <tr>
+            <td style="display:flex">
+              <i data-lucide="loader-circle" class="loading-wheel"></i>
+              &nbsp;Lädt...
+            </td>
+          </tr>
+        </table>
+
+        <p id="daten-infotext"><i data-lucide="info" class="daten-infotext-icon"></i><em>Hover/Tippe auf die Werte für mehr Informationen und Zusammenhänge!</em>
+        </p>
+
+        <p id="daten-zusatz">&nbsp;
+        </p>
+      </div>
+    </div>
+
+
+    <div id="eigenschaften" class="text">
+      <h2 tabindex="0" class="text-header">Seite nicht gefunden
+        <i data-lucide="link" class="text-header-icon"></i>
+      </h2>
+      <p class="text">
+        <a href="./index.html">Zurück zur Startseite</a>
+        <br /><br />
+        Die Seite, auf die du zugreifen wolltest, konnte nicht gefunden werden. Das könnte zum Beispiel daran liegen:
+      <ul>
+        <li>Die Seite wurde entfernt oder verschoben</li>
+        <li>Du hast den Link falsch eingegeben</li>
+      </ul>
+      <br />
+      Wenn du hierher gekommen bist, weil du auf einen Link in einem anderen Artikel dieser Seite geklickt hast, dann <a href="mailto:support@schinkennugget.dev?subject=Fehlerhafter%20Link%20%E2%80%93%20Weiterleitung%20auf%20404">kontaktiere bitte den Support</a> und melde den Fehler.
+      </p>
+    </div>
+
+
+  </main>
+
+  <footer>
+    <ul>
+      <li><a href="./datenschutz.html">Datenschutz</a></li>
+      <li><a href="./impressum.html">Impressum</a></li>
+      <li><a target="_blank" href="https://github.com/Schinkennugget/p-seminar.schinkennugget.dev">Quellcode auf GitHub</a></li>
+      <li><a target="_blank" href="https://github.com/Schinkennugget/p-seminar.schinkennugget.dev/issues/new">Feedback auf GitHub geben</a></li>
+      </li>
+    </ul>
+  </footer>
+
+
+
+  <!-- Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script type="module">
+    import * as datenLoader from "./javascript/datenLoader.js";
+    import * as main from "./javascript/scripts.js";
+    import * as LabeledIcon from "./javascript/LabeledIcon.js";
+    // import * as Expandable from "./javascript/Expandable.js";
+
+    main.initializeDarkMode();
+    main.addTextHeaderClickListener();
+    main.injectSourceNotes();
+    main.addDatenHoverEventListener();
+    main.addExpandableClickListener();
+    
+const elementObj = {
+      elementname: "Quadnilquadium",
+      elementsymbol: "Qnq",
+      ordnungszahl: 404,
+      atommasse: "?",
+      atomradius: "?",
+      ionenradius: "?",
+      siedepunkt: "?",
+      schmelzpunkt: "?",
+      ionisierungsenergie: "?",
+      dichte: "?",
+      elektronegativitaet: "?",
+      anteil_haeufigstes_isotop: "?",
+      additional_data: {
+        ionenradius_ladung: "",
+        elektronegativitaet_oxidationszahl: ""
+      }
+    };
+    const elementName = document.querySelector("#header-text > h1").innerText;
+    insertDatenIntoGrafik(elementName);
+    insertDatenIntoDatenliste(elementName);
+    // datenLoader.generateAndInjectFavicon(elementName);
+    datenLoader.insertPSE();
+
+
+    async function insertDatenIntoGrafik(elementName) {
+      try {
+        const grafikEl = document.getElementById("daten-grafik");
+
+        if (!elementObj) {
+          console.error(`Kein Element mit dem Namen "${elementName}" gefunden.`);
+          return;
+        }
+
+        grafikEl.innerHTML = "";
+        for (let key in elementObj) {
+          if (key != "additional_data") {
+            let value = elementObj[key];
+            if (value === "" || value === undefined) {
+              value = "?";
+            }
+            if (typeof value == typeof 1) {
+              value = value.toLocaleString();
+            }
+
+            let divEl = document.createElement("div");
+            divEl.id = "daten-grafik-" + key;
+            divEl.classList.add("daten-grafik-wert");
+            divEl.classList.add("daten-" + key);
+            divEl.dataset.datatype = key;
+            divEl.style.gridArea = key;
+            divEl.innerHTML = value;
+            // if (key == "ionenradius" && elementObj.ionenradius != "?" && elementObj.oxidationszahl != "?" && elementObj.oxidationszahl != "" && elementObj.oxidationszahl != undefined) {
+            //   divEl.innerHTML += " (" + elementObj.oxidationszahl + ")";
+            // }
+
+            grafikEl.append(divEl);
+
+            grafikEl.style.backgroundColor = elementObj.additional_data.background_color || "darkgray";
+          }
+          // console.debug(grafikEl.outerHTML);
+        }
+
+      } catch (err) {
+        console.error(err.name + "\n" + err.message); // .description → .message
+      }
+    }
+
+
+
+
+    async function insertDatenIntoDatenliste(elementName) {
+      try {
+        let alleElementeObj = {};
+        let unitObj = alleElementeObj.units;
+        const listeEl = document.getElementById("daten-liste");
+
+        if (!elementObj) {
+          console.error(`No elements found with name "${elementName}"`);
+          return;
+        }
+
+        if (!unitObj) {
+          unitObj = {};
+        }
+
+        function addListenElement({
+          icon,
+          key,
+          datenName,
+          info
+        }) {
+          /* Adds an element like this:
+            
+            <tr>
+              <th class="daten-*key*">
+                <i data-lucide="*icon*" class="daten-icon"></i>
+                *datenName*
+              </th>
+              <td class="daten-*key* daten-wert" id="daten-*key*-wert">
+                *value + unit*
+                <div id="daten-info-*key*" class="daten-info">*info*</div>
+              </td>
+            </tr>
+                    
+            */
+          let trEl = document.createElement("tr");
+          let thEl = document.createElement("th");
+          let tdEl = document.createElement("td");
+          const iconEl = lucide.createElement(lucide[icon])
+
+          let value = elementObj[key];
+          if (typeof value == typeof 1) {
+            value = value.toLocaleString();
+          }
+          let unit = unitObj[key] ?? "";
+
+
+          iconEl.classList.add("daten-icon")
+          thEl.prepend(iconEl);
+          thEl.classList.add("daten-" + key);
+          thEl.innerHTML += datenName;
+          if (key == "ionenradius") {
+            if (value.includes("I") || value.includes("V")) {
+              thEl.innerHTML += " (für Oxidationszahl)";
+            } else {
+              thEl.innerHTML += " (bei Ladung)";
+            }
+          }
+
+          tdEl.classList.add("daten-" + key);
+          tdEl.classList.add("daten-wert");
+          tdEl.id = "daten-" + key + "-wert";
+          //Setzt den Wert auf den Wert mit Einheit, sonst auf unbekannt oder -
+          if (value == "-") {
+            tdEl.innerHTML = "–";
+
+            //Beim Ionenradius muss der Ert zusammengesetzt werden aus Radius und Ladung/Oxidationszahl
+          } else if (key == "ionenradius" && elementObj.additional_data.ionenradius_ladung) {
+            if (elementObj.additional_data.ionenradius_ladung.includes("I") || elementObj.additional_data.ionenradius_ladung.includes("V")) {
+              tdEl.innerHTML =
+                value + unit + " bei " + elementObj.elementsymbol + `(${elementObj.additional_data.ionenradius_ladung})`
+            } else {
+
+              tdEl.innerHTML =
+                value + unit + " bei " + elementObj.elementsymbol + `<sup>${elementObj.additional_data.ionenradius_ladung}</sup>`
+            }
+
+          } else if (key == "elektronegativitaet" && elementObj.additional_data.elektronegativitaet_oxidationszahl) {
+
+            tdEl.innerHTML =
+              value + ` (${elementObj.additional_data.elektronegativitaet_oxidationszahl})`
+
+          } else if (value != "" && value != "?" && value != undefined) {
+            tdEl.innerHTML = value + unit;
+
+          } else {
+            tdEl.innerHTML = "<i>unbekannt</i>"
+          }
+
+          if (info) {
+            let infoEl = document.createElement("div");
+            infoEl.classList.add("daten-info-" + key);
+            infoEl.classList.add("daten-info");
+            infoEl.innerHTML = info;
+            thEl.append(infoEl);
+          }
+
+          trEl.append(thEl);
+          trEl.append(tdEl);
+          trEl.dataset.datatype = key;
+          trEl.classList.add("daten-" + key)
+          listeEl.append(trEl);
+        }
+
+        listeEl.innerHTML = "";
+        addListenElement({
+          icon: "Tag",
+          key: "elementname",
+          datenName: "Elementname"
+        });
+
+        addListenElement({
+          icon: "ALargeSmall",
+          key: "elementsymbol",
+          datenName: "Elementsymbol",
+          info: "Das Elementsymbol ist die Kurzschreibweise des Elementnames. Es wird z.B. in chemischen Gleichungen verwendet. Das Elementsymbol ist meist eine Abkürzung des lateinischen Namens des Elements und ist so international gleich."
+        });
+
+        addListenElement({
+          icon: "BadgePlus",
+          key: "ordnungszahl",
+          datenName: "Ordnungszahl/Protonenzahl",
+          info: "Die Anzahl der Protonen im Atomkern. Anders als die Neutronenzahl ist sie bei jedem Element eindeutig und bestimmt die Stellung im PSE, deswegen auch Ordnugszahl."
+        });
+
+        addListenElement({
+          icon: "WeightTilde",
+          key: "atommasse",
+          datenName: "Atommasse (Massenzahl)",
+          info: " "
+        });
+
+        addListenElement({
+          icon: "Atom",
+          key: "atomradius",
+          datenName: "Atomradius",
+          info: " "
+        });
+
+        addListenElement({
+          icon: "Radius",
+          key: "ionenradius",
+          datenName: "Ionenradius",
+          info: " "
+        });
+
+        addListenElement({
+          icon: "ThermometerSun",
+          key: "siedepunkt",
+          datenName: "Siedepunkt",
+          info: " "
+        });
+
+        addListenElement({
+          icon: "ThermometerSnowflake",
+          key: "schmelzpunkt",
+          datenName: "Schmelzpunkt",
+          info: " "
+        });
+
+        addListenElement({
+          icon: "Zap",
+          key: "ionisierungsenergie",
+          datenName: "1. Ionisierungsenergie",
+          info: " "
+        });
+
+        addListenElement({
+          icon: "FoldHorizontal",
+          key: "dichte",
+          datenName: "Dichte",
+          info: " "
+        });
+
+        addListenElement({
+          icon: "CircleMinus",
+          key: "elektronegativitaet",
+          datenName: "Elektronegativität (für Oxidationszahl)",
+          info: " "
+        });
+
+        addListenElement({
+          icon: "ChartPie",
+          key: "anteil_haeufigstes_isotop",
+          datenName: "Anteil des häufigsten Isotops",
+          info: " "
+        });
+
+        // console.debug(listeEl.outerHTML);
+
+      } catch (err) {
+        console.error(err.name + "\n" + err.message); // .description → .message
+      }
+    }
+  </script>
+
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+
+</html>
