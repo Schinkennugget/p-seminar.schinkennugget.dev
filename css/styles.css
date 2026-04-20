@@ -65,6 +65,7 @@ h1 {
   font-size: 4rem;
   line-height: 0.9;
   margin: 1.5rem 0;
+  letter-spacing: -2px;
 }
 
 h2 {
@@ -79,6 +80,7 @@ h3 {
   font-weight: 600;
   font-size: 1.2rem;
   margin-bottom: 2rem;
+  letter-spacing: -0.3px;
 }
 
 main {

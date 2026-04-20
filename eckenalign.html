@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body>
+  <script>
+    const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    svg.setAttribute("width", 250);
+    svg.setAttribute("height", 130);
+
+    function makeRect(x, y, width, height) {
+      const rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+      rect.setAttribute("x", x);
+      rect.setAttribute("y", y);
+      rect.setAttribute("width", width)
+      rect.setAttribute("height", height);
+      return rect;
+    }
+
+    function makeLine(fromX, fromY, toX, toY) {
+      const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+      line.setAttribute("x1", fromX);
+      line.setAttribute("y1", fromY);
+      line.setAttribute("x2", toX);
+      line.setAttribute("y2", toY);
+      line.setAttribute("stroke", "black");
+      line.setAttribute("stroke-width", "1")
+      return line;
+    }
+
+    svg.appendChild(makeRect(0, 0, 4, 4));
+    svg.appendChild(makeRect(0, 130, 4, 4));
+    svg.appendChild(makeRect(250, 130, 4, 4));
+    svg.appendChild(makeRect(250, 0, 4, 4));
+
+    document.body.appendChild(svg);
+
+    const svgString = svg.outerHTML;
+
+    const blob = new Blob([svgString], { type: "image/svg+xml" });
+    const url = URL.createObjectURL(blob);
+
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "align.svg";
+    a.click();
+
+    URL.revokeObjectURL(url);
+  </script>
+</body>
+
+</html>
+
