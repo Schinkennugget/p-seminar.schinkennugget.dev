@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+
+<html lang="de">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Lückentext – Französisch</title>
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;500&family=Nunito:wght@400;600;700&display=swap');
+
+		:root {
+			–bg: #faf8f3;
+			–paper: #ffffff;
+			–ink: #1c1a15;
+			–muted: #8a8278;
+			–line: #e8e3da;
+
+			–dont: #2d5a3d;
+			–dont-bg: #e8f3ec;
+			–dont-bd: #b5d4bf;
+			–leq: #1e3a5f;
+			–leq-bg: #e6eef7;
+			–leq-bd: #b3c8e0;
+			–auq: #6b2d2d;
+			–auq-bg: #f7e8e8;
+			–auq-bd: #e0b3b3;
+			–duq: #5a3d1e;
+			–duq-bg: #f5ede0;
+			–duq-bd: #d4bfa0;
+			–apr: #1a4a4a;
+			–apr-bg: #e0f2f2;
+			–apr-bd: #a0d0d0;
+			–avant: #4a1a4a;
+			–avant-bg: #f2e0f2;
+			–avant-bd: #d0a0d0;
+			–sans: #3a3a1a;
+			–sans-bg: #f2f2e0;
+			–sans-bd: #d0d0a0;
+			–pour: #1a3a4a;
+			–pour-bg: #e0eaf2;
+			–pour-bd: #a0b8d0;
+
+			–correct: #2d6a3a;
+			–wrong: #8b2020;
+		}
+
+		- {
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+		}
+
+		body {
+			background: #222;
+			color: #fff;
+			font-family: ‘Nunito’, sans-serif;
+			min-height: 100vh;
+			padding: 28px 16px 60px;
+		}
+
+		.page {
+			max-width: 700px;
+			margin: 0 auto;
+		}
+
+		/* Header */
+		header {
+			border-bottom: 2px solid var(–ink);
+			padding-bottom: 10px;
+			margin-bottom: 22px;
+			display: flex;
+			justify-content: space-between;
+			align-items: baseline;
+			flex-wrap: wrap;
+			gap: 8px;
+		}
+
+		header h1 {
+			font-family: ‘Libre Baskerville’, serif;
+			font-size: 22px;
+			font-weight: 700;
+		}
+
+		header .sub {
+			font-family: ‘JetBrains Mono’, monospace;
+			font-size: 10px;
+			color: var(–muted);
+			letter-spacing: 0.1em;
+			text-transform: uppercase;
+		}
+
+		/* Legend */
+		.legend {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 6px;
+			margin-bottom: 22px;
+		}
+
+		.leg {
+			font-family: ‘JetBrains Mono’, monospace;
+			font-size: 10px;
+			padding: 3px 9px;
+			border-radius: 4px;
+			border: 1px solid;
+			letter-spacing: 0.03em;
+			font-weight: 500;
+		}
+
+		.leg.dont {
+			background: var(–dont-bg);
+			color: var(–dont);
+			border-color: var(–dont-bd);
+		}
+
+		.leg.leq {
+			background: var(–leq-bg);
+			color: var(–leq);
+			border-color: var(–leq-bd);
+		}
+
+		.leg.auq {
+			background: var(–auq-bg);
+			color: var(–auq);
+			border-color: var(–auq-bd);
+		}
+
+		.leg.duq {
+			background: var(–duq-bg);
+			color: var(–duq);
+			border-color: var(–duq-bd);
+		}
+
+		.leg.apr {
+			background: var(–apr-bg);
+			color: var(–apr);
+			border-color: var(–apr-bd);
+		}
+
+		.leg.avant {
+			background: var(–avant-bg);
+			color: var(–avant);
+			border-color: var(–avant-bd);
+		}
+
+		.leg.sans {
+			background: var(–sans-bg);
+			color: var(–sans);
+			border-color: var(–sans-bd);
+		}
+
+		.leg.pour {
+			background: var(–pour-bg);
+			color: var(–pour);
+			border-color: var(–pour-bd);
+		}
+
+		/* Score bar */
+		.score-bar {
+			display: flex;
+			align-items: center;
+			gap: 12px;
+			margin-bottom: 22px;
+			padding: 10px 16px;
+			background: var(–paper);
+			border: 1px solid var(–line);
+			border-radius: 8px;
+		}
+
+		.score-bar .score-num {
+			font-family: ‘JetBrains Mono’, monospace;
+			font-size: 20px;
+			font-weight: 500;
+			min-width: 52px;
+		}
+
+		.score-track {
+			flex: 1;
+			height: 6px;
+			background: var(–line);
+			border-radius: 3px;
+			overflow: hidden;
+		}
+
+		.score-fill {
+			height: 100%;
+			background: var(–correct);
+			border-radius: 3px;
+			transition: width 0.4s ease;
+		}
+
+		.score-label {
+			font-family: ‘JetBrains Mono’, monospace;
+			font-size: 10px;
+			color: var(–muted);
+			text-transform: uppercase;
+			letter-spacing: 0.08em;
+		}
+
+		/* Section */
+		.section {
+			margin-bottom: 28px;
+		}
+
+		.section-title {
+			font-family: ‘JetBrains Mono’, monospace;
+			font-size: 10px;
+			text-transform: uppercase;
+			letter-spacing: 0.14em;
+			color: var(–muted);
+			margin-bottom: 10px;
+			padding-bottom: 4px;
+			border-bottom: 1px solid var(–line);
+		}
+
+		/* Sentence */
+		.sentence {
+			display: flex;
+			align-items: baseline;
+			flex-wrap: wrap;
+			gap: 4px 0;
+			padding: 12px 16px;
+			background: var(–paper);
+			border: 1px solid var(–line);
+			border-radius: 7px;
+			margin-bottom: 8px;
+			font-family: ‘Libre Baskerville’, serif;
+			font-size: 15px;
+			line-height: 1.7;
+			transition: border-color 0.25s;
+		}
+
+		.sentence:has(.blank.correct-final) {
+			border-color: #b5d4bf;
+		}
+
+		.sentence:has(.blank.wrong-final) {
+			border-color: #e0b3b3;
+		}
+
+		.word {
+			white-space: pre;
+		}
+
+		/* Blank input */
+		.blank-wrap {
+			display: inline-flex;
+			align-items: baseline;
+			position: relative;
+			background-color: #444;
+		}
+
+		.blank {
+			display: inline-block;
+			border: none;
+			border-bottom: 2px solid var(–muted);
+			background: transparent;
+			font-family: ‘JetBrains Mono’, monospace;
+			font-size: 13px;
+			font-weight: 500;
+			color: var(–ink);
+			padding: 0 4px 1px;
+			min-width: 90px;
+			width: auto;
+			outline: none;
+			text-align: center;
+			transition: border-color 0.2s, background 0.2s, color 0.2s;
+			border-radius: 3px 3px 0 0;
+		}
+
+		.blank:focus {
+			border-bottom-color: var(–ink);
+			background: rgba(0, 0, 0, 0.03);
+		}
+
+		.blank.correct-final {
+			border-bottom-color: var(–correct);
+			background: #e8f3ec;
+			color: var(–correct);
+		}
+
+		.blank.wrong-final {
+			border-bottom-color: var(–wrong);
+			background: #f7e8e8;
+			color: var(–wrong);
+		}
+
+		/* Color-coded after reveal */
+		.blank.color-dont {
+			background: var(–dont-bg);
+			color: var(–dont);
+			border-bottom-color: var(–dont);
+		}
+
+		.blank.color-leq {
+			background: var(–leq-bg);
+			color: var(–leq);
+			border-bottom-color: var(–leq);
+		}
+
+		.blank.color-auq {
+			background: var(–auq-bg);
+			color: var(–auq);
+			border-bottom-color: var(–auq);
+		}
+
+		.blank.color-duq {
+			background: var(–duq-bg);
+			color: var(–duq);
+			border-bottom-color: var(–duq);
+		}
+
+		.blank.color-apr {
+			background: var(–apr-bg);
+			color: var(–apr);
+			border-bottom-color: var(–apr);
+		}
+
+		.blank.color-avant {
+			background: var(–avant-bg);
+			color: var(–avant);
+			border-bottom-color: var(–avant);
+		}
+
+		.blank.color-sans {
+			background: var(–sans-bg);
+			color: var(–sans);
+			border-bottom-color: var(–sans);
+		}
+
+		.blank.color-pour {
+			background: var(–pour-bg);
+			color: var(–pour);
+			border-bottom-color: var(–pour);
+		}
+
+		/* Hint under sentence */
+		.hint {
+			font-family: ‘JetBrains Mono’, monospace;
+			font-size: 10px;
+			color: var(–muted);
+			padding: 2px 16px 0;
+			letter-spacing: 0.03em;
+		}
+
+		/* Buttons */
+		.btn-row {
+			display: flex;
+			gap: 10px;
+			margin-top: 24px;
+			flex-wrap: wrap;
+		}
+
+		.btn {
+			font-family: ‘JetBrains Mono’, monospace;
+			font-size: 12px;
+			padding: 10px 22px;
+			border-radius: 6px;
+			border: 1px solid var(–ink);
+			cursor: pointer;
+			background: var(–ink);
+			color: var(–bg);
+			letter-spacing: 0.04em;
+			transition: opacity 0.2s;
+		}
+
+		.btn:hover {
+			opacity: 0.8;
+		}
+
+		.btn.secondary {
+			background: transparent;
+			color: var(–ink);
+		}
+
+		.btn.secondary:hover {
+			background: rgba(0, 0, 0, 0.05);
+		}
+
+		/* Result message */
+		.result-msg {
+			margin-top: 20px;
+			padding: 14px 18px;
+			border-radius: 8px;
+			font-size: 14px;
+			font-weight: 600;
+			display: none;
+			font-family: ‘Libre Baskerville’, serif;
+		}
+
+		.result-msg.show {
+			display: block;
+		}
+
+		.result-msg.great {
+			background: #e8f3ec;
+			color: var(–correct);
+			border: 1px solid var(–dont-bd);
+		}
+
+		.result-msg.ok {
+			background: #f5ede0;
+			color: var(–duq);
+			border: 1px solid var(–duq-bd);
+		}
+
+		.result-msg.retry {
+			background: #f7e8e8;
+			color: var(–wrong);
+			border: 1px solid var(–auq-bd);
+		}
+	</style>
+
+</head>
+
+<body>
+	<div class="page">
+
+		<header>
+			<h1>Lückentext · Französisch</h1>
+			<span class="sub">Relativpronomen &amp; Infinitivkonstruktionen</span>
+		</header>
+
+		<div class="legend">
+			<span class="leg dont">dont</span>
+			<span class="leg leq">lequel/laquelle/…</span>
+			<span class="leg auq">auquel/à laquelle/…</span>
+			<span class="leg duq">duquel/de laquelle/…</span>
+			<span class="leg apr">après avoir/être …</span>
+			<span class="leg avant">avant de …</span>
+			<span class="leg sans">sans …</span>
+			<span class="leg pour">pour …</span>
+		</div>
+
+		<div class="score-bar">
+			<span class="score-num" id="score-num">0 / 0</span>
+			<div class="score-track">
+				<div class="score-fill" id="score-fill" style="width:0%"></div>
+			</div>
+			<span class="score-label" id="score-label">noch nicht geprüft</span>
+		</div>
+
+		<div id="exercises"></div>
+
+		<div class="btn-row">
+			<button class="btn" onclick="check()">Überprüfen</button>
+			<button class="btn secondary" onclick="reveal()">Lösung anzeigen</button>
+			<button class="btn secondary" onclick="reset()">Zurücksetzen</button>
+		</div>
+
+		<div class="result-msg" id="result-msg"></div>
+
+	</div>
+
+	<script>
+		// Each exercise: segments are text strings, blanks are objects {answer, type, hint}
+		// type = dont | leq | auq | duq | apr | avant | sans | pour
+		const sections = [{
+				title: "A — Relativpronomen: dont",
+				exercises: [{
+						seg: ["C'est un livre ", { a: "dont", t: "dont" }, " tout le monde parle en ce moment."],
+						hint: "parler de qch → ?"
+					},
+					{
+						seg: ["Voilà l'outil ", { a: "dont", t: "dont" }, " j'ai besoin pour réparer le vélo."],
+						hint: "avoir besoin de qch → ?"
+					},
+					{
+						seg: ["C'est la ville ", { a: "dont", t: "dont" }, " il est fier depuis son enfance."],
+						hint: "être fier de qch → ?"
+					},
+					{
+						seg: ["L'acteur ", { a: "dont", t: "dont" }, " tu te souviens a remporté un César."],
+						hint: "se souvenir de qn → ?"
+					},
+					{
+						seg: ["C'est un problème ", { a: "dont", t: "dont" }, " je me méfie depuis longtemps."],
+						hint: "se méfier de qch → ?"
+					},
+					{
+						seg: ["Il habite dans un appartement ", { a: "dont", t: "dont" }, " les fenêtres donnent sur la Seine."],
+						hint: "Besitz/Zugehörigkeit (dessen) → ?"
+					},
+					{
+						seg: ["C'est une situation ", { a: "dont", t: "dont" }, " elle souffre depuis des mois."],
+						hint: "souffrir de qch → ?"
+					},
+					{
+						seg: ["Le projet ", { a: "dont", t: "dont" }, " nous discutons sera présenté vendredi."],
+						hint: "discuter de qch → ?"
+					},
+				]
+			},
+			{
+				title: "B — Relativpronomen: auquel / à laquelle / auxquels / auxquelles",
+				exercises: [{
+						seg: ["Le sujet ", { a: "auquel", t: "auq" }, " je réfléchis depuis des jours est complexe."],
+						hint: "réfléchir à qch → ? (mask. Sg.)"
+					},
+					{
+						seg: ["La question ", { a: "à laquelle", t: "auq" }, " il répond est très délicate."],
+						hint: "répondre à qch → ? (fém. Sg.)"
+					},
+					{
+						seg: ["C'est un cours ", { a: "auquel", t: "auq" }, " tous les élèves participent."],
+						hint: "participer à qch → ? (mask. Sg.)"
+					},
+					{
+						seg: ["Les problèmes ", { a: "auxquels", t: "auq" }, " nous devons faire attention sont nombreux."],
+						hint: "faire attention à qch → ? (Pl.)"
+					},
+					{
+						seg: ["C'est un projet ", { a: "auquel", t: "auq" }, " elle tient beaucoup."],
+						hint: "tenir à qch → ? (mask. Sg.)"
+					},
+					{
+						seg: ["La cérémonie ", { a: "à laquelle", t: "auq" }, " il a assisté était très émouvante."],
+						hint: "assister à qch → ? (fém. Sg.)"
+					},
+				]
+			},
+			{
+				title: "C — Relativpronomen: duquel / de laquelle / desquels / desquelles",
+				exercises: [{
+						seg: ["L'immeuble à côté ", { a: "duquel", t: "duq" }, " je travaille vient d'être rénové."],
+						hint: "à côté de → ? (mask. Sg.)"
+					},
+					{
+						seg: ["La place en face ", { a: "de laquelle", t: "duq" }, " il habite est très animée."],
+						hint: "en face de → ? (fém. Sg.)"
+					},
+					{
+						seg: ["C'est un parc autour ", { a: "duquel", t: "duq" }, " on peut faire du jogging."],
+						hint: "autour de → ? (mask. Sg.)"
+					},
+					{
+						seg: ["La rivière au bord ", { a: "de laquelle", t: "duq" }, " ils se sont rencontrés est très belle."],
+						hint: "au bord de → ? (fém. Sg.)"
+					},
+					{
+						seg: ["C'est la raison au sujet ", { a: "de laquelle", t: "duq" }, " ils ont longuement débattu."],
+						hint: "au sujet de → ? (fém. Sg.)"
+					},
+				]
+			},
+			{
+				title: "D — Relativpronomen: lequel / laquelle / lesquels / lesquelles",
+				exercises: [{
+						seg: ["Le stylo avec ", { a: "lequel", t: "leq" }, " j'écris ne fonctionne plus très bien."],
+						hint: "avec + Sache (mask. Sg.) → ?"
+					},
+					{
+						seg: ["La clé sans ", { a: "laquelle", t: "leq" }, " je ne peux pas entrer est perdue."],
+						hint: "sans + Sache (fém. Sg.) → ?"
+					},
+					{
+						seg: ["C'est l'argument pour ", { a: "lequel", t: "leq" }, " ils ont finalement voté."],
+						hint: "pour + Sache (mask. Sg.) → ?"
+					},
+					{
+						seg: ["Les outils grâce ", { a: "auxquels", t: "auq" }, " il a réussi étaient très performants."],
+						hint: "grâce à → auquel/auxquels (Pl.)!"
+					},
+					{
+						seg: ["C'est la méthode par ", { a: "laquelle", t: "leq" }, " on obtient les meilleurs résultats."],
+						hint: "par + Sache (fém. Sg.) → ?"
+					},
+				]
+			},
+			{
+				title: "E — après avoir / être + participe passé",
+				exercises: [{
+						seg: [" ", { a: "Après avoir mangé", t: "apr" }, ", il s'est allongé sur le canapé."],
+						hint: "nachdem er gegessen hatte → après avoir + P.P."
+					},
+					{
+						seg: ["Elle est sortie ", { a: "après avoir fini", t: "apr" }, " ses devoirs."],
+						hint: "nachdem sie ihre Hausaufgaben beendet hatte"
+					},
+					{
+						seg: [" ", { a: "Après être arrivé", t: "apr" }, " à Paris, il a cherché un hôtel."],
+						hint: "nachdem er angekommen war → après être + P.P. (arriver = être-Verb)"
+					},
+					{
+						seg: [" ", { a: "Après s'être reposée", t: "apr" }, ", elle a repris le travail."],
+						hint: "nachdem sie sich ausgeruht hatte → après s'être + P.P. (réfléchi)"
+					},
+					{
+						seg: ["Il a envoyé un message ", { a: "après avoir réfléchi", t: "apr" }, " longuement."],
+						hint: "nachdem er lange nachgedacht hatte"
+					},
+				]
+			},
+			{
+				title: "F — avant de + infinitif",
+				exercises: [{
+						seg: ["Lis bien les instructions ", { a: "avant de commencer", t: "avant" }, " l'exercice."],
+						hint: "bevor du anfängst → avant de + inf."
+					},
+					{
+						seg: [" ", { a: "Avant de partir", t: "avant" }, ", n'oublie pas de prendre ton passeport."],
+						hint: "bevor du gehst → avant de + inf."
+					},
+					{
+						seg: ["Il faut réfléchir ", { a: "avant de répondre", t: "avant" }, " à une question difficile."],
+						hint: "bevor man antwortet"
+					},
+					{
+						seg: ["Elle a vérifié son travail ", { a: "avant de le rendre", t: "avant" }, " au professeur."],
+						hint: "bevor sie es abgab"
+					},
+					{
+						seg: ["Mange quelque chose ", { a: "avant de prendre", t: "avant" }, " ce médicament."],
+						hint: "bevor du dieses Medikament nimmst"
+					},
+				]
+			},
+			{
+				title: "G — sans + infinitif / sans avoir + P.P.",
+				exercises: [{
+						seg: ["Il est parti ", { a: "sans dire", t: "sans" }, " au revoir à personne."],
+						hint: "ohne sich zu verabschieden → sans + inf."
+					},
+					{
+						seg: ["Elle a réussi l'examen ", { a: "sans avoir étudié", t: "sans" }, " pendant des semaines."],
+						hint: "ohne wochenlang gelernt zu haben → sans avoir + P.P."
+					},
+					{
+						seg: ["Il a traversé la rue ", { a: "sans regarder", t: "sans" }, " à gauche et à droite."],
+						hint: "ohne zu schauen → sans + inf."
+					},
+					{
+						seg: ["Tu ne peux pas réussir ", { a: "sans travailler", t: "sans" }, " sérieusement."],
+						hint: "ohne ernsthaft zu arbeiten"
+					},
+					{
+						seg: ["Elle est rentrée chez elle ", { a: "sans avoir trouvé", t: "sans" }, " ce qu'elle cherchait."],
+						hint: "ohne gefunden zu haben → sans avoir + P.P."
+					},
+				]
+			},
+			{
+				title: "H — pour + infinitif",
+				exercises: [{
+						seg: ["Il travaille dur ", { a: "pour réussir", t: "pour" }, " son baccalauréat."],
+						hint: "um … zu bestehen → pour + inf."
+					},
+					{
+						seg: ["Elle s'est levée tôt ", { a: "pour ne pas rater", t: "pour" }, " son train."],
+						hint: "um ihren Zug nicht zu verpassen → pour ne pas + inf."
+					},
+					{
+						seg: ["Il faut beaucoup pratiquer ", { a: "pour parler", t: "pour" }, " couramment une langue."],
+						hint: "um fließend zu sprechen"
+					},
+					{
+						seg: ["Elle a ouvert la fenêtre ", { a: "pour aérer", t: "pour" }, " la pièce."],
+						hint: "um das Zimmer zu lüften"
+					},
+					{
+						seg: ["Il a économisé de l'argent ", { a: "pour voyager", t: "pour" }, " au Japon l'été prochain."],
+						hint: "um nach Japan zu reisen"
+					},
+				]
+			},
+		];
+
+		// Accepted alternatives mapping
+		const alts = {
+			"après avoir mangé": ["après avoir mangé"],
+			"après avoir fini": ["après avoir fini"],
+			"après être arrivé": ["après être arrivé", "après être arrivée"],
+			"après s'être reposée": ["après s'être reposée", "après s'être reposé"],
+			"après avoir réfléchi": ["après avoir réfléchi"],
+		};
+
+		function normalize(s) {
+			return s.trim().toLowerCase()
+				.replace(/[éèêë]/g, "e").replace(/[àâ]/g, "a")
+				.replace(/[ùûü]/g, "u").replace(/[îï]/g, "i")
+				.replace(/[ôö]/g, "o").replace(/ç/g, "c")
+				.replace(/œ/g, "oe").replace(/\s+/g, " ");
+		}
+
+		function isCorrect(input, answer) {
+			const ni = normalize(input),
+				na = normalize(answer);
+			if (ni === na) return true;
+			// check alts
+			const key = answer.toLowerCase();
+			if (alts[key]) return alts[key].some(a => normalize(a) === ni);
+			return false;
+		}
+
+		let blanks = []; // {el, answer, type}
+
+		function build() {
+			blanks = [];
+			const container = document.getElementById('exercises');
+			container.innerHTML = '';
+
+			// Alle Exercises flatten
+			let allExercises = [];
+			sections.forEach(sec => {
+				sec.exercises.forEach(ex => {
+					allExercises.push(ex);
+				});
+			});
+
+			// Feste, gemischte Reihenfolge (Indexliste)
+const order = [
+  12, 3, 25, 7, 18, 1, 30, 9, 21, 5,
+  14, 0, 27, 11, 33, 6, 19, 2, 28, 10,
+  23, 4, 31, 8, 16, 13, 29, 20, 24, 15,
+  32, 17, 22, 26, 34
+];
+
+// Neu anordnen
+allExercises = order.map(i => allExercises[i]);
+
+			// Render ohne Sections
+			allExercises.forEach(ex => {
+				const row = document.createElement('div');
+				row.className = 'sentence';
+
+				ex.seg.forEach(part => {
+					if (typeof part === 'string') {
+						const sp = document.createElement('span');
+						sp.className = 'word';
+						sp.textContent = part;
+						row.appendChild(sp);
+					} else {
+						const wrap = document.createElement('span');
+						wrap.className = 'blank-wrap';
+
+						const inp = document.createElement('input');
+						inp.type = 'text';
+						inp.className = 'blank';
+						inp.setAttribute('autocomplete', 'off');
+						inp.setAttribute('autocorrect', 'off');
+						inp.setAttribute('spellcheck', 'false');
+
+						inp.style.width = Math.max(90, part.a.length * 9 + 20) + 'px';
+
+						inp.addEventListener('input', () => {
+							inp.style.width = Math.max(90, inp.value.length * 9 + 20) + 'px';
+							inp.classList.remove('correct-final', 'wrong-final',
+								'color-dont', 'color-leq', 'color-auq', 'color-duq',
+								'color-apr', 'color-avant', 'color-sans', 'color-pour');
+						});
+
+						inp.addEventListener('keydown', e => {
+							if (e.key === 'Enter') check();
+						});
+
+						wrap.appendChild(inp);
+						row.appendChild(wrap);
+
+						blanks.push({ el: inp, answer: part.a, type: part.t });
+					}
+				});
+
+				container.appendChild(row);
+
+				if (ex.hint) {
+					const h = document.createElement('div');
+					h.className = 'hint';
+					h.textContent = '↳ ' + ex.hint;
+					h.style.display = 'none';
+					row._hintEl = h;
+					container.appendChild(h);
+				}
+			});
+
+			updateScore(0, blanks.length, false);
+		}
+
+		function check() {
+			let correct = 0;
+
+			// Hints anzeigen
+			document.querySelectorAll('.sentence').forEach(row => {
+				if (row._hintEl) {
+					row._hintEl.style.display = 'block';
+				}
+			});
+
+			blanks.forEach(b => {
+				b.el.classList.remove('correct-final', 'wrong-final',
+					'color-dont', 'color-leq', 'color-auq', 'color-duq',
+					'color-apr', 'color-avant', 'color-sans', 'color-pour');
+				if (isCorrect(b.el.value, b.answer)) {
+					b.el.classList.add('correct-final');
+					correct++;
+				} else {
+					b.el.classList.add('wrong-final');
+				}
+			});
+			updateScore(correct, blanks.length, true);
+		}
+
+		function reveal() {
+			let correct = 0;
+			blanks.forEach(b => {
+				b.el.value = b.answer;
+				b.el.style.width = Math.max(90, b.answer.length * 9 + 20) + 'px';
+				b.el.classList.remove('correct-final', 'wrong-final');
+				b.el.classList.add('color-' + b.type);
+				b.el.disabled = true;
+				correct++;
+			});
+			updateScore(correct, blanks.length, true);
+		}
+
+		function reset() {
+			blanks.forEach(b => {
+				b.el.value = '';
+				b.el.style.width = '90px';
+				b.el.disabled = false;
+				b.el.classList.remove('correct-final', 'wrong-final',
+					'color-dont', 'color-leq', 'color-auq', 'color-duq',
+					'color-apr', 'color-avant', 'color-sans', 'color-pour');
+			});
+			updateScore(0, blanks.length, false);
+			document.getElementById('result-msg').className = 'result-msg';
+		}
+
+		function updateScore(correct, total, checked) {
+			const num = document.getElementById('score-num');
+			const fill = document.getElementById('score-fill');
+			const label = document.getElementById('score-label');
+			const msg = document.getElementById('result-msg');
+
+			if (!checked) {
+				num.textContent = `0 / ${total}`;
+				fill.style.width = '0%';
+				label.textContent = 'noch nicht geprüft';
+				msg.className = 'result-msg';
+				return;
+			}
+
+			num.textContent = `${correct} / ${total}`;
+			const pct = total ? Math.round(correct / total * 100) : 0;
+			fill.style.width = pct + '%';
+			label.textContent = pct + ' % richtig';
+
+			msg.className = 'result-msg show ' + (pct >= 85 ? 'great' : pct >= 60 ? 'ok' : 'retry');
+			if (pct === 100) msg.textContent = '🎉 Perfekt! Alles richtig.';
+			else if (pct >= 85) msg.textContent = `Sehr gut! ${total - correct} Fehler – fast perfekt.`;
+			else if (pct >= 60) msg.textContent = `Ganz okay – ${total - correct} Fehler. Nochmal üben!`;
+			else msg.textContent = `${correct} richtig, ${total - correct} falsch. Klick auf „Lösung anzeigen" zum Nachschauen.`;
+		}
+
+		build();
+	</script>
+
+</body>
+
+</html>
