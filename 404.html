@@ -64,18 +64,14 @@
 
   <main>
 
-    <p style="font-size: 10px;">Die Webseite ist derzeit noch in Arbeit. Einige Features funktionieren nur eingeschränkt oder gar nicht, hauptsächlich JavaScript-basierte, interaktive Funktionen.</p>
-
-    <noscript>Hinweis: JavaScript-Funktionen können nicht geladen werden, vermutlich weil dein Browser diese nicht unterstützt oder weil du JavaScript deaktiviert hast. Dadurch ist die Webseite visuell und funktional eingeschränkt.</noscript>
+    <noscript>Hinweis: JavaScript-Funktionen können nicht geladen werden, vermutlich weil dein Browser diese nicht unterstützt oder weil du JavaScript deaktiviert hast. Dadurch ist die Webseite visuell und funktional sehr stark eingeschränkt.</noscript>
 
     <header>
-      <nav id="pse-container">
-
-      </nav>
+      <div style="margin:35px 0; color: #fd2; font-weight: 700; font-size: min(20vh, 30vw);display: flex; justify-content: space-around">404</div>
 
 
       <div id="header-text">
-        <h1>404 – Quadnilquadium</h1>
+        <h1>Quadnilquadium</h1>
 
         <p id="introduction">
           Quadnilquadium ist das 404. Element. Weil sein Kern viel zu groß wäre und sich nicht selbst zusammenhalten würde, würde es sofort zerfallen. Es wurde noch nie erzeugt und noch nie von einem Menschen gesehen.<br />Die Seite, die du gerade aufrufen wolltest, wurde ebenfalls nicht gefunden. Vielleicht ist sie auch dem radioaktiven Zerfall zum Opfer gefallen? Naja, hier kommst du <a href="./index.html">zurück zur Startseite</a>.
@@ -124,8 +120,6 @@
         <i data-lucide="link" class="text-header-icon"></i>
       </h2>
       <p class="text">
-        <a href="./index.html">Zurück zur Startseite</a>
-        <br /><br />
         Die Seite, auf die du zugreifen wolltest, konnte nicht gefunden werden. Das könnte zum Beispiel daran liegen:
       <ul>
         <li>Die Seite wurde entfernt oder verschoben</li>
@@ -165,8 +159,8 @@
     main.injectSourceNotes();
     main.addDatenHoverEventListener();
     main.addExpandableClickListener();
-    
-const elementObj = {
+
+    const elementObj = {
       elementname: "Quadnilquadium",
       elementsymbol: "Qnq",
       ordnungszahl: 404,
@@ -188,7 +182,7 @@ const elementObj = {
     insertDatenIntoGrafik(elementName);
     insertDatenIntoDatenliste(elementName);
     // datenLoader.generateAndInjectFavicon(elementName);
-    datenLoader.insertPSE();
+    //datenLoader.insertPSE();
 
 
     async function insertDatenIntoGrafik(elementName) {
