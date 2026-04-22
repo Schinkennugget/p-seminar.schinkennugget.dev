@@ -9,8 +9,8 @@
 <body>
   <script>
     const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    svg.setAttribute("width", 250 * 5);
-    svg.setAttribute("height", 130 * 5);
+    svg.setAttribute("width", 35 * 5);
+    svg.setAttribute("height", 125 * 5);
 
     function makeRect(x, y, width, height) {
       const rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
@@ -37,22 +37,19 @@
 
 
     //Äußere Form
-    // svg.appendChild(makeRect(0, 0, 247, 127, false));
+    svg.appendChild(makeRect(0, 0, 35, 125));
 
-    for (let i = 0; i < 4; i++) {
-      const x = 4.5 + i * 30;
-      svg.appendChild(makeRect(2, x, 10, 22.5));
-      svg.appendChild(makeRect(17, x, 15, 12.5));
-      svg.appendChild(makeRect(34.5, x, 10, 12.5));
-      svg.appendChild(makeRect(84.5, x, 10, 12.5));
-      svg.appendChild(makeRect(102, x - 2.5, 30, 25));
-      svg.appendChild(makeRect(137, x, 20, 12.5));
-      svg.appendChild(makeRect(162, x, 10, 12.5));
-      svg.appendChild(makeRect(174.5, x, 10, 12.5));
-      svg.appendChild(makeRect(192, x, 15, 12.5));
-      svg.appendChild(makeRect(212, x, 10, 22.5));
-    }
+    svg.appendChild(makeRect(5, 5, 10, 22.5));
+    svg.appendChild(makeRect(17.5, 5, 12.5, 12.5));
 
+    svg.appendChild(makeRect(5, 35, 10, 22.5));
+    svg.appendChild(makeRect(17.5, 35, 12.5, 12.5));
+    
+    svg.appendChild(makeRect(5, 65, 10, 22.5));
+    svg.appendChild(makeRect(17.5, 65, 12.5, 12.5));
+    
+    svg.appendChild(makeRect(5, 95, 10, 22.5));
+    svg.appendChild(makeRect(17.5, 95, 12.5, 12.5));
 
 
     document.body.appendChild(svg);
@@ -64,7 +61,7 @@
 
     const a = document.createElement("a");
     a.href = url;
-    a.download = "seite-rechts.svg";
+    a.download = "balkonwand.svg";
     a.click();
 
     URL.revokeObjectURL(url);

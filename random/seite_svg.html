@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body>
+  <script>
+    const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    svg.setAttribute("width", 250 * 5);
+    svg.setAttribute("height", 130 * 5);
+
+    function makeRect(x, y, width, height) {
+      const rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+      rect.setAttribute("x", x * 5);
+      rect.setAttribute("y", y * 5);
+      rect.setAttribute("width", width * 5)
+      rect.setAttribute("height", height * 5);
+      rect.setAttribute("fill", "none");
+      rect.setAttribute("stroke", "black");
+      rect.setAttribute("stroke-width", "1");
+      return rect;
+    }
+
+    function makeLine(fromX, fromY, toX, toY) {
+      const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+      line.setAttribute("x1", fromX);
+      line.setAttribute("y1", fromY);
+      line.setAttribute("x2", toX);
+      line.setAttribute("y2", toY);
+      line.setAttribute("stroke", "black");
+      line.setAttribute("stroke-width", "1")
+      return line;
+    }
+
+
+    //Äußere Form
+    // svg.appendChild(makeRect(0, 0, 247, 127, false));
+
+    for (let i = 0; i < 4; i++) {
+      const x = 4.5 + i * 30;
+      svg.appendChild(makeRect(2, x, 10, 22.5));
+      svg.appendChild(makeRect(17, x, 15, 12.5));
+      svg.appendChild(makeRect(34.5, x, 10, 12.5));
+      svg.appendChild(makeRect(84.5, x, 10, 12.5));
+      svg.appendChild(makeRect(102, x - 2.5, 30, 25));
+      svg.appendChild(makeRect(137, x, 20, 12.5));
+      svg.appendChild(makeRect(162, x, 10, 12.5));
+      svg.appendChild(makeRect(174.5, x, 10, 12.5));
+      svg.appendChild(makeRect(192, x, 15, 12.5));
+      svg.appendChild(makeRect(212, x, 10, 22.5));
+    }
+
+
+
+    document.body.appendChild(svg);
+
+    const svgString = svg.outerHTML;
+
+    const blob = new Blob([svgString], { type: "image/svg+xml" });
+    const url = URL.createObjectURL(blob);
+
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "seite-rechts.svg";
+    //a.click();
+
+    URL.revokeObjectURL(url);
+  </script>
+</body>
+
+</html>
