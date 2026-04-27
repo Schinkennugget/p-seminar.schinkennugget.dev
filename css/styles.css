@@ -51,12 +51,12 @@ body {
   word-wrap: break-word;
   background-color: var(--bg-body);
   color: var(--text);
-  max-width: 1500px;
+  max-width: 1200px;
   -webkit-hyphens: auto;
   -moz-hyphens: auto;
   -ms-hyphens: auto;
   hyphens: auto;
-    display: grid;
+  display: grid;
   grid-template-rows: auto 1fr auto;
   min-height: 100vh;
 }
@@ -590,9 +590,16 @@ tr.daten-liste-elem-on-hover .daten-info
 
 
 /*TEXTE*/
-div.text {
+/*div.text {
   margin-top: 3rem;
   color: var(--text-muted);
+}*/
+p.text-chapter {
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #f00;
 }
 
 h2.text-header {
@@ -615,7 +622,7 @@ h2.text-header:hover .text-header-icon {
   opacity: 1;
 }
 
-p.text {
+/*p.text {
   line-height: 1.5rem;
   text-align: justify;
   color: var(--text-muted);
@@ -624,7 +631,7 @@ p.text {
 p.text > p {
   display: inline-block;
   color: var(--text-muted);
-}
+}*/
 
 /*fachbegriff-info oben bei der Daten-Liste*/
 
@@ -633,7 +640,7 @@ p.text > p {
   text-decoration: underline dotted 0.075rem;
 }
 
-.text-image {
+/*.text-image {
   display: inline-flex;
   color: var(--text-muted);
   float: right;
@@ -663,7 +670,7 @@ p.text > p {
     max-height: 300px;
     width: auto;
     height: auto;
-  }
+  }*/
 }
 
 

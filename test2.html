@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="keywords" content="Chemie, Zink, P-Seminar, WHG" />
+  <meta name="content" content="P-Seminar Chemie: Zink" />
+  <meta name="author" content="Schinkennugget" />
+
+  <link id="favicon-96" rel="icon" type="image/png" sizes="96x96">
+  <link id="favicon-svg" rel="icon" type="image/svg+xml">
+  <link id="favicon-ico" rel="shortcut icon">
+  <link id="favicon-apple" rel="apple-touch-icon" sizes="180x180">
+  <link rel="manifest" href="images/favicon-zink/site.webmanifest">
+
+  <script>
+    //NUR FÜR DEVELOPMENT, DEAKTIVIERT CACHING
+    const v = Date.now(); // neuer Wert bei jedem Seitenaufruf
+    const linkCSS = document.createElement("link");
+    linkCSS.rel = "stylesheet";
+    linkCSS.href = "css/styles.css";
+
+    if (document.baseURI.includes("p-seminar.schinkennugget.dev")) {
+      linkCSS.href += "?v=" + v;
+    }
+    // document.head.append(linkCSS);
+  </script>
+
+  <title>Zink</title>
+</head>
+
+<body tabindex="0">
+
+  <nav>
+    <ul id="navbar">
+      <li class="navbar-item-left">
+        <a href="index.html" tabindex="0">
+          <i data-lucide="house" class="navbar-icon"></i>
+          <span class="navbar-text-1">Startseite</span>
+        </a>
+      </li>
+      <li class="navbar-item-left">
+        <a href="experimente/alle-experimente.html" tabindex="0">
+          <i data-lucide="flask-conical" class="navbar-icon"></i>
+          <span class="navbar-text-2">Experimente</span>
+        </a>
+      </li>
+
+      <li class="navbar-item-right" tabindex="0" id="navbar-button-darkmode">
+        <span>
+          <i data-lucide="sun" class="navbar-icon" id="navbar-icon-sun"></i>
+          <i data-lucide="moon" class="navbar-icon" id="navbar-icon-moon"></i>
+        </span>
+      </li>
+      <li class="navbar-item-right" tabindex="0" onclick="window.print();">
+        <span>
+          <i data-lucide="printer" class="navbar-icon"></i>
+          <span class="navbar-text-3">Seite drucken</span>
+        </span>
+      </li>
+    </ul>
+  </nav>
+
+  <main>
+
+
+    <div class="text-chapter">
+      <div class="text-block">
+        <div class="text">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+        <div class="text-img-small"><img width="1600" height="900" src="https://www.publicdomainpictures.net/pictures/550000/velka/abstract-tree-1699940729Obv.jpg" /></div>
+      </div>
+
+      <div class="text-block">
+        <div class="text">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+      </div>
+
+      <div class="text-img-large"><img src="https://www.publicdomainpictures.net/pictures/550000/velka/abstract-tree-1699940729Obv.jpg" /></div>
+    </div>
+    <style>
+      div.text-chapter {
+        max-width: 900px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background-color: #f00;
+      }
+
+      div.text-block {
+        background-color: #aa0;
+        display: grid;
+        grid-template-rows: 1fr 350px;
+        gap: 10px;
+      }
+      div.text {
+        text-align: justify;
+      }
+      div.text-img-small {
+        max-width: 300px;
+      }
+      div.text-img-small > img {
+        filter: invert(1);
+        display: block;
+      }
+    </style>
+
+  </main>
+
+  <footer>
+    <ul>
+      <li><a href="./impressum.html">Impressum</a></li>
+      <li><a target="_blank" href="https://github.com/Schinkennugget/p-seminar.schinkennugget.dev">Quellcode auf GitHub</a></li>
+      <li><a target="_blank" href="https://github.com/Schinkennugget/p-seminar.schinkennugget.dev/issues/new">Feedback auf GitHub geben</a></li>
+      </li>
+      <li><a href="mailto:kontakt@schinkennugget.dev?subject=Feedback">Feedback per E-Mail geben</a></li>
+    </ul>
+  </footer>
+
+
+
+  <!-- Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script type="module">
+    import * as datenLoader from "./javascript/datenLoader.js";
+    import * as main from "./javascript/scripts.js";
+    import * as LabeledIcon from "./javascript/LabeledIcon.js";
+    // import * as Expandable from "./javascript/Expandable.js";
+
+    main.initializeDarkMode();
+    // main.addTextHeaderClickListener();
+    // main.injectSourceNotes();
+    // main.addDatenHoverEventListener();
+    // main.addExpandableClickListener();
+
+    // const elementName = document.querySelector("#header-text > h1").innerText;
+    // datenLoader.insertDatenIntoGrafik(elementName);
+    // datenLoader.insertDatenIntoDatenliste(elementName);
+    // datenLoader.generateAndInjectFavicon(elementName);
+    // datenLoader.insertPSE();
+  </script>
+
+  <script>
+    lucide.createIcons();
+  </script>
+
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js">
+    window.MathJax = {
+      tex: {
+        packages: {
+          '[+]': ['mhchem']
+        }
+      }
+    };
+  </script>
+</body>
+
+</html>

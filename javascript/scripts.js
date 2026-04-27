@@ -1,7 +1,9 @@
 "use strict";
 
 
-let darkModeEnabled = false;
+//if (localStorage.getItem("darkModeEnabled") === null) { 
+//  localStorage.setItem("darkModeEnabled", JSON.stringify(false));
+//}
 const rootStyle = document.documentElement.style;
 
 // Alle Farben
@@ -31,47 +33,51 @@ const missingLinkDark = "#e00"
 const missingLinkHoverDark = "#f00";
 const shadowDark = "rgba(0, 0, 0, 0.2)";
 
-function toggleDarkMode(enabled) {
-  darkModeEnabled = darkModeEnabled ? false : true;
+function enableDarkMode() {
+  rootStyle.setProperty('--bg-body', bgBodyDark);
+  rootStyle.setProperty('--bg-elevated', bgElevatedDark);
+  rootStyle.setProperty('--bg-highlight', bgHighlightDark);
+  rootStyle.setProperty('--bg-navbar', bgNavbarDark);
+  rootStyle.setProperty('--bg-navbar-solid', bgNavbarSolidDark);
+  rootStyle.setProperty('--text', textColorDark);
+  rootStyle.setProperty('--text-muted', mutedTextColorDark);
+  rootStyle.setProperty('--link-color', linkColorDark);
+  rootStyle.setProperty('--link-hover', linkHoverDark);
+  rootStyle.setProperty('--missing-link', missingLinkDark);
+  rootStyle.setProperty('--missing-link-hover', missingLinkHoverDark);
+  rootStyle.setProperty('--shadow-color', shadowDark);
+  document.getElementById("navbar-icon-moon").style.display = "none";
+  document.getElementById("navbar-icon-sun").style.display = "inline";
 
-  if (typeof enabled == typeof true) {
-    darkModeEnabled = enabled;
-  }
+  document.querySelectorAll(".darkmode-invert").forEach(elem => elem.style.filter = "invert(1)");
+}
 
-  if (darkModeEnabled) {
-    rootStyle.setProperty('--bg-body', bgBodyDark);
-    rootStyle.setProperty('--bg-elevated', bgElevatedDark);
-    rootStyle.setProperty('--bg-highlight', bgHighlightDark);
-    rootStyle.setProperty('--bg-navbar', bgNavbarDark);
-    rootStyle.setProperty('--bg-navbar-solid', bgNavbarSolidDark);
-    rootStyle.setProperty('--text', textColorDark);
-    rootStyle.setProperty('--text-muted', mutedTextColorDark);
-    rootStyle.setProperty('--link-color', linkColorDark);
-    rootStyle.setProperty('--link-hover', linkHoverDark);
-    rootStyle.setProperty('--missing-link', missingLinkDark);
-    rootStyle.setProperty('--missing-link-hover', missingLinkHoverDark);
-    rootStyle.setProperty('--shadow-color', shadowDark);
-    document.getElementById("navbar-icon-moon").style.display = "none";
-    document.getElementById("navbar-icon-sun").style.display = "inline";
+function disableDarkMode() {
+  rootStyle.setProperty('--bg-body', bgBodyLight);
+  rootStyle.setProperty('--bg-elevated', bgElevatedLight);
+  rootStyle.setProperty('--bg-highlight', bgHighlightLight);
+  rootStyle.setProperty('--bg-navbar', bgNavbarLight);
+  rootStyle.setProperty('--bg-navbar-solid', bgNavbarSolidLight);
+  rootStyle.setProperty('--text', textColorLight);
+  rootStyle.setProperty('--text-muted', mutedTextColorLight);
+  rootStyle.setProperty('--link-color', linkColorLight);
+  rootStyle.setProperty('--link-hover', linkHoverLight);
+  rootStyle.setProperty('--missing-link', missingLinkLight);
+  rootStyle.setProperty('--missing-link-hover', missingLinkHoverLight);
+  rootStyle.setProperty('--shadow-color', shadowLight);
+  document.getElementById("navbar-icon-sun").style.display = "none";
+  document.getElementById("navbar-icon-moon").style.display = "inline";
 
-    document.querySelectorAll(".darkmode-invert").forEach(elem => elem.style.filter = "invert(1)");
+  document.querySelectorAll(".darkmode-invert").forEach(elem => elem.style.filter = "invert(0)");
+}
+
+function toggleDarkMode() {
+  if (JSON.parse(localStorage.getItem("darkModeEnabled"))) {
+    localStorage.setItem("darkModeEnabled", JSON.stringify(false));
+    disableDarkMode();
   } else {
-    rootStyle.setProperty('--bg-body', bgBodyLight);
-    rootStyle.setProperty('--bg-elevated', bgElevatedLight);
-    rootStyle.setProperty('--bg-highlight', bgHighlightLight);
-    rootStyle.setProperty('--bg-navbar', bgNavbarLight);
-    rootStyle.setProperty('--bg-navbar-solid', bgNavbarSolidLight);
-    rootStyle.setProperty('--text', textColorLight);
-    rootStyle.setProperty('--text-muted', mutedTextColorLight);
-    rootStyle.setProperty('--link-color', linkColorLight);
-    rootStyle.setProperty('--link-hover', linkHoverLight);
-    rootStyle.setProperty('--missing-link', missingLinkLight);
-    rootStyle.setProperty('--missing-link-hover', missingLinkHoverLight);
-    rootStyle.setProperty('--shadow-color', shadowLight);
-    document.getElementById("navbar-icon-sun").style.display = "none";
-    document.getElementById("navbar-icon-moon").style.display = "inline";
-
-    document.querySelectorAll(".darkmode-invert").forEach(elem => elem.style.filter = "invert(0)");
+    localStorage.setItem("darkModeEnabled", JSON.stringify(true));
+    enableDarkMode();
   }
 }
 
@@ -79,10 +85,26 @@ export function initializeDarkMode() {
   try {
     const media = window.matchMedia('(prefers-color-scheme: dark)');
     // initialisierung dark mode
-    toggleDarkMode(media.matches);
+    if (localStorage.getItem("darkModeEnabled") === null) {
+      if (media.matches) {
+        localStorage.setItem("darkModeEnabled", JSON.stringify(true));
+        enableDarkMode();
+      } else {
+        localStorage.setItem("darkModeEnabled", JSON.stringify(false));
+        disableDarkMode();
+      }
+    } else {
+      if (JSON.parse(localStorage.getItem("darkModeEnabled"))) {
+        enableDarkMode();
+      } else {
+        disableDarkMode();
+      }
+    }
 
     // live changes vom dark mode
-    media.addEventListener('change', e => toggleDarkMode(media.matches));
+    media.addEventListener('change', e => {
+      media.matches ? enableDarkMode() : disableDarkMode();
+    });
 
     document.getElementById("navbar-button-darkmode").addEventListener("click", toggleDarkMode);
   } catch (err) {
@@ -119,10 +141,10 @@ export function toggleExpandable(event) {
   const expandableContentEl = expandableContainerEl.querySelector(".expandable-content");
 
   // Laufende Transition sofort abbrechen
-expandableContentEl.style.transition = "none";
-void expandableContentEl.offsetHeight; // Reflow erzwingen
-const currentHeight = expandableContentEl.offsetHeight; // Aktuellen Zwischenstand einfrieren
-expandableContentEl.style.height = currentHeight + "px";
+  expandableContentEl.style.transition = "none";
+  void expandableContentEl.offsetHeight; // Reflow erzwingen
+  const currentHeight = expandableContentEl.offsetHeight; // Aktuellen Zwischenstand einfrieren
+  expandableContentEl.style.height = currentHeight + "px";
 
   // Alten transitionend-Handler entfernen
   const oldHandler = expandableContentEl._transitionHandler;
