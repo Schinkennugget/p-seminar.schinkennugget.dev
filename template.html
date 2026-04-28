@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="keywords" content="Chemie, P-Seminar, WHG" />
+  <meta name="content" content="P-Seminar Chemie" />
+  <meta name="author" content="Schinkennugget" />
+  <script>
+    //NUR FÜR DEVELOPMENT, DEAKTIVIERT CACHING
+    const v = Date.now(); // neuer Wert bei jedem Seitenaufruf
+    const linkCSS = document.createElement("link");
+    linkCSS.rel = "stylesheet";
+    linkCSS.href = "css/styles.css";
+
+    if (document.baseURI.includes("p-seminar.schinkennugget.dev")) {
+      linkCSS.href += "?v=" + v;
+    }
+    document.head.append(linkCSS);
+  </script>
+
+  <title>...</title>
+
+</head>
+
+<body tabindex="0">
+
+  <nav>
+    <ul id="navbar">
+      <li class="navbar-item-left">
+        <a href="index.html" tabindex="0">
+          <i data-lucide="house" class="navbar-icon"></i>
+          <span class="navbar-text-1">Startseite</span>
+        </a>
+      </li>
+      <li class="navbar-item-left">
+        <a href="experimente/alle-experimente.html" tabindex="0">
+          <i data-lucide="flask-conical" class="navbar-icon"></i>
+          <span class="navbar-text-2">Experimente</span>
+        </a>
+      </li>
+
+      <li class="navbar-item-right" tabindex="0" id="navbar-button-darkmode">
+        <span>
+          <i data-lucide="sun" class="navbar-icon" id="navbar-icon-sun"></i>
+          <i data-lucide="moon" class="navbar-icon" id="navbar-icon-moon"></i>
+        </span>
+      </li>
+      <li class="navbar-item-right" tabindex="0" onclick="window.print();">
+        <span>
+          <i data-lucide="printer" class="navbar-icon"></i>
+          <span class="navbar-text-3">Seite drucken</span>
+        </span>
+      </li>
+    </ul>
+  </nav>
+
+
+
+  <main>
+
+    <noscript>Hinweis: JavaScript-Funktionen können nicht geladen werden, vermutlich weil dein Browser diese nicht unterstützt oder weil du JavaScript deaktiviert hast. Dadurch ist die Webseite visuell und funktional sehr stark eingeschränkt.</noscript>
+    <!-- 
+    <div id="screenWidth"></div>
+
+    <script>
+      function updateScreenWidth() {
+        const width = window.innerWidth;
+        document.getElementById("screenWidth").textContent =
+          "Aktuelle Bildschirmbreite: " + width + "px";
+      }
+
+      // initial setzen
+      updateScreenWidth();
+
+      // bei Resize aktualisieren
+      window.addEventListener("resize", updateScreenWidth);
+    </script> -->
+
+    <header>
+
+
+      <div id="header-text">
+        <h1>...</h1>
+
+        <p id="introduction">
+          ...
+        </p>
+      </div>
+    </header>
+
+
+
+    <div class="expandable" id="daten-abschnitt" data-expanded="0">
+      <button class="expandable-header" id="daten-header" tabindex="0">
+        <h3>Daten</h3>
+        <i data-lucide="chevron-right" class="expandable-header-icon"></i>
+      </button>
+
+
+      <div class="expandable-content" id="daten-werte-abschnitt" style="display:none;">
+        <div id="daten-grafik" class="daten-element">
+          <!-- Werden über datenLoader.js geladen -->
+          <i data-lucide="loader-circle" class="loading-wheel"></i>
+        </div>
+
+
+
+        <table id="daten-liste" class="daten-element">
+          <!-- Werden über datenLoader.js geladen (siehe script unten) -->
+          <tr>
+            <td style="display:flex">
+              <i data-lucide="loader-circle" class="loading-wheel"></i>
+              &nbsp;Lädt...
+            </td>
+          </tr>
+        </table>
+
+        <p id="daten-infotext"><i data-lucide="info" class="daten-infotext-icon"></i><em>Hover/Tippe auf die Werte für mehr Informationen und Zusammenhänge!</em>
+        </p>
+
+        <p id="daten-zusatz">Eine ausführlichere Liste an chem. und physikalischen Daten findest du im <a href="LINK ZU WIKIPEDIA" target="_blank">Wikipedia-Artikel</a>.
+        </p>
+      </div>
+    </div>
+
+
+    <!-- TEXT -->
+    <div id="..." class="text-chapter">
+      <h2 tabindex="0" class="text-header">ÜBERSCHRIFT
+        <i data-lucide="link" class="text-header-icon"></i>
+      </h2>
+
+      <!-- normaler text mit bild -->
+      <div class="text-block">
+        <div class="text">
+          <!-- text, am besten in einem <p> -->
+        </div>
+
+        <div class="text-img-small">
+          <img src="..." />
+          <a class="text-img-footer" href="...">
+            footer
+          </a>
+        </div>
+      </div>
+
+
+      <!-- text ohne bild (nur verwenden, wenn ganzes kapitel kein bild hat) -->
+      <div class="text-block text-only">
+        <div class="text">
+          <!-- text, am besten in einem <p> -->
+        </div>
+      </div>
+
+
+      <!-- großes bild -->
+      <div class="text-img-large"><img src="https://www.publicdomainpictures.net/pictures/550000/velka/abstract-tree-1699940729Obv.jpg" width="1920px" height="1446px" />
+        <a class="text-img-footer" href="...">
+          footer
+        </a>
+      </div>
+
+    </div>

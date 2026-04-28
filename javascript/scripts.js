@@ -346,7 +346,7 @@ function spawnPoppingParticles({
   durationMax = 1600,
   radiusMin = 25,
   radiusMax = 27,
-  color = "#fff"
+  color = "var(--text-muted)"
 }) {
 
   for (let i = 0; i < count; i++) {

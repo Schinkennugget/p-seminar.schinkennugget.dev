@@ -6,7 +6,7 @@
   --bg-navbar: rgba(248, 248, 255, 0.75);
   --bg-navbar-solid: rgb(248, 248, 255);
   --text: hsl(0 0 0);
-  --text-muted: hsl(0 0 1);
+  --text-muted: hsl(0 0 5);
   --link-color: #22d;
   --link-hover: #00a;
   --missing-link: #d11;
@@ -21,8 +21,8 @@
     --bg-highlight: hsl(0 0 20);
     --bg-navbar: rgba(50, 50, 50, 0.75);
     --bg-navbar-solid: rgb(50, 50, 50);
-    --text: hsl(0 0 100);
-    --text-muted: hsl(0 0 95);
+    --text: hsl(0 0 95);
+    --text-muted: hsl(0 0 90);
     --link-color: #55f;
     --link-hover: #77f;
     --missing-link: #e00;
@@ -51,7 +51,6 @@ body {
   word-wrap: break-word;
   background-color: var(--bg-body);
   color: var(--text);
-  max-width: 1200px;
   -webkit-hyphens: auto;
   -moz-hyphens: auto;
   -ms-hyphens: auto;
@@ -140,7 +139,7 @@ a[href=""]:hover {
 }
 
 code {
-  font-family: 'SF Mono', SFMono-Regular, ui-monospace, monospace;
+  font-family: 'SF Mono', SFMono-Regular, ui-monospace, 'JetBrains Mono', monospace;
 }
 
 
@@ -391,6 +390,7 @@ li.navbar-active {
 }
 
 div.daten-on-hover {
+  /*Text in der Grafik*/
   font-weight: 900;
   text-shadow: 0.15em 0.15em 0.15em var(--shadow-color);
   color: #aaa;
@@ -562,8 +562,6 @@ tr.daten-liste-elem-on-hover .daten-info
     margin: 0;
   }
 
-  /*::THUMB AUSPROBIEREN!!!!!!!!!!!!!!!!!*/
-
   #daten-grafik {
     justify-self: center;
     min-width: 12.5rem;
@@ -594,17 +592,10 @@ tr.daten-liste-elem-on-hover .daten-info
   margin-top: 3rem;
   color: var(--text-muted);
 }*/
-p.text-chapter {
-  max-width: 600px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background-color: #f00;
-}
 
 h2.text-header {
   line-height: 0.9em;
-  margin-bottom: 0;
+  margin-top: 1.5em;
   cursor: default;
 }
 
@@ -623,14 +614,12 @@ h2.text-header:hover .text-header-icon {
 }
 
 /*p.text {
-  line-height: 1.5rem;
-  text-align: justify;
-  color: var(--text-muted);
+  
 }
 
 p.text > p {
   display: inline-block;
-  color: var(--text-muted);
+  
 }*/
 
 /*fachbegriff-info oben bei der Daten-Liste*/
@@ -671,7 +660,77 @@ p.text > p {
     width: auto;
     height: auto;
   }*/
+
+div.text-chapter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
 }
+
+div.text-block {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 40px;
+  max-width: 1000px;
+  align-self: center;
+}
+div.text-block *:first-child {
+  margin-top: 0;
+}
+div.text {
+  text-align: justify;
+  line-height: 1.5rem;
+  color: var(--text-muted);
+  /*background-color: gold;*/
+}
+
+
+div.text-img-small,
+div.text-img-small > * {
+  max-width: 100%;
+  width: 100%;
+  /*background-color: yellow;*/
+}
+.text-img-footer,
+.text-image-footer:hover {
+  color: grey;
+  font-size: 0.8rem;
+  font-style: italic;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+div.text-img-small > * {
+  display: block;
+  height: auto;
+}
+div.text-img-small > img {
+  border-radius: 8px;
+}
+div.text-img-large {
+  width: 100%;
+  padding: 15px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+div.text-img-large > * {
+  max-width: 90%;
+  align-self: center;
+  width: auto;
+  height: auto;
+  max-height: 500px;
+}
+
+
+div.text-only {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+/*div.text-only > .text {
+  width: 90%;
+}*/
 
 
 
