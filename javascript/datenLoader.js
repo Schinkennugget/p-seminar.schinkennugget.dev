@@ -32,22 +32,42 @@ export async function generateAndInjectFavicon(elementName) {
     const FAVICON_BG_COLOR = elementObj?.additional_data?.background_color;
     const FAVICON_TEXT_COLOR = "#ffffff";
 
+    let svgContent;
+    let svgDataUrl;
     // --- SVG (scalable, modern browsers) ---
-    const svgContent = `
+    if (document.baseURI.includes("localhost")) {
+      svgContent = `
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
       <rect width="100" height="100" rx="15" fill="${FAVICON_BG_COLOR}"/>
       <text
         x="50" y="54"
         dominant-baseline="middle"
         text-anchor="middle"
-        font-family="Arial, sans-serif"
+        font-family="'SF Mono', SFMono-Regular, ui-monospace, 'JetBrains Mono', monospace"
         font-weight="bold"
         font-size="${FAVICON_TEXT.length > 2 ? '36' : FAVICON_TEXT.length > 1 ? '48' : '60'}"
         fill="${FAVICON_TEXT_COLOR}"
       >${FAVICON_TEXT}</text>
     </svg>`.trim();
 
-    const svgDataUrl = `data:image/svg+xml;base64,${btoa(svgContent)}`;
+      svgDataUrl = `data:image/svg+xml;base64,${btoa(svgContent)}`;
+    } else {
+      svgContent = `
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+      <rect width="100" height="100" rx="15" fill="${FAVICON_BG_COLOR}"/>
+      <text
+        x="50" y="54"
+        dominant-baseline="middle"
+        text-anchor="middle"
+        font-family="Inter, Helvetica, Arial, sans-serif"
+        font-weight="bold"
+        font-size="${FAVICON_TEXT.length > 2 ? '36' : FAVICON_TEXT.length > 1 ? '48' : '60'}"
+        fill="${FAVICON_TEXT_COLOR}"
+      >${FAVICON_TEXT}</text>
+    </svg>`.trim();
+
+      svgDataUrl = `data:image/svg+xml;base64,${btoa(svgContent)}`;
+    }
 
     // --- Canvas helper: renders icon at given px size, returns data URL ---
     function renderToCanvas(size) {
@@ -159,38 +179,40 @@ export async function insertPSE() {
     const loadingWheel = lucide.createElement(lucide.LoaderCircle);
     loadingWheel.classList.add("loading-wheel");
     pseElem.append(loadingWheel);
-    
+
     const alleElementDatenObj = await loadElemente()
-    .then(result => {
-      pseElem.innerHTML = ""; return result; })
-    .catch(error => {
-      pseElem.innerHTML = "";
-      const errorIcon = lucide.createElement(lucide.OctagonAlert);
-      errorIcon.classList.add("icon-error");
-      const errorText = document.createElement("span");
-      errorText.innerHTML = `Das Periodensystem konnte nicht geladen werden. (<code>${error.name}: ${error.message}</code>)`;
-      
-      pseElem.append(errorIcon);
-      pseElem.append(errorText);
-      return;
-    })
-    
+      .then(result => {
+        pseElem.innerHTML = "";
+        return result;
+      })
+      .catch(error => {
+        pseElem.innerHTML = "";
+        const errorIcon = lucide.createElement(lucide.OctagonAlert);
+        errorIcon.classList.add("icon-error");
+        const errorText = document.createElement("span");
+        errorText.innerHTML = `Das Periodensystem konnte nicht geladen werden. (<code>${error.name}: ${error.message}</code>)`;
+
+        pseElem.append(errorIcon);
+        pseElem.append(errorText);
+        return;
+      })
+
     if (!alleElementDatenObj) {
       console.error(`Could not load elements data for PSE.\n${err.name}: ${err.message}`);
       pseElem.innerHTML = "";
-      
+
       const errorIcon = lucide.createElement(lucide.OctagonX);
       errorIcon.classList.add("icon-error");
       const errorText = document.createElement("span");
       errorText.innerHTML = `Das Periodensystem konnte nicht geladen werden. (<code>${error.name}: ${error.message}</code>)`;
-      
+
       pseElem.append(errorIcon);
       pseElem.append(errorText);
       return;
     }
-    
+
     const alleElementeObj = alleElementDatenObj.elements;
-    
+
     for (let key in alleElementeObj) {
       const elementElem = document.createElement("div");
       const elementsymbolElem = document.createElement("div");
@@ -203,7 +225,7 @@ export async function insertPSE() {
       elementElem.classList.add("pse-item");
       elementElem.style.backgroundColor = alleElementeObj[key]?.additional_data?.background_color ?? "lightgrey";
       pseElem.append(elementElem);
-      
+
       elementElem.addEventListener("pointerenter", event => {
         event.currentTarget.style.transform = "scale(1.1)";
         event.currentTarget.addEventListener("pointerleave", function handler(event) {
