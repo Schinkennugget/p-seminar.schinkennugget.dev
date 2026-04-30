@@ -57,6 +57,7 @@ body {
   hyphens: auto;
   display: grid;
   grid-template-rows: auto 1fr auto;
+  justify-content: center;
   min-height: 100vh;
 }
 
@@ -84,6 +85,8 @@ h3 {
 
 main {
   margin: 64px;
+  max-width: 1100px;
+  align-self: center;
 }
 
 sub,
@@ -671,6 +674,7 @@ div.text-chapter {
 div.text-block {
   display: grid;
   grid-template-columns: 3fr 2fr;
+  grid-template-areas: "text img-small";
   gap: 40px;
   max-width: 1000px;
   align-self: center;
@@ -679,6 +683,7 @@ div.text-block *:first-child {
   margin-top: 0;
 }
 div.text {
+  grid-area: text;
   text-align: justify;
   line-height: 1.5rem;
   color: var(--text-muted);
@@ -692,13 +697,8 @@ div.text-img-small > * {
   width: 100%;
   /*background-color: yellow;*/
 }
-.text-img-footer,
-.text-image-footer:hover {
-  color: grey;
-  font-size: 0.8rem;
-  font-style: italic;
-  text-align: center;
-  margin-top: 0.5rem;
+div.text-img-small {
+  grid-area: img-small;
 }
 div.text-img-small > * {
   display: block;
@@ -706,7 +706,23 @@ div.text-img-small > * {
 }
 div.text-img-small > img {
   border-radius: 8px;
+  margin-top: 20px;
 }
+div.text-img-small > img:first-child {
+  margin-top: 0;
+}
+.text-img-footer {
+  color: grey;
+  font-size: 0.8rem;
+  font-style: italic;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+.text-img-footer:hover {
+  color: grey;
+  text-decoration: underline;
+}
+
 div.text-img-large {
   width: 100%;
   padding: 15px 0;
@@ -731,6 +747,19 @@ div.text-only {
 /*div.text-only > .text {
   width: 90%;
 }*/
+
+@media screen and (max-width: 700px) {
+  div.text-block {
+    grid-template-columns: 1fr;
+    grid-template-areas: "img-small" "text";
+  }
+
+  div.text-img-small,
+  div.text-img-small > * {
+    width: auto;
+    /*background-color: yellow;*/
+  }
+}
 
 
 

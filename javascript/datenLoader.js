@@ -203,6 +203,19 @@ export async function insertPSE() {
       elementElem.classList.add("pse-item");
       elementElem.style.backgroundColor = alleElementeObj[key]?.additional_data?.background_color ?? "lightgrey";
       pseElem.append(elementElem);
+      
+      elementElem.addEventListener("pointerenter", event => {
+        event.currentTarget.style.transform = "scale(1.1)";
+        event.currentTarget.addEventListener("pointerleave", function handler(event) {
+          event.currentTarget.style.transform = "";
+          event.currentTarget.removeEventListener("pointerleave", handler);
+        });
+        event.currentTarget.addEventListener("pointercancel", function handler(event) {
+          event.currentTarget.style.transform = "";
+          event.currentTarget.removeEventListener("pointercancel", handler);
+        });
+        return false;
+      });
     }
   } catch (err) {
     console.error(err.name + "\n" + err.message)
