@@ -35,39 +35,22 @@ export async function generateAndInjectFavicon(elementName) {
     let svgContent;
     let svgDataUrl;
     // --- SVG (scalable, modern browsers) ---
-    if (document.baseURI.includes("localhost")) {
-      svgContent = `
+    svgContent = `
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
       <rect width="100" height="100" rx="15" fill="${FAVICON_BG_COLOR}"/>
       <text
         x="50" y="54"
         dominant-baseline="middle"
         text-anchor="middle"
-        font-family="'SF Mono', SFMono-Regular, ui-monospace, 'JetBrains Mono', monospace"
+        font-family="${document.baseURI.includes("localhost") ? "'SF Mono', SFMono-Regular, ui-monospace, 'JetBrains Mono', monospace" : "Inter, Helvetica, Arial, sans-serif"}"
         font-weight="bold"
         font-size="${FAVICON_TEXT.length > 2 ? '36' : FAVICON_TEXT.length > 1 ? '48' : '60'}"
-        fill="${FAVICON_TEXT_COLOR}"
+        fill="${document.baseURI.includes("localhost") ? "#f0f" : FAVICON_TEXT_COLOR}"
       >${FAVICON_TEXT}</text>
     </svg>`.trim();
 
-      svgDataUrl = `data:image/svg+xml;base64,${btoa(svgContent)}`;
-    } else {
-      svgContent = `
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-      <rect width="100" height="100" rx="15" fill="${FAVICON_BG_COLOR}"/>
-      <text
-        x="50" y="54"
-        dominant-baseline="middle"
-        text-anchor="middle"
-        font-family="Inter, Helvetica, Arial, sans-serif"
-        font-weight="bold"
-        font-size="${FAVICON_TEXT.length > 2 ? '36' : FAVICON_TEXT.length > 1 ? '48' : '60'}"
-        fill="${FAVICON_TEXT_COLOR}"
-      >${FAVICON_TEXT}</text>
-    </svg>`.trim();
+    svgDataUrl = `data:image/svg+xml;base64,${btoa(svgContent)}`;
 
-      svgDataUrl = `data:image/svg+xml;base64,${btoa(svgContent)}`;
-    }
 
     // --- Canvas helper: renders icon at given px size, returns data URL ---
     function renderToCanvas(size) {

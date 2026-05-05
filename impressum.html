@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="keywords" content="Chemie, P-Seminar, WHG, Impressum" />
+  <meta name="content" content="P-Seminar Chemie" />
+  <meta name="author" content="Schinkennugget" />
+  <script>
+    //NUR FÜR DEVELOPMENT, DEAKTIVIERT CACHING
+    const v = Date.now(); // neuer Wert bei jedem Seitenaufruf
+    const linkCSS = document.createElement("link");
+    linkCSS.rel = "stylesheet";
+    linkCSS.href = "css/styles.css";
+
+    if (document.baseURI.includes("p-seminar.schinkennugget.dev")) {
+      linkCSS.href += "?v=" + v;
+    }
+    document.head.append(linkCSS);
+  </script>
+
+  <title>Impressum</title>
+
+</head>
+
+<body tabindex="0">
+
+  <nav>
+    <ul id="navbar">
+      <li class="navbar-item-left">
+        <a href="index.html" tabindex="0">
+          <i data-lucide="house" class="navbar-icon"></i>
+          <span class="navbar-text-1">Startseite</span>
+        </a>
+      </li>
+      <li class="navbar-item-left">
+        <a href="experimente/alle-experimente.html" tabindex="0">
+          <i data-lucide="flask-conical" class="navbar-icon"></i>
+          <span class="navbar-text-2">Experimente</span>
+        </a>
+      </li>
+
+      <li class="navbar-item-right" tabindex="0" id="navbar-button-darkmode">
+        <span>
+          <i data-lucide="sun" class="navbar-icon" id="navbar-icon-sun"></i>
+          <i data-lucide="moon" class="navbar-icon" id="navbar-icon-moon"></i>
+        </span>
+      </li>
+      <!-- <li class="navbar-item-right" tabindex="0" onclick="window.print();">
+        <span>
+          <i data-lucide="printer" class="navbar-icon"></i>
+          <span class="navbar-text-3">Seite drucken</span>
+        </span>
+      </li> -->
+    </ul>
+  </nav>
+
+
+
+  <main>
+    <h2>Impressum</h2>
+    
+		<p><strong>Verantwortlicher:</strong><br />
+			<em>Name, Nachname<br />
+			Adresse<br />
+			E-Mail
+			</em>
+		</p>
+    
+    <a href="404.html">dsfkbusnu</a>
+    
+    
+  </main>
+  
+  <!-- Footer wird automatisch geladen -->
+  
+  <!-- Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script type="module">
+    import * as datenLoader from "./javascript/datenLoader.js";
+    import * as main from "./javascript/scripts.js";
+    import * as LabeledIcon from "./javascript/LabeledIcon.js";
+    // import * as Expandable from "./javascript/Expandable.js";
+
+    main.initializeDarkMode();
+    injectFooter();
+  </script>
+
+  <script>
+    lucide.createIcons();
+  </script>
+
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js">
+    window.MathJax = {
+      tex: {
+        packages: {
+          '[+]': ['mhchem']
+        }
+      }
+    };
+  </script>
+</body>
+</html>

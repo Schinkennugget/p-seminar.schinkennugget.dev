@@ -29,7 +29,6 @@ class LabeledIcon extends HTMLElement {
     if (renderText && !this.shadowRoot?.lastElementChild?.matches("slot")) {
       this.shadowRoot.append(document.createElement("slot"));
     }
-    
     this.style.cssText = `
     display: inline-flex;
     flex-dircetion: row;

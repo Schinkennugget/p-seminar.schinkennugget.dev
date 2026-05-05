@@ -138,22 +138,21 @@
         <li>Der Link wurde falsch formattiert</li>
       </ul>
       <br />
-      Wenn du hierher gekommen bist, weil du auf einen Link in einem anderen Artikel dieser Seite geklickt hast, dann <a href="mailto:support@schinkennugget.dev?subject=Fehlerhafter%20Link%20%E2%80%93%20Weiterleitung%20auf%20404">kontaktiere bitte den Support</a> und melde den Fehler.
+      Wenn du hierher gekommen bist, weil du auf einen Link in einem anderen Artikel dieser Seite geklickt hast, dann <a id="support-mail" href="mailto:support@schinkennugget.dev?body=Du%20kannst%20diese%20E-Mail%20so%20wie%20sie%20ist%20abschicken%2C%20die%20folgenden%20Debug-Daten%20sollten%20ausreichen%2C%20um%20das%20Problem%20zu%20beheben.%20Falls%20nicht%2C%20w%C3%BCrden%20wir%20auf%20diese%20E-Mail%20antworten.%20Vielen%20Dank%2C%20dass%20du%20bei%20der%20Entwicklung%20der%20Seite%20mithilfst!%0A%0ATimestamp%3A%20Tue%20May%2005%202026%2008%3A39%3A23%20GMT%2B0200%20(Mitteleurop%C3%A4ische%20Sommerzeit)%0AURL%3A%20http%3A%2F%2Flocalhost%3A8080%2FiCloud%2Fwebsite%2F404.html%0AReferrer%3A%20http%3A%2F%2Flocalhost%3A8080%2FiCloud%2Fwebsite%2Fimpressum.html&subject=Fehlerhafter%20Link%20%E2%80%93%20%20404">kontaktiere bitte den Support</a> und melde den Fehler.
       </p>
+      <script>
+        document.getElementById("support-mail").href = "mailto:support@schinkennugget.dev?subject=Fehlerhafter%20Link%20%E2%80%93%20%20404&body=" + encodeURIComponent(`Wie bist du auf diese Seite gekommen?
+
+
+
+Timestamp: ${new Date()}
+URL: ${document.baseURI}
+Referrer: ${document.referrer}`);
+      </script>
     </div>
 
 
   </main>
-
-   <footer>
-    <ul>
-      <li><a href="./impressum.html">Impressum</a></li>
-      <li><a target="_blank" href="https://github.com/Schinkennugget/p-seminar.schinkennugget.dev">Quellcode auf GitHub</a></li>
-      <li><a target="_blank" href="https://github.com/Schinkennugget/p-seminar.schinkennugget.dev/issues/new">Feedback auf GitHub geben</a></li>
-      </li>
-      <li><a href="mailto:kontakt@schinkennugget.dev?subject=Feedback">Feedback per E-Mail geben</a></li>
-    </ul>
-  </footer>
 
 
 
@@ -162,6 +161,14 @@
   
   <script>
     window.addEventListener("DOMContentLoaded", () => { document.querySelector("#url").innerText = document.baseURI })
+    
+    console.log(encodeURIComponent(`Wie bist du auf diese Seite gekommen?
+
+
+
+Timestamp: ${new Date()}
+URL: ${document.baseURI}
+Referrer: ${document.referrer}`))
   </script>
 
   <script type="module">
@@ -175,6 +182,7 @@
     main.injectSourceNotes();
     main.addDatenHoverEventListener();
     main.addExpandableClickListener();
+    main.injectFooter();
 
     const elementObj = {
       elementname: "Quadnilquadium",

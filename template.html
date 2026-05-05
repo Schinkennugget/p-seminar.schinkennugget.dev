@@ -163,3 +163,42 @@
       </div>
 
     </div>
+  </main>
+  
+  <!-- Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script type="module">
+    import * as datenLoader from "./javascript/datenLoader.js";
+    import * as main from "./javascript/scripts.js";
+    import * as LabeledIcon from "./javascript/LabeledIcon.js";
+    // import * as Expandable from "./javascript/Expandable.js";
+
+    main.initializeDarkMode();
+    main.addTextHeaderClickListener();
+    main.injectSourceNotes();
+    main.addDatenHoverEventListener();
+    main.addExpandableClickListener();
+
+    const elementName = document.querySelector("#header-text > h1").innerText;
+    datenLoader.insertDatenIntoGrafik(elementName);
+    datenLoader.insertDatenIntoDatenliste(elementName);
+    datenLoader.generateAndInjectFavicon(elementName);
+    datenLoader.insertPSE();
+  </script>
+
+  <script>
+    lucide.createIcons();
+  </script>
+
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js">
+    window.MathJax = {
+      tex: {
+        packages: {
+          '[+]': ['mhchem']
+        }
+      }
+    };
+  </script>
+</body>
+</html>
