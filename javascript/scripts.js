@@ -422,10 +422,11 @@ export function addTextHeaderClickListener() {
 
 export function injectFooter() {
   const footerEl = document.createElement("footer");
+  const base = new URL("../", import.meta.url).href;
 
   footerEl.innerHTML = `<ul>
-      <li><a href="./impressum.html">Impressum</a></li>
-      <li><a target="_blank" href="https://github.com/Schinkennugget/p-seminar.schinkennugget.dev">Quellcode auf GitHub</a></li>
+      <li><a href="${base + "impressum.html"}">Impressum</a></li>
+      <li><a href="${base + "datenschutz.html"}">Datenschutz</a></li>
       <li><a target="_blank" href="https://github.com/Schinkennugget/p-seminar.schinkennugget.dev/issues/new">Feedback auf GitHub geben</a><li>Feedback per E-Mail geben
         <div class="dropdown">
           <div><a id="mail-bugreport" href=""><labeled-icon icon="Bug">Problem melden</labeled-icon></a></div>

@@ -147,6 +147,10 @@ code {
   font-family: 'SF Mono', SFMono-Regular, ui-monospace, 'JetBrains Mono', monospace;
 }
 
+address {
+  margin-top: 0;
+}
+
 
 
 
@@ -616,6 +620,10 @@ h2.text-header {
 
 h2.text-header:hover .text-header-icon {
   opacity: 1;
+}
+
+h3.text-subheader {
+  margin-top: 0;
 }
 
 /*p.text {
