@@ -279,64 +279,13 @@ li.navbar-active {
 
 
 /*Expandable*/
-
-
-.test-exp[data-expanded="true"] {
-  grid-template-rows: 1.5em 1fr;
-}
-
-
-.test-exp-header {
-  display: flex;
-  align-items: center;
-  gap: 0.2em;
-}
-
-.test-exp-header h3 {
-  font-weight: 400;
-  font-size: 1.2rem;
-}
-
-.test-exp-header svg {
-  stroke-width: 0.2em;
-  width: 1.2rem;
-}
-
-.test-exp-content {
-  overflow: hidden;
-}
-
 .expandable {
-  display: grid;
   margin: 0;
   background-color: var(--bg-elevated);
   border-radius: 2rem;
 }
 
-.expandable[data-expanded="false"] {
-  grid-template-rows: 1.5em 0fr;
-}
-
-.expandable[data-expanded="false"] .expandable-content {
-  overflow: hidden;
-  margin: 0;
-  padding: 0;
-}
-
-.expandable[data-expanded="true"] {
-  grid-template-rows: 30px 1fr;
-}
-
-.expandable[data-expanded="true"] .expandable-content {
-  overflow: show;
-  padding: 1.95rem;
-  transition: height 0.3s ease;
-  box-sizing: border-box;
-  margin: 0;
-  padding-top: 0;
-}
-
-.expandable-header>h3 {
+.expandable-header > h3 {
   margin: 0;
   width: 100%;
   text-align: left;

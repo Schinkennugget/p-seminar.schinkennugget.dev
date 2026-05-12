@@ -105,37 +105,36 @@
 
 
 
-    <div class="expandable" id="daten-abschnitt" data-expanded="false">
+    <div class="expandable" id="daten-abschnitt" data-expanded="0">
       <button class="expandable-header" id="daten-header" tabindex="0">
         <h3>Daten</h3>
         <i data-lucide="chevron-down" class="expandable-header-icon"></i>
       </button>
 
-      <div class="expandable-content-wrapper">
-        <div class="expandable-content" id="daten-werte-abschnitt" style="display:none;">
-          <div id="daten-grafik" class="daten-element">
-            <!-- Werden über datenLoader.js geladen -->
-            <i data-lucide="loader-circle" class="loading-wheel"></i>
-          </div>
 
-
-
-          <table id="daten-liste" class="daten-element">
-            <!-- Werden über datenLoader.js geladen (siehe script unten) -->
-            <tr>
-              <td style="display:flex">
-                <i data-lucide="loader-circle" class="loading-wheel"></i>
-                &nbsp;Lädt...
-              </td>
-            </tr>
-          </table>
-
-          <p id="daten-zusatz">Eine ausführlichere Liste an chem. und physikalischen Daten findest du im <a
-              href="https://de.wikipedia.org/wiki/zink" target="_blank">Wikipedia-Artikel</a>.
-          </p>
+      <div class="expandable-content" id="daten-werte-abschnitt" style="display:none;">
+        <div id="daten-grafik" class="daten-element">
+          <!-- Werden über datenLoader.js geladen -->
+          <i data-lucide="loader-circle" class="loading-wheel"></i>
         </div>
+
+
+
+        <table id="daten-liste" class="daten-element">
+          <!-- Werden über datenLoader.js geladen (siehe script unten) -->
+          <tr>
+            <td style="display:flex">
+              <i data-lucide="loader-circle" class="loading-wheel"></i>
+              &nbsp;Lädt...
+            </td>
+          </tr>
+        </table>
+
+        <p id="daten-zusatz">Eine ausführlichere Liste an chem. und physikalischen Daten findest du im <a href="https://de.wikipedia.org/wiki/zink" target="_blank">Wikipedia-Artikel</a>.
+        </p>
       </div>
     </div>
+
 
 
     <div id="eigenschaften" class="text-chapter">

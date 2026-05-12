@@ -114,19 +114,18 @@ export function initializeDarkMode() {
 }
 
 
+
+
+
 // Event Listener für expandable
 export function addExpandableClickListener() {
   try {
-    let i = 0;
-    for (; i < document.getElementsByClassName("expandable-header").length; i++) {
-      document.getElementsByClassName("expandable-header")[i]
-        .addEventListener("click", toggleExpandable);
+    document.querySelectorAll(".expandable-header").forEach(elem => {
+      elem.addEventListener("click", toggleExpandable);
 
       //Damit es am Anfang schon mal gesetzt ist und nicht in HTML jedes mal eingefügt werden muss
-      document.getElementsByClassName("expandable-header")[i]
-        .classList.add("on-hover-bg-highlight");
-    }
-    // console.debug("Added click event listeners for " + i + " expandables.")
+      elem.classList.add("on-hover-bg-highlight");
+    });
   } catch (err) {
     console.error(`Event Listener for expandable could not be registered.\nError: ${err.name}\nMessage: ${err.message}`)
   }
@@ -136,100 +135,122 @@ export function addExpandableClickListener() {
 
 
 
-export function toggleExpandable(event, { hover = true }) {
-  try {
-    // console.debug("executing toggleExpandable()...")
-    // const expandableHeaderEl = event.currentTarget;
-    // const expandableContainerEl = expandableHeaderEl.parentElement;
-    // const expandableContentEl = expandableContainerEl.querySelector(".expandable-content");
-    // // const expanded = !Boolean(Number(expandableContainerEl.dataset.expanded));
-    // // expandableContainerEl.dataset.expanded = String(Number(expanded));
+export function toggleExpandable(event) {
+  const expandableHeaderEl = event.currentTarget;
+  const expandableContainerEl = expandableHeaderEl.parentElement;
+  const expandableContentEl = expandableContainerEl.querySelector(".expandable-content");
+  const ANIMATION_DURATION_DIVIDER = 2500; // Höher = kürzere Animation
 
-    // // if (expanded) { // Soll ausklappen
-    // // }
+  // Laufende Transition sofort abbrechen
+  expandableContentEl.style.transition = "none";
+  void expandableContentEl.offsetHeight; // Reflow erzwingen
+  const currentHeight = expandableContentEl.offsetHeight; // Aktuellen Zwischenstand einfrieren
+  expandableContentEl.style.height = currentHeight + "px";
 
+  // Alten transitionend-Handler entfernen
+  const oldHandler = expandableContentEl._transitionHandler;
+  if (oldHandler) {
+    expandableContentEl.removeEventListener("transitionend", oldHandler);
+    delete expandableContentEl._transitionHandler;
+  }
 
-    // // Laufende Transition sofort abbrechen
-    // expandableContentEl.style.transition = "none";
-    // void expandableContentEl.offsetHeight; // Reflow erzwingen
-    // const currentHeight = expandableContentEl.offsetHeight; // Aktuellen Zwischenstand einfrieren
-    // expandableContentEl.style.height = currentHeight + "px";
+  const expanded = !Boolean(Number(expandableContainerEl.dataset.expanded));
+  expandableContainerEl.dataset.expanded = String(Number(expanded));
 
-    // // Alten transitionend-Handler entfernen
-    // const oldHandler = expandableContentEl._transitionHandler;
-    // if (oldHandler) {
-    //   expandableContentEl.removeEventListener("transitionend", oldHandler);
-    //   delete expandableContentEl._transitionHandler;
-    // }
+  if (expanded) {
+    expandableHeaderEl.classList.remove("on-hover-bg-highlight");
+    expandableContentEl.style.display = "";
+    expandableContentEl.style.overflow = "hidden";
 
-    // const expanded = !Boolean(Number(expandableContainerEl.dataset.expanded));
-    // expandableContainerEl.dataset.expanded = String(Number(expanded));
+    const targetHeight = expandableContentEl.scrollHeight;
+    const duration = Math.abs(targetHeight - currentHeight) / ANIMATION_DURATION_DIVIDER;
 
-    // if (expanded) {
-    //   expandableHeaderEl.classList.remove("on-hover-bg-highlight");
-    //   expandableContentEl.style.display = "";
-    //   expandableContentEl.style.overflow = "hidden";
+    requestAnimationFrame(() => {
+      expandableContentEl.style.transition = `height ${duration}s ease`;
+      expandableContentEl.style.height = targetHeight + "px";
+    });
 
-    //   const targetHeight = expandableContentEl.scrollHeight;
-    //   const duration = Math.abs(targetHeight - currentHeight) / 2000;
+    const handler = function() {
+      expandableContentEl.style.height = "auto";
+      expandableContentEl.style.overflow = "";
+      expandableContentEl.removeEventListener("transitionend", handler);
+      delete expandableContentEl._transitionHandler;
+    };
+    expandableContentEl._transitionHandler = handler;
+    expandableContentEl.addEventListener("transitionend", handler);
 
-    //   requestAnimationFrame(() => {
-    //     expandableContentEl.style.transition = `height ${duration}s ease`;
-    //     expandableContentEl.style.height = targetHeight + "px";
-    //   });
+    expandableContainerEl.querySelector(".expandable-header-icon").style.rotate = "-180deg";
 
-    //   const handler = function () {
-    //     expandableContentEl.style.height = "auto";
-    //     expandableContentEl.style.overflow = "";
-    //     expandableContentEl.removeEventListener("transitionend", handler);
-    //     delete expandableContentEl._transitionHandler;
-    //   };
-    //   expandableContentEl._transitionHandler = handler;
-    //   expandableContentEl.addEventListener("transitionend", handler);
+  } else {
+    void expandableContentEl.offsetHeight; // Reflow erzwingen
+    expandableContentEl.style.overflow = "hidden";
 
-    //   expandableContainerEl.querySelector(".expandable-header-icon").style.rotate = "-180deg";
+    const duration = Math.abs(currentHeight) / ANIMATION_DURATION_DIVIDER;
 
-    // } else {
-    //   expandableContentEl.style.overflow = "hidden";
+    // requestAnimationFrame(() => {
+      expandableContentEl.style.transition = `height ${duration}s cubic-bezier(.59,0,.59,.81)`;
+      expandableContentEl.style.height = "0";
+    // });
 
-    //   const duration = Math.abs(currentHeight) / 2000;
+    const handler = function() {
+      expandableContentEl.style.display = "none";
+      expandableContentEl.style.overflow = "";
+      expandableHeaderEl.classList.add("on-hover-bg-highlight");
+      expandableContentEl.removeEventListener("transitionend", handler);
+      delete expandableContentEl._transitionHandler;
+    };
+    expandableContentEl._transitionHandler = handler;
+    expandableContentEl.addEventListener("transitionend", handler);
 
-    //   requestAnimationFrame(() => {
-    //     expandableContentEl.style.transition = `height ${duration}s cubic-bezier(.59,0,.59,.81)`;
-    //     expandableContentEl.style.height = "0";
-    //   });
-
-    //   const handler = function () {
-    //     expandableContentEl.style.display = "none";
-    //     expandableContentEl.style.overflow = "";
-    //     expandableHeaderEl.classList.add("on-hover-bg-highlight");
-    //     expandableContentEl.removeEventListener("transitionend", handler);
-    //     delete expandableContentEl._transitionHandler;
-    //   };
-    //   expandableContentEl._transitionHandler = handler;
-    //   expandableContentEl.addEventListener("transitionend", handler);
-
-    //   expandableContainerEl.querySelector(".expandable-header-icon").style.rotate = "";
-    // }
-    const expandableContainer = event.currentTarget.parentElement;
-    const expandableHeader = event.currentTarget;
-    const expandableHeaderIcon = expandableHeader.querySelector("svg.expandable-header-icon");
-    const expanded = !JSON.parse(expandableContainer.dataset.expanded);
-    const duration = Math.abs(targetHeight - currentHeight) / 2000;
-
-    expandableContainer.style.transition = expanded ? `height ${duration}s ease` : `height ${duration}s cubic-bezier(.59,0,.59,.81)`;
-    expandableContainer.dataset.expanded = JSON.stringify(expanded);
-    if (expanded && hover) {
-      expandableHeader.classList.add("on-hover-bg-highlight");
-    } else {
-      expandableHeader.classList.remove("on-hover-bg-highlight");
-    }
-
-    expandableHeaderIcon.style.rotate = expanded ? "-180deg" : "";
-  } catch (err) {
-    console.error(err.name + ": " + err.message);
+    expandableContainerEl.querySelector(".expandable-header-icon").style.rotate = "";
   }
 }
+//     const expandableContainerEl = event.currentTarget.parentElement;
+//     const expandableContentWrapperEl = expandableContainerEl.querySelector(".expandable-content-wrapper");
+//     const expandableContentEl = expandableContainerEl.querySelector(".expandable-content");
+
+//     const shouldExpand = !Boolean(JSON.parse(expandableContainerEl.dataset.expanded));
+
+//     expandableContentWrapperEl.removeEventListener("transitionend", transitionendHandler);
+//     expandableContentEl.style.overflow = "hidden";
+
+//     if (shouldExpand) {
+//       // 1. Sichtbar machen
+//       expandableContentWrapperEl.style.display = "grid";
+
+//       // 2. Einen "Reflow" erzwingen
+//       // Ohne diese Zeile fasst der Browser display:grid und den Attribut-Wechsel 
+//       // in einem einzigen Rechenschritt zusammen -> Keine Animation.
+//       void expandableContentWrapperEl.offsetHeight;
+
+//       // 3. Status ändern (jetzt startet die Animation)
+//       expandableContainerEl.dataset.expanded = "true";
+//     } else {
+//       // Beim Einklappen einfach nur den Status ändern
+//       expandableContainerEl.dataset.expanded = "false";
+//     }
+
+//     function transitionendHandler() {
+//       expandableContentWrapperEl.removeEventListener("transitionend", transitionendHandler);
+//       // Nur ausblenden, wenn wir gerade fertig mit dem Einklappen sind
+//       if (expandableContainerEl.dataset.expanded === "false") {
+//         expandableContentWrapperEl.style.display = "none";
+//       } else {
+//         expandableContentEl.style.overflow = "show";
+//       }
+//     }
+
+//     expandableContentWrapperEl.addEventListener("transitionend", transitionendHandler);
+
+//     // Icon Rotation
+//     const expandableHeaderIconEl = event.currentTarget.querySelector("svg.expandable-header-icon");
+//     if (expandableHeaderIconEl) {
+//       expandableHeaderIconEl.style.rotate = shouldExpand ? "-180deg" : "";
+//     }
+//   } catch (err) {
+//     console.error(err.name + ": " + err.message);
+//   }
+// }
 
 
 

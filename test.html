@@ -915,12 +915,11 @@
 
     .test-exp[data-expanded="false"] .test-exp-content-wrapper {
       grid-template-rows: 0fr;
-
     }
 
     .test-exp[data-expanded="true"] .test-exp-content-wrapper {
       grid-template-rows: 1fr;
-      /*transition: grid-template-rows 0.3s cubic-bezier(.59,0,.59,.81);*/
+      /* transition: grid-template-rows 0.3s cubic-bezier(.59,0,.59,.81); */
     }
 
     .test-exp-content-wrapper {
@@ -941,9 +940,12 @@
       try {
         const expandableContainerEl = event.currentTarget.parentElement;
         const expandableContentWrapperEl = expandableContainerEl.querySelector(".test-exp-content-wrapper");
+        const expandableContentEl = expandableContainerEl.querySelector(".test-exp-content");
+
         const shouldExpand = !Boolean(JSON.parse(expandableContainerEl.dataset.expanded));
 
         expandableContentWrapperEl.removeEventListener("transitionend", transitionendHandler);
+        expandableContentEl.style.overflow = "hidden";
 
         if (shouldExpand) {
           // 1. Sichtbar machen
@@ -966,6 +968,8 @@
           // Nur ausblenden, wenn wir gerade fertig mit dem Einklappen sind
           if (expandableContainerEl.dataset.expanded === "false") {
             expandableContentWrapperEl.style.display = "none";
+          } else {
+            // setTimeout(() => expandableContentEl.style.overflow = "show");
           }
         }
 
