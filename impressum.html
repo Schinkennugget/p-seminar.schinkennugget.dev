@@ -4,8 +4,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="dark light" />
   <meta name="keywords" content="Chemie, P-Seminar, WHG, Impressum" />
-  <meta name="content" content="P-Seminar Chemie" />
+  <meta name="content" content="P-Seminar Chemie WHG 25/26: Impressum" />
   <meta name="author" content="Schinkennugget" />
   <script>
     //NUR FÜR DEVELOPMENT, DEAKTIVIERT CACHING
@@ -59,11 +60,11 @@
 
 
   <main>
-    <h2>Impressum</h2>
+   <h2>Impressum</h2>
 
     <h3>Angaben gemäß § 5 DDG / § 18 MStV</h3>
     <p>
-      <strong>Herausgeber</strong><br />
+      <h4>Herausgeber:</h4>
       Wilhelm-Hausenstein-Gymnasium München<br />
       Fideliostraße 145<br />
       81927 München<br />
@@ -71,20 +72,20 @@
       E-Mail: <a href="mailto:sekretariat@whg.musin.de">sekretariat@whg.musin.de</a>
     </p>
     <p>
-      <strong>Vertretungsberechtigter:</strong><br />
+      <h4>Vertretungsberechtigter:</h4>
       Oberstudiendirektor Uwe Barfknecht (Schulleiter)
     </p>
     <p>
-      <strong>Inhaltliche Mitwirkung:</strong><br />
+      <h4>Inhaltliche Mitwirkung:</h4>
       Die Inhalte dieser Webseite wurden von Schülerinnen und Schülern des Wilhelm-Hausenstein-Gymnasiums im Rahmen des P-Seminars Chemie („Elemente-Küche“) 2025/26 erstellt.
     </p>
     <p>
-      <strong>Technische Umsetzung:</strong><br />
+      <h4>Technische Umsetzung:</h4>
       Jakob D., Schüler<br /><br />
       Für technische oder inhaltliche Fragen wende dich an <a href="mailto:support@schinkennugget.dev">support@schinkennugget.dev</a>.
     </p>
     <p>
-      <strong>Hosting:</strong><br />
+      <h4>Hosting:</h4>
       Diese Webseite wird statisch über GitHub Pages gehostet. Mehr dazu in der <a href="./datenschutz.html">Datenschutzerklärung</a>.<br />
       GitHub Inc.<br />
       88 Colin P. Kelly Jr. St.<br />
@@ -92,9 +93,42 @@
       USA
     </p>
     <p>
-      <strong>Haftungsausschluss</strong><br />
+      <h4>Haftungsausschluss:</h4>
       Die Inhalte dieser Website wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte wird jedoch keine Haftung übernommen. Für externe Links zu Drittseiten wird keine Haftung übernommen – für deren Inhalte sind ausschließlich die jeweiligen Betreiber verantwortlich.
     </p>
+
+			
+		<!--<md-text>
+## Impressum
+### Angaben gemäß § 5 DDG / § 18 MStV
+#### Herausgeber:
+Wilhelm-Hausenstein-Gymnasium München
+Fideliostraße 145
+81927 München
+Telefon: <a href="tel:089 – 233 774 477">089 – 233 774 477</a>
+E-Mail: [sekretariat@whg.musin.de](mailto:sekretariat@whg.musin.de)
+
+**Vertretungsberechtigter:**
+Oberstudiendirektor Uwe Barfknecht (Schulleiter)
+
+#### Inhaltliche Mitwirkung:
+Die Inhalte dieser Webseite wurden von Schülerinnen und Schülern des Wilhelm-Hausenstein-Gymnasiums im Rahmen des P-Seminars Chemie („Elemente-Küche“) 2025/26 erstellt.
+
+#### Technische Umsetzung:
+Jakob D., Schüler
+
+Für technische oder inhaltliche Fragen wende dich an [support@schinkennugget.dev](mailto:support@schinkennugget.dev).
+
+#### Hosting:
+Diese Webseite wird statisch über GitHub Pages gehostet. Mehr dazu in der (Datenschutzerklärung)[./datenschutz.html].
+GitHub Inc.
+88 Colin P. Kelly Jr. St.
+San Francisco, CA 94107
+USA
+
+#### Haftungsausschluss:
+Die Inhalte dieser Website wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte wird jedoch keine Haftung übernommen. Für externe Links zu Drittseiten wird keine Haftung übernommen – für deren Inhalte sind ausschließlich die jeweiligen Betreiberinnen und Betreiber verantwortlich.
+</md-text>-->
 
 
   </main>
@@ -108,6 +142,7 @@
     import * as datenLoader from "./javascript/datenLoader.js";
     import * as main from "./javascript/scripts.js";
     import * as LabeledIcon from "./javascript/LabeledIcon.js";
+    // import * as MarkdownText from "./javascript/MarkdownText.js";
     // import * as Expandable from "./javascript/Expandable.js";
 
     main.initializeDarkMode();
@@ -117,6 +152,8 @@
   <script>
     lucide.createIcons();
   </script>
+  
+  
 
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js">
     window.MathJax = {

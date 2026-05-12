@@ -4,8 +4,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="dark light" />
   <meta name="keywords" content="Chemie, Zink, P-Seminar, WHG" />
-  <meta name="content" content="P-Seminar Chemie: Zink" />
+  <meta name="content" content="P-Seminar Chemie WHG 25/26: Zink" />
   <meta name="author" content="Schinkennugget" />
 
   <link id="favicon-96" rel="icon" type="image/png" sizes="96x96">
@@ -62,13 +63,15 @@
     </ul>
   </nav>
 
-  <img src="images/pse.png" id="periodensystem" />
+  <!--   <img src="images/pse.png" id="periodensystem" /> -->
 
   <nav id="pse-container"></nav>
 
   <main>
 
-    <noscript>Hinweis: JavaScript-Funktionen können nicht geladen werden, vermutlich weil dein Browser diese nicht unterstützt oder weil du JavaScript deaktiviert hast. Dadurch ist die Webseite visuell und funktional sehr stark eingeschränkt.</noscript>
+    <noscript>Hinweis: JavaScript-Funktionen können nicht geladen werden, vermutlich weil dein Browser diese nicht
+      unterstützt oder weil du JavaScript deaktiviert hast. Dadurch ist die Webseite visuell und funktional sehr stark
+      eingeschränkt.</noscript>
 
     <div id="screenWidth"></div>
 
@@ -93,40 +96,44 @@
         <h1>Zink</h1>
 
         <p id="introduction">
-          Zink ist ein Metall, welches seit Anbeginn der Menschheit für uns wichtig war. Zusammen mit Kupfer kann man daraus Messing herstellen, welches historisch eine große Rolle spielte. Außerdem ist Zink beispielsweise im Körper Bestandteil von einigen Enzymen und wird in der Industrie zum Rostschutz eingesetzt.
+          Zink ist ein Metall, welches seit Anbeginn der Menschheit für uns wichtig war. Zusammen mit Kupfer kann man
+          daraus Messing herstellen, welches historisch eine große Rolle spielte. Außerdem ist Zink beispielsweise im
+          Körper Bestandteil von einigen Enzymen und wird in der Industrie zum Rostschutz eingesetzt.
         </p>
       </div>
     </header>
 
 
 
-    <div class="expandable" id="daten-abschnitt" data-expanded="0">
+    <div class="expandable" id="daten-abschnitt" data-expanded="false">
       <button class="expandable-header" id="daten-header" tabindex="0">
         <h3>Daten</h3>
-        <i data-lucide="chevron-right" class="expandable-header-icon"></i>
+        <i data-lucide="chevron-down" class="expandable-header-icon"></i>
       </button>
 
+      <div class="expandable-content-wrapper">
+        <div class="expandable-content" id="daten-werte-abschnitt" style="display:none;">
+          <div id="daten-grafik" class="daten-element">
+            <!-- Werden über datenLoader.js geladen -->
+            <i data-lucide="loader-circle" class="loading-wheel"></i>
+          </div>
 
-      <div class="expandable-content" id="daten-werte-abschnitt" style="display:none;">
-        <div id="daten-grafik" class="daten-element">
-          <!-- Werden über datenLoader.js geladen -->
-          <i data-lucide="loader-circle" class="loading-wheel"></i>
+
+
+          <table id="daten-liste" class="daten-element">
+            <!-- Werden über datenLoader.js geladen (siehe script unten) -->
+            <tr>
+              <td style="display:flex">
+                <i data-lucide="loader-circle" class="loading-wheel"></i>
+                &nbsp;Lädt...
+              </td>
+            </tr>
+          </table>
+
+          <p id="daten-zusatz">Eine ausführlichere Liste an chem. und physikalischen Daten findest du im <a
+              href="https://de.wikipedia.org/wiki/zink" target="_blank">Wikipedia-Artikel</a>.
+          </p>
         </div>
-
-
-
-        <table id="daten-liste" class="daten-element">
-          <!-- Werden über datenLoader.js geladen (siehe script unten) -->
-          <tr>
-            <td style="display:flex">
-              <i data-lucide="loader-circle" class="loading-wheel"></i>
-              &nbsp;Lädt...
-            </td>
-          </tr>
-        </table>
-
-        <p id="daten-zusatz">Eine ausführlichere Liste an chem. und physikalischen Daten findest du im <a href="https://de.wikipedia.org/wiki/zink" target="_blank">Wikipedia-Artikel</a>.
-        </p>
       </div>
     </div>
 
@@ -140,16 +147,27 @@
         <div class="text">
           <p>
             <span data-sources="2">Zink ist ein bläulich-weißes, unedles Metall.</span>
-            <span data-sources="5">Unedel bedeutet, dass es leicht korrodiert, also „rostet“. Anders als zum Beispiel Eisen, das so lange mit Sauerstoff reagiert, bis es komplett durchgerostet ist, bildet sich bei Zink an der Oberfläche eine Schicht aus quasi „Zinkrost“, der das restliche Metall vor weiterer Korrosion schützt.</span>
-            <span data-sources="2">Diese Schicht besteht aus Zinkoxid und Zinkcarbonat und hat die Summenformel Zn<sub>5</sub>(OH)<sub>6</sub>(CO<sub>3</sub>)<sub>2</sub>. Sie ist so witterungsbeständig, dass man Zink deswegen im Rostschutz einsetzt, zum Beispiel beim <a href="#verwendung-industriell">Verzinken von Eisen</a>.</span>
-            <span data-sources="2,6">Zink gehört zu den Übergangsmetallen, hat wegen seiner abgeschlossenen <a href="">d-Schale</a> aber eher die Eigenschaften von Erdalkalimetallen (Elemente der 2. Hauptgruppe, wie Beryllium oder Magnesium).</span>
-            <span data-sources="7">Feines, nicht stabilisiertes Zinkpulver kann sich an der Luft oder bei Kontakt mit Wasser spontan entzünden, man spricht deshalb von einem pyrophoren Feststoff.</span>
+            <span data-sources="5">Unedel bedeutet, dass es leicht korrodiert, also „rostet“. Anders als zum Beispiel
+              Eisen, das so lange mit Sauerstoff reagiert, bis es komplett durchgerostet ist, bildet sich bei Zink an
+              der Oberfläche eine Schicht aus quasi „Zinkrost“, der das restliche Metall vor weiterer Korrosion
+              schützt.</span>
+            <span data-sources="2">Diese Schicht besteht aus Zinkoxid und Zinkcarbonat und hat die Summenformel
+              Zn<sub>5</sub>(OH)<sub>6</sub>(CO<sub>3</sub>)<sub>2</sub>. Sie ist so witterungsbeständig, dass man Zink
+              deswegen im Rostschutz einsetzt, zum Beispiel beim <a href="#verwendung-industriell">Verzinken von
+                Eisen</a>.</span>
+            <span data-sources="2,6">Zink gehört zu den Übergangsmetallen, hat wegen seiner abgeschlossenen <a
+                href="">d-Schale</a> aber eher die Eigenschaften von Erdalkalimetallen (Elemente der 2. Hauptgruppe, wie
+              Beryllium oder Magnesium).</span>
+            <span data-sources="7">Feines, nicht stabilisiertes Zinkpulver kann sich an der Luft oder bei Kontakt mit
+              Wasser spontan entzünden, man spricht deshalb von einem pyrophoren Feststoff.</span>
           </p>
         </div>
 
         <div class="text-img-small">
-          <img alt="Zinc" src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Zinc_fragment_sublimed_and_1cm3_cube.jpg" />
-          <a class="text-img-footer" title="Alchemist-hp (talk) (www.pse-mendelejew.de), FAL, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Zinc_fragment_sublimed_and_1cm3_cube.jpg">
+          <img width="5135px" height="3138px" alt="Zinc"
+            src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Zinc_fragment_sublimed_and_1cm3_cube.jpg" />
+          <a class="text-img-footer" title="Alchemist-hp (talk) (www.pse-mendelejew.de), FAL, via Wikimedia Commons"
+            href="https://commons.wikimedia.org/wiki/File:Zinc_fragment_sublimed_and_1cm3_cube.jpg">
             Zink als Würfel, kristallines Bruchstück und sublimiert.
           </a>
           </a>
@@ -169,20 +187,41 @@
             <!-- <span data-sources="2">Zink ist auf der Erde mit einem Gehalt von 0,00076% an der Erdkruste ein relativ häufiges Element. Ordnet man die Elemente nach Häufigkeit, steht Zink an 24. Stelle, noch vor beispielsweise Kupfer oder Blei. Man findet es überwiegend gebunden in Erzen, Zinksulfiderze sind dabei die wichtigsten für die industrielle Gewinnung. 2024 sind insgesamt mehr als 330 Zink-Minerale bekannt.</span> <span data-sources='2,3'>Große Lagerstätten existieren in Nordamerika, Australien, China und Kasachstan. Auch in Deutschland gibt es Zinkvorkommen, beispielsweise im Raum Eschweiler-Stolberg im Rheinland, am Rammelsberg im Harz oder bei Ramsbeck im Sauerland, jedoch wurde die Zinkgewinnung in Deutschland oft wegen der unzureichenden Wirtschaftlichkeit, der Konkurrenz durch billigere Importe und veralteter Abbaumethoden geschlossen.</span>
             <br /><br />
             <span data-sources="4">Das wichtigste Mineral für die Zinkgewinnung ist Sphalerit (ZnS), im Bergbau auch als Zinkblende bekannt.</span> Das bedeutet das außer Zink im Konzentrat noch etwa 20% Schwefel enthalten sind. Ein weiterer Vorteil ist, dass Zinkkonzentrate immer Eisen, Silber und Blei in unterschiedlichen Anteilen mit sich bringen, das diese Elemente oft in den Erzen gemeinsam vorkommen. <span data-sources="5,6">Die Kunst ist weniger die Gewinnung von Zink, sondern die Abtrennung der Begleitelemente so, dass man sie als Nebenprodukte nutzen kann. Dafür wir zuerst das Konzentrat auf über 900 Grad Celsius erhitzt, sodass ZnS zu ZnO reagiert. Der Fachmann spricht von einer Röstung. Anschließend folgt eine Reduktion (meist hydrometallurgisch per Elektrolyse) zu einem reinem Metall.</span> Über 90 % des Zinks entstehen durch dieses nasse Verfahren, der Rest pyrometallurgisch im Schachtofen. Pyrometallurgisch bedeutet, dass Zinkoxid mit Kohle in Öfen reduziert. Der Siedepunkt von Zink ist mit 907 Grad Cellsius relativ niedrig. Dadurch entsteht Zinkdampf, welcher im Anschluss auskondensiert wird. Gleichzeitig verbindet sich Schwefel mit Sauerstoff zu gasförmigem Schwefeldioxid (SO<sub>2</sub>). In speziellen Anlagen wird aus dem Schwefeldioxid Schwefelsäure gewonnen, welche man zum Beispiel für die Herstellung von Düngemitteln benötigt. Zink wird zudem in erheblichem Maße durch das Recycling von Schrott (Sekundärzink) gewonnen.<span data-sources="2,5"></span> -->
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+            dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+            clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
+            consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+            sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no
+            sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
+            elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+            vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est
+            Lorem ipsum dolor sit amet.
 
-            Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+            Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu
+            feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril
+            delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing
+            elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
 
-            Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+            Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea
+            commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat,
+            vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit
+            praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
 
-            Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+            Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer
+            possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
+            tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci
+            tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
 
-            Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis.
+            Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu
+            feugiat nulla facilisis.
           </p>
         </div>
         <div class="text-img-small">
-          <img width="512" alt="Evolution production zinc" src="images/zink-produktion-diagramm.png" class="darkmode-invert" />
-          <a class="text-img-footer" title="Borvan53, CC BY 4.0 &lt;https://creativecommons.org/licenses/by/4.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Evolution_production_zinc.svg">
+          <img width="1920px" height="1437px" alt="Evolution production zinc" src="images/zink-produktion-diagramm.png"
+            class="darkmode-invert" />
+          <a class="text-img-footer"
+            title="Borvan53, CC BY 4.0 &lt;https://creativecommons.org/licenses/by/4.0&gt;, via Wikimedia Commons"
+            href="https://commons.wikimedia.org/wiki/File:Evolution_production_zinc.svg">
             Weltweite Zinkproduktion über die Jahre nach Land
           </a>
         </div>
@@ -193,27 +232,48 @@
       <h2 tabindex="0" class="text-header">Verwendung
         <i data-lucide="link" class="text-header-icon"></i>
       </h2>
-      
+
       <h3 tabindex="0" class="text-subheader">Industriell
         <i data-lucide="link" class="text-header-icon"></i>
       </h3>
-      
+
       <div id="verwendung-industriell" class="text-block">
         <div class="text">
           <p>
-            Rund 50% der weltweiten Zinkproduktion werden für den Korrosionsschutz eingesetzt. Dafür stehen zwei Verfahren zur Verfügung: Feuerverzinken und galvanische Prozesse. Beim Feuerverzinken werden Stahlteile in eine flüssige Zinkschmelze getaucht. Dieses Verfahren hat sich in der Autoindustrie durchgesetzt. Dazu werden die Karosserien als Ganzes durch ein 450 °C heißes Zink-Bad gezogen, danach rotiert und so rundum vor Rost geschützt. Insgesamt hat Verzinken die automobile Landkarte nachhaltig verändert. Die Alternative zur Feuerverzinkung ist das galvanischen Verzinken. Dabei wird mithilfe von elektrischen Strömen Zink auf Stahlteile abgeschieden. Die so entstehenden Schichtdicken sind aber dünner als beim Feuerverzinken. Sie eignen sich deshalb nur für Stahloberflächen mit einer geringeren Korrosionsbelastung. Ein Beispiel ist für den Einsatz in Innenräumen. Zink schützt Eisen bzw. Stahl gleich doppelt. Einerseits bildet die Zinkschicht eine abschirmende, bläulich schimmernde Oberfläche aus Zinkoxid und Zinkcarbonat, welche den Oxidationsprozess tieferer Schichten hemmt. Darüber hinaus bilden Zink und Eisen ein sogenanntes Lokalelement. Zink ist chemisch gesehen unedler und gibt deshalb als sogenannte Opferanode Elektronen ab, während das edlere Element erhalten bleibt.
-            Eine Verzinkung minimiert die Instandhaltungskosten von Metall- und Stahlkonstruktionen. Wie hoch diese Kosten ausfallen können, zeigt das Beispiel des Eiffelturms. Weil Gustave Eiffel sich mit den damals modernen Stahl-Legierungen nicht auskannte, verwendete er das ihm vertraute Eisen für die Konstruktion des Pariser Wahrzeichens. Die finanziellen Folgen wirken bis heute nach: Der Eiffelturm muss regelmäßig alle sieben Jahre mit jeweils 60 Tonnen Farbe vor Rost geschützt werden. Dazu brauchen 25 Lackierer rund 18 Monate, die Kosten betragen jeweils drei Millionen Euro. (Passendes, mögliches Beispiel. Musst du sagen ob du es gut und relevant findest, dass zu erwähnen.)
+            Rund 50% der weltweiten Zinkproduktion werden für den Korrosionsschutz eingesetzt. Dafür stehen zwei
+            Verfahren zur Verfügung: Feuerverzinken und galvanische Prozesse. Beim Feuerverzinken werden Stahlteile in
+            eine flüssige Zinkschmelze getaucht. Dieses Verfahren hat sich in der Autoindustrie durchgesetzt. Dazu
+            werden die Karosserien als Ganzes durch ein 450 °C heißes Zink-Bad gezogen, danach rotiert und so rundum vor
+            Rost geschützt. Insgesamt hat Verzinken die automobile Landkarte nachhaltig verändert. Die Alternative zur
+            Feuerverzinkung ist das galvanischen Verzinken. Dabei wird mithilfe von elektrischen Strömen Zink auf
+            Stahlteile abgeschieden. Die so entstehenden Schichtdicken sind aber dünner als beim Feuerverzinken. Sie
+            eignen sich deshalb nur für Stahloberflächen mit einer geringeren Korrosionsbelastung. Ein Beispiel ist für
+            den Einsatz in Innenräumen. Zink schützt Eisen bzw. Stahl gleich doppelt. Einerseits bildet die Zinkschicht
+            eine abschirmende, bläulich schimmernde Oberfläche aus Zinkoxid und Zinkcarbonat, welche den
+            Oxidationsprozess tieferer Schichten hemmt. Darüber hinaus bilden Zink und Eisen ein sogenanntes
+            Lokalelement. Zink ist chemisch gesehen unedler und gibt deshalb als sogenannte Opferanode Elektronen ab,
+            während das edlere Element erhalten bleibt.
+            Eine Verzinkung minimiert die Instandhaltungskosten von Metall- und Stahlkonstruktionen. Wie hoch diese
+            Kosten ausfallen können, zeigt das Beispiel des Eiffelturms. Weil Gustave Eiffel sich mit den damals
+            modernen Stahl-Legierungen nicht auskannte, verwendete er das ihm vertraute Eisen für die Konstruktion des
+            Pariser Wahrzeichens. Die finanziellen Folgen wirken bis heute nach: Der Eiffelturm muss regelmäßig alle
+            sieben Jahre mit jeweils 60 Tonnen Farbe vor Rost geschützt werden. Dazu brauchen 25 Lackierer rund 18
+            Monate, die Kosten betragen jeweils drei Millionen Euro. (Passendes, mögliches Beispiel. Musst du sagen ob
+            du es gut und relevant findest, dass zu erwähnen.)
           </p>
         </div>
 
         <div class="text-img-small">
-          <img src="https://www.pfingsten-feuerverzinkung.de/wp-content/uploads/2022/11/Ueber-uns-3.jpg" width="1280px" height="723px" />
+          <img src="https://www.pfingsten-feuerverzinkung.de/wp-content/uploads/2022/11/Ueber-uns-3.jpg" width="1280px"
+            height="723px" />
           <a class="text-img-footer" href="https://www.pfingsten-feuerverzinkung.de/ueber-uns/">
             Feuerverzinken: Die Stahlträger werden in flüssiges Zink getaucht
           </a>
-          
-          <img src="https://www.makerverse.com/wp-content/uploads/2024/10/galvanization-process.jpg.webp" width="1280px" height="723px" />
-          <a class="text-img-footer" href="https://www.makerverse.com/de/ressourcen/metallblech/verstandnis-des-galvanisierungsprozesses/">
+
+          <img src="https://www.makerverse.com/wp-content/uploads/2024/10/galvanization-process.jpg.webp" width="1280px"
+            height="723px" />
+          <a class="text-img-footer"
+            href="https://www.makerverse.com/de/ressourcen/metallblech/verstandnis-des-galvanisierungsprozesses/">
             Galvanisieren
           </a>
         </div>
@@ -228,11 +288,12 @@
     <div id="quellen-container" class="expandable" data-expanded="0">
       <button id="quellen-header" class="expandable-header" tabindex="0">
         <h3>Quellen</h3>
-        <i data-lucide="chevron-right" class="expandable-header-icon"></i>
+        <i data-lucide="chevron-down" class="expandable-header-icon"></i>
       </button>
 
       <div id="quellen" class="expandable-content" style="display:none">
-        <i>Quellen konnten nicht geladen werden. Entweder war ich bisher zu faul um das einzuprogrammieren oder es funktioniert nicht :(</i>
+        <i>Quellen konnten nicht geladen werden. Entweder war ich bisher zu faul um das einzuprogrammieren oder es
+          funktioniert nicht :(</i>
       </div>
     </div>
   </main>
@@ -259,7 +320,7 @@
     datenLoader.insertDatenIntoGrafik(elementName);
     datenLoader.insertDatenIntoDatenliste(elementName);
     datenLoader.generateAndInjectFavicon(elementName);
-    datenLoader.insertPSE();
+    // datenLoader.insertPSE();
   </script>
 
   <script>

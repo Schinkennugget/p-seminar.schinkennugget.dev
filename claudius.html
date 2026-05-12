@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Expandable Test</title>
+<style>
+  /* ── Expandable Container ── */
+  .exp {
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+  }
+
+/* ── Header ── */
+.exp-header {
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 0.5rem;
+padding: 0.75rem 1rem;
+cursor: pointer;
+user-select: none;
+background: #f5f5f5;
+}
+
+.exp-header h3 {
+margin: 0;
+font-weight: 400;
+font-size: 1.1rem;
+}
+
+.exp-icon {
+flex-shrink: 0;
+width: 1.2rem;
+height: 1.2rem;
+transition: rotate 0.35s ease;
+}
+
+.exp[data-expanded=“true”] .exp-icon {
+rotate: 180deg;
+}
+
+/* ── Animierter Wrapper ──
+grid-template-rows: 0fr → 1fr animiert die Höhe
+ohne dass der Inhalt oder Header springt.        */
+.exp-body {
+display: grid;
+grid-template-rows: 0fr;
+transition: grid-template-rows 0.35s ease;
+}
+
+.exp[data-expanded=“true”] .exp-body {
+grid-template-rows: 1fr;
+}
+
+/* Pflicht: overflow: hidden auf dem direkten Kind */
+.exp-body-inner {
+overflow: hidden;
+}
+
+/* ── Content ── */
+.exp-content {
+padding: 1rem;
+}
+
+/* ── PSE Grid ── */
+.pse-grid {
+display: grid;
+grid-template-areas:
+‘sc ti v  cr mn fe co ni cu zn’
+‘y  zr nb mo tc ru rh pd ag cd’
+‘lu hf ta w  re os ir pt au hg’
+‘lr rf db sg bh hs mt ds rg cn’;
+gap: 4px;
+}
+
+.pse-item {
+background: lightgrey;
+border-radius: 3px;
+padding: 4px;
+text-align: center;
+font-size: 0.85rem;
+font-family: monospace;
+}
+
+/* Jedes Element in seine named grid area */
+.pse-item[data-el=“Sc”]  { grid-area: sc; }
+.pse-item[data-el=“Ti”]  { grid-area: ti; }
+.pse-item[data-el=“V”]   { grid-area: v;  }
+.pse-item[data-el=“Cr”]  { grid-area: cr; }
+.pse-item[data-el=“Mn”]  { grid-area: mn; }
+.pse-item[data-el=“Fe”]  { grid-area: fe; }
+.pse-item[data-el=“Co”]  { grid-area: co; }
+.pse-item[data-el=“Ni”]  { grid-area: ni; }
+.pse-item[data-el=“Cu”]  { grid-area: cu; }
+.pse-item[data-el=“Zn”]  { grid-area: zn; background: forestgreen; color: #fff; }
+.pse-item[data-el=“Y”]   { grid-area: y;  }
+.pse-item[data-el=“Zr”]  { grid-area: zr; }
+.pse-item[data-el=“Nb”]  { grid-area: nb; }
+.pse-item[data-el=“Mo”]  { grid-area: mo; }
+.pse-item[data-el=“Tc”]  { grid-area: tc; }
+.pse-item[data-el=“Ru”]  { grid-area: ru; }
+.pse-item[data-el=“Rh”]  { grid-area: rh; }
+.pse-item[data-el=“Pd”]  { grid-area: pd; }
+.pse-item[data-el=“Ag”]  { grid-area: ag; }
+.pse-item[data-el=“Cd”]  { grid-area: cd; }
+.pse-item[data-el=“Lu”]  { grid-area: lu; }
+.pse-item[data-el=“Hf”]  { grid-area: hf; }
+.pse-item[data-el=“Ta”]  { grid-area: ta; }
+.pse-item[data-el=“W”]   { grid-area: w;  }
+.pse-item[data-el=“Re”]  { grid-area: re; }
+.pse-item[data-el=“Os”]  { grid-area: os; }
+.pse-item[data-el=“Ir”]  { grid-area: ir; }
+.pse-item[data-el=“Pt”]  { grid-area: pt; }
+.pse-item[data-el=“Au”]  { grid-area: au; }
+.pse-item[data-el=“Hg”]  { grid-area: hg; }
+.pse-item[data-el=“Lr”]  { grid-area: lr; }
+.pse-item[data-el=“Rf”]  { grid-area: rf; }
+.pse-item[data-el=“Db”]  { grid-area: db; }
+.pse-item[data-el=“Sg”]  { grid-area: sg; }
+.pse-item[data-el=“Bh”]  { grid-area: bh; }
+.pse-item[data-el=“Hs”]  { grid-area: hs; }
+.pse-item[data-el=“Mt”]  { grid-area: mt; }
+.pse-item[data-el=“Ds”]  { grid-area: ds; }
+.pse-item[data-el=“Rg”]  { grid-area: rg; }
+.pse-item[data-el=“Cn”]  { grid-area: cn; }
+</style>
+
+</head>
+<body>
+
+<div class="exp" data-expanded="false">
+  <div class="exp-header">
+    <h3>Nebengruppen hbdfhdsuzf fdhf7dhfv7 8f df vdfsuzf fdhf7dhfv7 8f df vdfsuzf fdhf7dhfv7 8f df vdfsuzf fdhf7dhfv7 8f df vdfsuzf</h3>
+    <svg class="exp-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="6 9 12 15 18 9"/>
+    </svg>
+  </div>
+
+  <div class="exp-body">
+    <div class="exp-body-inner">
+      <div class="exp-content">
+        <div class="pse-grid">
+          <div class="pse-item" data-el="Sc">Sc</div>
+          <div class="pse-item" data-el="Ti">Ti</div>
+          <div class="pse-item" data-el="V">V</div>
+          <div class="pse-item" data-el="Cr">Cr</div>
+          <div class="pse-item" data-el="Mn">Mn</div>
+          <div class="pse-item" data-el="Fe">Fe</div>
+          <div class="pse-item" data-el="Co">Co</div>
+          <div class="pse-item" data-el="Ni">Ni</div>
+          <div class="pse-item" data-el="Cu">Cu</div>
+          <div class="pse-item" data-el="Zn">Zn</div>
+          <div class="pse-item" data-el="Y">Y</div>
+          <div class="pse-item" data-el="Zr">Zr</div>
+          <div class="pse-item" data-el="Nb">Nb</div>
+          <div class="pse-item" data-el="Mo">Mo</div>
+          <div class="pse-item" data-el="Tc">Tc</div>
+          <div class="pse-item" data-el="Ru">Ru</div>
+          <div class="pse-item" data-el="Rh">Rh</div>
+          <div class="pse-item" data-el="Pd">Pd</div>
+          <div class="pse-item" data-el="Ag">Ag</div>
+          <div class="pse-item" data-el="Cd">Cd</div>
+          <div class="pse-item" data-el="Lu">Lu</div>
+          <div class="pse-item" data-el="Hf">Hf</div>
+          <div class="pse-item" data-el="Ta">Ta</div>
+          <div class="pse-item" data-el="W">W</div>
+          <div class="pse-item" data-el="Re">Re</div>
+          <div class="pse-item" data-el="Os">Os</div>
+          <div class="pse-item" data-el="Ir">Ir</div>
+          <div class="pse-item" data-el="Pt">Pt</div>
+          <div class="pse-item" data-el="Au">Au</div>
+          <div class="pse-item" data-el="Hg">Hg</div>
+          <div class="pse-item" data-el="Lr">Lr</div>
+          <div class="pse-item" data-el="Rf">Rf</div>
+          <div class="pse-item" data-el="Db">Db</div>
+          <div class="pse-item" data-el="Sg">Sg</div>
+          <div class="pse-item" data-el="Bh">Bh</div>
+          <div class="pse-item" data-el="Hs">Hs</div>
+          <div class="pse-item" data-el="Mt">Mt</div>
+          <div class="pse-item" data-el="Ds">Ds</div>
+          <div class="pse-item" data-el="Rg">Rg</div>
+          <div class="pse-item" data-el="Cn">Cn</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla</p>
+
+<script>
+  document.querySelectorAll(".exp-header").forEach(header => {
+    header.addEventListener("click", () => {
+      const container = header.closest(".exp");
+      const isExpanded = container.dataset.expanded === "true";
+      container.dataset.expanded = String(!isExpanded);
+    });
+  });
+</script>
+
+</body>
+</html>

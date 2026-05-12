@@ -56,6 +56,10 @@
     </ul>
   </nav>
   
+  <nav id="pse-container"></nav>
+  
+  
+  
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <script type="module">
@@ -69,6 +73,7 @@
     main.injectSourceNotes();
     main.addDatenHoverEventListener();
     main.addExpandableClickListener();
+    main.injectFooter();
 
     const elementName = document.querySelector("#header-text > h1").innerText;
     datenLoader.insertDatenIntoGrafik(elementName);

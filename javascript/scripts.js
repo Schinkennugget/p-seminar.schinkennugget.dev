@@ -7,27 +7,28 @@
 const rootStyle = document.documentElement.style;
 
 // Alle Farben
-const bgBodyLight = "hsl(0 0 100)";
-const bgElevatedLight = "hsl(0 0 95)";
-const bgHighlightLight = "hsl(0 0 90)";
+const bgBodyLight = "#fff";
+const bgElevatedLight = "#f2f2f2";
+const bgHighlightLight = "#e6e6e6";
 const bgNavbarLight = "rgba(248, 248, 255, 0.75)";
 const bgNavbarSolidLight = "rgb(248, 248, 255)";
-const textColorLight = "hsl(0 0 0)";
-const mutedTextColorLight = "hsl(0 0 5)";
+const textColorLight = "#000";
+const mutedTextColorLight = "#0d0d0d";
 const linkColorLight = "#22d";
 const linkHoverLight = "#00a";
 const missingLinkLight = "#d11";
 const missingLinkHoverLight = "#a00";
 const shadowLight = "rgba(0, 0, 0, 0.2)";
 
-const bgBodyDark = "hsl(0 0 0)";
-const bgElevatedDark = "hsl(0 0 12)";
-const bgHighlightDark = "hsl(0 0 20)";
+const bgBodyDark = "#000";
+const bgElevatedDark = "#1f1f1f";
+const bgHighlightDark = "#333";
 const bgNavbarDark = "rgba(50, 50, 50, 0.75)";
 const bgNavbarSolidDark = "rgb(50, 50, 50)";
-const textColorDark = "hsl(0 0 95)";
-const mutedTextColorDark = "hsl(0 0 90)";
+const textColorDark = "#f2f2f2";
+const mutedTextColorDark = "#e6e6e6";
 const linkColorDark = "#66f";
+
 const linkHoverDark = "#77f";
 const missingLinkDark = "#e00"
 const missingLinkHoverDark = "#f00";
@@ -108,7 +109,7 @@ export function initializeDarkMode() {
 
     document.getElementById("navbar-button-darkmode").addEventListener("click", toggleDarkMode);
   } catch (err) {
-    console.error(`Could not initialize dark mode.\n${err.name}: ${err.message}`);
+    console.error(`Could not initialize dark mode.\n${err.name}: ${err.message} at ${err.lineNumber ?? "?"}:${err.columnNumber ?? "?"}`);
   }
 }
 
@@ -135,72 +136,98 @@ export function addExpandableClickListener() {
 
 
 
-export function toggleExpandable(event) {
-  const expandableHeaderEl = event.currentTarget;
-  const expandableContainerEl = expandableHeaderEl.parentElement;
-  const expandableContentEl = expandableContainerEl.querySelector(".expandable-content");
+export function toggleExpandable(event, { hover = true }) {
+  try {
+    // console.debug("executing toggleExpandable()...")
+    // const expandableHeaderEl = event.currentTarget;
+    // const expandableContainerEl = expandableHeaderEl.parentElement;
+    // const expandableContentEl = expandableContainerEl.querySelector(".expandable-content");
+    // // const expanded = !Boolean(Number(expandableContainerEl.dataset.expanded));
+    // // expandableContainerEl.dataset.expanded = String(Number(expanded));
 
-  // Laufende Transition sofort abbrechen
-  expandableContentEl.style.transition = "none";
-  void expandableContentEl.offsetHeight; // Reflow erzwingen
-  const currentHeight = expandableContentEl.offsetHeight; // Aktuellen Zwischenstand einfrieren
-  expandableContentEl.style.height = currentHeight + "px";
+    // // if (expanded) { // Soll ausklappen
+    // // }
 
-  // Alten transitionend-Handler entfernen
-  const oldHandler = expandableContentEl._transitionHandler;
-  if (oldHandler) {
-    expandableContentEl.removeEventListener("transitionend", oldHandler);
-    delete expandableContentEl._transitionHandler;
-  }
 
-  const expanded = !Boolean(Number(expandableContainerEl.dataset.expanded));
-  expandableContainerEl.dataset.expanded = String(Number(expanded));
+    // // Laufende Transition sofort abbrechen
+    // expandableContentEl.style.transition = "none";
+    // void expandableContentEl.offsetHeight; // Reflow erzwingen
+    // const currentHeight = expandableContentEl.offsetHeight; // Aktuellen Zwischenstand einfrieren
+    // expandableContentEl.style.height = currentHeight + "px";
 
-  if (expanded) {
-    expandableHeaderEl.classList.remove("on-hover-bg-highlight");
-    expandableContentEl.style.display = "";
-    expandableContentEl.style.overflow = "hidden";
+    // // Alten transitionend-Handler entfernen
+    // const oldHandler = expandableContentEl._transitionHandler;
+    // if (oldHandler) {
+    //   expandableContentEl.removeEventListener("transitionend", oldHandler);
+    //   delete expandableContentEl._transitionHandler;
+    // }
 
-    const targetHeight = expandableContentEl.scrollHeight;
+    // const expanded = !Boolean(Number(expandableContainerEl.dataset.expanded));
+    // expandableContainerEl.dataset.expanded = String(Number(expanded));
+
+    // if (expanded) {
+    //   expandableHeaderEl.classList.remove("on-hover-bg-highlight");
+    //   expandableContentEl.style.display = "";
+    //   expandableContentEl.style.overflow = "hidden";
+
+    //   const targetHeight = expandableContentEl.scrollHeight;
+    //   const duration = Math.abs(targetHeight - currentHeight) / 2000;
+
+    //   requestAnimationFrame(() => {
+    //     expandableContentEl.style.transition = `height ${duration}s ease`;
+    //     expandableContentEl.style.height = targetHeight + "px";
+    //   });
+
+    //   const handler = function () {
+    //     expandableContentEl.style.height = "auto";
+    //     expandableContentEl.style.overflow = "";
+    //     expandableContentEl.removeEventListener("transitionend", handler);
+    //     delete expandableContentEl._transitionHandler;
+    //   };
+    //   expandableContentEl._transitionHandler = handler;
+    //   expandableContentEl.addEventListener("transitionend", handler);
+
+    //   expandableContainerEl.querySelector(".expandable-header-icon").style.rotate = "-180deg";
+
+    // } else {
+    //   expandableContentEl.style.overflow = "hidden";
+
+    //   const duration = Math.abs(currentHeight) / 2000;
+
+    //   requestAnimationFrame(() => {
+    //     expandableContentEl.style.transition = `height ${duration}s cubic-bezier(.59,0,.59,.81)`;
+    //     expandableContentEl.style.height = "0";
+    //   });
+
+    //   const handler = function () {
+    //     expandableContentEl.style.display = "none";
+    //     expandableContentEl.style.overflow = "";
+    //     expandableHeaderEl.classList.add("on-hover-bg-highlight");
+    //     expandableContentEl.removeEventListener("transitionend", handler);
+    //     delete expandableContentEl._transitionHandler;
+    //   };
+    //   expandableContentEl._transitionHandler = handler;
+    //   expandableContentEl.addEventListener("transitionend", handler);
+
+    //   expandableContainerEl.querySelector(".expandable-header-icon").style.rotate = "";
+    // }
+    const expandableContainer = event.currentTarget.parentElement;
+    const expandableHeader = event.currentTarget;
+    const expandableHeaderIcon = expandableHeader.querySelector("svg.expandable-header-icon");
+    const expanded = !JSON.parse(expandableContainer.dataset.expanded);
     const duration = Math.abs(targetHeight - currentHeight) / 2000;
 
-    requestAnimationFrame(() => {
-      expandableContentEl.style.transition = `height ${duration}s ease`;
-      expandableContentEl.style.height = targetHeight + "px";
-    });
+    expandableContainer.style.transition = expanded ? `height ${duration}s ease` : `height ${duration}s cubic-bezier(.59,0,.59,.81)`;
+    expandableContainer.dataset.expanded = JSON.stringify(expanded);
+    if (expanded && hover) {
+      expandableHeader.classList.add("on-hover-bg-highlight");
+    } else {
+      expandableHeader.classList.remove("on-hover-bg-highlight");
+    }
 
-    const handler = function() {
-      expandableContentEl.style.height = "auto";
-      expandableContentEl.style.overflow = "";
-      expandableContentEl.removeEventListener("transitionend", handler);
-      delete expandableContentEl._transitionHandler;
-    };
-    expandableContentEl._transitionHandler = handler;
-    expandableContentEl.addEventListener("transitionend", handler);
-
-    expandableContainerEl.querySelector(".expandable-header-icon").style.rotate = "-90deg";
-
-  } else {
-    expandableContentEl.style.overflow = "hidden";
-
-    const duration = Math.abs(currentHeight) / 2000;
-
-    requestAnimationFrame(() => {
-      expandableContentEl.style.transition = `height ${duration}s cubic-bezier(.59,0,.59,.81)`;
-      expandableContentEl.style.height = "0";
-    });
-
-    const handler = function() {
-      expandableContentEl.style.display = "none";
-      expandableContentEl.style.overflow = "";
-      expandableHeaderEl.classList.add("on-hover-bg-highlight");
-      expandableContentEl.removeEventListener("transitionend", handler);
-      delete expandableContentEl._transitionHandler;
-    };
-    expandableContentEl._transitionHandler = handler;
-    expandableContentEl.addEventListener("transitionend", handler);
-
-    expandableContainerEl.querySelector(".expandable-header-icon").style.rotate = "90deg";
+    expandableHeaderIcon.style.rotate = expanded ? "-180deg" : "";
+  } catch (err) {
+    console.error(err.name + ": " + err.message);
   }
 }
 
@@ -369,23 +396,23 @@ function spawnPoppingParticles({
     // Store the animation in a variable as we will need it later
     const animation = particle.animate(
       [{
-          // Set the origin position of the particle
-          // We offset the particle with half its size to center it around the mouse
-          transform: `translate(-50%, -50%) translate(${xPos}px, ${yPos}px)`,
-          opacity: 1
-        },
-        {
-          // We define the final coordinates as the second keyframe
-          transform: `translate(${destinationX}px, ${destinationY}px)`,
-          opacity: 0
-        }
-      ], {
-        // Set a random duration from 500 to 1500ms
-        duration: (Math.random() * (durationMax - durationMin) + durationMin),
-        easing: "cubic-bezier(0,1,.35,1)",
-        // Delay every particle with a random value of 200ms
-        delay: Math.random() * 200
+        // Set the origin position of the particle
+        // We offset the particle with half its size to center it around the mouse
+        transform: `translate(-50%, -50%) translate(${xPos}px, ${yPos}px)`,
+        opacity: 1
+      },
+      {
+        // We define the final coordinates as the second keyframe
+        transform: `translate(${destinationX}px, ${destinationY}px)`,
+        opacity: 0
       }
+      ], {
+      // Set a random duration from 500 to 1500ms
+      duration: (Math.random() * (durationMax - durationMin) + durationMin),
+      easing: "cubic-bezier(0,1,.35,1)",
+      // Delay every particle with a random value of 200ms
+      delay: Math.random() * 200
+    }
     );
 
     // When the animation is complete, remove the element from the DOM

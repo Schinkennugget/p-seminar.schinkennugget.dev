@@ -222,6 +222,7 @@ export async function insertPSE() {
         return false;
       });
     }
+    console.log(pseElem.innerHTML)
   } catch (err) {
     console.error(err.name + "\n" + err.message)
   }
