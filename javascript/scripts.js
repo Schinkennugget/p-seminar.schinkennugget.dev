@@ -124,7 +124,8 @@ export function addExpandableClickListener() {
       elem.addEventListener("click", toggleExpandable);
 
       //Damit es am Anfang schon mal gesetzt ist und nicht in HTML jedes mal eingefügt werden muss
-      elem.classList.add("on-hover-bg-highlight");
+      // Default mäßig an
+      if (elem.parentElement.dataset.bghover !== "false") elem.classList.add("on-hover-bg-highlight");
     });
   } catch (err) {
     console.error(`Event Listener for expandable could not be registered.\nError: ${err.name}\nMessage: ${err.message}`)
@@ -139,6 +140,7 @@ export function toggleExpandable(event) {
   const expandableHeaderEl = event.currentTarget;
   const expandableContainerEl = expandableHeaderEl.parentElement;
   const expandableContentEl = expandableContainerEl.querySelector(".expandable-content");
+  const doBackgroundHover = Boolean(JSON.parse(expandableContainerEl.dataset.bghover ?? "true")); // Default an
   const ANIMATION_DURATION_DIVIDER = 2500; // Höher = kürzere Animation
 
   // Laufende Transition sofort abbrechen
@@ -154,11 +156,11 @@ export function toggleExpandable(event) {
     delete expandableContentEl._transitionHandler;
   }
 
-  const expanded = !Boolean(Number(expandableContainerEl.dataset.expanded));
-  expandableContainerEl.dataset.expanded = String(Number(expanded));
+  const shouldExpand = !Boolean(JSON.parse(expandableContainerEl.dataset.expanded));
+  expandableContainerEl.dataset.expanded = JSON.stringify(shouldExpand);
 
-  if (expanded) {
-    expandableHeaderEl.classList.remove("on-hover-bg-highlight");
+  if (shouldExpand) {
+    if (doBackgroundHover) expandableHeaderEl.classList.remove("on-hover-bg-highlight");
     expandableContentEl.style.display = "";
     expandableContentEl.style.overflow = "hidden";
 
@@ -195,7 +197,7 @@ export function toggleExpandable(event) {
     const handler = function() {
       expandableContentEl.style.display = "none";
       expandableContentEl.style.overflow = "";
-      expandableHeaderEl.classList.add("on-hover-bg-highlight");
+      if (doBackgroundHover) expandableHeaderEl.classList.add("on-hover-bg-highlight");
       expandableContentEl.removeEventListener("transitionend", handler);
       delete expandableContentEl._transitionHandler;
     };
@@ -446,7 +448,7 @@ function spawnPoppingParticles({
 
 
 export function addTextHeaderClickListener() {
-  document.querySelectorAll("h2.text-header").forEach(elem => {
+  document.querySelectorAll("h2.text-header, h3.text-subheader").forEach(elem => {
     elem.addEventListener("click", event => {
 
       copyURIWithID(event.currentTarget.parentElement.id);

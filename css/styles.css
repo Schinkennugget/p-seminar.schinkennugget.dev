@@ -47,6 +47,7 @@ html {
 body {
   font-family: Inter, -apple-system, Helvetica, Arial, sans-serif;
   margin: 0;
+  box-sizing: border-box;
   width: 100%;
   padding: 0;
   word-wrap: break-word;
@@ -65,7 +66,7 @@ body {
 }
 
 h1 {
-  font-size: 4rem;
+  font-size: clamp(2.7rem, calc(8vw + 1rem), 4rem);
   line-height: 0.9;
   margin: 1.5rem 0;
   letter-spacing: -2px;
@@ -85,16 +86,19 @@ h4 {
 
 #introduction {
   font-weight: 600;
-  font-size: 1.2rem;
+  font-size: clamp(1.1rem, calc(0.5vw + 1rem), 1.2rem);
   margin-bottom: 2rem;
   letter-spacing: -0.3px;
 }
 
 main {
-  margin: 64px min(64px, 5%);
-  max-width: 1050px;
+  margin: 64px min(64px, 10%);
+  display: block;
+  max-width: min(1050px, 90%);
+  /* Margin funktioniert irgendwie nicht */
   justify-self: center;
   width: 100%;
+  box-sizing: border-box;
 }
 
 sub,
@@ -285,7 +289,7 @@ li.navbar-active {
   border-radius: 2rem;
 }
 
-.expandable-header > h3 {
+.expandable-header>h3 {
   margin: 0;
   width: 100%;
   text-align: left;
@@ -305,6 +309,8 @@ li.navbar-active {
   height: 5rem;
   transition: background 0.15s linear;
   cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 
@@ -407,7 +413,6 @@ div.daten-on-hover {
 #daten-grafik-anteil_haeufigstes_isotop {
   justify-content: right;
   text-align: right;
-  align-self: right;
 }
 
 /*Andere Bestandteile*/
@@ -427,7 +432,6 @@ div.daten-on-hover {
   grid-area: zusatz;
   margin: 0;
   padding: 0;
-  align-self: top;
   height: auto;
 }
 
@@ -599,8 +603,8 @@ h2.text-header {
 }
 
 .text-header-icon {
-  height: 0.7em;
-  width: 0.7em;
+  height: 0.8em;
+  width: 0.8em;
   stroke-width: 0.09em;
   margin-left: 0.5rem;
   color: var(--text-muted);
@@ -609,8 +613,13 @@ h2.text-header {
   cursor: pointer;
 }
 
-h2.text-header:hover .text-header-icon {
+h2.text-header:hover .text-header-icon,
+h3.text-subheader:hover .text-header-icon {
   opacity: 1;
+}
+
+h3.text-subheader .text-header-icon {
+  stroke-width: 0.12em;
 }
 
 h3.text-subheader {
@@ -778,12 +787,15 @@ div.text-only {
 
 sup.source-note {
   color: var(--link-color);
-  transition: color 0.15s linear;
+  transition: all 0.1s linear;
   cursor: default;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 sup.source-note:hover {
   color: var(--link-hover);
+  /* text-decoration: underline; */
 }
 
 #quellen-container {
@@ -859,6 +871,7 @@ footer>ul {
   gap: 64px;
   /*background-color: var(--bg-elevated);*/
   cursor: pointer;
+  hyphens: auto;
 }
 
 footer li {
@@ -1006,8 +1019,7 @@ footer a:hover {
 
 /* inter-regular - latin */
 @font-face {
-  font-display: swap;
-  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
   font-family: 'Inter';
   font-style: normal;
   font-weight: 400;
@@ -1046,7 +1058,6 @@ footer a:hover {
 /* inter-600 - latin */
 @font-face {
   font-display: swap;
-  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
   font-family: 'Inter';
   font-style: normal;
   font-weight: 600;
@@ -1057,7 +1068,6 @@ footer a:hover {
 /* inter-600italic - latin */
 @font-face {
   font-display: swap;
-  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
   font-family: 'Inter';
   font-style: italic;
   font-weight: 600;

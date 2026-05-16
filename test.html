@@ -7,6 +7,7 @@
   <meta name="keywords" content="Chemie, P-Seminar, WHG" />
   <meta name="content" content="P-Seminar Chemie" />
   <meta name="author" content="Schinkennugget" />
+  <link href="css/print.css" media="print" rel="stylesheet" />
   <script>
     //NUR FÜR DEVELOPMENT, DEAKTIVIERT CACHING
     const v = Date.now(); // neuer Wert bei jedem Seitenaufruf
@@ -25,991 +26,134 @@
 </head>
 
 <body tabindex="0">
+
+  <nav>
+    <ul id="navbar">
+      <li class="navbar-item-left">
+        <a href="index.html" tabindex="0">
+          <i data-lucide="house" class="navbar-icon"></i>
+          <span class="navbar-text-1">Startseite</span>
+        </a>
+      </li>
+      <li class="navbar-item-left">
+        <a href="experimente/alle-experimente.html" tabindex="0">
+          <i data-lucide="flask-conical" class="navbar-icon"></i>
+          <span class="navbar-text-2">Experimente</span>
+        </a>
+      </li>
+
+      <li class="navbar-item-right" tabindex="0" id="navbar-button-darkmode">
+        <span>
+          <i data-lucide="sun" class="navbar-icon" id="navbar-icon-sun"></i>
+          <i data-lucide="moon" class="navbar-icon" id="navbar-icon-moon"></i>
+        </span>
+      </li>
+      <li class="navbar-item-right" tabindex="0" onclick="window.print();">
+        <span>
+          <i data-lucide="printer" class="navbar-icon"></i>
+          <span class="navbar-text-3">Seite drucken</span>
+        </span>
+      </li>
+    </ul>
+  </nav>
+
+  <nav id="pse-container">
+
+  </nav>
+
   <style>
     #pse-container {
       display: grid;
-      grid-template-areas:
-        "h  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  he"
-        "li be .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  b  c  n  o  f  ne"
-        "na mg .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  al si p  s  cl ar"
-        "k  ca .  .  .  .  .  .  .  .  .  .  .  .  .  .  sc ti v  cr mn fe co ni cu zn ga ge as se br kr"
-        "rb sr .  .  .  .  .  .  .  .  .  .  .  .  .  .  y  zr nb mo tc ru rh pd ag cd in sn sb te i  xe"
-        "cs ba la ce pr nd pm sm eu gd tb dy ho er tm yb lu hf ta w  re os ir pt au hg tl pb bi po at rn"
-        "fr ra ac th pa u  np pu am cm bk cf es fm md no lr rf db sg bh hs mt ds rg cn nh fl mc lv ts og";
+      overflow-x: auto;
+      height: min-content;
       width: 100%;
       justify-content: center;
-      /* gap: 5px; */
-      overflow-x: scroll;
-      overflow-x: show;
-      margin: 10px 0;
+      margin-top: 75px;
     }
 
     .pse-item {
-      padding: 5px;
-      margin: 2.5px;
-      /* border: solid rgb(227, 227, 227) 1px; */
-      box-shadow: 0.5px 0.5px 3px 0.1px var(--shadow-color);
-      border-radius: 4px;
-      height: 40px
-        /*clamp(20px, 2.5vh, 50px)*/
-      ;
-      width: 35px
-        /*clamp(20px, 2.5vw, 45px)*/
-      ;
       display: grid;
       justify-content: center;
       align-items: center;
-      font-weight: 600;
-      color: black;
-      transition: transform 0.1s linear;
+      border-radius: 4px;
+      grid-template-areas: ". ordnungszahl"
+        "elementsymbol elementsymbol"
+        "elementname elementname";
     }
 
-    /* .pse-item:hover {
-      transform: scale(1.2);
-    } */
-  </style>
-
-
-
-  <nav id="pse-container">
-    <div class="pse-item"
-      style="grid-row-start: h; grid-column-start: h; grid-row-end: h; grid-column-end: h; background-color: lightgrey;">
-      <div class="pse-item-elementname">H</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: he; grid-column-start: he; grid-row-end: he; grid-column-end: he; background-color: lightgrey;">
-      <div class="pse-item-elementname">He</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: li; grid-column-start: li; grid-row-end: li; grid-column-end: li; background-color: lightgrey;">
-      <div class="pse-item-elementname">Li</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: be; grid-column-start: be; grid-row-end: be; grid-column-end: be; background-color: lightgrey;">
-      <div class="pse-item-elementname">Be</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: b; grid-column-start: b; grid-row-end: b; grid-column-end: b; background-color: lightgrey;">
-      <div class="pse-item-elementname">B</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: c; grid-column-start: c; grid-row-end: c; grid-column-end: c; background-color: lightgrey;">
-      <div class="pse-item-elementname">C</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: n; grid-column-start: n; grid-row-end: n; grid-column-end: n; background-color: lightgrey;">
-      <div class="pse-item-elementname">N</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: o; grid-column-start: o; grid-row-end: o; grid-column-end: o; background-color: lightgrey;">
-      <div class="pse-item-elementname">O</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: f; grid-column-start: f; grid-row-end: f; grid-column-end: f; background-color: lightgrey;">
-      <div class="pse-item-elementname">F</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: ne; grid-column-start: ne; grid-row-end: ne; grid-column-end: ne; background-color: lightgrey;">
-      <div class="pse-item-elementname">Ne</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: na; grid-column-start: na; grid-row-end: na; grid-column-end: na; background-color: lightgrey;">
-      <div class="pse-item-elementname">Na</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: mg; grid-column-start: mg; grid-row-end: mg; grid-column-end: mg; background-color: lightgrey;">
-      <div class="pse-item-elementname">Mg</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: al; grid-column-start: al; grid-row-end: al; grid-column-end: al; background-color: lightgrey;">
-      <div class="pse-item-elementname">Al</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: si; grid-column-start: si; grid-row-end: si; grid-column-end: si; background-color: lightgrey;">
-      <div class="pse-item-elementname">Si</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: p; grid-column-start: p; grid-row-end: p; grid-column-end: p; background-color: lightgrey;">
-      <div class="pse-item-elementname">P</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: s; grid-column-start: s; grid-row-end: s; grid-column-end: s; background-color: lightgrey;">
-      <div class="pse-item-elementname">S</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: cl; grid-column-start: cl; grid-row-end: cl; grid-column-end: cl; background-color: lightgrey;">
-      <div class="pse-item-elementname">Cl</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: ar; grid-column-start: ar; grid-row-end: ar; grid-column-end: ar; background-color: lightgrey;">
-      <div class="pse-item-elementname">Ar</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: k; grid-column-start: k; grid-row-end: k; grid-column-end: k; background-color: lightgrey;">
-      <div class="pse-item-elementname">K</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: ca; grid-column-start: ca; grid-row-end: ca; grid-column-end: ca; background-color: lightgrey;">
-      <div class="pse-item-elementname">Ca</div>
-    </div>
-    <!-- <div class="pse-item"
-      style="grid-row-start: sc; grid-column-start: sc; grid-row-end: sc; grid-column-end: sc; background-color: lightgrey;">
-      <div class="pse-item-elementname">Sc</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: ti; grid-column-start: ti; grid-row-end: ti; grid-column-end: ti; background-color: lightgrey;">
-      <div class="pse-item-elementname">Ti</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: v; grid-column-start: v; grid-row-end: v; grid-column-end: v; background-color: lightgrey;">
-      <div class="pse-item-elementname">V</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: cr; grid-column-start: cr; grid-row-end: cr; grid-column-end: cr; background-color: lightgrey;">
-      <div class="pse-item-elementname">Cr</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: mn; grid-column-start: mn; grid-row-end: mn; grid-column-end: mn; background-color: lightgrey;">
-      <div class="pse-item-elementname">Mn</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: fe; grid-column-start: fe; grid-row-end: fe; grid-column-end: fe; background-color: lightgrey;">
-      <div class="pse-item-elementname">Fe</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: co; grid-column-start: co; grid-row-end: co; grid-column-end: co; background-color: lightgrey;">
-      <div class="pse-item-elementname">Co</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: ni; grid-column-start: ni; grid-row-end: ni; grid-column-end: ni; background-color: lightgrey;">
-      <div class="pse-item-elementname">Ni</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: cu; grid-column-start: cu; grid-row-end: cu; grid-column-end: cu; background-color: lightgrey;">
-      <div class="pse-item-elementname">Cu</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: zn; grid-column-start: zn; grid-row-end: zn; grid-column-end: zn; background-color: forestgreen;">
-      <div class="pse-item-elementname">Zn</div>
-    </div> -->
-    <div class="pse-item"
-      style="grid-row-start: ga; grid-column-start: ga; grid-row-end: ga; grid-column-end: ga; background-color: lightgrey;">
-      <div class="pse-item-elementname">Ga</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: ge; grid-column-start: ge; grid-row-end: ge; grid-column-end: ge; background-color: lightgrey;">
-      <div class="pse-item-elementname">Ge</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: as; grid-column-start: as; grid-row-end: as; grid-column-end: as; background-color: lightgrey;">
-      <div class="pse-item-elementname">As</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: se; grid-column-start: se; grid-row-end: se; grid-column-end: se; background-color: lightgrey;">
-      <div class="pse-item-elementname">Se</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: br; grid-column-start: br; grid-row-end: br; grid-column-end: br; background-color: lightgrey;">
-      <div class="pse-item-elementname">Br</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: kr; grid-column-start: kr; grid-row-end: kr; grid-column-end: kr; background-color: lightgrey;">
-      <div class="pse-item-elementname">Kr</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: rb; grid-column-start: rb; grid-row-end: rb; grid-column-end: rb; background-color: lightgrey;">
-      <div class="pse-item-elementname">Rb</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: sr; grid-column-start: sr; grid-row-end: sr; grid-column-end: sr; background-color: lightgrey;">
-      <div class="pse-item-elementname">Sr</div>
-    </div>
-    <!-- <div class="pse-item"
-      style="grid-row-start: y; grid-column-start: y; grid-row-end: y; grid-column-end: y; background-color: lightgrey;">
-      <div class="pse-item-elementname">Y</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: zr; grid-column-start: zr; grid-row-end: zr; grid-column-end: zr; background-color: lightgrey;">
-      <div class="pse-item-elementname">Zr</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: nb; grid-column-start: nb; grid-row-end: nb; grid-column-end: nb; background-color: lightgrey;">
-      <div class="pse-item-elementname">Nb</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: mo; grid-column-start: mo; grid-row-end: mo; grid-column-end: mo; background-color: lightgrey;">
-      <div class="pse-item-elementname">Mo</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: tc; grid-column-start: tc; grid-row-end: tc; grid-column-end: tc; background-color: lightgrey;">
-      <div class="pse-item-elementname">Tc</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: ru; grid-column-start: ru; grid-row-end: ru; grid-column-end: ru; background-color: lightgrey;">
-      <div class="pse-item-elementname">Ru</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: rh; grid-column-start: rh; grid-row-end: rh; grid-column-end: rh; background-color: lightgrey;">
-      <div class="pse-item-elementname">Rh</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: pd; grid-column-start: pd; grid-row-end: pd; grid-column-end: pd; background-color: lightgrey;">
-      <div class="pse-item-elementname">Pd</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: ag; grid-column-start: ag; grid-row-end: ag; grid-column-end: ag; background-color: lightgrey;">
-      <div class="pse-item-elementname">Ag</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: cd; grid-column-start: cd; grid-row-end: cd; grid-column-end: cd; background-color: lightgrey;">
-      <div class="pse-item-elementname">Cd</div>
-    </div> -->
-    <div class="pse-item"
-      style="grid-row-start: in; grid-column-start: in; grid-row-end: in; grid-column-end: in; background-color: lightgrey;">
-      <div class="pse-item-elementname">In</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: sn; grid-column-start: sn; grid-row-end: sn; grid-column-end: sn; background-color: lightgrey;">
-      <div class="pse-item-elementname">Sn</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: sb; grid-column-start: sb; grid-row-end: sb; grid-column-end: sb; background-color: lightgrey;">
-      <div class="pse-item-elementname">Sb</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: te; grid-column-start: te; grid-row-end: te; grid-column-end: te; background-color: lightgrey;">
-      <div class="pse-item-elementname">Te</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: i; grid-column-start: i; grid-row-end: i; grid-column-end: i; background-color: lightgrey;">
-      <div class="pse-item-elementname">I</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: xe; grid-column-start: xe; grid-row-end: xe; grid-column-end: xe; background-color: lightgrey;">
-      <div class="pse-item-elementname">Xe</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: cs; grid-column-start: cs; grid-row-end: cs; grid-column-end: cs; background-color: lightgrey;">
-      <div class="pse-item-elementname">Cs</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: ba; grid-column-start: ba; grid-row-end: ba; grid-column-end: ba; background-color: lightgrey;">
-      <div class="pse-item-elementname">Ba</div>
-    </div>
-    <!-- <div class="pse-item"
-      style="grid-row-start: la; grid-column-start: la; grid-row-end: la; grid-column-end: la; background-color: lightgrey;">
-      <div class="pse-item-elementname">La</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: ce; grid-column-start: ce; grid-row-end: ce; grid-column-end: ce; background-color: lightgrey;">
-      <div class="pse-item-elementname">Ce</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: pr; grid-column-start: pr; grid-row-end: pr; grid-column-end: pr; background-color: lightgrey;">
-      <div class="pse-item-elementname">Pr</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: nd; grid-column-start: nd; grid-row-end: nd; grid-column-end: nd; background-color: lightgrey;">
-      <div class="pse-item-elementname">Nd</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: pm; grid-column-start: pm; grid-row-end: pm; grid-column-end: pm; background-color: lightgrey;">
-      <div class="pse-item-elementname">Pm</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: sm; grid-column-start: sm; grid-row-end: sm; grid-column-end: sm; background-color: lightgrey;">
-      <div class="pse-item-elementname">Sm</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: eu; grid-column-start: eu; grid-row-end: eu; grid-column-end: eu; background-color: lightgrey;">
-      <div class="pse-item-elementname">Eu</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: gd; grid-column-start: gd; grid-row-end: gd; grid-column-end: gd; background-color: lightgrey;">
-      <div class="pse-item-elementname">Gd</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: tb; grid-column-start: tb; grid-row-end: tb; grid-column-end: tb; background-color: lightgrey;">
-      <div class="pse-item-elementname">Tb</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: dy; grid-column-start: dy; grid-row-end: dy; grid-column-end: dy; background-color: lightgrey;">
-      <div class="pse-item-elementname">Dy</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: ho; grid-column-start: ho; grid-row-end: ho; grid-column-end: ho; background-color: lightgrey;">
-      <div class="pse-item-elementname">Ho</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: er; grid-column-start: er; grid-row-end: er; grid-column-end: er; background-color: lightgrey;">
-      <div class="pse-item-elementname">Er</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: tm; grid-column-start: tm; grid-row-end: tm; grid-column-end: tm; background-color: lightgrey;">
-      <div class="pse-item-elementname">Tm</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: yb; grid-column-start: yb; grid-row-end: yb; grid-column-end: yb; background-color: lightgrey;">
-      <div class="pse-item-elementname">Yb</div>
-    </div> -->
-    <!-- <div class="pse-item"
-      style="grid-row-start: lu; grid-column-start: lu; grid-row-end: lu; grid-column-end: lu; background-color: lightgrey;">
-      <div class="pse-item-elementname">Lu</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: hf; grid-column-start: hf; grid-row-end: hf; grid-column-end: hf; background-color: lightgrey;">
-      <div class="pse-item-elementname">Hf</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: ta; grid-column-start: ta; grid-row-end: ta; grid-column-end: ta; background-color: lightgrey;">
-      <div class="pse-item-elementname">Ta</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: w; grid-column-start: w; grid-row-end: w; grid-column-end: w; background-color: lightgrey;">
-      <div class="pse-item-elementname">W</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: re; grid-column-start: re; grid-row-end: re; grid-column-end: re; background-color: lightgrey;">
-      <div class="pse-item-elementname">Re</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: os; grid-column-start: os; grid-row-end: os; grid-column-end: os; background-color: lightgrey;">
-      <div class="pse-item-elementname">Os</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: ir; grid-column-start: ir; grid-row-end: ir; grid-column-end: ir; background-color: lightgrey;">
-      <div class="pse-item-elementname">Ir</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: pt; grid-column-start: pt; grid-row-end: pt; grid-column-end: pt; background-color: lightgrey;">
-      <div class="pse-item-elementname">Pt</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: au; grid-column-start: au; grid-row-end: au; grid-column-end: au; background-color: lightgrey;">
-      <div class="pse-item-elementname">Au</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: hg; grid-column-start: hg; grid-row-end: hg; grid-column-end: hg; background-color: lightgrey;">
-      <div class="pse-item-elementname">Hg</div>
-    </div> -->
-    <div class="pse-item"
-      style="grid-row-start: tl; grid-column-start: tl; grid-row-end: tl; grid-column-end: tl; background-color: lightgrey;">
-      <div class="pse-item-elementname">Tl</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: pb; grid-column-start: pb; grid-row-end: pb; grid-column-end: pb; background-color: lightgrey;">
-      <div class="pse-item-elementname">Pb</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: bi; grid-column-start: bi; grid-row-end: bi; grid-column-end: bi; background-color: lightgrey;">
-      <div class="pse-item-elementname">Bi</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: po; grid-column-start: po; grid-row-end: po; grid-column-end: po; background-color: lightgrey;">
-      <div class="pse-item-elementname">Po</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: at; grid-column-start: at; grid-row-end: at; grid-column-end: at; background-color: lightgrey;">
-      <div class="pse-item-elementname">At</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: rn; grid-column-start: rn; grid-row-end: rn; grid-column-end: rn; background-color: lightgrey;">
-      <div class="pse-item-elementname">Rn</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: fr; grid-column-start: fr; grid-row-end: fr; grid-column-end: fr; background-color: lightgrey;">
-      <div class="pse-item-elementname">Fr</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: ra; grid-column-start: ra; grid-row-end: ra; grid-column-end: ra; background-color: lightgrey;">
-      <div class="pse-item-elementname">Ra</div>
-    </div>
-    <!-- <div class="pse-item"
-      style="grid-row-start: ac; grid-column-start: ac; grid-row-end: ac; grid-column-end: ac; background-color: lightgrey;">
-      <div class="pse-item-elementname">Ac</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: th; grid-column-start: th; grid-row-end: th; grid-column-end: th; background-color: lightgrey;">
-      <div class="pse-item-elementname">Th</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: pa; grid-column-start: pa; grid-row-end: pa; grid-column-end: pa; background-color: lightgrey;">
-      <div class="pse-item-elementname">Pa</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: u; grid-column-start: u; grid-row-end: u; grid-column-end: u; background-color: lightgrey;">
-      <div class="pse-item-elementname">U</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: np; grid-column-start: np; grid-row-end: np; grid-column-end: np; background-color: lightgrey;">
-      <div class="pse-item-elementname">Np</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: pu; grid-column-start: pu; grid-row-end: pu; grid-column-end: pu; background-color: lightgrey;">
-      <div class="pse-item-elementname">Pu</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: am; grid-column-start: am; grid-row-end: am; grid-column-end: am; background-color: lightgrey;">
-      <div class="pse-item-elementname">Am</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: cm; grid-column-start: cm; grid-row-end: cm; grid-column-end: cm; background-color: lightgrey;">
-      <div class="pse-item-elementname">Cm</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: bk; grid-column-start: bk; grid-row-end: bk; grid-column-end: bk; background-color: lightgrey;">
-      <div class="pse-item-elementname">Bk</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: cf; grid-column-start: cf; grid-row-end: cf; grid-column-end: cf; background-color: lightgrey;">
-      <div class="pse-item-elementname">Cf</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: es; grid-column-start: es; grid-row-end: es; grid-column-end: es; background-color: lightgrey;">
-      <div class="pse-item-elementname">Es</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: fm; grid-column-start: fm; grid-row-end: fm; grid-column-end: fm; background-color: lightgrey;">
-      <div class="pse-item-elementname">Fm</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: md; grid-column-start: md; grid-row-end: md; grid-column-end: md; background-color: lightgrey;">
-      <div class="pse-item-elementname">Md</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: no; grid-column-start: no; grid-row-end: no; grid-column-end: no; background-color: lightgrey;">
-      <div class="pse-item-elementname">No</div>
-    </div> -->
-    <!-- <div class="pse-item"
-      style="grid-row-start: lr; grid-column-start: lr; grid-row-end: lr; grid-column-end: lr; background-color: lightgrey;">
-      <div class="pse-item-elementname">Lr</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: rf; grid-column-start: rf; grid-row-end: rf; grid-column-end: rf; background-color: lightgrey;">
-      <div class="pse-item-elementname">Rf</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: db; grid-column-start: db; grid-row-end: db; grid-column-end: db; background-color: lightgrey;">
-      <div class="pse-item-elementname">Db</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: sg; grid-column-start: sg; grid-row-end: sg; grid-column-end: sg; background-color: lightgrey;">
-      <div class="pse-item-elementname">Sg</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: bh; grid-column-start: bh; grid-row-end: bh; grid-column-end: bh; background-color: lightgrey;">
-      <div class="pse-item-elementname">Bh</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: hs; grid-column-start: hs; grid-row-end: hs; grid-column-end: hs; background-color: lightgrey;">
-      <div class="pse-item-elementname">Hs</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: mt; grid-column-start: mt; grid-row-end: mt; grid-column-end: mt; background-color: lightgrey;">
-      <div class="pse-item-elementname">Mt</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: ds; grid-column-start: ds; grid-row-end: ds; grid-column-end: ds; background-color: lightgrey;">
-      <div class="pse-item-elementname">Ds</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: rg; grid-column-start: rg; grid-row-end: rg; grid-column-end: rg; background-color: lightgrey;">
-      <div class="pse-item-elementname">Rg</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: cn; grid-column-start: cn; grid-row-end: cn; grid-column-end: cn; background-color: lightgrey;">
-      <div class="pse-item-elementname">Cn</div>
-    </div> -->
-    <div class="pse-item"
-      style="grid-row-start: nh; grid-column-start: nh; grid-row-end: nh; grid-column-end: nh; background-color: lightgrey;">
-      <div class="pse-item-elementname">Nh</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: fl; grid-column-start: fl; grid-row-end: fl; grid-column-end: fl; background-color: lightgrey;">
-      <div class="pse-item-elementname">Fl</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: mc; grid-column-start: mc; grid-row-end: mc; grid-column-end: mc; background-color: lightgrey;">
-      <div class="pse-item-elementname">Mc</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: lv; grid-column-start: lv; grid-row-end: lv; grid-column-end: lv; background-color: lightgrey;">
-      <div class="pse-item-elementname">Lv</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: ts; grid-column-start: ts; grid-row-end: ts; grid-column-end: ts; background-color: lightgrey;">
-      <div class="pse-item-elementname">Ts</div>
-    </div>
-    <div class="pse-item"
-      style="grid-row-start: og; grid-column-start: og; grid-row-end: og; grid-column-end: og; background-color: lightgrey;">
-      <div class="pse-item-elementname">Og</div>
-    </div>
-  </nav>
-
-  <!-- <div class="expandable" data-expanded="0">
-    <button class="expandable-header" tabindex="0">
-      <h3>Nebengruppen</h3>
-      <i data-lucide="chevron-right" class="expandable-header-icon"></i>
-    </button>
-
-
-    <div class="expandable-content" style="display: none;">
-      bla<br />
-    </div>
-  </div> -->
-
-  <div class="test-exp" data-expanded="false">
-    <div class="test-exp-header">
-      <h3>Nebengruppen</h3>
-      <i data-lucide="chevron-down" class="expandable-header-icon"></i>
-    </div>
-    <div class="test-exp-content-wrapper">
-      <div class="test-exp-content" style="display: grid; grid-template-areas: 'sc ti v  cr mn fe co ni cu zn'
-'y  zr nb mo tc ru rh pd ag cd'
-'lu hf ta w  re os ir pt au hg'
-'lr rf db sg bh hs mt ds rg cn';">
-        <div class="pse-item"
-          style="grid-row-start: sc; grid-column-start: sc; grid-row-end: sc; grid-column-end: sc; background-color: lightgrey;">
-          <div class="pse-item-elementname">Sc</div>
-        </div>
-        <div class="pse-item"
-          style="grid-row-start: ti; grid-column-start: ti; grid-row-end: ti; grid-column-end: ti; background-color: lightgrey;">
-          <div class="pse-item-elementname">Ti</div>
-        </div>
-        <div class="pse-item"
-          style="grid-row-start: v; grid-column-start: v; grid-row-end: v; grid-column-end: v; background-color: lightgrey;">
-          <div class="pse-item-elementname">V</div>
-        </div>
-        <div class="pse-item"
-          style="grid-row-start: cr; grid-column-start: cr; grid-row-end: cr; grid-column-end: cr; background-color: lightgrey;">
-          <div class="pse-item-elementname">Cr</div>
-        </div>
-        <div class="pse-item"
-          style="grid-row-start: mn; grid-column-start: mn; grid-row-end: mn; grid-column-end: mn; background-color: lightgrey;">
-          <div class="pse-item-elementname">Mn</div>
-        </div>
-        <div class="pse-item"
-          style="grid-row-start: fe; grid-column-start: fe; grid-row-end: fe; grid-column-end: fe; background-color: lightgrey;">
-          <div class="pse-item-elementname">Fe</div>
-        </div>
-        <div class="pse-item"
-          style="grid-row-start: co; grid-column-start: co; grid-row-end: co; grid-column-end: co; background-color: lightgrey;">
-          <div class="pse-item-elementname">Co</div>
-        </div>
-        <div class="pse-item"
-          style="grid-row-start: ni; grid-column-start: ni; grid-row-end: ni; grid-column-end: ni; background-color: lightgrey;">
-          <div class="pse-item-elementname">Ni</div>
-        </div>
-        <div class="pse-item"
-          style="grid-row-start: cu; grid-column-start: cu; grid-row-end: cu; grid-column-end: cu; background-color: lightgrey;">
-          <div class="pse-item-elementname">Cu</div>
-        </div>
-        <div class="pse-item"
-          style="grid-row-start: zn; grid-column-start: zn; grid-row-end: zn; grid-column-end: zn; background-color: forestgreen;">
-          <div class="pse-item-elementname">Zn</div>
-        </div>
-
-        <div class="pse-item"
-          style="grid-row-start: y; grid-column-start: y; grid-row-end: y; grid-column-end: y; background-color: lightgrey;">
-          <div class="pse-item-elementname">Y</div>
-        </div>
-        <div class="pse-item"
-          style="grid-row-start: zr; grid-column-start: zr; grid-row-end: zr; grid-column-end: zr; background-color: lightgrey;">
-          <div class="pse-item-elementname">Zr</div>
-        </div>
-        <div class="pse-item"
-          style="grid-row-start: nb; grid-column-start: nb; grid-row-end: nb; grid-column-end: nb; background-color: lightgrey;">
-          <div class="pse-item-elementname">Nb</div>
-        </div>
-        <div class="pse-item"
-          style="grid-row-start: mo; grid-column-start: mo; grid-row-end: mo; grid-column-end: mo; background-color: lightgrey;">
-          <div class="pse-item-elementname">Mo</div>
-        </div>
-        <div class="pse-item"
-          style="grid-row-start: tc; grid-column-start: tc; grid-row-end: tc; grid-column-end: tc; background-color: lightgrey;">
-          <div class="pse-item-elementname">Tc</div>
-        </div>
-        <div class="pse-item"
-          style="grid-row-start: ru; grid-column-start: ru; grid-row-end: ru; grid-column-end: ru; background-color: lightgrey;">
-          <div class="pse-item-elementname">Ru</div>
-        </div>
-        <div class="pse-item"
-          style="grid-row-start: rh; grid-column-start: rh; grid-row-end: rh; grid-column-end: rh; background-color: lightgrey;">
-          <div class="pse-item-elementname">Rh</div>
-        </div>
-        <div class="pse-item"
-          style="grid-row-start: pd; grid-column-start: pd; grid-row-end: pd; grid-column-end: pd; background-color: lightgrey;">
-          <div class="pse-item-elementname">Pd</div>
-        </div>
-        <div class="pse-item"
-          style="grid-row-start: ag; grid-column-start: ag; grid-row-end: ag; grid-column-end: ag; background-color: lightgrey;">
-          <div class="pse-item-elementname">Ag</div>
-        </div>
-        <div class="pse-item"
-          style="grid-row-start: cd; grid-column-start: cd; grid-row-end: cd; grid-column-end: cd; background-color: lightgrey;">
-          <div class="pse-item-elementname">Cd</div>
-        </div>
-
-        <div class="pse-item"
-          style="grid-row-start: lu; grid-column-start: lu; grid-row-end: lu; grid-column-end: lu; background-color: lightgrey;">
-          <div class="pse-item-elementname">Lu</div>
-        </div>
-        <div class="pse-item"
-          style="grid-row-start: hf; grid-column-start: hf; grid-row-end: hf; grid-column-end: hf; background-color: lightgrey;">
-          <div class="pse-item-elementname">Hf</div>
-        </div>
-        <div class="pse-item"
-          style="grid-row-start: ta; grid-column-start: ta; grid-row-end: ta; grid-column-end: ta; background-color: lightgrey;">
-          <div class="pse-item-elementname">Ta</div>
-        </div>
-        <div class="pse-item"
-          style="grid-row-start: w; grid-column-start: w; grid-row-end: w; grid-column-end: w; background-color: lightgrey;">
-          <div class="pse-item-elementname">W</div>
-        </div>
-        <div class="pse-item"
-          style="grid-row-start: re; grid-column-start: re; grid-row-end: re; grid-column-end: re; background-color: lightgrey;">
-          <div class="pse-item-elementname">Re</div>
-        </div>
-        <div class="pse-item"
-          style="grid-row-start: os; grid-column-start: os; grid-row-end: os; grid-column-end: os; background-color: lightgrey;">
-          <div class="pse-item-elementname">Os</div>
-        </div>
-        <div class="pse-item"
-          style="grid-row-start: ir; grid-column-start: ir; grid-row-end: ir; grid-column-end: ir; background-color: lightgrey;">
-          <div class="pse-item-elementname">Ir</div>
-        </div>
-        <div class="pse-item"
-          style="grid-row-start: pt; grid-column-start: pt; grid-row-end: pt; grid-column-end: pt; background-color: lightgrey;">
-          <div class="pse-item-elementname">Pt</div>
-        </div>
-        <div class="pse-item"
-          style="grid-row-start: au; grid-column-start: au; grid-row-end: au; grid-column-end: au; background-color: lightgrey;">
-          <div class="pse-item-elementname">Au</div>
-        </div>
-        <div class="pse-item"
-          style="grid-row-start: hg; grid-column-start: hg; grid-row-end: hg; grid-column-end: hg; background-color: lightgrey;">
-          <div class="pse-item-elementname">Hg</div>
-        </div>
-
-        <div class="pse-item"
-          style="grid-row-start: lr; grid-column-start: lr; grid-row-end: lr; grid-column-end: lr; background-color: lightgrey;">
-          <div class="pse-item-elementname">Lr</div>
-        </div>
-        <div class="pse-item"
-          style="grid-row-start: rf; grid-column-start: rf; grid-row-end: rf; grid-column-end: rf; background-color: lightgrey;">
-          <div class="pse-item-elementname">Rf</div>
-        </div>
-        <div class="pse-item"
-          style="grid-row-start: db; grid-column-start: db; grid-row-end: db; grid-column-end: db; background-color: lightgrey;">
-          <div class="pse-item-elementname">Db</div>
-        </div>
-        <div class="pse-item"
-          style="grid-row-start: sg; grid-column-start: sg; grid-row-end: sg; grid-column-end: sg; background-color: lightgrey;">
-          <div class="pse-item-elementname">Sg</div>
-        </div>
-        <div class="pse-item"
-          style="grid-row-start: bh; grid-column-start: bh; grid-row-end: bh; grid-column-end: bh; background-color: lightgrey;">
-          <div class="pse-item-elementname">Bh</div>
-        </div>
-        <div class="pse-item"
-          style="grid-row-start: hs; grid-column-start: hs; grid-row-end: hs; grid-column-end: hs; background-color: lightgrey;">
-          <div class="pse-item-elementname">Hs</div>
-        </div>
-        <div class="pse-item"
-          style="grid-row-start: mt; grid-column-start: mt; grid-row-end: mt; grid-column-end: mt; background-color: lightgrey;">
-          <div class="pse-item-elementname">Mt</div>
-        </div>
-        <div class="pse-item"
-          style="grid-row-start: ds; grid-column-start: ds; grid-row-end: ds; grid-column-end: ds; background-color: lightgrey;">
-          <div class="pse-item-elementname">Ds</div>
-        </div>
-        <div class="pse-item"
-          style="grid-row-start: rg; grid-column-start: rg; grid-row-end: rg; grid-column-end: rg; background-color: lightgrey;">
-          <div class="pse-item-elementname">Rg</div>
-        </div>
-        <div class="pse-item"
-          style="grid-row-start: cn; grid-column-start: cn; grid-row-end: cn; grid-column-end: cn; background-color: lightgrey;">
-          <div class="pse-item-elementname">Cn</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="test-exp" data-expanded="false">
-    <div class="test-exp-header">
-      <h3>Lantanoide &amp; Actinoide rahhhhhhhhhhhhhhhhhhhhhhhhhhhnhnhhhhhhhnhhghghghghnghghnghghn gh ghgh ghghghghgh
-        ghghghghghghghghhgghghghgh ghghghghghghghghghghgh hghghghghghghgh </h3>
-      <i data-lucide="chevron-down" class="expandable-header-icon"></i>
-    </div>
-    <div class="test-exp-content-wrapper">
-      <div class="test-exp-content" style="display: grid; grid-template-areas: 'la ce pr nd pm sm eu gd tb dy ho er tm yb'
-      'ac th pa u  np pu am cm bk cf es fm md no';">
-        <div class="pse-item"
-          style="grid-row-start: la; grid-column-start: la; grid-row-end: la; grid-column-end: la; background-color: lightgrey;">
-          <div class="pse-item-elementname">La</div>
-        </div>
-        <div class="pse-item"
-          style="grid-row-start: ce; grid-column-start: ce; grid-row-end: ce; grid-column-end: ce; background-color: lightgrey;">
-          <div class="pse-item-elementname">Ce</div>
-        </div>
-        <div class="pse-item"
-          style="grid-row-start: pr; grid-column-start: pr; grid-row-end: pr; grid-column-end: pr; background-color: lightgrey;">
-          <div class="pse-item-elementname">Pr</div>
-        </div>
-        <div class="pse-item"
-          style="grid-row-start: nd; grid-column-start: nd; grid-row-end: nd; grid-column-end: nd; background-color: lightgrey;">
-          <div class="pse-item-elementname">Nd</div>
-        </div>
-        <div class="pse-item"
-          style="grid-row-start: pm; grid-column-start: pm; grid-row-end: pm; grid-column-end: pm; background-color: lightgrey;">
-          <div class="pse-item-elementname">Pm</div>
-        </div>
-        <div class="pse-item"
-          style="grid-row-start: sm; grid-column-start: sm; grid-row-end: sm; grid-column-end: sm; background-color: lightgrey;">
-          <div class="pse-item-elementname">Sm</div>
-        </div>
-        <div class="pse-item"
-          style="grid-row-start: eu; grid-column-start: eu; grid-row-end: eu; grid-column-end: eu; background-color: lightgrey;">
-          <div class="pse-item-elementname">Eu</div>
-        </div>
-        <div class="pse-item"
-          style="grid-row-start: gd; grid-column-start: gd; grid-row-end: gd; grid-column-end: gd; background-color: lightgrey;">
-          <div class="pse-item-elementname">Gd</div>
-        </div>
-        <div class="pse-item"
-          style="grid-row-start: tb; grid-column-start: tb; grid-row-end: tb; grid-column-end: tb; background-color: lightgrey;">
-          <div class="pse-item-elementname">Tb</div>
-        </div>
-        <div class="pse-item"
-          style="grid-row-start: dy; grid-column-start: dy; grid-row-end: dy; grid-column-end: dy; background-color: lightgrey;">
-          <div class="pse-item-elementname">Dy</div>
-        </div>
-        <div class="pse-item"
-          style="grid-row-start: ho; grid-column-start: ho; grid-row-end: ho; grid-column-end: ho; background-color: lightgrey;">
-          <div class="pse-item-elementname">Ho</div>
-        </div>
-        <div class="pse-item"
-          style="grid-row-start: er; grid-column-start: er; grid-row-end: er; grid-column-end: er; background-color: lightgrey;">
-          <div class="pse-item-elementname">Er</div>
-        </div>
-        <div class="pse-item"
-          style="grid-row-start: tm; grid-column-start: tm; grid-row-end: tm; grid-column-end: tm; background-color: lightgrey;">
-          <div class="pse-item-elementname">Tm</div>
-        </div>
-        <div class="pse-item"
-          style="grid-row-start: yb; grid-column-start: yb; grid-row-end: yb; grid-column-end: yb; background-color: lightgrey;">
-          <div class="pse-item-elementname">Yb</div>
-        </div>
-        <div class="pse-item"
-          style="grid-row-start: lu; grid-column-start: lu; grid-row-end: lu; grid-column-end: lu; background-color: lightgrey;">
-          <div class="pse-item-elementname">Lu</div>
-        </div>
-        <div class="pse-item"
-          style="grid-row-start: hf; grid-column-start: hf; grid-row-end: hf; grid-column-end: hf; background-color: lightgrey;">
-          <div class="pse-item-elementname">Hf</div>
-        </div>
-        <div class="pse-item"
-          style="grid-row-start: ta; grid-column-start: ta; grid-row-end: ta; grid-column-end: ta; background-color: lightgrey;">
-          <div class="pse-item-elementname">Ta</div>
-        </div>
-        <div class="pse-item"
-          style="grid-row-start: w; grid-column-start: w; grid-row-end: w; grid-column-end: w; background-color: lightgrey;">
-          <div class="pse-item-elementname">W</div>
-        </div>
-        <div class="pse-item"
-          style="grid-row-start: re; grid-column-start: re; grid-row-end: re; grid-column-end: re; background-color: lightgrey;">
-          <div class="pse-item-elementname">Re</div>
-        </div>
-        <div class="pse-item"
-          style="grid-row-start: os; grid-column-start: os; grid-row-end: os; grid-column-end: os; background-color: lightgrey;">
-          <div class="pse-item-elementname">Os</div>
-        </div>
-        <div class="pse-item"
-          style="grid-row-start: ir; grid-column-start: ir; grid-row-end: ir; grid-column-end: ir; background-color: lightgrey;">
-          <div class="pse-item-elementname">Ir</div>
-        </div>
-        <div class="pse-item"
-          style="grid-row-start: pt; grid-column-start: pt; grid-row-end: pt; grid-column-end: pt; background-color: lightgrey;">
-          <div class="pse-item-elementname">Pt</div>
-        </div>
-        <div class="pse-item"
-          style="grid-row-start: au; grid-column-start: au; grid-row-end: au; grid-column-end: au; background-color: lightgrey;">
-          <div class="pse-item-elementname">Au</div>
-        </div>
-
-        <div class="pse-item"
-          style="grid-row-start: ac; grid-column-start: ac; grid-row-end: ac; grid-column-end: ac; background-color: lightgrey;">
-          <div class="pse-item-elementname">Ac</div>
-        </div>
-        <div class="pse-item"
-          style="grid-row-start: th; grid-column-start: th; grid-row-end: th; grid-column-end: th; background-color: lightgrey;">
-          <div class="pse-item-elementname">Th</div>
-        </div>
-        <div class="pse-item"
-          style="grid-row-start: pa; grid-column-start: pa; grid-row-end: pa; grid-column-end: pa; background-color: lightgrey;">
-          <div class="pse-item-elementname">Pa</div>
-        </div>
-        <div class="pse-item"
-          style="grid-row-start: u; grid-column-start: u; grid-row-end: u; grid-column-end: u; background-color: lightgrey;">
-          <div class="pse-item-elementname">U</div>
-        </div>
-        <div class="pse-item"
-          style="grid-row-start: np; grid-column-start: np; grid-row-end: np; grid-column-end: np; background-color: lightgrey;">
-          <div class="pse-item-elementname">Np</div>
-        </div>
-        <div class="pse-item"
-          style="grid-row-start: pu; grid-column-start: pu; grid-row-end: pu; grid-column-end: pu; background-color: lightgrey;">
-          <div class="pse-item-elementname">Pu</div>
-        </div>
-        <div class="pse-item"
-          style="grid-row-start: am; grid-column-start: am; grid-row-end: am; grid-column-end: am; background-color: lightgrey;">
-          <div class="pse-item-elementname">Am</div>
-        </div>
-        <div class="pse-item"
-          style="grid-row-start: cm; grid-column-start: cm; grid-row-end: cm; grid-column-end: cm; background-color: lightgrey;">
-          <div class="pse-item-elementname">Cm</div>
-        </div>
-        <div class="pse-item"
-          style="grid-row-start: bk; grid-column-start: bk; grid-row-end: bk; grid-column-end: bk; background-color: lightgrey;">
-          <div class="pse-item-elementname">Bk</div>
-        </div>
-        <div class="pse-item"
-          style="grid-row-start: cf; grid-column-start: cf; grid-row-end: cf; grid-column-end: cf; background-color: lightgrey;">
-          <div class="pse-item-elementname">Cf</div>
-        </div>
-        <div class="pse-item"
-          style="grid-row-start: es; grid-column-start: es; grid-row-end: es; grid-column-end: es; background-color: lightgrey;">
-          <div class="pse-item-elementname">Es</div>
-        </div>
-        <div class="pse-item"
-          style="grid-row-start: fm; grid-column-start: fm; grid-row-end: fm; grid-column-end: fm; background-color: lightgrey;">
-          <div class="pse-item-elementname">Fm</div>
-        </div>
-        <div class="pse-item"
-          style="grid-row-start: md; grid-column-start: md; grid-row-end: md; grid-column-end: md; background-color: lightgrey;">
-          <div class="pse-item-elementname">Md</div>
-        </div>
-        <div class="pse-item"
-          style="grid-row-start: no; grid-column-start: no; grid-row-end: no; grid-column-end: no; background-color: lightgrey;">
-          <div class="pse-item-elementname">No</div>
-        </div>
-
-
-      </div>
-    </div>
-  </div>
-  bla<br>bla<br>bla<br>bla<br>bla<br>bla<br>bla<br>bla<br>bla<br>bla<br>bla<br>bla<br>bla<br>bla<br>bla<br>bla<br>bla<br>bla<br>bla<br>bla<br>bla<br>bla<br>bla<br>bla<br>bla<br>bla<br>bla<br>bla<br>bla<br>bla<br>bla<br>bla<br>bla<br>bla<br>bla<br>bla<br>bla<br>bla<br>bla<br>bla<br>bla<br>bla<br>bla<br>bla<br>bla<br>bla<br>bla<br>bla<br>bla<br>bla<br>bla<br>bla<br>bla<br>bla<br>bla<br>
-
-  <style>
-    .test-exp-header {
-      display: flex;
-      align-items: center;
-      gap: 0.2em;
-      box-sizing: border-box;
-    }
-
-    .test-exp-header h3 {
-      font-weight: 400;
-      font-size: 1.2rem;
-    }
-
-    .test-exp[data-expanded="false"] .test-exp-content-wrapper {
-      grid-template-rows: 0fr;
-    }
-
-    .test-exp[data-expanded="true"] .test-exp-content-wrapper {
-      grid-template-rows: 1fr;
-      /* transition: grid-template-rows 0.3s cubic-bezier(.59,0,.59,.81); */
-    }
-
-    .test-exp-content-wrapper {
+    .pse-item-ordnungszahl {
+      grid-area: ordnungzahl;
       display: none;
-      transition: grid-template-rows 0.3s ease;
     }
 
-    .test-exp-header svg.expandable-header-icon {
-      stroke-width: 0.2em;
-      width: 1.2rem;
-      height: 1.2rem;
-      transition: rotate 0.15s linear;
+    .pse-item-elementsymbol {
+      grid-area: elementsymbol;
     }
-  </style>
 
-  <script>
-    function toggleExp(event) {
-      try {
-        const expandableContainerEl = event.currentTarget.parentElement;
-        const expandableContentWrapperEl = expandableContainerEl.querySelector(".test-exp-content-wrapper");
-        const expandableContentEl = expandableContainerEl.querySelector(".test-exp-content");
+    .pse-item-elementname {
+      grid-area: elementname;
+      font-size: 0.3rem;
+    }
 
-        const shouldExpand = !Boolean(JSON.parse(expandableContainerEl.dataset.expanded));
+    @media screen and (min-width: 1300px) {
+      #pse-container {
+        grid-template-areas:
+          "h  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  he"
+          "li be .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  b  c  n  o  f  ne"
+          "na mg .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  al si p  s  cl ar"
+          "k  ca .  .  .  .  .  .  .  .  .  .  .  .  .  .  sc ti v  cr mn fe co ni cu zn ga ge as se br kr"
+          "rb sr .  .  .  .  .  .  .  .  .  .  .  .  .  .  y  zr nb mo tc ru rh pd ag cd in sn sb te i  xe"
+          "cs ba la ce pr nd pm sm eu gd tb dy ho er tm yb lu hf ta w  re os ir pt au hg tl pb bi po at rn"
+          "fr ra ac th pa u  np pu am cm bk cf es fm md no lr rf db sg bh hs mt ds rg cn nh fl mc lv ts og";
+        gap: 5px;
+      }
 
-        expandableContentWrapperEl.removeEventListener("transitionend", transitionendHandler);
-        expandableContentEl.style.overflow = "hidden";
-
-        if (shouldExpand) {
-          // 1. Sichtbar machen
-          expandableContentWrapperEl.style.display = "grid";
-
-          // 2. Einen "Reflow" erzwingen
-          // Ohne diese Zeile fasst der Browser display:grid und den Attribut-Wechsel 
-          // in einem einzigen Rechenschritt zusammen -> Keine Animation.
-          void expandableContentWrapperEl.offsetHeight;
-
-          // 3. Status ändern (jetzt startet die Animation)
-          expandableContainerEl.dataset.expanded = "true";
-        } else {
-          // Beim Einklappen einfach nur den Status ändern
-          expandableContainerEl.dataset.expanded = "false";
-        }
-
-        function transitionendHandler() {
-          expandableContentWrapperEl.removeEventListener("transitionend", transitionendHandler);
-          // Nur ausblenden, wenn wir gerade fertig mit dem Einklappen sind
-          if (expandableContainerEl.dataset.expanded === "false") {
-            expandableContentWrapperEl.style.display = "none";
-          } else {
-            // setTimeout(() => expandableContentEl.style.overflow = "show");
-          }
-        }
-
-        expandableContentWrapperEl.addEventListener("transitionend", transitionendHandler);
-
-        // Icon Rotation
-        const expandableHeaderIconEl = event.currentTarget.querySelector("svg.expandable-header-icon");
-        if (expandableHeaderIconEl) {
-          expandableHeaderIconEl.style.rotate = shouldExpand ? "-180deg" : "";
-        }
-      } catch (err) {
-        console.error(err.name + ": " + err.message);
+      .pse-item {
+        width: min(2.6vw, 45px);
+        height: clamp(30px, 5vh, 50px);
       }
     }
 
+    @media screen and (max-width: 1300px) {
+      #pse-container {
+        grid-template-areas:
+          "h  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  he"
+          "li be .  .  .  .  .  .  .  .  .  .  b  c  n  o  f  ne"
+          "na mg .  .  .  .  .  .  .  .  .  .  al si p  s  cl ar"
+          "k  ca sc ti v  cr mn fe co ni cu zn ga ge as se br kr"
+          "rb sr y  zr nb mo tc ru rh pd ag cd in sn sb te i  xe"
+          "cs ba lu hf ta w  re os ir pt au hg tl pb bi po at rn"
+          "fr ra lr rf db sg bh hs mt ds rg cn nh fl mc lv ts og"
+          ".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . "
+          ".  .  la ce pr nd pm sm eu gd tb dy ho er tm yb .  . "
+          ".  .  ac th pa u  np pu am cm bk cf es fm md no .  . ";
+        gap: 5px;
+      }
 
-    document.querySelectorAll(".test-exp-header").forEach(elem => {
-      // elem.parentElement.style.gridTemplateRows = `${elem.offsetHeight}px 0fr`;
-      // elem.parentElement.querySelector(".test-exp-content-wrapper").style.display = "none"
-
-      elem.addEventListener("click", event => { toggleExp(event) });
-    });
-  </script>
-
+      .pse-item {
+        width: 4vw;
+        height: clamp(30px, 4.5vh, 45px);
+      }
+    }
+  </style>
 
 
-  <script src="https://unpkg.com/lucide@latest">
-  </script>
 
-  <!-- <script type="module">
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script type="module">
     import * as datenLoader from "./javascript/datenLoader.js";
     import * as main from "./javascript/scripts.js";
     import * as LabeledIcon from "./javascript/LabeledIcon.js";
     // import * as Expandable from "./javascript/Expandable.js";
 
-    main.addTextHeaderClickListener();
-    main.injectSourceNotes();
+    main.initializeDarkMode();
     main.addExpandableClickListener();
     main.injectFooter();
-  </script> -->
+    console.log("width: " + window.innerWidth + " (1vw = " + window.innerWidth / 100 + ")");
+
+    datenLoader.insertPSE();
+  </script>
 
   <script>
     lucide.createIcons();

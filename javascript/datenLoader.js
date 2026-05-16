@@ -1,4 +1,5 @@
 "use strict";
+import tinycolor from "./tinycolor.js";
 
 
 
@@ -199,28 +200,39 @@ export async function insertPSE() {
     for (let key in alleElementeObj) {
       const elementElem = document.createElement("div");
       const elementsymbolElem = document.createElement("div");
+      const ordnungszahlElem = document.createElement("div");
+      const elementnameElem = document.createElement("div");
 
       elementsymbolElem.innerHTML = alleElementeObj[key].elementsymbol;
-      elementsymbolElem.classList.add("pse-item-elementname");
+      ordnungszahlElem.innerHTML = alleElementeObj[key].ordnungszahl;
+      elementnameElem.innerHTML = alleElementeObj[key].elementname;
+      elementsymbolElem.classList.add("pse-item-elementsymbol");
+      ordnungszahlElem.classList.add("pse-item-ordnungszahl");
+      elementnameElem.classList.add("pse-item-elementname");
 
+      elementElem.append(ordnungszahlElem);
       elementElem.append(elementsymbolElem);
+      elementElem.append(elementnameElem);
       elementElem.style.gridArea = key;
       elementElem.classList.add("pse-item");
-      elementElem.style.backgroundColor = alleElementeObj[key]?.additional_data?.background_color ?? "lightgrey";
+      const bgColorName = alleElementeObj[key]?.additional_data?.background_color ?? "lightgrey";
+      const bgTinyColor = tinycolor(bgColorName);
+      elementElem.style.backgroundColor = bgColorName;
+      elementElem.style.color = bgTinyColor.isLight() ? "#000" : "#fff";
       pseElem.append(elementElem);
 
-      elementElem.addEventListener("pointerenter", event => {
-        event.currentTarget.style.transform = "scale(1.1)";
-        event.currentTarget.addEventListener("pointerleave", function handler(event) {
-          event.currentTarget.style.transform = "";
-          event.currentTarget.removeEventListener("pointerleave", handler);
-        });
-        event.currentTarget.addEventListener("pointercancel", function handler(event) {
-          event.currentTarget.style.transform = "";
-          event.currentTarget.removeEventListener("pointercancel", handler);
-        });
-        return false;
-      });
+      // elementElem.addEventListener("pointerenter", event => {
+      //   event.currentTarget.style.transform = "scale(1.1)";
+      //   event.currentTarget.addEventListener("pointerleave", function handler(event) {
+      //     event.currentTarget.style.transform = "";
+      //     event.currentTarget.removeEventListener("pointerleave", handler);
+      //   });
+      //   event.currentTarget.addEventListener("pointercancel", function handler(event) {
+      //     event.currentTarget.style.transform = "";
+      //     event.currentTarget.removeEventListener("pointercancel", handler);
+      //   });
+      //   return false;
+      // });
     }
     console.log(pseElem.innerHTML)
   } catch (err) {

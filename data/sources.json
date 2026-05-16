@@ -1,42 +1,98 @@
-"zink": {
-  "1": {
-    "name": "PSE-Info",
-    "description": "Online-Datenbank des Periodensystems",
-    "url": "https://pse-info.de/de/data",
-    "visited": ""
-  },
-  "2": {
-    "name": "Wikipedia",
-    "description": "Wikipedia: Zink",
-    "url": "https://de.wikipedia.org/wiki/Zink",
-    "visited": ""
-  },
-  "3": {
-    "name": "zink.de",
-    "url": "https://www.zink.de/zink/herstellung-von-zink/gewinnung/",
-    "visited": ""
-  },
-  "4": {
-    "name": "Institut Seltene Erden",
-    "url": "https://institut-seltene-erden.de/seltene-erden-und-metalle/basismetalle/zink/",
-    "visited": ""
-  },
-  "5": {
-    "name": "Wikipedia",
-    "description": "Wikipedia: Unedle Metalle",
-    "url": "https://de.wikipedia.org/wiki/Unedle_Metalle",
-    "visited": "26.02.2026"
-  },
-  "6": {
-    "name": "chemie.de",
-    "description": "chemie.de: Übergangsmetalle",
-    "url": "https://www.chemie.de/lexikon/Übergangsmetalle.html",
-    "visited": "26.02.2026"
-  },
-  "7": {
-    "name": "GESTIS-Stoffdatenbank",
-    "description": "Zink, Pulver oder Staub, nicht stabilisiert",
-    "url": "https://gestis.dguv.de/data?name=008250",
-    "visited": "26.02.2026"
+{
+  "zink": {
+    "1": {
+      "name": "PSE-Info",
+      "description": "Online-Datenbank des Periodensystems",
+      "url": "https://pse-info.de/de/data",
+      "visited": ""
+    },
+    "2": {
+      "name": "Wikipedia",
+      "description": "Wikipedia: Zink",
+      "url": "https://de.wikipedia.org/wiki/Zink",
+      "visited": ""
+    },
+    "3": {
+      "name": "zink.de",
+      "url": "https://www.zink.de/zink/herstellung-von-zink/gewinnung/",
+      "visited": ""
+    },
+    "4": {
+      "name": "Institut Seltene Erden",
+      "url": "https://institut-seltene-erden.de/seltene-erden-und-metalle/basismetalle/zink/",
+      "visited": ""
+    },
+    "5": {
+      "name": "Wikipedia",
+      "description": "Wikipedia: Unedle Metalle",
+      "url": "https://de.wikipedia.org/wiki/Unedle_Metalle",
+      "visited": "26.02.2026"
+    },
+    "6": {
+      "name": "chemie.de",
+      "description": "chemie.de: Übergangsmetalle",
+      "url": "https://www.chemie.de/lexikon/Übergangsmetalle.html",
+      "visited": "26.02.2026"
+    },
+    "7": {
+      "name": "GESTIS-Stoffdatenbank",
+      "description": "Zink, Pulver oder Staub, nicht stabilisiert",
+      "url": "https://gestis.dguv.de/data?name=008250",
+      "visited": "26.02.2026"
+    },
+    "8": {
+      "name": "scinexx.de",
+      "description": "Artikel: Zink und Co. entwichen schon im Urnebel",
+      "url": "https://www.scinexx.de/news/kosmos/zink-und-co-entwichen-schon-im-urnebel/",
+      "visited": "16.05.2026"
+    },
+    "9": {
+      "name": "Wikipedia",
+      "description": "Wikipedia: Urwolke",
+      "url": "https://de.wikipedia.org/wiki/Urwolke",
+      "visited": "16.05.2026"
+    },
+    "10": {
+      "name": "mehrergmbh.de",
+      "description": "Geschichte des Zink, seine Herstellung und seine Anwendung",
+      "url": "https://mehrergmbh.de/documents/Geschichte_des_Zinks_DE_de.pdf",
+      "visited": "16.05.2026"
+    },
+    "11": {
+      "name": "TU Braunschweig",
+      "description": "Wolfgang Leschhorn: Die römischen Münzen",
+      "url": "https://leopard.tu-braunschweig.de/servlets/MCRFileNodeServlet/dbbs_derivate_00044781/HAUM-Katalog-15-roemische-Muenzen.pdf",
+      "visited": "16.05.2026"
+    },
+    "12": {
+      "name": "DocCheck Flexikon",
+      "description": "Antiseptikum",
+      "url": "https://flexikon.doccheck.com/de/Antiseptikum",
+      "visited": "16.05.2026"
+    },
+    "13": {
+      "name": "DocCheck Flexikon",
+      "description": "Adstringens",
+      "url": "https://flexikon.doccheck.com/de/Adstringens",
+      "visited": "16.05.2026"
+    },
+    "14": {
+      "name": "Wikipedia",
+      "description": "Wikipedia: Zinksulfat",
+      "url": "https://de.wikipedia.org/wiki/Zinksulfat",
+      "visited": "16.05.2026"
+    },
+    "15": {
+      "name": "zink.de",
+      "description": "zink.de: Geschichte",
+      "url": "https://zink.de/zink/geschichte/",
+      "visited": "16.05.2026"
+    },
+    "16": {
+      "name": "Rheinische Industriekultur",
+      "description": "Zinkhütte Altenberg",
+      "url": "https://www.rheinische-industriekultur.com/seiten/objekte/orte/oberhausen/objekte/zink_altenberg.html",
+      "visited": "16.05.2026"
+    }
   }
 }
