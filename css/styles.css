@@ -41,6 +41,8 @@
 html {
   font-size: 16px;
   font-weight: 450;
+  scroll-behavior: smooth;
+  scroll-padding-top: 70px;
 }
 
 
@@ -626,15 +628,6 @@ h3.text-subheader {
   margin-top: 0;
 }
 
-/*p.text {
-  
-}
-
-p.text > p {
-  display: inline-block;
-  
-}*/
-
 /*fachbegriff-info oben bei der Daten-Liste*/
 
 .fachbegriff {
@@ -642,43 +635,11 @@ p.text > p {
   text-decoration: underline dotted 0.075rem;
 }
 
-/*.text-image {
-  display: inline-flex;
-  color: var(--text-muted);
-  float: right;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  max-width: 60%;
-  margin: 1rem;
-}
-
-.text-image > img {
-  max-width: 100%;
-  height: auto;
-  display: inline-block;
-}
-
-@media screen and (max-width: 500px) {
-  .text-image {
-    display: flex;
-    max-width: 100%;
-    width: 100%;
-    margin: 1rem auto;
-    float: left;
-  }
-
-  .text-image > img {
-    max-height: 300px;
-    width: auto;
-    height: auto;
-  }*/
-
 div.text-chapter {
   display: flex;
   flex-direction: column;
   justify-content: center;
-
+  scroll-margin-top: -50px;
 }
 
 div.text-block {
@@ -770,14 +731,18 @@ div.text-only {
 
 @media screen and (max-width: 700px) {
   div.text-block {
-    grid-template-columns: 1fr;
-    grid-template-areas: "img-small" "text";
+    display: flex;
+    flex-direction: column;
   }
 
   div.text-img-small,
   div.text-img-small>* {
     width: auto;
     /*background-color: yellow;*/
+  }
+  
+  div.text-img-small > img {
+    margin-top: 0;
   }
 }
 
