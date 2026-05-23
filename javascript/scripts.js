@@ -446,6 +446,17 @@ function spawnPoppingParticles({
 
 }
 
+document.body.onclick = event => {
+  spawnPoppingParticles({
+    count: 30,
+  size: 15,
+  durationMin: 4000,
+  durationMax: 5000,
+  radiusMin: 100,
+  radiusMax: 110
+  })
+}
+
 
 export function addTextHeaderClickListener() {
   document.querySelectorAll("h2.text-header, h3.text-subheader").forEach(elem => {

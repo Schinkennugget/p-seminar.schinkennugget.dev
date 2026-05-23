@@ -186,15 +186,13 @@ md-text p {
   width: 99.5%;
   z-index: 3;
   border-bottom: 1px solid var(--bg-highlight);
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 @supports (backdrop-filter: blur()) {
   #navbar {
     background-color: var(--bg-navbar);
-    backdrop-filter: blur(6px);
-  }
-
-  #burger-bar-background {
     backdrop-filter: blur(6px);
   }
 }
@@ -288,8 +286,14 @@ li.navbar-active {
 .expandable {
   margin: 0;
   background-color: var(--bg-elevated);
-  border-radius: 2rem;
+  border-radius: 32px;
 }
+
+/*@supports (corner-shape: squircle) {
+  .expandable {
+    corner-shape: squircle;
+  }
+}*/
 
 .expandable-header>h3 {
   margin: 0;
@@ -813,6 +817,7 @@ particle {
   top: 0;
   border-radius: 50%;
   pointer-events: none;
+  -webkit-pointer-events: none;
   opacity: 0;
 }
 

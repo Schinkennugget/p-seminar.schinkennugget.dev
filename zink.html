@@ -148,14 +148,13 @@
             <span data-sources="2">Zink ist ein bläulich-weißes, unedles Metall.</span>
             <span data-sources="5">Unedel bedeutet, dass es leicht korrodiert, also „rostet“. Anders als zum Beispiel
               Eisen, das so lange mit Sauerstoff reagiert, bis es komplett durchgerostet ist, bildet sich bei Zink an
-              der Oberfläche eine Schicht aus quasi „Zinkrost“, der das restliche Metall vor weiterer Korrosion
+              der Oberfläche eine Schicht aus „Zinkrost“, der das restliche Metall vor weiterer Korrosion
               schützt.</span>
             <span data-sources="2">Diese Schicht besteht aus Zinkoxid und Zinkcarbonat und hat die Summenformel
               Zn<sub>5</sub>(OH)<sub>6</sub>(CO<sub>3</sub>)<sub>2</sub>. Sie ist so witterungsbeständig, dass man Zink
               deswegen im Rostschutz einsetzt, zum Beispiel beim <a href="#verwendung-industriell">Verzinken von
                 Eisen</a>.</span>
-            <span data-sources="2,6">Zink gehört zu den Übergangsmetallen, hat wegen seiner abgeschlossenen <a href="">d-Schale</a> aber eher die Eigenschaften von Erdalkalimetallen (Elemente der 2.
-              Hauptgruppe, wie
+            <span data-sources="2,6">Zink gehört zu den Übergangsmetallen, hat wegen seiner abgeschlossenen <a href="">d-Schale</a> aber eher die Eigenschaften von Erdalkalimetallen (Elemente der 2. Hauptgruppe, wie
               Beryllium oder Magnesium).</span>
             <span data-sources="7">Feines, nicht stabilisiertes Zinkpulver kann sich an der Luft oder bei Kontakt mit
               Wasser spontan entzünden, man spricht deshalb von einem pyrophoren Feststoff.</span>
@@ -240,6 +239,7 @@
             <!-- <span data-sources="2">Zink ist auf der Erde mit einem Gehalt von 0,00076% an der Erdkruste ein relativ häufiges Element. Ordnet man die Elemente nach Häufigkeit, steht Zink an 24. Stelle, noch vor beispielsweise Kupfer oder Blei. Man findet es überwiegend gebunden in Erzen, Zinksulfiderze sind dabei die wichtigsten für die industrielle Gewinnung. 2024 sind insgesamt mehr als 330 Zink-Minerale bekannt.</span> <span data-sources='2,3'>Große Lagerstätten existieren in Nordamerika, Australien, China und Kasachstan. Auch in Deutschland gibt es Zinkvorkommen, beispielsweise im Raum Eschweiler-Stolberg im Rheinland, am Rammelsberg im Harz oder bei Ramsbeck im Sauerland, jedoch wurde die Zinkgewinnung in Deutschland oft wegen der unzureichenden Wirtschaftlichkeit, der Konkurrenz durch billigere Importe und veralteter Abbaumethoden geschlossen.</span>
             <br /><br />
             <span data-sources="4">Das wichtigste Mineral für die Zinkgewinnung ist Sphalerit (ZnS), im Bergbau auch als Zinkblende bekannt.</span> Das bedeutet das außer Zink im Konzentrat noch etwa 20% Schwefel enthalten sind. Ein weiterer Vorteil ist, dass Zinkkonzentrate immer Eisen, Silber und Blei in unterschiedlichen Anteilen mit sich bringen, das diese Elemente oft in den Erzen gemeinsam vorkommen. <span data-sources="5,6">Die Kunst ist weniger die Gewinnung von Zink, sondern die Abtrennung der Begleitelemente so, dass man sie als Nebenprodukte nutzen kann. Dafür wir zuerst das Konzentrat auf über 900 Grad Celsius erhitzt, sodass ZnS zu ZnO reagiert. Der Fachmann spricht von einer Röstung. Anschließend folgt eine Reduktion (meist hydrometallurgisch per Elektrolyse) zu einem reinem Metall.</span> Über 90 % des Zinks entstehen durch dieses nasse Verfahren, der Rest pyrometallurgisch im Schachtofen. Pyrometallurgisch bedeutet, dass Zinkoxid mit Kohle in Öfen reduziert. Der Siedepunkt von Zink ist mit 907 Grad Cellsius relativ niedrig. Dadurch entsteht Zinkdampf, welcher im Anschluss auskondensiert wird. Gleichzeitig verbindet sich Schwefel mit Sauerstoff zu gasförmigem Schwefeldioxid (SO<sub>2</sub>). In speziellen Anlagen wird aus dem Schwefeldioxid Schwefelsäure gewonnen, welche man zum Beispiel für die Herstellung von Düngemitteln benötigt. Zink wird zudem in erheblichem Maße durch das Recycling von Schrott (Sekundärzink) gewonnen.<span data-sources="2,5"></span> -->
+            \( \ce{2 Zn + SO4^2- -> Zn2SO4} \)
             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
             dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
             clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
@@ -412,11 +412,8 @@
 
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js">
     window.MathJax = {
-      tex: {
-        packages: {
-          '[+]': ['mhchem']
-        }
-      }
+      loader: { load: ['[tex]/mhchem'] },
+      tex: { packages: { '[+]': ['mhchem'] } }
     };
   </script>
 </body>
