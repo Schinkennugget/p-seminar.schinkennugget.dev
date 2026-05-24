@@ -207,53 +207,6 @@ export function toggleExpandable(event) {
     expandableContainerEl.querySelector(".expandable-header-icon").style.rotate = "";
   }
 }
-//     const expandableContainerEl = event.currentTarget.parentElement;
-//     const expandableContentWrapperEl = expandableContainerEl.querySelector(".expandable-content-wrapper");
-//     const expandableContentEl = expandableContainerEl.querySelector(".expandable-content");
-
-//     const shouldExpand = !Boolean(JSON.parse(expandableContainerEl.dataset.expanded));
-
-//     expandableContentWrapperEl.removeEventListener("transitionend", transitionendHandler);
-//     expandableContentEl.style.overflow = "hidden";
-
-//     if (shouldExpand) {
-//       // 1. Sichtbar machen
-//       expandableContentWrapperEl.style.display = "grid";
-
-//       // 2. Einen "Reflow" erzwingen
-//       // Ohne diese Zeile fasst der Browser display:grid und den Attribut-Wechsel 
-//       // in einem einzigen Rechenschritt zusammen -> Keine Animation.
-//       void expandableContentWrapperEl.offsetHeight;
-
-//       // 3. Status ändern (jetzt startet die Animation)
-//       expandableContainerEl.dataset.expanded = "true";
-//     } else {
-//       // Beim Einklappen einfach nur den Status ändern
-//       expandableContainerEl.dataset.expanded = "false";
-//     }
-
-//     function transitionendHandler() {
-//       expandableContentWrapperEl.removeEventListener("transitionend", transitionendHandler);
-//       // Nur ausblenden, wenn wir gerade fertig mit dem Einklappen sind
-//       if (expandableContainerEl.dataset.expanded === "false") {
-//         expandableContentWrapperEl.style.display = "none";
-//       } else {
-//         expandableContentEl.style.overflow = "show";
-//       }
-//     }
-
-//     expandableContentWrapperEl.addEventListener("transitionend", transitionendHandler);
-
-//     // Icon Rotation
-//     const expandableHeaderIconEl = event.currentTarget.querySelector("svg.expandable-header-icon");
-//     if (expandableHeaderIconEl) {
-//       expandableHeaderIconEl.style.rotate = shouldExpand ? "-180deg" : "";
-//     }
-//   } catch (err) {
-//     console.error(err.name + ": " + err.message);
-//   }
-// }
-
 
 
 
@@ -388,8 +341,8 @@ function copyURIWithID(id) {
 function spawnPoppingParticles({
   xPos = event?.clientX,
   yPos = event?.clientY,
-  count = 15,
-  size = 4.5,
+  count = 12,
+  size = 6,
   durationMin = 1550,
   durationMax = 1600,
   radiusMin = 25,
@@ -443,18 +396,6 @@ function spawnPoppingParticles({
       particle.remove();
     };
   }
-
-}
-
-document.body.onclick = event => {
-  spawnPoppingParticles({
-    count: 30,
-  size: 15,
-  durationMin: 4000,
-  durationMax: 5000,
-  radiusMin: 100,
-  radiusMax: 110
-  })
 }
 
 

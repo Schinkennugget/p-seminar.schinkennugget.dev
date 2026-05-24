@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="keywords" content="Chemie, P-Seminar, WHG" />
+  <meta name="content" content="P-Seminar Chemie" />
+  <meta name="author" content="Schinkennugget" />
+  <script>
+    //NUR FÜR DEVELOPMENT, DEAKTIVIERT CACHING
+    const v = Date.now(); // neuer Wert bei jedem Seitenaufruf
+    const linkCSS = document.createElement("link");
+    linkCSS.rel = "stylesheet";
+    linkCSS.href = "../../css/styles.css";
+
+    if (document.baseURI.includes("p-seminar.schinkennugget.dev")) {
+      linkCSS.href += "?v=" + v;
+    }
+    document.head.append(linkCSS);
+  </script>
+
+  <title>Experiment Batterie</title>
+
+</head>
+
+<body tabindex="0">
+
+  <nav>
+    <ul id="navbar">
+      <li class="navbar-item-left">
+        <a href="index.html" tabindex="0">
+          <i data-lucide="house" class="navbar-icon"></i>
+          <span class="navbar-text-1">Startseite</span>
+        </a>
+      </li>
+      <li class="navbar-item-left">
+        <a href="experimente/alle-experimente.html" tabindex="0">
+          <i data-lucide="flask-conical" class="navbar-icon"></i>
+          <span class="navbar-text-2">Experimente</span>
+        </a>
+      </li>
+
+      <li class="navbar-item-right" tabindex="0" id="navbar-button-darkmode">
+        <span>
+          <i data-lucide="sun" class="navbar-icon" id="navbar-icon-sun"></i>
+          <i data-lucide="moon" class="navbar-icon" id="navbar-icon-moon"></i>
+        </span>
+      </li>
+      <li class="navbar-item-right" tabindex="0" onclick="window.print();">
+        <span>
+          <i data-lucide="printer" class="navbar-icon"></i>
+          <span class="navbar-text-3">Seite drucken</span>
+        </span>
+      </li>
+    </ul>
+  </nav>
+  
+  <main>
+    <h2>Experiment: Léclanche-Element</h2>
+    <h3>Materialien</h3>
+    <ul>
+      <li>Stativ mit Klemme und Muffe</li>
+      <li>2 kleine Bechergläser</li>
+      <li>Reagenzglasklammer</li>
+      <li>(Lämpchen/Motor)</li>
+      <li>Voltmeter</li>
+      <li>Kabel</li>
+      <li>Krokodilklemmen</li>
+      <li>ein Stück dünne Pappe</li>
+    </ul>
+    
+    <h3>Chemikalien</h3>
+    <ul>
+      <li>Ammoniumchlorid</li>
+      <li>Mangandioxid (Braunstein)</li>
+      <li>Zinkblech</li>
+      <li>Kohleelektrode</li>
+      <li>Stärke</li>
+    </ul>
+    
+    <h3>Durchführung</h3>
+    <ol>
+      <li>Zuerst die Elektronen blank schleifen und aus der Pappe eine Platte schneiden, die etwas kürzer ist als die Elektoden.</li>
+      <li>Etwa 15 mL Wasser und ein paar gehäuften Spatelspitzen Braunstein vermischen, dann so viel Stärke zugeben, dass eine zähe Paste entsteht.</li>
+      <li>Im zweiten Becherglas 20 mL Wasser so lange Ammoniumchlorid beimischen, bis die Lösung gesättigt ist und die Pappe darin tränken.</li>
+      <li>Das Zinkblech einspannen und die Pappe darauflegen.</li>
+      <li>Die Kohleelektrode mit der Braunsteinmischung beschmieren und auf die Pappe drücken. Jetzt kann mithilfe der Krokodilklemmen, die an die Elektroden angebracht werden, die Spannung gemessen werden. Mit dem Strom kann auch ein Verbraucher wie ein Motor oder eine LED betrieben werden.
+        <img src="batterie-aufbau.jpeg" width="600px" style="display: block; width: min(300px, 100%)" /></li>
+    </ol>
+    
+    <h3>Beobachtung</h3>
+    <p>Es lässt sich eine Spannung messen bzw. das Lämpchen / der Motor geht an.</p>
+    <video src="batterie-beobachtung.mov" preload="auto" controls width="600px" style="display: block; width: min(300px, 100%)"></video>
+    
+    <h3>Erklärung</h3>
+    <p>
+      Es findet eine Redoxreaktion statt, bei der Elektronen durch den Verbraucher wandern und ihn so antreiben: <br />
+      Oxidation: \( \ce{Zn -> Zn^2+ + 2 e^-} \) <br />
+      Reduktion: \( \ce{2 MnO2 + H2O + 2 e- -> MnO(OH) + 2 OH^-} \) <br />
+      Gesamtgleichung: \( \ce{2 MnO2 + H2O + Zn → Zn^2+ + MnO(OH) + 2 OH^-} \)
+    </p>
+  </main>
+  
+  
+  
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script type="module">
+    import * as datenLoader from "../../javascript/datenLoader.js";
+    import * as main from "../../javascript/scripts.js";
+    import * as LabeledIcon from "../../javascript/LabeledIcon.js";
+    // import * as Expandable from "./javascript/Expandable.js";
+
+    main.initializeDarkMode();
+    main.injectFooter();
+  </script>
+
+  <script>
+    lucide.createIcons();
+  </script>
+
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js">
+    window.MathJax = {
+      tex: {
+        packages: {
+          '[+]': ['mhchem']
+        }
+      }
+    };
+  </script>
+</body>
+</html>
