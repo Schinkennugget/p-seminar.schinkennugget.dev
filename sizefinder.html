@@ -11,7 +11,7 @@
 <body>
   <div>Width: <span id="width"></span></div>
   <div>Height: <span id="height"></span></div>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Zinc_fragment_sublimed_and_1cm3_cube.jpg" />
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Zinc_fragment_sublimed_and_1cm3_cube.jpg/960px-Zinc_fragment_sublimed_and_1cm3_cube.jpg" />
 
   <script>
     setTimeout(() => {
@@ -21,7 +21,7 @@
       document.getElementById("height").innerHTML = height;
 
       try {
-      navigator.clipboard.writeText(`width="${width}px" height="${height}px"`);
+      navigator.clipboard.writeText(`width="${width}" height="${height}"`);
     } catch (err) {
       console.error(err.name)
     }

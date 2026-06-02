@@ -197,7 +197,7 @@ md-text p {
   }
 }
 
-li[class|="navbar-item"]>* {
+li[class|="navbar-item"] > * {
   display: flex;
   cursor: pointer;
   justify-content: space-evenly;
@@ -295,7 +295,7 @@ li.navbar-active {
   }
 }*/
 
-.expandable-header>h3 {
+.expandable-header > h3 {
   margin: 0;
   width: 100%;
   text-align: left;
@@ -429,7 +429,7 @@ div.daten-on-hover {
   grid-area: infotext;
 }
 
-#daten-infotext>* {
+#daten-infotext > * {
   height: 0.9em;
   stroke-width: 0.15rem;
 }
@@ -488,7 +488,6 @@ span.fachbegriff-info {
 
 /*Popup beim Hovern über die Datenliste*/
 tr.daten-liste-elem-on-hover .daten-info
-
 /*,
 .fachbegriff:hover .fachbegriff-info*/
   {
@@ -648,7 +647,7 @@ div.text-chapter {
 
 div.text-block {
   display: grid;
-  grid-template-columns: 3fr 2fr;
+  grid-template-columns: 3fr 2fr; /*Achtung: Bei Änderungen auch sizes von Bildern anpassen!*/
   grid-template-areas: "text img-small";
   gap: 40px;
   max-width: 1000px;
@@ -669,7 +668,8 @@ div.text {
 
 
 div.text-img-small,
-div.text-img-small>* {
+div.text-img-small > *,
+div.text-img-small > picture > * {
   max-width: 100%;
   width: 100%;
   /*background-color: yellow;*/
@@ -679,17 +679,24 @@ div.text-img-small {
   grid-area: img-small;
 }
 
-div.text-img-small>* {
+div.text-img-small > *,
+div.text-img-small > picture > * {
   display: block;
   height: auto;
 }
 
-div.text-img-small>img {
+div.text-img-small > img,
+div.text-img-small > picture > * {
   border-radius: 8px;
+}
+
+div.text-img-small > img,
+div.text-img-small > picture {
   margin-top: 20px;
 }
 
-div.text-img-small>img:first-child {
+div.text-img-small > img:first-child,
+div.text-img-small > picture:first-child {
   margin-top: 0;
 }
 
@@ -714,7 +721,7 @@ div.text-img-large {
   justify-content: center;
 }
 
-div.text-img-large>* {
+div.text-img-large > * {
   max-width: 90%;
   align-self: center;
   width: auto;
@@ -740,12 +747,13 @@ div.text-only {
   }
 
   div.text-img-small,
-  div.text-img-small>* {
-    width: auto;
+  div.text-img-small > * {
+    width: 100%;
     /*background-color: yellow;*/
   }
-  
-  div.text-img-small > img {
+
+  div.text-img-small > img,
+  div.text-img-small > picture {
     margin-top: 0;
   }
 }
@@ -776,11 +784,11 @@ sup.source-note:hover {
   /*justify-content: flex-start;*/
 }
 
-#quellen>*:first-child {
+#quellen > *:first-child {
   margin-top: 0;
 }
 
-#quellen>*:last-child {
+#quellen > *:last-child {
   margin-bottom: 0;
 }
 
@@ -796,7 +804,7 @@ sup.source-note:hover {
   text-align: center;
 }
 
-.frac>span {
+.frac > span {
   display: block;
   padding: 0.1em;
   font-size: 0.75em;
@@ -830,7 +838,7 @@ footer {
   justify-content: center;
 }
 
-footer>ul {
+footer > ul {
   list-style-type: none;
   width: max-content;
   margin: 0;
@@ -895,7 +903,7 @@ footer a:hover {
 }
 
 @media screen and (max-width: 900px) {
-  footer>ul {
+  footer > ul {
     /*width: 1;*/
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -904,7 +912,7 @@ footer a:hover {
 }
 
 @media screen and (max-width: 500px) {
-  footer>ul {
+  footer > ul {
     /*width: 1;*/
     display: grid;
     grid-template-columns: 1fr;
@@ -989,7 +997,8 @@ footer a:hover {
 
 /* inter-regular - latin */
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
   font-family: 'Inter';
   font-style: normal;
   font-weight: 400;

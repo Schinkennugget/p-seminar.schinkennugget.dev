@@ -136,7 +136,7 @@
     </div>
 
     <script>
-      setTimeout(() => { 
+      setTimeout(() => {
         console.log(document.getElementById("daten-abschnitt").outerHTML);
       }, 2000);
     </script>
@@ -167,10 +167,22 @@
         </div>
 
         <div class="text-img-small">
-          <img width="640px" height="391px" alt="Zinc" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Zinc_fragment_sublimed_and_1cm3_cube.jpg/960px-Zinc_fragment_sublimed_and_1cm3_cube.jpg" />
+          <img
+          srcset="
+          https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Zinc_fragment_sublimed_and_1cm3_cube.jpg/330px-Zinc_fragment_sublimed_and_1cm3_cube.jpg 330w,
+          https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Zinc_fragment_sublimed_and_1cm3_cube.jpg/960px-Zinc_fragment_sublimed_and_1cm3_cube.jpg 960w,
+          https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Zinc_fragment_sublimed_and_1cm3_cube.jpg/1280px-Zinc_fragment_sublimed_and_1cm3_cube.jpg 1280w,
+          https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Zinc_fragment_sublimed_and_1cm3_cube.jpg/3840px-Zinc_fragment_sublimed_and_1cm3_cube.jpg 3840w,
+          https://upload.wikimedia.org/wikipedia/commons/f/f9/Zinc_fragment_sublimed_and_1cm3_cube.jpg 5135w" 
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Zinc_fragment_sublimed_and_1cm3_cube.jpg/960px-Zinc_fragment_sublimed_and_1cm3_cube.jpg"
+          sizes="
+          (max-width: 700px) 90vw,
+          (max-width: 1111px) calc((90vw - 40px) * 0.4),
+          384px
+          " alt="Unterschiedliche Formen von Zink">
+
           <a class="text-img-footer" title="Alchemist-hp (talk) (www.pse-mendelejew.de), FAL, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Zinc_fragment_sublimed_and_1cm3_cube.jpg">
             Zink als Würfel, kristallines Bruchstück und sublimiert.
-          </a>
           </a>
         </div>
       </div>
@@ -224,7 +236,19 @@
         </div>
 
         <div class="text-img-small">
-          <img width="960" alt="1645 industrial museum Oberhausen" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/1645_industrial_museum_Oberhausen.jpg/960px-1645_industrial_museum_Oberhausen.jpg">
+          <img
+          srcset="
+          https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/1645_industrial_museum_Oberhausen.jpg/330px-1645_industrial_museum_Oberhausen.jpg 330w,
+          https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/1645_industrial_museum_Oberhausen.jpg/960px-1645_industrial_museum_Oberhausen.jpg 960w,
+          https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/1645_industrial_museum_Oberhausen.jpg/1280px-1645_industrial_museum_Oberhausen.jpg 1280w,
+          https://upload.wikimedia.org/wikipedia/commons/f/f6/1645_industrial_museum_Oberhausen.jpg 3872w" 
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/1645_industrial_museum_Oberhausen.jpg/960px-1645_industrial_museum_Oberhausen.jpg"
+          sizes="
+          (max-width: 700px) 90vw,
+          (max-width: 1111px) calc((90vw - 40px) * 0.4),
+          384px
+          " alt="Zinkhütte Altenberg">
+          
           <a class="text-img-footer" title="Spyrosdrakopoulos, CC BY-SA 4.0 &lt;https://creativecommons.org/licenses/by-sa/4.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:1645_industrial_museum_Oberhausen.jpg">
             Die Zinkhütte Altenberg heute. Sie war das erste Zinkwalzwerk in Europa und wurde 1805 errichtet.
           </a>
@@ -323,7 +347,7 @@
         <div class="text-img-small">
           <img title="Wertuose, CC BY-SA 4.0 &lt;https://creativecommons.org/licenses/by-sa/4.0&gt;, via Wikimedia Commons" width="960" alt="Sumgayit Technologies Park - hot-dip galvanization 03" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Sumgayit_Technologies_Park_-_hot-dip_galvanization_03.jpg/960px-Sumgayit_Technologies_Park_-_hot-dip_galvanization_03.jpg">
           <a class="text-img-footer" href="https://commons.wikimedia.org/wiki/File:Sumgayit_Technologies_Park_-_hot-dip_galvanization_03.jpg">
-            Feuerverzinken: Die Stahlträger werden in flüssiges Zink getaucht
+            Feuerverzinken: Die Stahlträger werden in flüssiges Zink getaucht VIELLEICHT NOCH BILD AUSTAUSCHEN
           </a>
 
           <!-- <img src="https://www.makerverse.com/wp-content/uploads/2024/10/galvanization-process.jpg.webp" width="1280px" height="723px" />

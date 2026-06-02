@@ -1,57 +1,31 @@
 <!DOCTYPE html>
-<html lang="de">
+<html>
+<head><title>Canvas to Image</title></head>
+<body>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-</head>
+<img id="output" />
 
-<body style="overflow: hidden;">
-  <div id="mouseenter"></div>
-  <div id="mousemove"></div>
-  <div id="mousedown"></div>
-  <div id="pointerenter"></div>
-  <div id="pointermove"></div>
-  <div id="touchstart"></div>
-  <div id="touchmove"></div>
-  <script>
-    window.addEventListener("mouseenter", event => {
-      document.getElementById("mouseenter").innerHTML = `MouseEnter`;
-      return false;
-    });
-    window.addEventListener("mouseleave", event => {
-      document.getElementById("mouseenter").innerHTML = ``;
-      return false;
-    });
-    
-    window.addEventListener("mousemove", event => {
-      document.getElementById("mousemove").innerHTML = `MouseMove: ${event.clientX}`;
-      return false;
-    });
-    
-    window.addEventListener("mousedown", event => {
-      document.getElementById("mousedown").innerHTML = `MouseDown`;
-      return false;
-    });
-    window.addEventListener("mouseup", event => {
-      document.getElementById("mousedown").innerHTML = ``;
-      return false;
-    });
-    
-    window.addEventListener("mouseup", event => {
-      document.getElementById("mousedown").innerHTML = ``;
-      return false;
-    });
-    window.addEventListener("pointerenter", event => {
-      document.getElementById("pointerenter").innerHTML = `PointerEnter: ${event.pointerType}`;
-      return false;
-    });
-    window.addEventListener("pointerleave", event => {
-      document.getElementById("pointerleave").innerHTML = ``;
-      return false;
-    });
-    
-  </script>
+<script>
+  const WIDTH = 960;
+  const HEIGHT = 500;
+
+  const canvas = document.createElement("canvas");
+  canvas.width = WIDTH;
+  canvas.height = HEIGHT;
+
+  const ctx = canvas.getContext("2d");
+
+  ctx.fillStyle = "#ff0";
+  ctx.fillRect(0, 0, WIDTH, HEIGHT);
+
+  ctx.fillStyle = "#fff";
+  ctx.font = "32px sans-serif";
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+  ctx.fillText("default", WIDTH / 2, HEIGHT / 2);
+
+  document.getElementById("output").src = canvas.toDataURL();
+</script>
+
 </body>
-
 </html>
