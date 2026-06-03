@@ -166,12 +166,10 @@
         </div>
 
         <div class="text-img-small">
-          <img srcset="
-          https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Zinc_fragment_sublimed_and_1cm3_cube.jpg/330px-Zinc_fragment_sublimed_and_1cm3_cube.jpg 330w,
-          https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Zinc_fragment_sublimed_and_1cm3_cube.jpg/960px-Zinc_fragment_sublimed_and_1cm3_cube.jpg 960w,
-          https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Zinc_fragment_sublimed_and_1cm3_cube.jpg/1280px-Zinc_fragment_sublimed_and_1cm3_cube.jpg 1280w,
-          https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Zinc_fragment_sublimed_and_1cm3_cube.jpg/3840px-Zinc_fragment_sublimed_and_1cm3_cube.jpg 3840w,
-          https://upload.wikimedia.org/wikipedia/commons/f/f9/Zinc_fragment_sublimed_and_1cm3_cube.jpg 5135w" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Zinc_fragment_sublimed_and_1cm3_cube.jpg/960px-Zinc_fragment_sublimed_and_1cm3_cube.jpg" sizes="
+          <img id="test-img" srcset="
+          images/test-imgs/330w.png 330w,
+          images/test-imgs/960w.png 960w,
+          images/test-imgs/1280w.png 1280w" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Zinc_fragment_sublimed_and_1cm3_cube.jpg/960px-Zinc_fragment_sublimed_and_1cm3_cube.jpg" sizes="
           (max-width: 700px) 90vw,
           (max-width: 1111px) calc((90vw - 40px) * 0.4),
           384px
@@ -183,6 +181,12 @@
         </div>
       </div>
     </div>
+    
+    <script>
+      setTimeout(() => {
+        document.getElementById("test-img").sizes = "100%";
+      }, 5000);
+    </script>
 
 
     <div id="geschichte" class="text-chapter">
