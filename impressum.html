@@ -20,6 +20,11 @@
     }
     document.head.append(linkCSS);
   </script>
+  
+  <script type="module">
+    import * as darkmode from "./javascript/darkmode.js";
+    darkmode.initialize();
+  </script>
 
   <title>Impressum</title>
 
@@ -139,14 +144,9 @@ Die Inhalte dieser Website wurden mit größter Sorgfalt erstellt. Für die Rich
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <script type="module">
-    import * as datenLoader from "./javascript/datenLoader.js";
-    import * as main from "./javascript/scripts.js";
     import * as LabeledIcon from "./javascript/LabeledIcon.js";
-    // import * as MarkdownText from "./javascript/MarkdownText.js";
-    // import * as Expandable from "./javascript/Expandable.js";
-
-    main.initializeDarkMode();
-    main.injectFooter();
+    import * as staticContentLoader from "./javascript/staticContentLoader.js";
+    staticContentLoader.injectFooter();
   </script>
 
   <script>

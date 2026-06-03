@@ -18,6 +18,11 @@
   <meta http-equiv="Expires" content="0">
 
   <title>P-Seminar Chemie</title>
+  
+  <script type="module">
+    import * as darkmode from "./javascript/darkmode.js";
+    darkmode.initialize();
+  </script>
 </head>
 
 <body tabindex="0">
@@ -87,10 +92,9 @@
   </script>
 
   <script type="module">
-    import * as main from "./javascript/scripts.js";
-
-    main.initializeDarkMode();
-    main.injectFooter();
+    import * as LabeledIcon from "./javascript/LabeledIcon.js";
+    import * as staticContentLoader from "./javascript/staticContentLoader.js";
+    staticContentLoader.injectFooter();
   </script>
 </body>
 

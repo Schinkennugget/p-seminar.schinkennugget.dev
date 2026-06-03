@@ -1,3 +1,0 @@
-class TextChapter extends HTMLElement {
-  
-}

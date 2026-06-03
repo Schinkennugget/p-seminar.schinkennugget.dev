@@ -27,6 +27,11 @@
     }
     document.head.append(linkCSS);
   </script>
+  
+  <script type="module">
+    import * as darkmode from "./javascript/darkmode.js";
+    darkmode.initialize();
+  </script>
 
   <title>Zink</title>
 </head>
@@ -135,12 +140,6 @@
       </div>
     </div>
 
-    <script>
-      setTimeout(() => {
-        console.log(document.getElementById("daten-abschnitt").outerHTML);
-      }, 2000);
-    </script>
-
 
     <div id="eigenschaften" class="text-chapter">
       <h2 tabindex="0" class="text-header">Eigenschaften
@@ -167,15 +166,12 @@
         </div>
 
         <div class="text-img-small">
-          <img
-          srcset="
+          <img srcset="
           https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Zinc_fragment_sublimed_and_1cm3_cube.jpg/330px-Zinc_fragment_sublimed_and_1cm3_cube.jpg 330w,
           https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Zinc_fragment_sublimed_and_1cm3_cube.jpg/960px-Zinc_fragment_sublimed_and_1cm3_cube.jpg 960w,
           https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Zinc_fragment_sublimed_and_1cm3_cube.jpg/1280px-Zinc_fragment_sublimed_and_1cm3_cube.jpg 1280w,
           https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Zinc_fragment_sublimed_and_1cm3_cube.jpg/3840px-Zinc_fragment_sublimed_and_1cm3_cube.jpg 3840w,
-          https://upload.wikimedia.org/wikipedia/commons/f/f9/Zinc_fragment_sublimed_and_1cm3_cube.jpg 5135w" 
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Zinc_fragment_sublimed_and_1cm3_cube.jpg/960px-Zinc_fragment_sublimed_and_1cm3_cube.jpg"
-          sizes="
+          https://upload.wikimedia.org/wikipedia/commons/f/f9/Zinc_fragment_sublimed_and_1cm3_cube.jpg 5135w" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Zinc_fragment_sublimed_and_1cm3_cube.jpg/960px-Zinc_fragment_sublimed_and_1cm3_cube.jpg" sizes="
           (max-width: 700px) 90vw,
           (max-width: 1111px) calc((90vw - 40px) * 0.4),
           384px
@@ -236,19 +232,16 @@
         </div>
 
         <div class="text-img-small">
-          <img
-          srcset="
+          <img srcset="
           https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/1645_industrial_museum_Oberhausen.jpg/330px-1645_industrial_museum_Oberhausen.jpg 330w,
           https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/1645_industrial_museum_Oberhausen.jpg/960px-1645_industrial_museum_Oberhausen.jpg 960w,
           https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/1645_industrial_museum_Oberhausen.jpg/1280px-1645_industrial_museum_Oberhausen.jpg 1280w,
-          https://upload.wikimedia.org/wikipedia/commons/f/f6/1645_industrial_museum_Oberhausen.jpg 3872w" 
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/1645_industrial_museum_Oberhausen.jpg/960px-1645_industrial_museum_Oberhausen.jpg"
-          sizes="
+          https://upload.wikimedia.org/wikipedia/commons/f/f6/1645_industrial_museum_Oberhausen.jpg 3872w" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/1645_industrial_museum_Oberhausen.jpg/960px-1645_industrial_museum_Oberhausen.jpg" sizes="
           (max-width: 700px) 90vw,
           (max-width: 1111px) calc((90vw - 40px) * 0.4),
           384px
           " alt="Zinkhütte Altenberg">
-          
+
           <a class="text-img-footer" title="Spyrosdrakopoulos, CC BY-SA 4.0 &lt;https://creativecommons.org/licenses/by-sa/4.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:1645_industrial_museum_Oberhausen.jpg">
             Die Zinkhütte Altenberg heute. Sie war das erste Zinkwalzwerk in Europa und wurde 1805 errichtet.
           </a>
@@ -349,11 +342,6 @@
           <a class="text-img-footer" href="https://commons.wikimedia.org/wiki/File:Sumgayit_Technologies_Park_-_hot-dip_galvanization_03.jpg">
             Feuerverzinken: Die Stahlträger werden in flüssiges Zink getaucht VIELLEICHT NOCH BILD AUSTAUSCHEN
           </a>
-
-          <!-- <img src="https://www.makerverse.com/wp-content/uploads/2024/10/galvanization-process.jpg.webp" width="1280px" height="723px" />
-          <a class="text-img-footer" href="https://www.makerverse.com/de/ressourcen/metallblech/verstandnis-des-galvanisierungsprozesses/">
-            Galvanisieren
-          </a> -->
         </div>
       </div>
 
@@ -378,15 +366,61 @@
       <div class="text-block">
         <div class="text">
           <p>
-            Text zur Bedeutung im Körper
+            Text zur Bedeutung im Körper<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />😃
           </p>
         </div>
 
-        <div class="text-img-small">
-          <img src="missing" width="1280px" height="723px" />
-          <a class="text-img-footer" href="h">
+        <div class="text-img-small" style="
+        z-index: 2;
+        position:fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        padding: 60.5px 10px 10px 10px;
+        box-sizing: border-box;
+        display: none;
+        grid-template-rows: 1fr auto;
+        grid-template-columns: 1fr;
+        gap: 3px;
+        background-color: var(--bg-transparent);
+        backdrop-filter: blur(10px);
+        ">
+          <div class="fullscreen-img-container" style="
+            max-width: 100%;
+            /*max-height: 80%;*/
+            display: flex;
+            justify-content: center;
+            height: 100%;        /* statt auto */
+min-height: 0;       /* verhindert, dass Grid-Item überläuft */
+width: auto;
+            overflow: none;">
+            <img src="images/test-imgs/test.webp" style="
+              display: block;
+border-radius: 0; 
+max-height: 100%;
+max-width: 100%;
+object-fit: contain;
+/*padding: 10px 10px 0 10px;*/
+box-sizing: border-box;
+" />
+          </div>
+
+          <a class="text-img-footer" href="h" style="display: none;">
             Bild einfügen
           </a>
+
+          <div class="fullscreen-img-footer" style="font-size: 0.9rem; margin-top: none;">
+            <div class="fullscreen-img-description">
+              Ein schönes Bild von kurzgesagt 🥰. Es kommt aus dem Video zu Quasaren oder so, keine Ahnung habs von reddit als Wallpaper geklaut. Ein schönes Bild von kurzgesagt 🥰. Es kommt aus dem Video zu Quasaren oder so, keine Ahnung habs von reddit als Wallpaper geklaut.Ein schönes Bild von kurzgesagt 🥰. Es kommt aus dem Video zu Quasaren oder so, keine Ahnung habs von reddit als Wallpaper geklaut.Ein schönes Bild von kurzgesagt 🥰. Es kommt aus dem Video zu Quasaren oder so, keine Ahnung habs von reddit als Wallpaper geklaut.
+            </div>
+            <div class="fullscreen-img-license" style="margin-top: 0.5rem; text-align: center;">
+              <span class="fullscreen-img-license-title"><strong>Titel:</strong> kurzgesagt Bild yay</span>&emsp;
+              <span class="fullscreen-img-license-author"><strong>Autor:</strong> kurzgesagt oder so ka</span>&emsp;
+              <span class="fullscreen-img-license-source"><strong>Quelle:</strong> <a href="reddit.com">reddit</a></span>&emsp;
+              <span class="fullscreen-img-license-license"><strong>Lizenz:</strong> <a href="bla">ka hab geklaut</a></span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -410,29 +444,36 @@
   </main>
 
 
-
-  <!-- Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <script type="module">
+    import * as LabeledIcon from "./javascript/LabeledIcon.js";
+    import * as staticContentLoader from "./javascript/staticContentLoader.js";
+    staticContentLoader.injectFooter();
+  </script>
+  
+  <script async type="module">
+    import * as expandableHandler from "./javascript/expandableHandler";
+    expandableHandler.addClickListener();
+    expandableHandler.addDatenHoverEventListener();
+  </script>
+  
+  <script async type="module">
+    import * as sourceLoader from "./javascript/sourceLoader";
+    sourceLoader.injectSourceNotes();
+  </script>
 
   <script type="module">
     import * as datenLoader from "./javascript/datenLoader.js";
     import * as main from "./javascript/scripts.js";
-    import * as LabeledIcon from "./javascript/LabeledIcon.js";
-    // import * as Expandable from "./javascript/Expandable.js";
-
-    main.initializeDarkMode();
+   
     main.addTextHeaderClickListener();
-    main.injectSourceNotes();
-    main.addDatenHoverEventListener();
-    main.addExpandableClickListener();
-    main.injectFooter();
-
+    
     const elementName = document.querySelector("#header-text > h1").innerText;
     datenLoader.insertDatenIntoGrafik(elementName);
     datenLoader.insertDatenIntoDatenliste(elementName);
     datenLoader.generateAndInjectFavicon(elementName);
     // datenLoader.insertPSE();
-    console.log(document.querySelector("#pse-container").innerHTML)
   </script>
 
   <script>

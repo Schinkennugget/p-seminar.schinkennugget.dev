@@ -20,6 +20,11 @@
     }
     document.head.append(linkCSS);
   </script>
+  
+  <script type="module">
+    import * as darkmode from "./javascript/darkmode.js";
+    darkmode.initialize();
+  </script>
 
   <title>Datenschutzerklärung</title>
 
@@ -131,11 +136,9 @@
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <script type="module">
-    import * as main from "./javascript/scripts.js";
     import * as LabeledIcon from "./javascript/LabeledIcon.js";
-
-    main.initializeDarkMode();
-    main.injectFooter();
+    import * as staticContentLoader from "./javascript/staticContentLoader.js";
+    staticContentLoader.injectFooter();
   </script>
 
   <script>

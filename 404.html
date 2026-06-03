@@ -16,19 +16,19 @@
   <link rel="manifest" href="images/favicon-zink/site.webmanifest">
 
   <script type="module">
-    //NUR FÜR DEVELOPMENT, DEAKTIVIERT CACHING
-    const v = Date.now(); // neuer Wert bei jedem Seitenaufruf
     const linkCSS = document.createElement("link");
     linkCSS.rel = "stylesheet";
     
     // Bei localhost muss vorne noch ein /website ran, sonst nicht
     const baseURL = new URL("../", import.meta.url);
     linkCSS.href = baseURL.href + (baseURL.hostname == "localhost" ? "website/css/styles.css" : "css/styles.css");
-
-    if (document.baseURI.includes("p-seminar.schinkennugget.dev")) {
-      linkCSS.href += "?v=" + v;
-    }
     document.head.append(linkCSS);
+  </script>
+  
+  <script type="module">
+    
+  import * as darkmode from "./javascript/darkmode.js";
+    darkmode.initialize();
   </script>
 
   <title>Quadnilquadium</title>
@@ -169,7 +169,6 @@ Referrer: ${document.referrer}`);
   </script>
 
   <script type="module">
-    import * as datenLoader from "./javascript/datenLoader.js";
     import * as main from "./javascript/scripts.js";
     import * as LabeledIcon from "./javascript/LabeledIcon.js";
     // import * as Expandable from "./javascript/Expandable.js";
@@ -183,7 +182,7 @@ Referrer: ${document.referrer}`);
     
     const baseURL = new URL("../", import.meta.url).href;
     document.getElementById("nav-start").href = base + (baseURL.hostname == "localhost" ? "website/index.html" : "index.html");
-    document.getElementById("nav-experimente").href = base + (baseURL.hostname == "localhost" ? "website/experimente/alle-experimente.html" : "experimente/alle-experimente");;
+    document.getElementById("nav-experimente").href = base + (baseURL.hostname == "localhost" ? "website/experimente/alle-experimente.html" : "experimente/alle-experimente");
   
 
     const elementObj = {

@@ -19,6 +19,11 @@
     }
     document.head.append(linkCSS);
   </script>
+  
+  <script type="module">
+    import * as darkmode from "./javascript/darkmode.js";
+    darkmode.initialize();
+  </script>
 
   <title>...</title>
 
@@ -207,26 +212,37 @@
     </div>
   </main>
   
-  <!-- Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Bei einfachen Seiten nur dieses und die lucide-scripts -->
+  <script type="module">
+    import * as LabeledIcon from "./javascript/LabeledIcon.js";
+    import * as staticContentLoader from "./javascript/staticContentLoader.js";
+    staticContentLoader.injectFooter();
+  </script>
+  
+  <script async type="module">
+    import * as expandableHandler from "./javascript/expandableHandler";
+    expandableHandler.addClickListener();
+    expandableHandler.addDatenHoverEventListener();
+  </script>
+  
+  <script async type="module">
+    import * as sourceLoader from "./javascript/sourceLoader";
+    sourceLoader.injectSourceNotes();
+  </script>
 
   <script type="module">
     import * as datenLoader from "./javascript/datenLoader.js";
     import * as main from "./javascript/scripts.js";
-    import * as LabeledIcon from "./javascript/LabeledIcon.js";
-    // import * as Expandable from "./javascript/Expandable.js";
-
-    main.initializeDarkMode();
+   
     main.addTextHeaderClickListener();
-    main.injectSourceNotes();
-    main.addDatenHoverEventListener();
-    main.addExpandableClickListener();
-
+    
     const elementName = document.querySelector("#header-text > h1").innerText;
     datenLoader.insertDatenIntoGrafik(elementName);
     datenLoader.insertDatenIntoDatenliste(elementName);
     datenLoader.generateAndInjectFavicon(elementName);
-    datenLoader.insertPSE();
+    // datenLoader.insertPSE();
   </script>
 
   <script>

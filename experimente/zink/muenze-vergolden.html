@@ -19,6 +19,11 @@
     }
     document.head.append(linkCSS);
   </script>
+  
+  <script type="module">
+    import * as darkmode from "../../javascript/darkmode.js";
+    darkmode.initialize();
+  </script>
 
   <title>Experiment Münze vergolden</title>
 
@@ -29,13 +34,13 @@
   <nav>
     <ul id="navbar">
       <li class="navbar-item-left">
-        <a href="index.html" tabindex="0">
+        <a href="../../index.html" tabindex="0">
           <i data-lucide="house" class="navbar-icon"></i>
           <span class="navbar-text-1">Startseite</span>
         </a>
       </li>
       <li class="navbar-item-left">
-        <a href="experimente/alle-experimente.html" tabindex="0">
+        <a href="../alle-experimente.html" tabindex="0">
           <i data-lucide="flask-conical" class="navbar-icon"></i>
           <span class="navbar-text-2">Experimente</span>
         </a>
@@ -103,13 +108,9 @@
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <script type="module">
-    import * as datenLoader from "../../javascript/datenLoader.js";
-    import * as main from "../../javascript/scripts.js";
     import * as LabeledIcon from "../../javascript/LabeledIcon.js";
-    // import * as Expandable from "./javascript/Expandable.js";
-
-    main.initializeDarkMode();
-    main.injectFooter();
+    import * as staticContentLoader from "../../javascript/staticContentLoader.js";
+    staticContentLoader.injectFooter();
   </script>
 
   <script>

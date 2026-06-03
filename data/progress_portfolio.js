@@ -16,7 +16,7 @@ const data = {
     struktur_webseite: "100%",
     lernen: "ist man nie fertig",
     grobe_struktur: "100%",
-    texte: "100%",
+    texte: "80%",
     datenansicht: "100%",
     automatisierung: "75%",
     rechtliches: "100%",

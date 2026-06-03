@@ -6,8 +6,8 @@
 <img id="output" />
 
 <script>
-  const WIDTH = 960;
-  const HEIGHT = 500;
+  const WIDTH = 500;
+  const HEIGHT = 2000;
 
   const canvas = document.createElement("canvas");
   canvas.width = WIDTH;
@@ -22,7 +22,7 @@
   ctx.font = "32px sans-serif";
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";
-  ctx.fillText("default", WIDTH / 2, HEIGHT / 2);
+  ctx.fillText("hallo\nwas geht", WIDTH / 2, HEIGHT / 2);
 
   document.getElementById("output").src = canvas.toDataURL();
 </script>
