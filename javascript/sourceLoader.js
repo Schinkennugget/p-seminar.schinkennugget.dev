@@ -11,7 +11,7 @@ export function injectSourceNotes() {
         sourceEl.tabIndex = "0";
         sourceEl.classList.add("source-note");
         elementWithSource.appendChild(sourceEl);
-        sourceEl.addEventListener("click", showSourceMenu)
+        // sourceEl.addEventListener("click", showSourceMenu)
       });
     });
   } catch (err) {

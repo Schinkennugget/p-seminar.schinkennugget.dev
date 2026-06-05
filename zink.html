@@ -27,7 +27,7 @@
     }
     document.head.append(linkCSS);
   </script>
-  
+
   <script type="module">
     import * as darkmode from "./javascript/darkmode.js";
     darkmode.initialize();
@@ -76,9 +76,9 @@
 
     <noscript>Hinweis: JavaScript-Funktionen können nicht geladen werden, vermutlich weil dein Browser diese nicht
       unterstützt oder weil du JavaScript deaktiviert hast. Dadurch ist die Webseite visuell und funktional sehr stark
-      eingeschränkt.</noscript>
+      eingeschränkt. <a href="impressum.html">Impressum</a> &amp; <a href="datenschutz">Datenschutzerklärung</a></noscript>
 
-    <!-- <div id="screenWidth"></div>
+     <div id="screenWidth"></div>
 
     <script>
       function updateScreenWidth() {
@@ -92,7 +92,7 @@
 
       // bei Resize aktualisieren
       window.addEventListener("resize", updateScreenWidth);
-    </script> -->
+    </script>
 
     <header>
 
@@ -167,13 +167,15 @@
 
         <div class="text-img-small">
           <img id="test-img" srcset="
-          images/test-imgs/330w.png 330w,
-          images/test-imgs/960w.png 960w,
-          images/test-imgs/1280w.png 1280w" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Zinc_fragment_sublimed_and_1cm3_cube.jpg/960px-Zinc_fragment_sublimed_and_1cm3_cube.jpg" sizes="
+          https://p-seminar.schinkennugget.dev/images/test-imgs/330w.png 330w,
+          https://p-seminar.schinkennugget.dev/images/test-imgs/960w.png 960w,
+          https://p-seminar.schinkennugget.dev/images/test-imgs/1280w.png 1280w" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Zinc_fragment_sublimed_and_1cm3_cube.jpg/960px-Zinc_fragment_sublimed_and_1cm3_cube.jpg" sizes="
           (max-width: 700px) 90vw,
           (max-width: 1111px) calc((90vw - 40px) * 0.4),
           384px
           " alt="Unterschiedliche Formen von Zink">
+          
+          
 
           <a class="text-img-footer" title="Alchemist-hp (talk) (www.pse-mendelejew.de), FAL, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Zinc_fragment_sublimed_and_1cm3_cube.jpg">
             Zink als Würfel, kristallines Bruchstück und sublimiert.
@@ -181,11 +183,9 @@
         </div>
       </div>
     </div>
-    
+
     <script>
-      setTimeout(() => {
-        document.getElementById("test-img").sizes = "100%";
-      }, 5000);
+
     </script>
 
 
@@ -343,6 +343,7 @@
 
         <div class="text-img-small">
           <img title="Wertuose, CC BY-SA 4.0 &lt;https://creativecommons.org/licenses/by-sa/4.0&gt;, via Wikimedia Commons" width="960" alt="Sumgayit Technologies Park - hot-dip galvanization 03" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Sumgayit_Technologies_Park_-_hot-dip_galvanization_03.jpg/960px-Sumgayit_Technologies_Park_-_hot-dip_galvanization_03.jpg">
+          
           <a class="text-img-footer" href="https://commons.wikimedia.org/wiki/File:Sumgayit_Technologies_Park_-_hot-dip_galvanization_03.jpg">
             Feuerverzinken: Die Stahlträger werden in flüssiges Zink getaucht VIELLEICHT NOCH BILD AUSTAUSCHEN
           </a>
@@ -447,32 +448,51 @@ box-sizing: border-box;
     </div>
   </main>
 
+  <div style="display: none;" class="img-fullscreen-container">
+    <div class="img-fullscreen-img-wrapper">
+      <img src="images/test-imgs/test.webp" class="fullscreen-img" />
+    </div>
+
+    <div class="fullscreen-img-footer">
+      <div class="fullscreen-img-description">
+        Ein schönes Bild von kurzgesagt 🥰. Es kommt aus dem Video zu Quasaren oder so, keine Ahnung habs von reddit als Wallpaper geklaut. Ein schönes Bild von kurzgesagt 🥰. Es kommt aus dem Video zu Quasaren oder so, keine Ahnung habs von reddit als Wallpaper geklaut.Ein schönes Bild von kurzgesagt 🥰. Es kommt aus dem Video zu Quasaren oder so, keine Ahnung habs von reddit als Wallpaper geklaut.Ein schönes Bild von kurzgesagt 🥰. Es kommt aus dem Video zu Quasaren oder so, keine Ahnung habs von reddit als Wallpaper geklaut.
+      </div>
+      <div class="fullscreen-img-license">
+        <span class="fullscreen-img-license-title"><strong>Titel:</strong> kurzgesagt Bild yay</span>&emsp;
+        <span class="fullscreen-img-license-author"><strong>Autor:</strong> kurzgesagt oder so ka</span>&emsp;
+        <span class="fullscreen-img-license-source"><strong>Quelle:</strong> <a href="reddit.com">reddit</a></span>&emsp;
+        <span class="fullscreen-img-license-license"><strong>Lizenz:</strong> <a href="bla">ka hab geklaut</a></span>
+      </div>
+    </div>
+  </div>
+
 
   <script src="https://unpkg.com/lucide@latest"></script>
-  
+
   <script type="module">
     import * as LabeledIcon from "./javascript/LabeledIcon.js";
     import * as staticContentLoader from "./javascript/staticContentLoader.js";
     staticContentLoader.injectFooter();
   </script>
-  
+
   <script async type="module">
-    import * as expandableHandler from "./javascript/expandableHandler";
+    import * as expandableHandler from "./javascript/expandableHandler.js";
     expandableHandler.addClickListener();
     expandableHandler.addDatenHoverEventListener();
-  </script>
-  
-  <script async type="module">
-    import * as sourceLoader from "./javascript/sourceLoader";
+
+    import * as sourceLoader from "./javascript/sourceLoader.js";
     sourceLoader.injectSourceNotes();
+
+    import * as imgHandler from "./javascript/imageHandler.js";
+    imgHandler.initialize();
   </script>
 
   <script type="module">
     import * as datenLoader from "./javascript/datenLoader.js";
     import * as main from "./javascript/scripts.js";
-   
+
     main.addTextHeaderClickListener();
-    
+
     const elementName = document.querySelector("#header-text > h1").innerText;
     datenLoader.insertDatenIntoGrafik(elementName);
     datenLoader.insertDatenIntoDatenliste(elementName);
