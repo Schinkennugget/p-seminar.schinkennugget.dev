@@ -15,6 +15,7 @@ const linkHoverLight = "#00a";
 const missingLinkLight = "#d11";
 const missingLinkHoverLight = "#a00";
 const shadowLight = "rgba(0, 0, 0, 0.2)";
+const disabledLight = "lightgrey";
 
 const bgBodyDark = "#000";
 const bgElevatedDark = "#1f1f1f";
@@ -25,6 +26,7 @@ const bgTransparentDark = "rgba(20, 20, 20, 0.6)";
 const textColorDark = "#f2f2f2";
 const mutedTextColorDark = "#e6e6e6";
 const linkColorDark = "#66f";
+const disabledDark = "grey";
 
 const linkHoverDark = "#77f";
 const missingLinkDark = "#e00"
@@ -45,6 +47,7 @@ function enableDarkMode() {
   rootStyle.setProperty('--missing-link', missingLinkDark);
   rootStyle.setProperty('--missing-link-hover', missingLinkHoverDark);
   rootStyle.setProperty('--shadow-color', shadowDark);
+  rootStyle.setProperty('--disabled', disabledDark);
   document.getElementById("navbar-icon-moon").style.display = "none";
   document.getElementById("navbar-icon-sun").style.display = "inline";
 
@@ -65,6 +68,7 @@ function disableDarkMode() {
   rootStyle.setProperty('--missing-link', missingLinkLight);
   rootStyle.setProperty('--missing-link-hover', missingLinkHoverLight);
   rootStyle.setProperty('--shadow-color', shadowLight);
+  rootStyle.setProperty('--disabled', disabledLight);
   document.getElementById("navbar-icon-sun").style.display = "none";
   document.getElementById("navbar-icon-moon").style.display = "inline";
 
