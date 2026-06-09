@@ -5,17 +5,18 @@
 let maximized = false;
 
 export async function initialize() {
-  const mainEl = document.querySelector("main");
-  if (!mainEl) {
-    console.warn("Fullscreen Media could not be initialized: No <main>-element found.");
-    return;
-  }
+  try {
+    const mainEl = document.querySelector("main");
+    if (!mainEl) {
+      console.warn("Fullscreen Media could not be initialized: No <main>-element found.");
+      return;
+    }
 
-  // Container für Fullscreen in Dokument einfügen
-  const fullscreenContainerEl = document.createElement("div");
-  fullscreenContainerEl.id = "fullscreen-img-container";
+    // Container für Fullscreen in Dokument einfügen
+    const fullscreenContainerEl = document.createElement("div");
+    fullscreenContainerEl.id = "fullscreen-img-container";
 
-  fullscreenContainerEl.innerHTML = `
+    fullscreenContainerEl.innerHTML = `
     <div id="fullscreen-icons"></div>
     <div id="fullscreen-img-wrapper">
     </div>
@@ -31,66 +32,84 @@ export async function initialize() {
       </div>
     </div>`;
 
-  // Icons zum Vergrößern / Schließen
-  const iconCloseEl = lucide.createElement(lucide.X);
-  const iconMaximizeEl = lucide.createElement(lucide.Maximize);
-  const iconMinimizeEl = lucide.createElement(lucide.Minimize);
-  iconCloseEl.onclick = closeTextImgFullscreen;
-  // iconMaximizeEl.onclick = maximizeImg;
-  // iconMinimizeEl.onclick = minimizeImg;
-  iconMinimizeEl.style.display = "none";
-  iconMaximizeEl.style.color = "var(--disabled)"; // Deaktiviert
-  fullscreenContainerEl.querySelector("#fullscreen-icons").append(iconMinimizeEl, iconMaximizeEl, iconCloseEl);
+    // Icons zum Vergrößern / Schließen
+    const iconCloseEl = lucide.createElement(lucide.X);
+    const iconMaximizeEl = lucide.createElement(lucide.Maximize);
+    const iconMinimizeEl = lucide.createElement(lucide.Minimize);
+    iconCloseEl.onclick = closeTextImgFullscreen;
+    iconMinimizeEl.style.display = "none";
 
-  // Icons zum Weiterklicken
-  const nextIconEl = lucide.createElement(lucide.ChevronRight);
-  const backIconEl = lucide.createElement(lucide.ChevronLeft);
-  nextIconEl.id = "fullscreen-img-control-icon-next";
-  backIconEl.id = "fullscreen-img-control-icon-back";
-  nextIconEl.classList.add("fullscreen-img-control-icon");
-  backIconEl.classList.add("fullscreen-img-control-icon");
-  fullscreenContainerEl.append(nextIconEl, backIconEl);
+    const wrapperEl = fullscreenContainerEl.querySelector("#fullscreen-img-wrapper")
+    new ResizeObserver(fitImage).observe(wrapperEl);
 
-  mainEl.after(fullscreenContainerEl);
+    iconMaximizeEl.onclick = () => {
+      iconMaximizeEl.style.display = "none";
+      iconMinimizeEl.style.display = "";
+      maximized = true;
+      fitImage(wrapperEl);
+    };
+    iconMinimizeEl.onclick = () => {
+      iconMaximizeEl.style.display = "";
+      iconMinimizeEl.style.display = "none";
+      maximized = false;
+      fitImage(wrapperEl);
+    };
+
+    fullscreenContainerEl.querySelector("#fullscreen-icons").append(iconMinimizeEl, iconMaximizeEl, iconCloseEl);
+
+    // Icons zum Weiterklicken
+    const nextIconEl = lucide.createElement(lucide.ChevronRight);
+    const backIconEl = lucide.createElement(lucide.ChevronLeft);
+    nextIconEl.id = "fullscreen-img-control-icon-next";
+    backIconEl.id = "fullscreen-img-control-icon-back";
+    nextIconEl.classList.add("fullscreen-img-control-icon");
+    backIconEl.classList.add("fullscreen-img-control-icon");
+    fullscreenContainerEl.append(nextIconEl, backIconEl);
+
+    mainEl.after(fullscreenContainerEl);
 
 
-  // Einstellungen für die kleinen Bilder
-  document.querySelectorAll(".text-img-wrapper").forEach(async wrapperElem => {
-    const imgElem = wrapperElem.querySelector("img")
-    wrapperElem.addEventListener("click", () => {
-      openTextImgFullscreen();
-      loadImgIntoFullscreen(imgElem);
+
+    // Einstellungen für die kleinen Bilder
+    document.querySelectorAll(".text-img-wrapper").forEach(async wrapperElem => {
+      const imgElem = wrapperElem.querySelector("img")
+      wrapperElem.addEventListener("click", () => {
+        openTextImgFullscreen();
+        loadImgIntoFullscreen(imgElem);
+      });
+
+      // Icon in jedem Bild
+      const enlargeIcon = lucide.createElement(lucide.Maximize2);
+      enlargeIcon.classList.add("text-img-enlarge-icon");
+      wrapperElem.append(enlargeIcon);
+
+
+      // Lizenz laden
+      injectLicense(imgElem);
+
+      // Schließen mit Escape
+      window.addEventListener("keydown", event => {
+        if (
+          window.getComputedStyle(fullscreenContainerEl).display !== "none" &&
+          event.key === "Escape"
+        ) {
+          closeTextImgFullscreen();
+        }
+      });
+
+      // Schließen durch Klicken auf Hintergrund
+      fullscreenContainerEl.addEventListener("click", event => {
+        if (
+          event.target === fullscreenContainerEl ||
+          event.target.id === "fullscreen-img-wrapper"
+        ) {
+          closeTextImgFullscreen();
+        }
+      });
     });
-
-    // Icon in jedem Bild
-    const enlargeIcon = lucide.createElement(lucide.Maximize2);
-    enlargeIcon.classList.add("text-img-enlarge-icon");
-    wrapperElem.append(enlargeIcon);
-
-
-    // Lizenz laden
-    injectLicense(imgElem);
-
-    // Schließen mit Escape
-    window.addEventListener("keydown", event => {
-      if (
-        window.getComputedStyle(fullscreenContainerEl).display !== "none" &&
-        event.key === "Escape"
-      ) {
-        closeTextImgFullscreen();
-      }
-    });
-
-    // Schließen durch Klicken auf Hintergrund
-    fullscreenContainerEl.addEventListener("click", event => {
-      if (
-        event.target === fullscreenContainerEl ||
-        event.target.id === "fullscreen-img-wrapper"
-      ) {
-        closeTextImgFullscreen();
-      }
-    });
-  });
+  } catch (error) {
+    console.error(error.name + ": " + error.message)
+  }
 }
 
 
@@ -187,23 +206,7 @@ function loadImgIntoFullscreen(smallImgElem) {
     }
   }
 
-
-
-  // Bildgröße anpassen
-  function fitImage() {
-    const containerRatio = wrapperEl.clientWidth / wrapperEl.clientHeight;
-    const imgRatio = fullscreenImgEl.naturalWidth / fullscreenImgEl.naturalHeight;
-
-    if (imgRatio > containerRatio && maximized || img < containerRatio && !maximized) {
-      // Bild ist "breiter" als Container → Höhe ist der Engpass
-      img.style.height = '100%';
-      img.style.width = 'auto';
-    } else {
-      // Bild ist "schmaler" als Container → Breite ist der Engpass
-      img.style.width = '100%';
-      img.style.height = 'auto';
-    }
-  }
+  //fitImage(wrapperEl);
 
 
   // Beschreibung laden
@@ -221,11 +224,33 @@ function loadImgIntoFullscreen(smallImgElem) {
 
 }
 
-function maximizeImg() {
-}
+// Bildgröße anpassen
+function fitImage(container) {
+  if (!container?.querySelector?.("img")) return;
 
-function minimizeImg() {
+  const img = container.querySelector("img")
 
+  if (!(img.complete && img.naturalWidth > 0 && img.naturalHeight)) {
+    const containerRatio = container.clientWidth / container.clientHeight;
+    console.log("container width: " + container.clientWidth + " height: " + container.clientHeight + "\nimg w: " + img.scrollWidth + " height: " + img.scrollHeight);
+    const imgRatio = img.scrollWidth / img.scrollHeight;
+
+    if (imgRatio > containerRatio && maximized || imgRatio < containerRatio && !maximized) {
+      // Bild ist "breiter" als Container → Höhe ist der Engpass
+      container.style.overflowY = maximized ? "auto" : "hidden"
+      console.log(imgRatio + " in " + containerRatio + " mit maximized = " + maximized + ", höhe 100%")
+      img.style.height = '100%';
+      img.style.width = 'auto';
+    } else {
+      // Bild ist "schmaler" als Container → Breite ist der Engpass
+      container.style.overflowX = maximized ? "auto" : "hidden"
+      console.log(imgRatio + " in " + containerRatio + " mit maximized = " + maximized + ", breite 100%")
+      img.style.width = '100%';
+      img.style.height = 'auto';
+    }
+  } else {
+    img.addEventListener('load', () => fitImage(container), { once: true });
+  }
 }
 
 async function injectLicense(elem) {
