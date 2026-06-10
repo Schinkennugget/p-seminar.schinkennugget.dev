@@ -28,8 +28,8 @@
     --bg-transparent: rgba(20, 20, 20, 0.6);
     --text: #f2f2f2;
     --text-muted: #e6e6e6;
-    --link-color: #55f;
-    --link-hover: #77f;
+    --link-color: #77f;
+    --link-hover: #88f;
     --missing-link: #e00;
     --missing-link-hover: #f11;
     --shadow-color: rgba(0, 0, 0, 0.2);
@@ -672,7 +672,7 @@ div.text-block *:first-child {
 div.text {
   grid-area: text;
   text-align: justify;
-  line-height: 1.5rem;
+  line-height: 1.6rem;
   color: var(--text-muted);
   /*background-color: gold;*/
 }
@@ -916,16 +916,11 @@ sup.source-note {
 
 sup.source-note:hover {
   color: var(--link-hover);
-  /* text-decoration: underline; */
 }
 
-#quellen-container {
-  /*background: none;*/
-}
-
-#quellen-header {
-  /*padding: 0;*/
-  /*justify-content: flex-start;*/
+#quellen {
+  list-style: none;
+  counter-reset: src-counter;
 }
 
 #quellen>*:first-child {
@@ -934,6 +929,16 @@ sup.source-note:hover {
 
 #quellen>*:last-child {
   margin-bottom: 0;
+}
+
+li.quelle {
+  counter-increment: src-counter;
+  transition: text-decoration-line 0.3s linear;
+}
+
+li.quelle::before {
+  content: "[" counter(src-counter) "] ";
+  color: var(--text-muted);
 }
 
 

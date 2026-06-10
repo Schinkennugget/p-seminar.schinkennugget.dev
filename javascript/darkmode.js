@@ -25,13 +25,12 @@ const bgNavbarSolidDark = "rgb(50, 50, 50)";
 const bgTransparentDark = "rgba(20, 20, 20, 0.6)";
 const textColorDark = "#f2f2f2";
 const mutedTextColorDark = "#e6e6e6";
-const linkColorDark = "#66f";
-const disabledDark = "grey";
-
-const linkHoverDark = "#77f";
+const linkColorDark = "#77f";
+const linkHoverDark = "#88f";
 const missingLinkDark = "#e00"
 const missingLinkHoverDark = "#f00";
 const shadowDark = "rgba(0, 0, 0, 0.2)";
+const disabledDark = "grey";
 
 function enableDarkMode() {
   rootStyle.setProperty('--bg-body', bgBodyDark);
