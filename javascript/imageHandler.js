@@ -107,6 +107,7 @@ export async function initialize() {
         }
       });
     });
+    // setTimeout(() => console.log(fullscreenContainerEl.outerHTML), 2000);
   } catch (error) {
     console.error(error.name + ": " + error.message)
   }
@@ -206,7 +207,7 @@ function loadImgIntoFullscreen(smallImgElem) {
     }
   }
 
-  //fitImage(wrapperEl);
+  fitImage(wrapperEl);
 
 
   // Beschreibung laden
@@ -228,28 +229,52 @@ function loadImgIntoFullscreen(smallImgElem) {
 function fitImage(container) {
   if (!container?.querySelector?.("img")) return;
 
-  const img = container.querySelector("img")
+  const img = container.querySelector("img");
+  const footer = document.querySelector("#fullscreen-img-footer");
 
-  if (!(img.complete && img.naturalWidth > 0 && img.naturalHeight)) {
+  if (img.complete) {
+
+    // alert("exec");
+    console.log("scroll: " + img.scrollWidth + " - " + img.scrollHeight);
+    console.log("natural: " + img.naturalWidth + " - " + img.naturalHeight);
+    console.log("client: " + img.clientWidth + " - " + img.clientHeight);
+    console.log("offset: " + img.offsetWidth + " - " + img.offsetHeight);
+    console.log("getClientBoundingRect: " + img.getBoundingClientRect().width + " - " + img.getBoundingClientRect().height);
+
+    footer.style.display = maximized ? "none" : "block";
+    document.querySelector("#fullscreen-img-container").style.padding = maximized ? "50.5px 0 0 0" : "";
+
+    const imgRatio = img.naturalWidth / img.naturalHeight;
     const containerRatio = container.clientWidth / container.clientHeight;
-    console.log("container width: " + container.clientWidth + " height: " + container.clientHeight + "\nimg w: " + img.scrollWidth + " height: " + img.scrollHeight);
-    const imgRatio = img.scrollWidth / img.scrollHeight;
-
-    if (imgRatio > containerRatio && maximized || imgRatio < containerRatio && !maximized) {
-      // Bild ist "breiter" als Container → Höhe ist der Engpass
-      container.style.overflowY = maximized ? "auto" : "hidden"
-      console.log(imgRatio + " in " + containerRatio + " mit maximized = " + maximized + ", höhe 100%")
-      img.style.height = '100%';
-      img.style.width = 'auto';
+    if (maximized) {
+      container.style.display = "block";
+      if (imgRatio >= containerRatio) {
+        // Bild breiter als der Container (z.B. Bild 16/9, cont 4/3) -> 
+        // Höhe auf 100%
+        img.style.maxHeight = "none";
+        img.style.maxWidth = "none"
+        img.style.width = "auto";
+        img.style.height = "100%";
+      } else {
+        img.style.maxHeight = "none";
+        img.style.maxWidth = "none"
+        img.style.width = "100%";
+        img.style.height = "auto";
+      }
     } else {
-      // Bild ist "schmaler" als Container → Breite ist der Engpass
-      container.style.overflowX = maximized ? "auto" : "hidden"
-      console.log(imgRatio + " in " + containerRatio + " mit maximized = " + maximized + ", breite 100%")
-      img.style.width = '100%';
-      img.style.height = 'auto';
+      container.style.display = "";
+      img.style.maxHeight = "";
+      img.style.maxWidth = ""
+      img.style.width = "";
+      img.style.height = "";
     }
+
+
   } else {
-    img.addEventListener('load', () => fitImage(container), { once: true });
+    img.addEventListener('load', () => {
+      // alert("loaded");
+      fitImage(container);
+    }, { once: true });
   }
 }
 
