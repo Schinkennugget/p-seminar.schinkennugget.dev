@@ -30,6 +30,7 @@ export async function initialize() {
         <strong>Quelle:</strong> <span id="fullscreen-img-license-source"></span>&emsp;
         <strong>Lizenz:</strong> <span id="fullscreen-img-license-license"></span>
       </div>
+      <span hidden id="load-resolution">Höchste Auflösung laden</span>
     </div>`;
 
     // Icons zum Vergrößern / Schließen
@@ -156,7 +157,7 @@ function loadImgIntoFullscreen(smallImgElem) {
   window.removeEventListener("keydown", arrowRightEventHandler);
 
   // sizes groß machen, damit die höhere Qualität geladen werden kann
-  smallImgElem.sizes = "100vw";
+  if (smallImgElem.sizes) smallImgElem.sizes = "100vw";
   const fullscreenImgEl = smallImgElem.cloneNode();
   fullscreenImgEl.id = "fullscreen-img";
   fullscreenImgEl.classList.remove("text-img-small", "text-img-large");
@@ -223,6 +224,31 @@ function loadImgIntoFullscreen(smallImgElem) {
   document.querySelector("#fullscreen-img-license-source").innerHTML = smallImgElem.dataset.source || "<em>unbekannt</em>";
   document.querySelector("#fullscreen-img-license-license").innerHTML = smallImgElem.dataset.license || "<em>unbekannt</em>";
 
+  // Volle Auflösung laden
+  if (fullscreenImgEl.srcset) {
+    document.querySelector("#load-resolution").hidden = false;
+    document.querySelector("#load-resolution").onclick = () => {
+      const srcset = smallImgElem.srcset;
+      if (!srcset) return;
+
+      const entries = srcset.split(',').map(entry => {
+        const [url, descriptor] = entry.trim().split(/\s+/);
+        const width = descriptor ? parseInt(descriptor) : 0;
+        return { url, width };
+      });
+
+      entries.sort((a, b) => b.width - a.width);
+
+      fullscreenImgEl.src = smallImgElem.src = entries[0].url;
+      fullscreenImgEl.srcset = smallImgElem.srcset = "";
+
+      document.querySelector("#load-resolution").hidden = true;
+
+    }
+  } else {
+    document.querySelector("#load-resolution").hidden = true;
+  }
+
 }
 
 // Bildgröße anpassen
@@ -235,11 +261,11 @@ function fitImage(container) {
   if (img.complete) {
 
     // alert("exec");
-    console.log("scroll: " + img.scrollWidth + " - " + img.scrollHeight);
-    console.log("natural: " + img.naturalWidth + " - " + img.naturalHeight);
-    console.log("client: " + img.clientWidth + " - " + img.clientHeight);
-    console.log("offset: " + img.offsetWidth + " - " + img.offsetHeight);
-    console.log("getClientBoundingRect: " + img.getBoundingClientRect().width + " - " + img.getBoundingClientRect().height);
+    // console.log("scroll: " + img.scrollWidth + " - " + img.scrollHeight);
+    // console.log("natural: " + img.naturalWidth + " - " + img.naturalHeight);
+    // console.log("client: " + img.clientWidth + " - " + img.clientHeight);
+    // console.log("offset: " + img.offsetWidth + " - " + img.offsetHeight);
+    // console.log("getClientBoundingRect: " + img.getBoundingClientRect().width + " - " + img.getBoundingClientRect().height);
 
     footer.style.display = maximized ? "none" : "block";
     document.querySelector("#fullscreen-img-container").style.padding = maximized ? "50.5px 0 0 0" : "";

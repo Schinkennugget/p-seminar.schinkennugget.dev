@@ -43,7 +43,6 @@
   /*Auch in JS wechseln! */
 }
 
-
 html {
   font-size: 16px;
   font-weight: 450;
@@ -53,9 +52,13 @@ html {
   text-size-adjust: 100%;
 }
 
-
 body {
-  font-family: Inter, -apple-system, Helvetica, Arial, sans-serif;
+  font-family:
+    Inter,
+    -apple-system,
+    Helvetica,
+    Arial,
+    sans-serif;
   margin: 0;
   box-sizing: border-box;
   width: 100%;
@@ -164,7 +167,8 @@ a[href=""]:hover {
 }
 
 code {
-  font-family: 'SF Mono', SFMono-Regular, ui-monospace, 'JetBrains Mono', monospace;
+  font-family:
+    "SF Mono", SFMono-Regular, ui-monospace, "JetBrains Mono", monospace;
 }
 
 address {
@@ -176,9 +180,6 @@ md-text p {
 
   background-color: green;
 }
-
-
-
 
 /* --- NAVBAR --- */
 
@@ -219,7 +220,9 @@ li[class|="navbar-item"] > * {
   color: var(--text);
   border-radius: 0.8rem;
   transform-origin: center;
-  transition: background-color var(--animation-speed-fast) linear, transform var(--animation-speed-fast) ease;
+  transition:
+    background-color var(--animation-speed-fast) linear,
+    transform var(--animation-speed-fast) ease;
 }
 
 li[class|="navbar-item"]:hover {
@@ -249,8 +252,7 @@ li.navbar-item-right {
   width: 1em;
   height: 1em;
   stroke-width:
-    /*0.15625rem*/
-    2.5px;
+    /*0.15625rem*/ 2.5px;
 }
 
 li.navbar-active {
@@ -269,10 +271,6 @@ li.navbar-active {
   }
 }
 
-
-
-
-
 /*Periodensystem*/
 #periodensystem {
   display: block;
@@ -282,14 +280,6 @@ li.navbar-active {
   width: auto;
   height: auto;
 }
-
-
-
-
-
-
-
-
 
 /*Expandable*/
 .expandable {
@@ -328,7 +318,6 @@ li.navbar-active {
   -webkit-user-select: none;
 }
 
-
 .expandable-header-icon {
   stroke-width: 0.2rem;
   height: 2em;
@@ -352,16 +341,13 @@ li.navbar-active {
   padding-top: 0;
 }
 
-
-
-
 /* --- DATEN --- */
 
 #daten-werte-abschnitt {
   display: grid;
   grid-template-columns: 15rem auto;
   grid-template-rows: 17.5rem auto auto;
-  grid-template-areas: 'grafik liste' 'infotext liste' 'zusatz liste';
+  grid-template-areas: "grafik liste" "infotext liste" "zusatz liste";
   grid-gap: 1rem;
 }
 
@@ -399,13 +385,16 @@ li.navbar-active {
 
 #daten-grafik-elementsymbol {
   font-size: 3rem;
-  font-family: 'Inter Tight', Inter, Helvetica, Arial, sans-serif;
+  font-family: "Inter Tight", Inter, Helvetica, Arial, sans-serif;
 }
 
 .daten-grafik-wert {
   align-items: center;
   font-weight: 750;
-  transition: font-weight 0.3s, color 0.3s, transform 0.3s;
+  transition:
+    font-weight 0.3s,
+    color 0.3s,
+    transform 0.3s;
 }
 
 div.daten-on-hover {
@@ -414,7 +403,10 @@ div.daten-on-hover {
   text-shadow: 0.15em 0.15em 0.15em var(--shadow-color);
   color: #aaa;
   transform: scale(1.1);
-  transition: font-weight 0.3s, color 0.3s, transform 0.3s;
+  transition:
+    font-weight 0.3s,
+    color 0.3s,
+    transform 0.3s;
 }
 
 #daten-grafik-oxidationszahl {
@@ -449,9 +441,6 @@ div.daten-on-hover {
   padding: 0;
   height: auto;
 }
-
-
-
 
 /*Liste*/
 #daten-liste {
@@ -498,8 +487,7 @@ span.fachbegriff-info {
 /*Popup beim Hovern über die Datenliste*/
 tr.daten-liste-elem-on-hover .daten-info
 /*,
-.fachbegriff:hover .fachbegriff-info*/
-  {
+.fachbegriff:hover .fachbegriff-info*/ {
   display: block;
   -webkit-animation: fadeIn 0.2s;
   animation: fadeIn 0.2s;
@@ -515,8 +503,6 @@ tr.daten-liste-elem-on-hover .daten-info
   padding: 8px;
   width: 70%;
 }
-
-
 
 #daten-liste tr td {
   padding: 4px;
@@ -566,7 +552,7 @@ tr.daten-liste-elem-on-hover .daten-info
   #daten-werte-abschnitt {
     grid-template-columns: auto;
     grid-template-rows: auto 14.5rem auto auto;
-    grid-template-areas: 'infotext' 'grafik' 'liste' 'zusatz';
+    grid-template-areas: "infotext" "grafik" "liste" "zusatz";
     grid-gap: 1rem;
     padding: 0 1rem 1rem;
   }
@@ -601,8 +587,6 @@ tr.daten-liste-elem-on-hover .daten-info
     width: 60%;
   }
 }
-
-
 
 /*TEXTE*/
 /*div.text {
@@ -681,7 +665,6 @@ div.text-only {
   justify-content: center;
   width: 100%;
 }
-
 
 div.text-img-small,
 div.text-img-small > *,
@@ -785,8 +768,6 @@ div.text-img-large > * {
   }
 }
 
-
-
 /* Fullscreen Media */
 #fullscreen-img-container {
   z-index: 2;
@@ -803,7 +784,9 @@ div.text-img-large > * {
   background-color: var(--bg-transparent);
   backdrop-filter: blur(0);
   opacity: 0;
-  transition: backdrop-filter var(--animation-speed-fast) linear, opacity var(--animation-speed-fast) linear;
+  transition:
+    backdrop-filter var(--animation-speed-fast) linear,
+    opacity var(--animation-speed-fast) linear;
 }
 
 #fullscreen-icons {
@@ -849,7 +832,6 @@ div.text-img-large > * {
   justify-content: center;
   display: flex;
 }
-
 
 svg.fullscreen-img-control-icon {
   position: absolute;
@@ -912,10 +894,15 @@ svg.fullscreen-img-control-icon.enabled:hover {
   text-align: center;
 }
 
+#load-resolution {
+  color: var(--link-color);
+  cursor: pointer;
+}
 
-
-
-
+#load-resolution:hover {
+  text-decoration: underline;
+  color: var(--link-hover);
+}
 
 sup.source-note {
   color: var(--link-color);
@@ -944,16 +931,13 @@ sup.source-note:hover {
 
 li.quelle {
   counter-increment: src-counter;
-  transition: text-decoration-line 0.3s linear;
+  transition: text-decoration 0.3s linear;
 }
 
 li.quelle::before {
   content: "[" counter(src-counter) "] ";
   color: var(--text-muted);
 }
-
-
-
 
 /*Brüche*/
 .frac {
@@ -978,7 +962,6 @@ li.quelle::before {
   display: none;
 }
 
-
 particle {
   position: fixed;
   left: 0;
@@ -988,7 +971,6 @@ particle {
   -webkit-pointer-events: none;
   opacity: 0;
 }
-
 
 footer {
   margin: auto;
@@ -1020,7 +1002,6 @@ footer li {
 footer li:hover {
   text-decoration: underline;
 }
-
 
 footer .dropdown {
   display: none;
@@ -1055,7 +1036,6 @@ footer .dropdown labeled-icon {
 footer .dropdown labeled-icon:hover {
   background-color: var(--bg-highlight);
 }
-
 
 footer a,
 footer a:hover {
@@ -1123,94 +1103,92 @@ footer a:hover {
 
 @keyframes rotate {
   0% {
-    transform: rotate(0deg)
+    transform: rotate(0deg);
   }
 
   25% {
-    transform: rotate(90deg)
+    transform: rotate(90deg);
   }
 
   50% {
-    transform: rotate(180deg)
+    transform: rotate(180deg);
   }
 
   75% {
-    transform: rotate(270deg)
+    transform: rotate(270deg);
   }
 
   100% {
-    transform: rotate(360deg)
+    transform: rotate(360deg);
   }
 }
 
 @keyframes rescale-bounce {
   0% {
-    transform: scale(1)
+    transform: scale(1);
   }
 
   100% {
-    transform: scale(1.3)
+    transform: scale(1.3);
   }
 }
-
-
 
 /* inter-regular - latin */
 @font-face {
   font-display: swap;
   /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Inter';
+  font-family: "Inter";
   font-style: normal;
   font-weight: 400;
-  src: url('../fonts/Inter/inter-v20-latin-regular.woff2') format('woff2');
+  src: url("../fonts/Inter/inter-v20-latin-regular.woff2") format("woff2");
   /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
 /* inter-italic - latin */
 @font-face {
   font-display: swap;
-  font-family: 'Inter';
+  font-family: "Inter";
   font-style: italic;
   font-weight: 400;
-  src: url('../fonts/Inter/inter-v20-latin-italic.woff2') format('woff2');
+  src: url("../fonts/Inter/inter-v20-latin-italic.woff2") format("woff2");
 }
 
 /* inter-500 - latin */
 @font-face {
   font-display: swap;
-  font-family: 'Inter';
+  font-family: "Inter";
   font-style: normal;
   font-weight: 500;
-  src: url('../fonts/Inter/inter-v20-latin-500.woff2') format('woff2');
+  src: url("../fonts/Inter/inter-v20-latin-500.woff2") format("woff2");
 }
 
 /* inter-500italic - latin */
 @font-face {
   font-display: swap;
-  font-family: 'Inter';
+  font-family: "Inter";
   font-style: italic;
   font-weight: 500;
-  src: url('../fonts/Inter/inter-v20-latin-500italic.woff2') format('woff2');
+  src: url("../fonts/Inter/inter-v20-latin-500italic.woff2") format("woff2");
   /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
 /* inter-600 - latin */
 @font-face {
   font-display: swap;
-  font-family: 'Inter';
+  font-family: "Inter";
   font-style: normal;
   font-weight: 600;
-  src: url('../fonts/Inter/inter-v20-latin-600.woff2') format('woff2');
+  src: url("../fonts/Inter/inter-v20-latin-600.woff2") format("woff2");
   /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
 /* inter-600italic - latin */
 @font-face {
   font-display: swap;
-  font-family: 'Inter';
+  font-family: "Inter";
   font-style: italic;
   font-weight: 600;
-  src: url('../fonts/Inter/inter-v20-latin-600italic.woff2') format('woff2');
+  src: url("../fonts/Inter/inter-v20-latin-600italic.woff2") format("woff2");
   /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
@@ -1218,10 +1196,10 @@ footer a:hover {
 @font-face {
   font-display: swap;
   /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Inter';
+  font-family: "Inter";
   font-style: normal;
   font-weight: 700;
-  src: url('../fonts/Inter/inter-v20-latin-700.woff2') format('woff2');
+  src: url("../fonts/Inter/inter-v20-latin-700.woff2") format("woff2");
   /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
@@ -1229,10 +1207,10 @@ footer a:hover {
 @font-face {
   font-display: swap;
   /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Inter';
+  font-family: "Inter";
   font-style: italic;
   font-weight: 700;
-  src: url('../fonts/Inter/inter-v20-latin-700italic.woff2') format('woff2');
+  src: url("../fonts/Inter/inter-v20-latin-700italic.woff2") format("woff2");
   /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
@@ -1240,10 +1218,10 @@ footer a:hover {
 @font-face {
   font-display: swap;
   /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Inter';
+  font-family: "Inter";
   font-style: normal;
   font-weight: 800;
-  src: url('../fonts/Inter/inter-v20-latin-800.woff2') format('woff2');
+  src: url("../fonts/Inter/inter-v20-latin-800.woff2") format("woff2");
   /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
@@ -1251,10 +1229,10 @@ footer a:hover {
 @font-face {
   font-display: swap;
   /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Inter';
+  font-family: "Inter";
   font-style: italic;
   font-weight: 800;
-  src: url('../fonts/Inter/inter-v20-latin-800italic.woff2') format('woff2');
+  src: url("../fonts/Inter/inter-v20-latin-800italic.woff2") format("woff2");
   /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
@@ -1262,10 +1240,10 @@ footer a:hover {
 @font-face {
   font-display: swap;
   /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Inter';
+  font-family: "Inter";
   font-style: normal;
   font-weight: 900;
-  src: url('../fonts/Inter/inter-v20-latin-900.woff2') format('woff2');
+  src: url("../fonts/Inter/inter-v20-latin-900.woff2") format("woff2");
   /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
@@ -1273,9 +1251,9 @@ footer a:hover {
 @font-face {
   font-display: swap;
   /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Inter';
+  font-family: "Inter";
   font-style: italic;
   font-weight: 900;
-  src: url('../fonts/Inter/inter-v20-latin-900italic.woff2') format('woff2');
+  src: url("../fonts/Inter/inter-v20-latin-900italic.woff2") format("woff2");
   /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }

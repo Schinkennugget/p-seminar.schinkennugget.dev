@@ -20,8 +20,8 @@ export function injectSourceNotes() {
           
           const bigSourceEl = document.querySelector("#quelle-" + sourceID);
           bigSourceEl.scrollIntoView();
-          bigSourceEl.style.textDecorationLine = "underline";
-          setTimeout(() => bigSourceEl.style.textDecorationLine = "", 1500)
+          bigSourceEl.style.textDecoration = "underline";
+          setTimeout(() => bigSourceEl.style.textDecorationLine = "", 2500)
         });
       });
     });
