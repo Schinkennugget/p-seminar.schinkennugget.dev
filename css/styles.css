@@ -1094,14 +1094,17 @@ footer a:hover {
   padding: 0.3em;
   box-sizing: border-box;
   min-width: 0;
-  transition: all var(--animation-speed-slow) ease;
+  /*transition: all var(--animation-speed-slow) ease, filter var(--animation-speed-slow) ease;*/
+  transition: outline-color var(--animation-speed-slow) linear, transform var(--animation-speed-slow) linear, filter var(--animation-speed-slow) linear;
   text-decoration: none;
+  outline-color: rgba(0,0,0,0);
 }
 
 .pse-item:hover {
-  scale: 1.05;
+  transform: scale(1.05);
   filter: drop-shadow(0px 0px 10px var(--shadow-color));
-  outline: 2px solid var(--bg-body-inverted);
+  outline: 2px solid;
+  outline-color: var(--bg-body-inverted);
   text-decoration: none;
 }
 
