@@ -164,6 +164,7 @@ export async function insertPSE() {
     loadingWheel.classList.add("loading-wheel");
     pseElem.append(loadingWheel);
 
+    // Lädt die Daten der Elemente und entfernt das Lade-Icon, wenn die Daten geladen sind. Wenn ein Fehler auftritt, wird eine Fehlermeldung angezeigt.
     const alleElementDatenObj = await loadElemente()
       .then(result => {
         pseElem.innerHTML = "";
@@ -178,38 +179,81 @@ export async function insertPSE() {
 
         pseElem.append(errorIcon);
         pseElem.append(errorText);
+        pseElem.style.display = "block"
         return;
       })
 
     if (!alleElementDatenObj) {
-      console.error(`Could not load elements data for PSE.\n${err.name}: ${err.message}`);
+      console.error(`Could not load elements data for PSE.`);
       pseElem.innerHTML = "";
 
       const errorIcon = lucide.createElement(lucide.OctagonX);
       errorIcon.classList.add("icon-error");
       const errorText = document.createElement("span");
-      errorText.innerHTML = `Das Periodensystem konnte nicht geladen werden. (<code>${error.name}: ${error.message}</code>)`;
+      errorText.innerHTML = `Das Periodensystem konnte nicht geladen werden.`;
 
       pseElem.append(errorIcon);
       pseElem.append(errorText);
+      pseElem.style.display = "block"
       return;
     }
 
     const alleElementeObj = alleElementDatenObj.elements;
 
+
+
+    const smallPseElem = document.createElement("nav");
+    smallPseElem.id = "pse-container-small";
+    const pseHauptgruppenElem = document.createElement("div");
+    pseHauptgruppenElem.id = "hauptgruppen";
+    const pseNebengruppenElem = document.createElement("div");
+    pseNebengruppenElem.id = "nebengruppen";
+    const pseLanthanoideActinoideElem = document.createElement("div");
+    pseLanthanoideActinoideElem.id = "lanthanoide-actinoide";
+
     for (let key in alleElementeObj) {
-      const elementElem = document.createElement("div");
-      const elementsymbolElem = document.createElement("div");
+      // const wrapperLink = document.createElement("a");
+      const elementElem = document.createElement("a");
+      const atommasseElem = document.createElement("div");
       const ordnungszahlElem = document.createElement("div");
+      const elementsymbolElem = document.createElement("div");
       const elementnameElem = document.createElement("div");
 
-      elementsymbolElem.innerHTML = alleElementeObj[key].elementsymbol;
+      const isLocal = new URL(document.baseURI).host.includes('localhost');
+      elementElem.href = isLocal ? `http://localhost:3000/${replaceUmlauts(alleElementeObj[key].elementname)}.html` : `https://p-seminar.schinkennugget.dev/${replaceUmlauts(alleElementeObj[key].elementname)}.html`;
+      elementElem.title = alleElementeObj[key].elementname;
+
+      const elementsymbolTextElem = document.createElement("span")
+      elementsymbolTextElem.classList.add("pse-item-elementsymbol-text");
+      elementsymbolTextElem.innerText = alleElementeObj[key].elementsymbol
+      elementsymbolElem.append(elementsymbolTextElem);
       ordnungszahlElem.innerHTML = alleElementeObj[key].ordnungszahl;
+      atommasseElem.innerHTML = Number(alleElementeObj[key].atommasse).toLocaleString('de-DE', { maximumSignificantDigits: 3 });
       elementnameElem.innerHTML = alleElementeObj[key].elementname;
       elementsymbolElem.classList.add("pse-item-elementsymbol");
       ordnungszahlElem.classList.add("pse-item-ordnungszahl");
+      atommasseElem.classList.add("pse-item-atommasse");
       elementnameElem.classList.add("pse-item-elementname");
 
+
+      if ([
+          "h", "li", "na", "k", "rb", "cs", "fr", "be", "mg", "ca", "sr", "ba", "ra",
+          "b", "al", "ga", "in", "tl", "nh", "c", "si", "ge", "sn", "pb", "fl",
+          "n", "p", "as", "sb", "bi", "mc", "o", "s", "se", "te", "po", "lv",
+          "f", "cl", "br", "i", "at", "ts", "he", "ne", "ar", "kr", "xe", "rn", "og"
+        ].includes(key)) {
+        elementElem.classList.add("hauptgruppe");
+      } else if ([
+          "la", "ce", "pr", "nd", "pm", "sm", "eu", "gd", "tb", "dy", "ho", "er",
+          "tm", "yb", "ac", "th", "pa", "u", "np", "pu", "am", "cm", "bk",
+          "cf", "es", "fm", "md", "no", "lu", "lr"
+        ].includes(key)) {
+        elementElem.classList.add("lanthanoid-actinoid");
+      } else {
+        elementElem.classList.add("nebengruppe");
+      }
+
+      elementElem.append(atommasseElem);
       elementElem.append(ordnungszahlElem);
       elementElem.append(elementsymbolElem);
       elementElem.append(elementnameElem);
@@ -219,24 +263,79 @@ export async function insertPSE() {
       const bgTinyColor = tinycolor(bgColorName);
       elementElem.style.backgroundColor = bgColorName;
       elementElem.style.color = bgTinyColor.isLight() ? "#000" : "#fff";
+      // elementElem.style.outlineColor = tinycolor(document.documentElement.style.getPropertyValue("--bg-body")).isLight() ? "#000" : "#fff";
+      
+      if (alleElementeObj[key]?.additional_data?.kuenstlich) {
+        elementsymbolTextElem.classList.add("outlined");
+        console.log("künstlich");
+        elementsymbolTextElem.style.cssText = `
+        --color: ${bgTinyColor.isLight() ? "#000" : "#fff"};
+        --line-width: clamp(0.03em, 0.13vw, 0.05em);`
+        elementsymbolTextElem.style.color = bgColorName;
+        elementsymbolTextElem.style.fontWeight = "600";
+      }
+
+      if (alleElementeObj[key]?.additional_data?.radioaktiv) {
+        const radioaktivIcon = document.createElement("span");
+        radioaktivIcon.classList.add("pse-item-radioaktiv");
+        radioaktivIcon.innerText = "*";
+        elementsymbolElem.append(radioaktivIcon);
+      }
+      
       pseElem.append(elementElem);
 
-      // elementElem.addEventListener("pointerenter", event => {
-      //   event.currentTarget.style.transform = "scale(1.1)";
-      //   event.currentTarget.addEventListener("pointerleave", function handler(event) {
-      //     event.currentTarget.style.transform = "";
-      //     event.currentTarget.removeEventListener("pointerleave", handler);
-      //   });
-      //   event.currentTarget.addEventListener("pointercancel", function handler(event) {
-      //     event.currentTarget.style.transform = "";
-      //     event.currentTarget.removeEventListener("pointercancel", handler);
-      //   });
-      //   return false;
-      // });
+
+
+      // Kleinste Ansicht: Braucht verschiedene Grid-Container, damit alle gleich breit sind
+      const clonedElementElem = elementElem.cloneNode(true);
+
+      // lu/lr ist in der kleinen ansicht in der nebengruppe, damit kein loch da ist
+      if (key == "lu" || key == "lr") {
+        clonedElementElem.classList.remove("lanthanoid-actinoid");
+        clonedElementElem.classList.add("nebengruppe");
+      }
+      if (clonedElementElem.classList.contains("hauptgruppe")) {
+        pseHauptgruppenElem.append(clonedElementElem);
+      } else if (clonedElementElem.classList.contains("lanthanoid-actinoid")) {
+        pseLanthanoideActinoideElem.append(clonedElementElem);
+      } else {
+        pseNebengruppenElem.append(clonedElementElem);
+      }
     }
-    console.log(pseElem.innerHTML)
+    pseElem.innerHTML += `<div class="pse-item" id="pse-item-lanthanoide" style="grid-area: lx; display: none;">
+      <div class="pse-item-elementsymbol" style="letter-spacing: -1px;">La-Lu</div>
+      <div class="pse-item-atommasse" hidden></div>
+      <div class="pse-item-ordnungszahl">57-71</div>
+      <div class="pse-item-elementname">Lanthanoide</div>
+    </div>
+    <div class="pse-item" id="pse-item-actinoide" style="grid-area: ax; display: none;">
+      <div class="pse-item-elementsymbol" style="letter-spacing: -1px;">Ac-Lr</div>
+      <div class="pse-item-atommasse" hidden></div>
+      <div class="pse-item-ordnungszahl">89-103</div>
+      <div class="pse-item-elementname">Actinoide</div>
+    </div>`;
+
+    smallPseElem.append(pseHauptgruppenElem);
+    smallPseElem.append(pseNebengruppenElem);
+    smallPseElem.append(pseLanthanoideActinoideElem);
+    smallPseElem.hidden = true;
+    pseElem.after(smallPseElem);
+
   } catch (err) {
-    console.error(err.name + "\n" + err.message)
+    console.error(`${err.name} at ${err.lineNumber ?? "?"}:${err.columnNumber ?? "?"}\n${err.message}`);
+
+    const pseElem = document.getElementById("pse-container");
+    if (!pseElem) return;
+    
+    pseElem.innerHTML = "";
+    const errorIcon = lucide?.createElement(lucide.OctagonAlert) || "";
+    errorIcon.classList.add("icon-error");
+    const errorText = document.createElement("span");
+    errorText.innerHTML = `Das Periodensystem konnte nicht geladen werden. (<code>${err.name} at ${err.lineNumber ?? "?"}:${err.columnNumber ?? "?"}: ${err.message}</code>)`;
+
+    pseElem.append(errorIcon);
+    pseElem.append(errorText);
+    pseElem.style.display = "block";
   }
 }
 
@@ -273,7 +372,7 @@ export async function insertDatenIntoGrafik(elementName) {
         if (key == "ionenradius") {
           divEl.innerHTML += ` (${elementObj.additional_data.ionenradius_ladung})`;
         }
-        if (key == "elektronegativitaet") {
+        if (key == "elektronegativitaet" && elementObj.additional_data.elektronegativitaet_oxidationszahl) {
           divEl.innerHTML += ` (${elementObj.additional_data.elektronegativitaet_oxidationszahl})`;
         }
         // if (key == "ionenradius" && elementObj.ionenradius != "?" && elementObj.oxidationszahl != "?" && elementObj.oxidationszahl != "" && elementObj.oxidationszahl != undefined) {
@@ -363,8 +462,11 @@ export async function insertDatenIntoDatenliste(elementName) {
       if (value == "-") {
         tdEl.innerHTML = "–";
 
-        //Beim Ionenradius muss der Ert zusammengesetzt werden aus Radius und Ladung/Oxidationszahl
-      } else if (key == "ionenradius" && elementObj.additional_data.ionenradius_ladung) {
+        //Beim Ionenradius muss der Wert zusammengesetzt werden aus Radius und Ladung/Oxidationszahl
+      } else if (
+        key == "ionenradius" &&
+        elementObj.additional_data.ionenradius_ladung
+      ) {
         if (elementObj.additional_data.ionenradius_ladung.includes("I") || elementObj.additional_data.ionenradius_ladung.includes("V")) {
           tdEl.innerHTML =
             value + unit + " bei " + elementObj.elementsymbol + `(${elementObj.additional_data.ionenradius_ladung})`
@@ -425,64 +527,63 @@ export async function insertDatenIntoDatenliste(elementName) {
     addListenElement({
       icon: "WeightTilde",
       key: "atommasse",
-      datenName: "Atommasse (Massenzahl)",
-      info: " "
+      datenName: "Mittlere Atommasse (Massenzahl)",
+      info: "Die Atommasse beschreibt, wie schwer ein einzelnes Atom ist. Sie wird in der Einheit u (atomare Masseneinheit) angegeben, da Gramm für Atome viel zu groß wären (1 u = 1,7 • 10<sup>-27</sup> kg). Die Massezahl wiederum zählt einfach die Gesamtzahl der schweren Bausteine (Protonen und Neutronen) im Atomkern zusammen."
     });
 
     addListenElement({
       icon: "Atom",
       key: "atomradius",
       datenName: "Atomradius",
-      info: " "
+      info: "Der Atomradius zeigt die Größe eines Atoms, gemessen von der Mitte des Kerns bis zum Rand der Teilchenhülle. Da Atome winzig sind, nutzt man die Einheit pm (Pikometer). Ein Pikometer ist der billionste Teil eines einzelnen Meters."
     });
 
     addListenElement({
       icon: "Radius",
       key: "ionenradius",
       datenName: "Ionenradius",
-      info: " "
+      info: "Wenn ein Atom Elektronen aufnimmt oder abgibt, wird es zu einem geladenen Ion und verändert seine Größe. Die Ladung ist die hochgestellte Zahl. Der Ionenradius misst diese neue Größe in Pikometer (pm)."
     });
 
     addListenElement({
       icon: "ThermometerSun",
       key: "siedepunkt",
       datenName: "Siedepunkt",
-      info: " "
+      info: "Die Temperatur, bei der der Stoff vom flüssigen zum gasförmigen Aggregatzustand übergeht."
     });
 
     addListenElement({
       icon: "ThermometerSnowflake",
       key: "schmelzpunkt",
       datenName: "Schmelzpunkt",
-      info: " "
+      info: "Die Temperatur, bei der der Stoff vom festen zum flüssigen Aggregatzustand übergeht."
     });
 
     addListenElement({
       icon: "Zap",
       key: "ionisierungsenergie",
       datenName: "1. Ionisierungsenergie",
-      info: " "
+      info: "Die Energie, die man braucht, um einem Atom sein erstes (am leichtesten zu entfernendes) Elektron wegzunehmen. Dadurch entsteht ein positiv geladenes Teilchen."
     });
 
     addListenElement({
       icon: "FoldHorizontal",
       key: "dichte",
-      datenName: "Dichte",
-      info: " "
+      datenName: "Dichte"
     });
 
     addListenElement({
       icon: "CircleMinus",
       key: "elektronegativitaet",
       datenName: "Elektronegativität (für Oxidationszahl)",
-      info: " "
+      info: "Beschreibt, wie stark ein Atom in einer Verbindung andere Bindungselektronen „an sich zieht“. Je höher der Wert, desto stärker die Anziehungskraft."
     });
 
     addListenElement({
       icon: "ChartPie",
       key: "anteil_haeufigstes_isotop",
       datenName: "Anteil des häufigsten Isotops",
-      info: " "
+      info: "Atome desselben Elements können unterschiedlich viele Neutronen im Kern haben; diese Varianten heißen Isotope. Der Prozentwert hier gibt an, wie groß der Anteil der am häufigsten in der Natur vorkommenden Variante eines Elements im Vergleich zu den selteneren Versionen ist."
     });
 
     // console.debug(listeEl.outerHTML);
@@ -510,7 +611,7 @@ async function promptDaten() {
 
       //Für jeden Datensatz eines Elements
       for (let key in element) {
-        if (!element[key]) {
+        if (!element[key].additional_data) {
           let answer = prompt(key + " " + element.elementname);
           if (!answer) {
             console.log(JSON.stringify(newAlleElementeObj));
@@ -555,3 +656,14 @@ async function promptDaten() {
   }
 }
 // promptDaten();
+
+
+function replaceUmlauts(string) {
+  let value = string;
+  value = string.toLowerCase();
+  value = value.replace(/ä/g, 'ae');
+  value = value.replace(/ö/g, 'oe');
+  value = value.replace(/ü/g, 'ue');
+  value = value.replace(/ß/g, 'ss');
+  return value;
+}

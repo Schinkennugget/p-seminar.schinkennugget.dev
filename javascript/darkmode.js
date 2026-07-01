@@ -3,6 +3,7 @@ const rootStyle = document.documentElement.style;
 
 // Alle Farben
 const bgBodyLight = "#fff";
+const bgBodyInvertedLight = "#000";
 const bgElevatedLight = "#f2f2f2";
 const bgHighlightLight = "#e6e6e6";
 const bgNavbarLight = "rgba(248, 248, 255, 0.75)";
@@ -18,6 +19,7 @@ const shadowLight = "rgba(0, 0, 0, 0.2)";
 const disabledLight = "lightgrey";
 
 const bgBodyDark = "#000";
+const bgBodyInvertedDark = "#fff";
 const bgElevatedDark = "#1f1f1f";
 const bgHighlightDark = "#333";
 const bgNavbarDark = "rgba(50, 50, 50, 0.75)";
@@ -34,6 +36,7 @@ const disabledDark = "grey";
 
 function enableDarkMode() {
   rootStyle.setProperty('--bg-body', bgBodyDark);
+  rootStyle.setProperty('--bg-body-inverted', bgBodyInvertedDark);
   rootStyle.setProperty('--bg-elevated', bgElevatedDark);
   rootStyle.setProperty('--bg-highlight', bgHighlightDark);
   rootStyle.setProperty('--bg-navbar', bgNavbarDark);
@@ -55,6 +58,7 @@ function enableDarkMode() {
 
 function disableDarkMode() {
   rootStyle.setProperty('--bg-body', bgBodyLight);
+  rootStyle.setProperty('--bg-body-inverted', bgBodyInvertedLight);
   rootStyle.setProperty('--bg-elevated', bgElevatedLight);
   rootStyle.setProperty('--bg-highlight', bgHighlightLight);
   rootStyle.setProperty('--bg-navbar', bgNavbarLight);

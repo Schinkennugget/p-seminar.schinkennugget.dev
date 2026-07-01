@@ -78,7 +78,7 @@
       unterstützt oder weil du JavaScript deaktiviert hast. Dadurch ist die Webseite visuell und funktional sehr stark
       eingeschränkt. <a href="impressum.html">Impressum</a> &amp; <a href="datenschutz">Datenschutzerklärung</a></noscript>
 
-    <div id="screenWidth"></div>
+    <!-- <div id="screenWidth"></div>
 
     <script>
       function updateScreenWidth() {
@@ -92,7 +92,7 @@
 
       // bei Resize aktualisieren
       window.addEventListener("resize", updateScreenWidth);
-    </script>
+    </script> -->
 
     <header>
 
@@ -108,7 +108,7 @@
       </div>
     </header>
 
-
+    
 
     <div class="expandable" id="daten-abschnitt" data-expanded="false">
       <button class="expandable-header" id="daten-header" tabindex="0">
@@ -352,7 +352,7 @@
           <div class="text-img-wrapper">
             <img title="Wertuose, CC BY-SA 4.0 &lt;https://creativecommons.org/licenses/by-sa/4.0&gt;, via Wikimedia Commons" width="960" alt="Sumgayit Technologies Park - hot-dip galvanization 03" src="images/test-imgs/1600w.png">
           </div>
-          <a class="text-img-footer" href="https://commons.wikimedia.org/wiki/File:Sumgayit_Technologies_Park_-_hot-dip_galvanization_03.jpg">
+          <a class="text-img-footer" href="https://commons.wikimedia.org/wiki/File:Sumgayit_Technologies_Park_-_hot-dip_galvanization_03.jpg" style="color: red">
             Feuerverzinken: Die Stahlträger werden in flüssiges Zink getaucht VIELLEICHT NOCH BILD AUSTAUSCHEN
           </a>
         </div>
@@ -449,7 +449,7 @@
     datenLoader.insertDatenIntoGrafik(elementName);
     datenLoader.insertDatenIntoDatenliste(elementName);
     datenLoader.generateAndInjectFavicon(elementName);
-    // datenLoader.insertPSE();
+    datenLoader.insertPSE();
   </script>
 
   <script>
@@ -459,7 +459,7 @@
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js">
     window.MathJax = {
       loader: { load: ['[tex]/mhchem'] },
-      tex: { packages: { '[+]': ['mhchem'] } }
+      tex: { packages: { '[+]': ['mhchem'] } },
       options: {
         enableExplorer: false, // Deaktiviert den Expression Explorer (Highlighting)
         enableAssistiveMml: false

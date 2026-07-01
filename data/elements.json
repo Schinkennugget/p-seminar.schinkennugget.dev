@@ -1498,6 +1498,7 @@
       "anteil_haeufigstes_isotop": "-",
       "additional_data": {
         "ionenradius_ladung": "+VI",
+        "radioaktiv": true,
         "elektronegativitaet_oxidationszahl": "II"
       }
     },
@@ -1516,7 +1517,8 @@
       "anteil_haeufigstes_isotop": "-",
       "additional_data": {
         "ionenradius_ladung": "1-",
-        "elektronegativitaet_oxidationszahl": "I"
+        "elektronegativitaet_oxidationszahl": "I",
+        "radioaktiv": true
       }
     },
     "rn": {
@@ -1531,7 +1533,10 @@
       "ionisierungsenergie": 1037,
       "dichte": 9.7,
       "elektronegativitaet": "-",
-      "anteil_haeufigstes_isotop": "-"
+      "anteil_haeufigstes_isotop": "-",
+      "additional_data": {
+        "radioaktiv": true
+      }
     },
     "fr": {
       "elementname": "Francium",
@@ -1548,7 +1553,8 @@
       "anteil_haeufigstes_isotop": "-",
       "additional_data": {
         "ionenradius_ladung": "1+",
-        "elektronegativitaet_oxidationszahl": "I"
+        "elektronegativitaet_oxidationszahl": "I",
+        "radioaktiv": true
       }
     },
     "ra": {
@@ -1566,7 +1572,8 @@
       "anteil_haeufigstes_isotop": "-",
       "additional_data": {
         "ionenradius_ladung": "2+",
-        "elektronegativitaet_oxidationszahl": "II"
+        "elektronegativitaet_oxidationszahl": "II",
+        "radioaktiv": true
       }
     },
     "ac": {
@@ -1583,7 +1590,8 @@
       "elektronegativitaet": "1,1",
       "anteil_haeufigstes_isotop": "-",
       "additional_data": {
-        "ionenradius_ladung": "3+"
+        "ionenradius_ladung": "3+",
+        "radioaktiv": true
       }
     },
     "th": {
@@ -1600,7 +1608,8 @@
       "elektronegativitaet": "1,3",
       "anteil_haeufigstes_isotop": "-",
       "additional_data": {
-        "ionenradius_ladung": "4+"
+        "ionenradius_ladung": "4+",
+        "radioaktiv": true
       }
     },
     "pa": {
@@ -1617,7 +1626,8 @@
       "elektronegativitaet": "1,5",
       "anteil_haeufigstes_isotop": "-",
       "additional_data": {
-        "ionenradius_ladung": "3+"
+        "ionenradius_ladung": "3+",
+        "radioaktiv": true
       }
     },
     "u": {
@@ -1634,7 +1644,8 @@
       "elektronegativitaet": "1,38",
       "anteil_haeufigstes_isotop": "-",
       "additional_data": {
-        "ionenradius_ladung": "4+"
+        "ionenradius_ladung": "4+",
+        "radioaktiv": true
       }
     },
     "np": {
@@ -1651,7 +1662,8 @@
       "elektronegativitaet": "1,36",
       "anteil_haeufigstes_isotop": "-",
       "additional_data": {
-        "ionenradius_ladung": "4+"
+        "ionenradius_ladung": "4+",
+        "radioaktiv": true
       }
     },
     "pu": {
@@ -1668,7 +1680,8 @@
       "elektronegativitaet": "1,28",
       "anteil_haeufigstes_isotop": "-",
       "additional_data": {
-        "ionenradius_ladung": "3+"
+        "ionenradius_ladung": "3+",
+        "radioaktiv": true
       }
     },
     "am": {
@@ -1685,7 +1698,9 @@
       "elektronegativitaet": "(1,13))",
       "anteil_haeufigstes_isotop": "-",
       "additional_data": {
-        "ionenradius_ladung": "3+"
+        "ionenradius_ladung": "3+",
+        "kuenstlich": true,
+        "radioaktiv": true
       }
     },
     "cm": {
@@ -1702,7 +1717,9 @@
       "elektronegativitaet": "(1,28))",
       "anteil_haeufigstes_isotop": "-",
       "additional_data": {
-        "ionenradius_ladung": "3+"
+        "ionenradius_ladung": "3+",
+        "kuenstlich": true,
+        "radioaktiv": true
       }
     },
     "bk": {
@@ -1719,7 +1736,9 @@
       "elektronegativitaet": "(1,3))",
       "anteil_haeufigstes_isotop": "-",
       "additional_data": {
-        "ionenradius_ladung": "3+"
+        "ionenradius_ladung": "3+",
+        "kuenstlich": true,
+        "radioaktiv": true
       }
     },
     "cf": {
@@ -1736,7 +1755,9 @@
       "elektronegativitaet": "(1,3))",
       "anteil_haeufigstes_isotop": "-",
       "additional_data": {
-        "ionenradius_ladung": "3+"
+        "ionenradius_ladung": "3+",
+        "kuenstlich": true,
+        "radioaktiv": true
       }
     },
     "es": {
@@ -1751,7 +1772,11 @@
       "ionisierungsenergie": 619,
       "dichte": 8.8,
       "elektronegativitaet": "(1,3))",
-      "anteil_haeufigstes_isotop": "-"
+      "anteil_haeufigstes_isotop": "-",
+      "additional_data": {
+        "kuenstlich": true,
+        "radioaktiv": true
+      }
     },
     "fm": {
       "elementname": "Fermium",
@@ -1765,7 +1790,11 @@
       "ionisierungsenergie": 627,
       "dichte": "?",
       "elektronegativitaet": "(1,3))",
-      "anteil_haeufigstes_isotop": "-"
+      "anteil_haeufigstes_isotop": "-",
+      "additional_data": {
+        "kuenstlich": true,
+        "radioaktiv": true
+      }
     },
     "md": {
       "elementname": "Mendelevium",
@@ -1779,7 +1808,11 @@
       "ionisierungsenergie": 635,
       "dichte": "?",
       "elektronegativitaet": "(1,3))",
-      "anteil_haeufigstes_isotop": "-"
+      "anteil_haeufigstes_isotop": "-",
+      "additional_data": {
+        "kuenstlich": true,
+        "radioaktiv": true
+      }
     },
     "no": {
       "elementname": "Nobelium",
@@ -1795,7 +1828,9 @@
       "elektronegativitaet": "(1,3))",
       "anteil_haeufigstes_isotop": "-",
       "additional_data": {
-        "ionenradius_ladung": "2+"
+        "ionenradius_ladung": "2+",
+        "radioaktiv": true,
+        "kuenstlich": true
       }
     },
     "lr": {
@@ -1810,7 +1845,11 @@
       "ionisierungsenergie": 470,
       "dichte": "?",
       "elektronegativitaet": "-",
-      "anteil_haeufigstes_isotop": "-"
+      "anteil_haeufigstes_isotop": "-",
+      "additional_data": {
+        "kuenstlich": true,
+        "radioaktiv": true
+      }
     },
     "rf": {
       "elementname": "Rutherfordium",
@@ -1824,7 +1863,11 @@
       "ionisierungsenergie": 580,
       "dichte": 23.2,
       "elektronegativitaet": "-",
-      "anteil_haeufigstes_isotop": "-"
+      "anteil_haeufigstes_isotop": "-",
+      "additional_data": {
+        "kuenstlich": true,
+        "radioaktiv": true
+      }
     },
     "db": {
       "elementname": "Dubnium",
@@ -1838,7 +1881,11 @@
       "ionisierungsenergie": "?",
       "dichte": 29.3,
       "elektronegativitaet": "-",
-      "anteil_haeufigstes_isotop": "-"
+      "anteil_haeufigstes_isotop": "-",
+      "additional_data": {
+        "kuenstlich": true,
+        "radioaktiv": true
+      }
     },
     "sg": {
       "elementname": "Seaborgium",
@@ -1852,7 +1899,11 @@
       "ionisierungsenergie": "?",
       "dichte": 35,
       "elektronegativitaet": "-",
-      "anteil_haeufigstes_isotop": "-"
+      "anteil_haeufigstes_isotop": "-",
+      "additional_data": {
+        "kuenstlich": true,
+        "radioaktiv": true
+      }
     },
     "bh": {
       "elementname": "Bohrium",
@@ -1866,7 +1917,11 @@
       "ionisierungsenergie": "?",
       "dichte": 37.1,
       "elektronegativitaet": "-",
-      "anteil_haeufigstes_isotop": "-"
+      "anteil_haeufigstes_isotop": "-",
+      "additional_data": {
+        "kuenstlich": true,
+        "radioaktiv": true
+      }
     },
     "hs": {
       "elementname": "Hassium",
@@ -1880,7 +1935,11 @@
       "ionisierungsenergie": "?",
       "dichte": 40.7,
       "elektronegativitaet": "-",
-      "anteil_haeufigstes_isotop": "-"
+      "anteil_haeufigstes_isotop": "-",
+      "additional_data": {
+        "kuenstlich": true,
+        "radioaktiv": true
+      }
     },
     "mt": {
       "elementname": "Meitnerium",
@@ -1894,7 +1953,11 @@
       "ionisierungsenergie": "?",
       "dichte": 37.4,
       "elektronegativitaet": "-",
-      "anteil_haeufigstes_isotop": "-"
+      "anteil_haeufigstes_isotop": "-",
+      "additional_data": {
+        "kuenstlich": true,
+        "radioaktiv": true
+      }
     },
     "ds": {
       "elementname": "Darmstadtium",
@@ -1908,7 +1971,11 @@
       "ionisierungsenergie": "?",
       "dichte": 34.8,
       "elektronegativitaet": "-",
-      "anteil_haeufigstes_isotop": "-"
+      "anteil_haeufigstes_isotop": "-",
+      "additional_data": {
+        "kuenstlich": true,
+        "radioaktiv": true
+      }
     },
     "rg": {
       "elementname": "Roentgenium",
@@ -1922,7 +1989,11 @@
       "ionisierungsenergie": "?",
       "dichte": 28.7,
       "elektronegativitaet": "-",
-      "anteil_haeufigstes_isotop": "-"
+      "anteil_haeufigstes_isotop": "-",
+      "additional_data": {
+        "kuenstlich": true,
+        "radioaktiv": true
+      }
     },
     "cn": {
       "elementname": "Copernicium",
@@ -1936,7 +2007,11 @@
       "ionisierungsenergie": "?",
       "dichte": 14,
       "elektronegativitaet": "-",
-      "anteil_haeufigstes_isotop": "-"
+      "anteil_haeufigstes_isotop": "-",
+      "additional_data": {
+        "kuenstlich": true,
+        "radioaktiv": true
+      }
     },
     "nh": {
       "elementname": "Nihonium",
@@ -1950,7 +2025,11 @@
       "ionisierungsenergie": "?",
       "dichte": 16,
       "elektronegativitaet": "-",
-      "anteil_haeufigstes_isotop": "-"
+      "anteil_haeufigstes_isotop": "-",
+      "additional_data": {
+        "kuenstlich": true,
+        "radioaktiv": true
+      }
     },
     "fl": {
       "elementname": "Flerovium",
@@ -1964,7 +2043,11 @@
       "ionisierungsenergie": "?",
       "dichte": 14,
       "elektronegativitaet": "-",
-      "anteil_haeufigstes_isotop": "-"
+      "anteil_haeufigstes_isotop": "-",
+      "additional_data": {
+        "kuenstlich": true,
+        "radioaktiv": true
+      }
     },
     "mc": {
       "elementname": "Moscovium",
@@ -1978,7 +2061,11 @@
       "ionisierungsenergie": "?",
       "dichte": 13.5,
       "elektronegativitaet": "-",
-      "anteil_haeufigstes_isotop": "-"
+      "anteil_haeufigstes_isotop": "-",
+      "additional_data": {
+        "kuenstlich": true,
+        "radioaktiv": true
+      }
     },
     "lv": {
       "elementname": "Livermorium",
@@ -1992,7 +2079,11 @@
       "ionisierungsenergie": "?",
       "dichte": 12.9,
       "elektronegativitaet": "-",
-      "anteil_haeufigstes_isotop": "-"
+      "anteil_haeufigstes_isotop": "-",
+      "additional_data": {
+        "kuenstlich": true,
+        "radioaktiv": true
+      }
     },
     "ts": {
       "elementname": "Tenness",
@@ -2006,7 +2097,11 @@
       "ionisierungsenergie": "?",
       "dichte": 7.2,
       "elektronegativitaet": "-",
-      "anteil_haeufigstes_isotop": "-"
+      "anteil_haeufigstes_isotop": "-",
+      "additional_data": {
+        "kuenstlich": true,
+        "radioaktiv": true
+      }
     },
     "og": {
       "elementname": "Oganesson",
@@ -2020,7 +2115,11 @@
       "ionisierungsenergie": "-",
       "dichte": 5,
       "elektronegativitaet": "-",
-      "anteil_haeufigstes_isotop": "-"
+      "anteil_haeufigstes_isotop": "-",
+      "additional_data": {
+        "kuenstlich": true,
+        "radioaktiv": true
+      }
     }
   }
 }
