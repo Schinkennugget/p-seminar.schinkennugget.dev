@@ -5,12 +5,16 @@ import tinycolor from "./tinycolor.js";
 
 let alleElemente = null;
 
-async function loadElemente() {
+export async function loadElemente() {
+  try {
   if (!alleElemente) {
     const response = await fetch('data/elements.json');
     alleElemente = await response.json();
   }
   return alleElemente;
+} catch (error) {
+    console.error("Elemente konnten nicht geladen werden. " + error.name + ": " + error.message)
+  }
 }
 
 async function findElementWithName(name) {

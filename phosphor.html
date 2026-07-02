@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="dark light" />
+  <meta name="keywords" content="Chemie, Phosphor, P-Seminar, WHG" />
+  <meta name="content" content="P-Seminar Chemie WHG 25/26: Zink" />
+  <meta name="author" content="Schinkennugget" />
+
+  <link id="favicon-96" rel="icon" type="image/png" sizes="96x96">
+  <link id="favicon-svg" rel="icon" type="image/svg+xml">
+  <link id="favicon-ico" rel="shortcut icon">
+  <link id="favicon-apple" rel="apple-touch-icon" sizes="180x180">
+  <link rel="manifest" href="images/favicon-zink/site.webmanifest">
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <script type="module">
+    import * as darkmode from "./javascript/darkmode.js";
+    darkmode.initialize();
+    </script>
+
+  <title>Phosphor</title>
+</head>
+
+<body tabindex="0">
+
+  <nav>
+    <ul id="navbar">
+      <li class="navbar-item-left">
+        <a href="index.html" tabindex="0">
+          <i data-lucide="house" class="navbar-icon"></i>
+          <span class="navbar-text-1">Startseite</span>
+        </a>
+      </li>
+      <li class="navbar-item-left">
+        <a href="experimente/alle-experimente.html" tabindex="0">
+          <i data-lucide="flask-conical" class="navbar-icon"></i>
+          <span class="navbar-text-2">Experimente</span>
+        </a>
+      </li>
+
+      <li class="navbar-item-right" tabindex="0" id="navbar-button-darkmode">
+        <span>
+          <i data-lucide="sun" class="navbar-icon" id="navbar-icon-sun"></i>
+          <i data-lucide="moon" class="navbar-icon" id="navbar-icon-moon"></i>
+        </span>
+      </li>
+      <li class="navbar-item-right" tabindex="0" onclick="window.print();">
+        <span>
+          <i data-lucide="printer" class="navbar-icon"></i>
+          <span class="navbar-text-3">Seite drucken</span>
+        </span>
+      </li>
+    </ul>
+  </nav>
+
+  <nav id="pse-container"></nav>
+
+  <main>
+
+    <noscript>Hinweis: JavaScript-Funktionen können nicht geladen werden, vermutlich weil dein Browser diese nicht
+      unterstützt oder weil du JavaScript deaktiviert hast. Dadurch ist die Webseite visuell und funktional sehr stark
+      eingeschränkt. <br /><a href="impressum.html">Impressum</a> &amp; <a href="datenschutz">Datenschutzerklärung</a></noscript>
+      
+      
+    <header>
+      <div id="header-text">
+        <h1>Phosphor</h1>
+
+        <p id="introduction">
+          
+        </p>
+      </div>
+    </header>
+
+    
+
+    <div class="expandable" id="daten-abschnitt" data-expanded="false">
+      <button class="expandable-header" id="daten-header" tabindex="0">
+        <h3>Daten</h3>
+        <i data-lucide="chevron-down" class="expandable-header-icon"></i>
+      </button>
+
+
+      <div class="expandable-content" id="daten-werte-abschnitt" style="display:none;">
+        <div id="daten-grafik" class="daten-element">
+          <!-- Werden über datenLoader.js geladen -->
+          <i data-lucide="loader-circle" class="loading-wheel"></i>
+        </div>
+
+
+
+        <table id="daten-liste" class="daten-element">
+          <!-- Werden über datenLoader.js geladen (siehe script unten) -->
+          <tr>
+            <td style="display:flex">
+              <i data-lucide="loader-circle" class="loading-wheel"></i>
+              &nbsp;Lädt...
+            </td>
+          </tr>
+        </table>
+
+        <p id="daten-zusatz">Eine ausführlichere Liste an chem. und physikalischen Daten findest du im <a href="https://de.wikipedia.org/wiki/phosphor" target="_blank">Wikipedia-Artikel</a>.
+        </p>
+      </div>
+    </div>
+
+
+
+    <div id="quellen-container" class="expandable" data-expanded="false">
+      <button id="quellen-header" class="expandable-header" tabindex="0">
+        <h3>Quellen</h3>
+        <i data-lucide="chevron-down" class="expandable-header-icon"></i>
+      </button>
+
+      <ol id="quellen" class="expandable-content" style="display:none" hidden>
+        <li class="quelle" id="quelle-1"><a href="https://pse-info.de/de/data">PSE-Info: Online-Datenbank des Periodensystems</a>, aufgerufen am <span class="visited">01.03.2026</span></li>
+        <li class="quelle" id="quelle-2">Kurt Gallenberger: Klappbares Periodensystem der Elemente. 14. Auflage, 34. Druck. München: Bayerischer Schulbuch Verlag, 2012 / Berlin: Cornelsen Verlag, 2017.</li>
+      </ol>
+    </div>
+  </main>
+
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script type="module">
+    import * as LabeledIcon from "./javascript/LabeledIcon.js";
+    import * as staticContentLoader from "./javascript/staticContentLoader.js";
+    staticContentLoader.injectFooter();
+  </script>
+
+  <script async type="module">
+    import * as expandableHandler from "./javascript/expandableHandler.js";
+    expandableHandler.addClickListener();
+    expandableHandler.addDatenHoverEventListener();
+
+    import * as sourceLoader from "./javascript/sourceLoader.js";
+    sourceLoader.injectSourceNotes();
+
+    import * as imgHandler from "./javascript/imageHandler.js";
+    imgHandler.initialize();
+  </script>
+
+  <script type="module">
+    import * as datenLoader from "./javascript/datenLoader.js";
+    import * as main from "./javascript/scripts.js";
+
+    main.addTextHeaderClickListener();
+
+    const elementName = document.querySelector("#header-text > h1").innerText;
+    datenLoader.insertDatenIntoGrafik(elementName);
+    datenLoader.insertDatenIntoDatenliste(elementName);
+    datenLoader.generateAndInjectFavicon(elementName);
+    datenLoader.insertPSE();
+  </script>
+
+  <script>
+    lucide.createIcons();
+  </script>
+
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js">
+    window.MathJax = {
+      loader: { load: ['[tex]/mhchem'] },
+      tex: { packages: { '[+]': ['mhchem'] } },
+      options: {
+        enableExplorer: false, // Deaktiviert den Expression Explorer (Highlighting)
+        enableAssistiveMml: false
+      }
+    };
+  </script>
+</body>
+
+</html>
