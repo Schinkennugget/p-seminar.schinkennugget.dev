@@ -50,12 +50,94 @@
     </ul>
   </nav>
 
+  <style>
+    @media screen and (750px <=width < 1700px) {
+      @media screen and (max-height: 900px) {
+        #pse-container {
+          grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 10px 1fr 1fr;
+          margin: 60.5px 10px 5px 10px;
+        }
+
+        .lanthanoid-actinoid {
+          display: grid !important;
+        }
+      }
+    }
+
+    /* Kleinste Breite */
+    @media screen and (width <=750px) {
+      #pse-container-small {
+        display: grid;
+        justify-content: center;
+        grid-template-areas:
+          "hauptgruppen"
+          "."
+          "nebengruppen"
+          "."
+          "lanthanoide-actinoide";
+        grid-template-rows: 7fr 10px 4fr 10px 4fr;
+        margin: 50.5px auto 5px auto;
+      }
+
+      #hauptgruppen {
+        display: grid;
+      }
+
+      #nebengruppen {
+        display: grid;
+      }
+
+      #lanthanoide-actinoide {
+        display: grid;
+      }
+
+      /* Höhe */
+      @media screen and (max-height: 1300px) {
+        #pse-container-small {
+          grid-template-areas:
+            "hauptgruppen"
+            "."
+            "nebengruppen"
+            "."
+            "lanthanoide-actinoide";
+          grid-template-rows: 7fr 10px 4fr 10px 4fr;
+          margin: 50.5px auto 5px auto;
+        }
+
+        #lanthanoide-actinoide {
+          display: grid;
+        }
+      }
+
+      @media screen and (max-height: 700px) {
+
+        #nebengruppen,
+        .nebengruppe,
+        #lanthanoide-actinoide,
+        .lanthanoid-actinoid {
+          display: grid;
+        }
+
+        #pse-container-small {
+          grid-template-areas:
+            "hauptgruppen"
+            "."
+            "nebengruppen"
+            "."
+            "lanthanoide-actinoide";
+          grid-template-rows: 7fr 10px 4fr 10px 4fr;
+          margin: 50.5px auto 5px auto;
+        }
+      }
+    }
+  </style>
+
   <nav id="pse-container"></nav>
   <i>Klicke auf eines der Elemente, um zu dem zugehörigen Artikel zu gelangen</i>
 
   <main>
 
-  <noscript>Hinweis: JavaScript-Funktionen können nicht geladen werden, vermutlich weil dein Browser diese nicht unterstützt oder weil du JavaScript deaktiviert hast. Dadurch ist die Webseite visuell und funktional sehr stark eingeschränkt. <br /><a href="impressum.html">Impressum</a> &amp; <a href="datenschutz">Datenschutzerklärung</a></noscript>
+    <noscript>Hinweis: JavaScript-Funktionen können nicht geladen werden, vermutlich weil dein Browser diese nicht unterstützt oder weil du JavaScript deaktiviert hast. Dadurch ist die Webseite visuell und funktional sehr stark eingeschränkt. <br /><a href="impressum.html">Impressum</a> &amp; <a href="datenschutz">Datenschutzerklärung</a></noscript>
 
     <p>
       To-Do:
