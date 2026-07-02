@@ -10,15 +10,8 @@
   <meta name="author" content="Schinkennugget" />
   <link rel="stylesheet" href="css/styles.css" />
 
-  <meta http-equiv="refresh" content="0; zink.html" />
-
-  <!-- Vorübergehend -->
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <meta http-equiv="Pragma" content="no-cache">
-  <meta http-equiv="Expires" content="0">
-
   <title>P-Seminar Chemie</title>
-  
+
   <script type="module">
     import * as darkmode from "./javascript/darkmode.js";
     darkmode.initialize();
@@ -57,14 +50,12 @@
     </ul>
   </nav>
 
+  <nav id="pse-container"></nav>
+  <i>Klicke auf eines der Elemente, um zu dem zugehörigen Artikel zu gelangen</i>
+
   <main>
 
-    <noscript>Hinweis: JavaScript-Funktionen können nicht geladen werden, vermutlich weil dein Browser diese nicht unterstützt oder weil du JavaScript deaktiviert hast. Dadurch ist die Webseite visuell und funktional sehr stark eingeschränkt.</noscript>
-
-
-    <p>
-      Die Startseite ist derzeit noch in Arbeit. Du solltest automatisch zum Artikel über Zink weitergeleitet werden. Sollte dies nicht funktionieren, klicke bitte <a href="zink.html">hier</a>.
-    </p>
+  <noscript>Hinweis: JavaScript-Funktionen können nicht geladen werden, vermutlich weil dein Browser diese nicht unterstützt oder weil du JavaScript deaktiviert hast. Dadurch ist die Webseite visuell und funktional sehr stark eingeschränkt. <br /><a href="impressum.html">Impressum</a> &amp; <a href="datenschutz">Datenschutzerklärung</a></noscript>
 
     <p>
       To-Do:
@@ -72,14 +63,9 @@
       <li>Suche</li>
       <li>Filter</li>
       <li>Kategorien (z.B. Explosion, Elektrizität, ...)</li>
-      <li>Fachbegriffe</li>
-      <li>Fotos/Tabellen/etc.</li>
       <li>Animationen beim Scrollen (Startseite)</li>
     </ul>
     </p>
-
-
-    <div id="test"></div>
 
   </main>
 
@@ -95,6 +81,12 @@
     import * as LabeledIcon from "./javascript/LabeledIcon.js";
     import * as staticContentLoader from "./javascript/staticContentLoader.js";
     staticContentLoader.injectFooter();
+  </script>
+
+  <script type="module">
+    import * as datenLoader from "./javascript/datenLoader.js";
+
+    datenLoader.insertPSE();
   </script>
 </body>
 
