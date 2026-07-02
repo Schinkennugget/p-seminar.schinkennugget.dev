@@ -361,6 +361,7 @@ li.navbar-active {
   grid-template-rows: 17.5rem auto auto;
   grid-template-areas: "grafik liste" "infotext liste" "zusatz liste";
   grid-gap: 1rem;
+  margin-bottom: 20px;
 }
 
 /*Grafik*/
@@ -917,6 +918,16 @@ svg.fullscreen-img-control-icon.enabled:hover {
   color: var(--link-hover);
 }
 
+
+#authors {
+  text-align: right;
+  color: grey;
+  font-style: italic;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+
 sup.source-note {
   color: var(--link-color);
   /* transition: all var(--animation-speed-fast) linear; */
@@ -930,7 +941,7 @@ sup.source-note:hover {
 }
 
 #quellen-container {
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 #quellen {
@@ -1083,11 +1094,17 @@ footer a:hover {
 
 /* .lanthanoid-actinoid ist ein Item, #lanthanoide-actinoide ist der Container von der kleinsten Ansicht */
 #pse-container {
-  margin: 60.5px auto 5px auto;
+  margin: 60.5px 10px 5px 10px;
   display: grid;
   gap: 0.2em;
   max-width: 2350px;
   align-self: center;
+}
+
+@media screen and (min-width: 2350px) {
+  #pse-container {
+    margin: 60.5px auto 5px auto;
+  }
 }
 
 .pse-item {

@@ -34,7 +34,7 @@
 			"    <img srcset=\"",
 			"      $1\"",
 			"      src=\"$2\"",
-			"      sizes=\"$3\"", 
+			"      sizes=\"${3:(max-width: 700px) 90vw, \n(max-width: 1111px) calc((90vw - 40px) * 0.4), \n384px}\"", 
 			"      alt=\"$4\">",
 			"  </div>",
 			"  <a class=\"text-img-footer\"",
@@ -44,5 +44,57 @@
 			"</div>"
 		],
 		"description": "Insert a small text image"
+	},
+
+	"Text Chapter": {
+		"scope": "html",
+		"prefix": "txt-ch",
+		"body": [
+			"<div id=\"$1\" class=\"text-chapter\">",
+			"  <h2 tabindex=\"0\" class=\"text-header\">",
+			"    $2",
+			"    <i data-lucide=\"link\" class=\"text-header-icon\"></i>",
+			"  </h2>",
+			"",
+			"  $0",
+			"</div>"
+		]
+	},
+
+	"Text without image": {
+		"scope": "html",
+		"prefix": "txt-no-img",
+		"body": [
+			"<div class=\"text-block text-only\">",
+			"  <div class=\"text\">",
+			"    $0",
+			"  </div>",
+			"</div>"
+		]
+	},
+
+	"Text block with small image": {
+		"scope": "html",
+		"prefix": "txtblock-img-s",
+		"body": [
+			"<div class=\"text-block\">",
+			"  <div class=\"text\">",
+			"    ${1:<p>}",
+			"  </div>",
+			"  <div class=\"text-img-small\">",
+			"    <div class=\"text-img-wrapper\">",
+			"      <img srcset=\"",
+			"        $2\"",
+			"        src=\"$3\"",
+			"        sizes=\"${4:(max-width: 700px) 90vw, \n(max-width: 1111px) calc((90vw - 40px) * 0.4), \n384px}\"", 
+			"        alt=\"$5\">",
+			"    </div>",
+			"    <a class=\"text-img-footer\"",
+			"      href=\"$6\">",
+			"      $0",
+			"    </a>",
+			"  </div>",
+			"</div>"
+		]
 	}
 }
