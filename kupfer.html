@@ -19,7 +19,7 @@
   <script type="module">
     import * as darkmode from "./javascript/darkmode.js";
     darkmode.initialize();
-    </script>
+  </script>
 
   <title>Kupfer</title>
 </head>
@@ -63,19 +63,20 @@
     <noscript>Hinweis: JavaScript-Funktionen können nicht geladen werden, vermutlich weil dein Browser diese nicht
       unterstützt oder weil du JavaScript deaktiviert hast. Dadurch ist die Webseite visuell und funktional sehr stark
       eingeschränkt. <br /><a href="impressum.html">Impressum</a> &amp; <a href="datenschutz">Datenschutzerklärung</a></noscript>
-      
-      
+
+
     <header>
       <div id="header-text">
         <h1>Kupfer</h1>
 
         <p id="introduction">
-          
+          Kupfer ist eines der ältesten bekannten Metalle und das erste, das die Menschheit verarbeitete. Mit seiner
+          rötlich-orange Farbe und hervorragenden elektrischen sowie thermischen Leitfähigkeit spielt Kupfer eine
+          zentrale Rolle in Elektrotechnik, Bauwesen und Chemie. Seine Vielseitigkeit, Korrosionsbeständigkeit und
+          Antibakterialität machen es zu einem der wichtigsten und wertvollsten Metalle der modernen Industrie.
         </p>
       </div>
     </header>
-
-    
 
     <div class="expandable" id="daten-abschnitt" data-expanded="false">
       <button class="expandable-header" id="daten-header" tabindex="0">
@@ -107,17 +108,146 @@
       </div>
     </div>
 
+    <div id="eigenschaften" class="text-chapter">
+      <h2 tabindex="0" class="text-header">
+        Eigenschaften
+        <i data-lucide="link" class="text-header-icon"></i>
+      </h2>
 
+      <div class="text-block">
+        <div class="text">
+          <p><span data-sources="3">Kupfer ist ein weiches, dehnbares und formbares Metall mit einer charakteristischen
+              rötlich-orangen
+              Farbe.</span> Unter Normalbedingungen ist es fest und weist die folgenden Eigenheiten auf:
+          <ul>
+            <li>Elektrische Leitfähigkeit: Eine der besten unter allen Metallen, nur Silber ist besser</li>
+            <li>Thermische Leitfähigkeit: Ausgezeichnet, ermöglicht effiziente Wärmeleitung</li>
+            <li>Korrosionsbeständigkeit: Bildet über Zeit eine grüne Patina (Kupfercarbonat), die es schützt</li>
+            <li>Antibakterielle Wirkung: Tötet oder hemmt viele Mikroorganismen ab</li>
+          </ul>
+          Kupfer ist hochgradig recycelbar und verliert dabei keine Materialqualität. Seine hohe Verfügbarkeit und
+          Wiederverwendbarkeit machen es zu einem nachhaltigen Material der Wahl.
+          </p>
+        </div>
+        <div class="text-img-small">
+          <div class="text-img-wrapper">
+            <img srcset="
+              https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Electric_guide_3×2.5_mm.jpg/330px-Electric_guide_3×2.5_mm.jpg 330w,
+              https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Electric_guide_3×2.5_mm.jpg/960px-Electric_guide_3×2.5_mm.jpg 960w,
+              https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Electric_guide_3×2.5_mm.jpg/1280px-Electric_guide_3×2.5_mm.jpg 1280w,
+              https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Electric_guide_3×2.5_mm.jpg/3840px-Electric_guide_3×2.5_mm.jpg 3840w,
+              https://upload.wikimedia.org/wikipedia/commons/a/a0/Electric_guide_3×2.5_mm.jpg 4504w" src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Electric_guide_3×2.5_mm.jpg" sizes="(max-width: 700px) 90vw, 
+      (max-width: 1111px) calc((90vw - 40px) * 0.4), 
+      384px" alt="Die meisten Stromkabel bestehen wegen seiner hohen Leitfähigkeit aus Kupfer.">
+          </div>
+          <a class="text-img-footer" href="https://commons.wikimedia.org/wiki/File:Electric_guide_3×2.5_mm.jpg">
+            Ein Stromkabel mit Kupferdrähten
+          </a>
+        </div>
+      </div>
+    </div>
 
-    <div id="quellen-container" class="expandable" data-expanded="false" hidden>
+    <div id="geschichte" class="text-chapter">
+      <h2 tabindex="0" class="text-header">
+        Geschichte
+        <i data-lucide="link" class="text-header-icon"></i>
+      </h2>
+
+      <div class="text-block text-only">
+        <div class="text">
+          <p>
+            <span data-sources="7">Kupfer ist eines der ersten Metalle, die der Mensch etwa um 8000 v.Chr. in der Jungsteinzeit entdeckte.</span> Zunächst wurde gediegenes (reines, naturgemäß vorkommendes) Kupfer verarbeitet. Mit der Bronzezeit (etwa 3000 v.Chr.) entwickelten antike Kulturen die Legierung Bronze (Kupfer + Zinn), die Revolution in Werkzeugen und Waffen brachte.
+          </p>
+          <p>
+            Im Mittelalter und der Neuzeit wurde Kupferabbau und -verarbeitung intensiviert. Die Entdeckung des Galvanismus im 18. Jahrhundert (Alessandro Volta, Luigi Galvani) zeigte die elektrochemischen Eigenschaften von Kupfer. Die industrielle Revolution machte Kupfer unverzichtbar: Dampfmaschinen benötigten Kupferkernleitungen, und die Elektrifizierung seit dem späten 19. Jahrhundert stellte immense Anforderungen an Kupferkabel und -drähte.
+          </p>
+          <p>
+            Im 20. Jahrhundert wurde Kupfer zum Nervensystem der modernen Welt. Telefonleitungen, Stromnetze, elektronische Komponenten und Computerschaltkreise erforderten Millionen Tonnen Kupfer jährlich. Heute ist Kupfer fundamental für Erneuerbare Energien (Windkraftanlagen, Solarpanels) und Elektromobilität.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div id="verwendung" class="text-chapter">
+      <h2 tabindex="0" class="text-header">
+        Verwendung
+        <i data-lucide="link" class="text-header-icon"></i>
+      </h2>
+
+      <h3 tabindex="0" id="verwendung-elektrotechnik" class="text-subheader">
+        Elektrotechnik
+        <i data-lucide="link" class="text-header-icon"></i>
+      </h3>
+
+      <div class="text-block text-only">
+        <div class="text">
+          <span data-sources="6">Der Großteil des Kupfers (~60%) wird in der Elektrotechnik verwendet: Stromkabel, Leitungen, Transformatoren, Motoren, Generatoren und elektronische Komponenten.<span> Die überlegene Leitfähigkeit macht Kupfer zum Werkstoff der Wahl für Stromerzeugung, -übertragung und -verbrauch. In Computern und Smartphones befinden sich komplexe Kupferleiterbahnen.
+        </div>
+      </div>
+
+      <h3 tabindex="0" id="verwendung-bauwesen" class="text-subheader">
+        Bauwesen
+        <i data-lucide="link" class="text-header-icon"></i>
+      </h3>
+
+      <div class="text-block text-only">
+        <div class="text">
+          Kupferrohre sind in Sanitäranlagen weit verbreitet, da Kupfer ungiftig, korrosionsbeständig und leicht zu bearbeiten ist. Auch Dachabdeckungen, Regenrinnen und Blitzableiter bestehen oft aus Kupfer. Die charakteristische grüne Patina, die sich mit der Zeit bildet, schützt das Material vor weiterer Korrosion.
+        </div>
+      </div>
+
+      <h3 tabindex="0" id="verwendung-legierungen" class="text-subheader">
+        Legierungen
+        <i data-lucide="link" class="text-header-icon"></i>
+      </h3>
+
+      <div class="text-block text-only">
+        <div class="text">
+          Bronze (Kupfer + <a href="zinn.html">Zinn</a>) und Messing (Kupfer + <a href="zink.html">Zink</a>) sind hochwertige Legierungen mit spezifischen Eigenschaften. Messing ist korrosionsbeständig und ästhetisch ansprechend (Türgriffe, Armaturen), während Bronze für Kunstgüsse und historische Anwendungen geschätzt wird.
+        </div>
+      </div>
+
+      <h3 tabindex="0" id="verwendung-medizin" class="text-subheader">
+        Medizin &amp; Gesundheit
+        <i data-lucide="link" class="text-header-icon"></i>
+      </h3>
+
+      <div class="text-block text-only">
+        <div class="text">
+          <span data-sources="9">Die antibakterielle und antivirale Wirkung von Kupfer wird zunehmend genutzt: Kupfertouchflächen in Krankenhäusern reduzieren Infektionsrisiken, Kupfertextilien haben antimikrobielle Eigenschaften.</span> Kupferionen spielen auch eine wesentliche Rolle im menschlichen Stoffwechsel als Kofaktor in Enzymen.
+        </div>
+      </div>
+
+      <h3 tabindex="0" id="verwendung-erneuerbare" class="text-subheader">
+        Erneuerbare Energien
+        <i data-lucide="link" class="text-header-icon"></i>
+      </h3>
+
+      <div class="text-block text-only">
+        <div class="text">
+          <span data-sources="6">Windkraftanlagen benötigen große Mengen Kupfer in ihren Generatoren und Umrichtern. Solaranlagen enthalten Kupferleiterbahnen und -busse. Auch Elektrofahrzeuge mit ihren Motoren und Ladegeräten sind ohne Kupfer nicht denkbar.</span> Die Energiewende ist eng mit der Verfügbarkeit von Kupfer verknüpft.
+        </div>
+      </div>
+    </div>
+
+    <div id="quellen-container" class="expandable" data-expanded="false">
       <button id="quellen-header" class="expandable-header" tabindex="0">
         <h3>Quellen</h3>
         <i data-lucide="chevron-down" class="expandable-header-icon"></i>
       </button>
 
       <ol id="quellen" class="expandable-content" style="display:none">
-        <li class="quelle" id="quelle-1"><a href="https://pse-info.de/de/data">PSE-Info: Online-Datenbank des Periodensystems</a>, aufgerufen am <span class="visited">01.03.2026</span></li>
+        <li class="quelle" id="quelle-1"><a href="https://pse-info.de/de/data">PSE-Info: Online-Datenbank des
+            Periodensystems</a>, aufgerufen am <span class="visited">01.03.2026</span></li>
         <li class="quelle" id="quelle-2">Kurt Gallenberger: Klappbares Periodensystem der Elemente. 14. Auflage, 34. Druck. München: Bayerischer Schulbuch Verlag, 2012 / Berlin: Cornelsen Verlag, 2017.</li>
+        <li class="quelle" id="quelle-3">Holleman, Wiberg: Lehrbuch der Anorganischen Chemie. 102. Aufl. de Gruyter, 2007, S. 340.</li>
+        <li class="quelle" id="quelle-4">Lide, D. R. (Hrsg.): CRC Handbook of Chemistry and Physics. 90th Ed., CRC Press, 2009.</li>
+        <li class="quelle" id="quelle-5">Atkins, P.; de Paula, J.: Physikalische Chemie. 4. Aufl., Wiley-VCH, 2006, S. 520 ff.</li>
+        <li class="quelle" id="quelle-6">British Geological Survey: World Mineral Production. 2023.</li>
+        <li class="quelle" id="quelle-7">Weeks, M. E.: Discovery of the Elements. 7th Ed., Journal of Chemical Education, 1968.</li>
+        <li class="quelle" id="quelle-8">Yaroshevsky, A. A.: Abundances of chemical elements in the Earth's crust. Geochemistry International, 2006.</li>
+        <li class="quelle" id="quelle-9">International Copper Association: Copper Benefits Health. 2022.</li>
+        <li class="quelle" id="quelle-10">Gesellschaft Deutscher Chemiker: Kupfer in der Industrie. GDCh-Publikation, 2021.</li>
       </ol>
     </div>
   </main>

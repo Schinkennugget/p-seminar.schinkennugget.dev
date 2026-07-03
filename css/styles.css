@@ -612,6 +612,7 @@ h2.text-header {
   line-height: 0.9em;
   margin-top: 1.5em;
   cursor: default;
+  margin-collapse: collapse;
 }
 
 .text-header-icon {
@@ -635,8 +636,15 @@ h3.text-subheader .text-header-icon {
 }
 
 h3.text-subheader {
+  margin-top: 1em;
+  margin-bottom: 0.8em;
+}
+
+h2.text-header + h3.text-subheader {
   margin-top: 0;
 }
+
+
 
 /*fachbegriff-info oben bei der Daten-Liste*/
 
@@ -677,6 +685,7 @@ div.text {
 div.text-only {
   display: flex;
   justify-content: center;
+  /*width: max(90%, 500px);*/
   width: 100%;
 }
 

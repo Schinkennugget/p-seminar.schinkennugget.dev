@@ -7,12 +7,12 @@ let alleElemente = null;
 
 export async function loadElemente() {
   try {
-  if (!alleElemente) {
-    const response = await fetch('data/elements.json');
-    alleElemente = await response.json();
-  }
-  return alleElemente;
-} catch (error) {
+    if (!alleElemente) {
+      const response = await fetch('data/elements.json');
+      alleElemente = await response.json();
+    }
+    return alleElemente;
+  } catch (error) {
     console.error("Elemente konnten nicht geladen werden. " + error.name + ": " + error.message)
   }
 }
@@ -267,10 +267,10 @@ export async function insertPSE() {
       const bgTinyColor = tinycolor(bgColorName);
       elementElem.style.backgroundColor = bgColorName;
       elementElem.classList.add(bgTinyColor.isDark() ? "light-text" : "dark-text");
-      
-      if (["zn", "s", "mg"].includes(key)) elementElem.classList.add("has-content")
-      
-      
+
+      if (["zn", "s", "mg", "cu"].includes(key)) elementElem.classList.add("has-content");
+
+
       if (alleElementeObj[key]?.additional_data?.kuenstlich) {
         elementsymbolTextElem.classList.add("outlined");
         elementsymbolTextElem.style.color = bgColorName;
@@ -283,7 +283,7 @@ export async function insertPSE() {
         radioaktivIcon.innerText = "*";
         elementsymbolElem.append(radioaktivIcon);
       }
-      
+
       pseElem.append(elementElem);
 
 
@@ -328,7 +328,7 @@ export async function insertPSE() {
 
     const pseElem = document.getElementById("pse-container");
     if (!pseElem) return;
-    
+
     pseElem.innerHTML = "";
     const errorIcon = lucide?.createElement(lucide.OctagonAlert) || "";
     errorIcon.classList.add("icon-error");
@@ -669,3 +669,25 @@ function replaceUmlauts(string) {
   value = value.replace(/ß/g, 'ss');
   return value;
 }
+
+
+async function bla() {
+  try {
+    const alleElementeObj = await loadElemente();
+    const elemente = await alleElementeObj.elements;
+    let text = "";
+
+    setTimeout(() => {
+      for (let element in elemente) {
+        text += `case (${element.elementsymbol} || ${element.elementsymbol}.html) {
+      window.location.pathname = "${""}.html" + window.location.search + window.location.hash;
+    }
+    `;
+      }
+      console.log(text);
+    }, 2000);
+  } catch (error) {
+    console.log(error.name + error.message)
+  }
+}
+
