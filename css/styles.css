@@ -1123,6 +1123,8 @@ footer a:hover {
   outline-color: rgba(0,0,0,0);
 }
 
+
+
 .pse-item:hover {
   transform: scale(1.05);
   filter: drop-shadow(0px 0px 10px var(--shadow-color));
@@ -1131,6 +1133,22 @@ footer a:hover {
   text-decoration: none;
 }
 
+.pse-item.dark-text {
+  color: #777;
+}
+
+.pse-item.light-text {
+  color: #aaa;
+}
+
+.pse-item.dark-text.has-content {
+  color: #000;
+}
+
+.pse-item.light-text.has-content {
+  color: #fff;
+}
+        
 .pse-item-atommasse {
   grid-area: masse;
   text-align: left;
@@ -1151,6 +1169,25 @@ footer a:hover {
   font-weight: 700;
   width: 100%;
   position: relative;
+}
+        
+.pse-item.dark-text > .pse-item-elementsymbol .outlined {
+  --color: #777;
+  --line-width: clamp(0.03em, 0.13vw, 0.05em);
+  color: #777;
+}
+
+.pse-item.light-text .pse-item-elementsymbol .outlined {
+  --color: #aaa;
+  --line-width: clamp(0.03em, 0.13vw, 0.05em);
+}
+
+.pse-item.dark-text.has-content .pse-item-elementsymbol .outlined {
+  --color: #000;
+}
+
+.pse-item.light-text.has-content .pse-item-elementsymbol .outlined {
+  --color: #fff;
 }
 
 .pse-item-elementsymbol > span:first-child {

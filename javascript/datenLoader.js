@@ -266,15 +266,13 @@ export async function insertPSE() {
       const bgColorName = alleElementeObj[key]?.additional_data?.background_color ?? "lightgrey";
       const bgTinyColor = tinycolor(bgColorName);
       elementElem.style.backgroundColor = bgColorName;
-      elementElem.style.color = bgTinyColor.isLight() ? "#000" : "#fff";
-      // elementElem.style.outlineColor = tinycolor(document.documentElement.style.getPropertyValue("--bg-body")).isLight() ? "#000" : "#fff";
+      elementElem.classList.add(bgTinyColor.isDark() ? "light-text" : "dark-text");
+      
+      if (["zn", "s", "mg"].includes(key)) elementElem.classList.add("has-content")
+      
       
       if (alleElementeObj[key]?.additional_data?.kuenstlich) {
         elementsymbolTextElem.classList.add("outlined");
-        console.log("künstlich");
-        elementsymbolTextElem.style.cssText = `
-        --color: ${bgTinyColor.isLight() ? "#000" : "#fff"};
-        --line-width: clamp(0.03em, 0.13vw, 0.05em);`
         elementsymbolTextElem.style.color = bgColorName;
         elementsymbolTextElem.style.fontWeight = "600";
       }
