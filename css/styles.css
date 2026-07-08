@@ -219,7 +219,7 @@ md-text p {
   }
 }
 
-li[class|="navbar-item"] > * {
+li[class|="navbar-item"]>* {
   display: flex;
   cursor: pointer;
   justify-content: space-evenly;
@@ -307,7 +307,7 @@ li.navbar-active {
   }
 }*/
 
-.expandable-header > h3 {
+.expandable-header>h3 {
   margin: 0;
   width: 100%;
   text-align: left;
@@ -443,7 +443,7 @@ div.daten-on-hover {
   grid-area: infotext;
 }
 
-#daten-infotext > * {
+#daten-infotext>* {
   height: 0.9em;
   stroke-width: 0.15rem;
 }
@@ -499,6 +499,7 @@ span.fachbegriff-info {
 
 /*Popup beim Hovern über die Datenliste*/
 tr.daten-liste-elem-on-hover .daten-info
+
 /*,
 .fachbegriff:hover .fachbegriff-info*/
   {
@@ -640,7 +641,7 @@ h3.text-subheader {
   margin-bottom: 0.8em;
 }
 
-h2.text-header + h3.text-subheader {
+h2.text-header+h3.text-subheader {
   margin-top: 0;
 }
 
@@ -690,8 +691,8 @@ div.text-only {
 }
 
 div.text-img-small,
-div.text-img-small > *,
-.text-img-wrapper > * {
+div.text-img-small>*,
+.text-img-wrapper>* {
   max-width: 100%;
   width: 100%;
 }
@@ -723,22 +724,22 @@ div.text-img-small {
   opacity: 1;
 }
 
-div.text-img-small > * {
+div.text-img-small>* {
   display: block;
   height: auto;
 }
 
-div.text-img-wrapper > img {
+div.text-img-wrapper>img {
   border-radius: 8px;
 }
 
-div.text-img-small > img,
-div.text-img-small > picture {
+div.text-img-small>img,
+div.text-img-small>picture {
   margin-top: 20px;
 }
 
-div.text-img-small > img:first-child,
-div.text-img-small > picture:first-child {
+div.text-img-small>img:first-child,
+div.text-img-small>picture:first-child {
   margin-top: 0;
 }
 
@@ -765,7 +766,7 @@ div.text-img-large {
   cursor: pointer;
 }
 
-div.text-img-large > * {
+div.text-img-large>* {
   max-width: 90%;
   align-self: center;
   width: auto;
@@ -780,13 +781,13 @@ div.text-img-large > * {
   }
 
   div.text-img-small,
-  div.text-img-small > * {
+  div.text-img-small>* {
     width: 100%;
     /*background-color: yellow;*/
   }
 
-  div.text-img-small > img,
-  div.text-img-small > picture {
+  div.text-img-small>img,
+  div.text-img-small>picture {
     margin-top: 0;
   }
 }
@@ -958,11 +959,11 @@ sup.source-note:hover {
   counter-reset: src-counter;
 }
 
-#quellen > *:first-child {
+#quellen>*:first-child {
   margin-top: 0;
 }
 
-#quellen > *:last-child {
+#quellen>*:last-child {
   margin-bottom: 0;
 }
 
@@ -985,7 +986,7 @@ li.quelle::before {
   text-align: center;
 }
 
-.frac > span {
+.frac>span {
   display: block;
   padding: 0.1em;
   font-size: 0.75em;
@@ -1017,7 +1018,7 @@ footer {
   justify-content: center;
 }
 
-footer > ul {
+footer>ul {
   list-style-type: none;
   width: max-content;
   margin: 0;
@@ -1079,7 +1080,7 @@ footer a:hover {
 }
 
 @media screen and (max-width: 900px) {
-  footer > ul {
+  footer>ul {
     /*width: 1;*/
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -1088,7 +1089,7 @@ footer a:hover {
 }
 
 @media screen and (max-width: 500px) {
-  footer > ul {
+  footer>ul {
     /*width: 1;*/
     display: grid;
     grid-template-columns: 1fr;
@@ -1129,7 +1130,7 @@ footer a:hover {
   /*transition: all var(--animation-speed-slow) ease, filter var(--animation-speed-slow) ease;*/
   transition: outline-color var(--animation-speed-slow) linear, transform var(--animation-speed-slow) linear, filter var(--animation-speed-slow) linear;
   text-decoration: none;
-  outline-color: rgba(0,0,0,0);
+  outline-color: rgba(0, 0, 0, 0);
 }
 
 
@@ -1157,7 +1158,7 @@ footer a:hover {
 .pse-item.light-text.has-content {
   color: #fff;
 }
-        
+
 .pse-item-atommasse {
   grid-area: masse;
   text-align: left;
@@ -1179,8 +1180,8 @@ footer a:hover {
   width: 100%;
   position: relative;
 }
-        
-.pse-item.dark-text > .pse-item-elementsymbol .outlined {
+
+.pse-item.dark-text>.pse-item-elementsymbol .outlined {
   --color: #777;
   --line-width: clamp(0.03em, 0.13vw, 0.05em);
   color: #777;
@@ -1199,7 +1200,7 @@ footer a:hover {
   --color: #fff;
 }
 
-.pse-item-elementsymbol > span:first-child {
+.pse-item-elementsymbol>span:first-child {
   display: block;
   text-align: center;
 }
@@ -1695,3 +1696,4 @@ footer a:hover {
   src: url("../fonts/Inter/inter-v20-latin-900italic.woff2") format("woff2");
   /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
+

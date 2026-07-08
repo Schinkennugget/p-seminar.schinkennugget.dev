@@ -16,10 +16,16 @@
   <link rel="manifest" href="images/favicon-zink/site.webmanifest">
   <link rel="stylesheet" href="css/styles.css" />
 
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/mhchem.min.js"></script>
+
   <script type="module">
     import * as darkmode from "./javascript/darkmode.js";
     darkmode.initialize();
-    </script>
+  </script>
 
   <title>Wasserstoff</title>
 </head>
@@ -62,20 +68,25 @@
 
     <noscript>Hinweis: JavaScript-Funktionen können nicht geladen werden, vermutlich weil dein Browser diese nicht
       unterstützt oder weil du JavaScript deaktiviert hast. Dadurch ist die Webseite visuell und funktional sehr stark
-      eingeschränkt. <br /><a href="impressum.html">Impressum</a> &amp; <a href="datenschutz">Datenschutzerklärung</a></noscript>
-      
-      
+      eingeschränkt. <br /><a href="impressum.html">Impressum</a> &amp; <a
+        href="datenschutz">Datenschutzerklärung</a></noscript>
+
+
     <header>
       <div id="header-text">
         <h1>Wasserstoff</h1>
 
         <p id="introduction">
-          
+          Wasserstoff ist das leichteste und häufigste Element im Universum.
+          Er ist Baustein von Wasser, Treibstoff der Sterne und gilt als
+          zentraler Energieträger der Zukunft. Gleichzeitig spielt er eine
+          entscheidende Rolle in der Chemie, Biologie und bei der
+          Energiewende.
         </p>
       </div>
     </header>
 
-    
+
 
     <div class="expandable" id="daten-abschnitt" data-expanded="false">
       <button class="expandable-header" id="daten-header" tabindex="0">
@@ -102,12 +113,54 @@
           </tr>
         </table>
 
-        <p id="daten-zusatz">Eine ausführlichere Liste an chem. und physikalischen Daten findest du im <a href="https://de.wikipedia.org/wiki/wasserstoff" target="_blank">Wikipedia-Artikel</a>.
+        <p id="daten-zusatz">Eine ausführlichere Liste an chem. und physikalischen Daten findest du im <a
+            href="https://de.wikipedia.org/wiki/wasserstoff" target="_blank">Wikipedia-Artikel</a>.
         </p>
       </div>
     </div>
 
+    <div id="eigenschaften" class="text-chapter">
+      <h2 tabindex="0" class="text-header">
+        Eigenschaften
+        <i data-lucide="link" class="text-header-icon"></i>
+      </h2>
 
+      <div class="text-block">
+        <div class="text">
+          <p><span data-sources="3">Wasserstoff ist unter Normalbedingungen ein farbloses, geruchloses und
+              geschmackloses Gas.</span> <span data-sources="4">Das Molekül besteht aus zwei Wasserstoffatomen
+              ( H₂ ) und ist mit einer Dichte von 0,0899 kg/m³ das leichteste aller Gase
+              – etwa 14-mal leichter als Luft.</span>
+          </p>
+          <p>
+            <span data-sources="6">Wasserstoff ist hochentzündlich. Mit Sauerstoff bildet er explosive
+              Gemische, bekannt als Knallgas. Die Verbrennungsreaktion lautet:<br>
+              \( \ce{2 H2 + O2 -> 2 H2O} \)<br>
+              Dabei wird Energie freigesetzt, ohne dass klimaschädliches CO₂ entsteht
+              – der Grund, warum Wasserstoff als Energieträger der Zukunft gilt.</span>
+            Flüssiger Wasserstoff in einem Becherglas. Er siedet bei -252,87 °C und ist farblos. —
+            NASA/Wikimedia Commons, Public Domain
+            Wasserstoff kann in drei Isotopen vorkommen: Das häufigste ist Protium
+            (¹H), das kein Neutron im Kern besitzt. Deuterium (²H oder D) hat ein
+            Neutron und kommt in der Natur in kleinen Mengen vor (~0,015 %).
+            Tritium (³H oder T) ist radioaktiv und hat eine Halbwertszeit von etwa 12
+            Jahren.[5] Schweres Wasser ( D₂O ) wird als Moderator in bestimmten
+            Kernreaktoren eingesetzt.
+          </p>
+        </div>
+        <div class="text-img-small">
+          <div class="text-img-wrapper">
+            <img srcset="
+              " src="" sizes="(max-width: 700px) 90vw, 
+      (max-width: 1111px) calc((90vw - 40px) * 0.4), 
+      384px" alt="">
+          </div>
+          <a class="text-img-footer" href="">
+
+          </a>
+        </div>
+      </div>
+    </div>
 
     <div id="quellen-container" class="expandable" data-expanded="false" hidden>
       <button id="quellen-header" class="expandable-header" tabindex="0">
@@ -116,8 +169,10 @@
       </button>
 
       <ol id="quellen" class="expandable-content" style="display:none" hidden>
-        <li class="quelle" id="quelle-1"><a href="https://pse-info.de/de/data">PSE-Info: Online-Datenbank des Periodensystems</a>, aufgerufen am <span class="visited">01.03.2026</span></li>
-        <li class="quelle" id="quelle-2">Kurt Gallenberger: Klappbares Periodensystem der Elemente. 14. Auflage, 34. Druck. München: Bayerischer Schulbuch Verlag, 2012 / Berlin: Cornelsen Verlag, 2017.</li>
+        <li class="quelle" id="quelle-1"><a href="https://pse-info.de/de/data">PSE-Info: Online-Datenbank des
+            Periodensystems</a>, aufgerufen am <span class="visited">01.03.2026</span></li>
+        <li class="quelle" id="quelle-2">Kurt Gallenberger: Klappbares Periodensystem der Elemente. 14. Auflage, 34.
+          Druck. München: Bayerischer Schulbuch Verlag, 2012 / Berlin: Cornelsen Verlag, 2017.</li>
       </ol>
     </div>
   </main>
@@ -160,16 +215,18 @@
     lucide.createIcons();
   </script>
 
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js">
-    window.MathJax = {
-      loader: { load: ['[tex]/mhchem'] },
-      tex: { packages: { '[+]': ['mhchem'] } },
-      options: {
-        enableExplorer: false, // Deaktiviert den Expression Explorer (Highlighting)
-        enableAssistiveMml: false
-      }
-    };
-  </script>
+  <script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "$", right: "$", display: false},
+        {left: "\\(", right: "\\)", display: false},
+        {left: "\\[", right: "\\]", display: true}
+      ]
+    });
+  });
+</script>
 </body>
 
 </html>

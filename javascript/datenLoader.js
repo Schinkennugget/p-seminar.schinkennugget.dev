@@ -671,23 +671,22 @@ function replaceUmlauts(string) {
 }
 
 
-async function bla() {
-  try {
-    const alleElementeObj = await loadElemente();
-    const elemente = await alleElementeObj.elements;
-    let text = "";
+// async function bla() {
+//   try {
+//     const alleElementeObj = await loadElemente();
+//     const elemente = await alleElementeObj.elements;
+//     let text = "";
 
-    setTimeout(() => {
-      for (let element in elemente) {
-        text += `case (${element.elementsymbol} || ${element.elementsymbol}.html) {
-      window.location.pathname = "${""}.html" + window.location.search + window.location.hash;
-    }
-    `;
-      }
-      console.log(text);
-    }, 2000);
-  } catch (error) {
-    console.log(error.name + error.message)
-  }
-}
-
+//     setTimeout(() => {
+//       for (let element in elemente) {
+//         text += `case (${element.elementsymbol} || ${element.elementsymbol}.html) {
+//       window.location.pathname = "${""}.html" + window.location.search + window.location.hash;
+//     }
+//     `;
+//       }
+//       console.log(text);
+//     }, 2000);
+//   } catch (error) {
+//     console.log(error.name + error.message)
+//   }
+// }

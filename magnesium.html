@@ -16,6 +16,12 @@
   <link rel="manifest" href="images/favicon-zink/site.webmanifest">
   <link rel="stylesheet" href="css/styles.css" />
 
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/mhchem.min.js"></script>
+
   <script type="module">
     import * as darkmode from "./javascript/darkmode.js";
     darkmode.initialize();
@@ -325,16 +331,18 @@
     lucide.createIcons();
   </script>
 
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js">
-    window.MathJax = {
-      loader: { load: ['[tex]/mhchem'] },
-      tex: { packages: { '[+]': ['mhchem'] } },
-      options: {
-        enableExplorer: false, // Deaktiviert den Expression Explorer (Highlighting)
-        enableAssistiveMml: false
-      }
-    };
-  </script>
+  <script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "$", right: "$", display: false},
+        {left: "\\(", right: "\\)", display: false},
+        {left: "\\[", right: "\\]", display: true}
+      ]
+    });
+  });
+</script>
 </body>
 
 </html>
