@@ -638,7 +638,7 @@ h3.text-subheader .text-header-icon {
 
 h3.text-subheader {
   margin-top: 1em;
-  margin-bottom: 0.8em;
+  margin-bottom: 0.5em;
 }
 
 h2.text-header+h3.text-subheader {
@@ -669,6 +669,7 @@ div.text-block {
   gap: 40px;
   max-width: 1000px;
   align-self: center;
+  margin-top: 1rem;
 }
 
 div.text-block *:first-child {
@@ -733,13 +734,11 @@ div.text-img-wrapper>img {
   border-radius: 8px;
 }
 
-div.text-img-small>img,
-div.text-img-small>picture {
+div.text-img-small>.text-img-wrapper {
   margin-top: 20px;
 }
 
-div.text-img-small>img:first-child,
-div.text-img-small>picture:first-child {
+div.text-img-small>.text-img-wrapper:first-child {
   margin-top: 0;
 }
 
@@ -1696,4 +1695,3 @@ footer a:hover {
   src: url("../fonts/Inter/inter-v20-latin-900italic.woff2") format("woff2");
   /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
-

@@ -315,7 +315,7 @@ async function injectLicense(elem) {
     // Nur einzelne Infos geladen
     let title = elem.dataset.title || "";
     let author = elem.dataset.author || "";
-    let source = elem.dataset.source ? `<a href="${elem.src}">${elem.dataset.source}</a>"` : "";
+    let source = elem.dataset.source ? `<a href="${elem.src}">${elem.dataset.source}</a>` : "";
     // Sollte im Attribut schon als <a> stehen
     let license = elem.dataset.license || "";
 

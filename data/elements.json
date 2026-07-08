@@ -767,7 +767,8 @@
       "anteil_haeufigstes_isotop": "?",
       "additional_data": {
         "ionenradius_ladung": "+VII",
-        "elektronegativitaet_oxidationszahl": "II"
+        "elektronegativitaet_oxidationszahl": "II",
+        "radioaktiv": true
       }
     },
     "ru": {
