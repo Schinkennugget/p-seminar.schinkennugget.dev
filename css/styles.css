@@ -687,8 +687,8 @@ div.text {
 div.text-only {
   display: flex;
   justify-content: center;
-  /*width: max(90%, 500px);*/
-  width: 100%;
+  max-width: max(90%, 500px);
+  /* width: 100%; */
 }
 
 div.text-img-small,
@@ -1695,3 +1695,18 @@ footer a:hover {
   src: url("../fonts/Inter/inter-v20-latin-900italic.woff2") format("woff2");
   /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
+
+.katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  max-width: 100%;
+}
+
+.katex {
+  max-width: 100%;
+}
+
+.katex .hide-tail {
+  overflow: hidden !important;
+}
+
