@@ -63,7 +63,7 @@
 
 	"Text without image": {
 		"scope": "html",
-		"prefix": "txt-no-img",
+		"prefix": "txtblock-no-img",
 		"body": [
 			"<div class=\"text-block text-only\">",
 			"  <div class=\"text\">",
