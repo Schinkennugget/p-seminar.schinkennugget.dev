@@ -268,7 +268,7 @@ export async function insertPSE() {
       elementElem.style.backgroundColor = bgColorName;
       elementElem.classList.add(bgTinyColor.isDark() ? "light-text" : "dark-text");
 
-      if (["zn", "s", "mg", "cu", "h"].includes(key)) elementElem.classList.add("has-content");
+      if (["zn", "s", "mg", "cu", "h", "ca", "c"].includes(key)) elementElem.classList.add("has-content");
 
 
       if (alleElementeObj[key]?.additional_data?.kuenstlich) {
