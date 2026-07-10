@@ -9,7 +9,6 @@
     "dichte": " <div class='frac'><span>g</span><span class='symbol'>/</span><span class='bottom'>cm<sup>3</sup></span></div>",
     "anteil_haeufigstes_isotop": "%"
   },
-
   "elements": {
     "h": {
       "elementname": "Wasserstoff",
@@ -26,7 +25,10 @@
       "anteil_haeufigstes_isotop": 99.985,
       "additional_data": {
         "ionenradius_ladung": "1-",
-        "elektronegativitaet_oxidationszahl": "I"
+        "elektronegativitaet_oxidationszahl": "I",
+        "einteilung": {
+          "gruppe": "cornflowerblue"
+        }
       }
     },
     "he": {
@@ -41,7 +43,12 @@
       "ionisierungsenergie": 2372,
       "dichte": 0.2,
       "elektronegativitaet": "-",
-      "anteil_haeufigstes_isotop": 99.99986
+      "anteil_haeufigstes_isotop": 99.99986,
+      "additional_data": {
+        "einteilung": {
+          "gruppe": "#11fff3"
+        }
+      }
     },
     "li": {
       "elementname": "Lithium",
@@ -58,7 +65,10 @@
       "anteil_haeufigstes_isotop": 92.5,
       "additional_data": {
         "ionenradius_ladung": "1+",
-        "elektronegativitaet_oxidationszahl": "I"
+        "elektronegativitaet_oxidationszahl": "I",
+        "einteilung": {
+          "gruppe": "#ffd237"
+        }
       }
     },
     "be": {
@@ -76,7 +86,10 @@
       "anteil_haeufigstes_isotop": 100,
       "additional_data": {
         "ionenradius_ladung": "2+",
-        "elektronegativitaet_oxidationszahl": "II"
+        "elektronegativitaet_oxidationszahl": "II",
+        "einteilung": {
+          "gruppe": "#ffb635"
+        }
       }
     },
     "b": {
@@ -94,7 +107,10 @@
       "anteil_haeufigstes_isotop": 80.22,
       "additional_data": {
         "ionenradius_ladung": "3+",
-        "elektronegativitaet_oxidationszahl": "III"
+        "elektronegativitaet_oxidationszahl": "III",
+        "einteilung": {
+          "gruppe": "#00a400"
+        }
       }
     },
     "c": {
@@ -112,7 +128,10 @@
       "anteil_haeufigstes_isotop": 98.9,
       "additional_data": {
         "ionenradius_ladung": "4+",
-        "elektronegativitaet_oxidationszahl": "IV"
+        "elektronegativitaet_oxidationszahl": "IV",
+        "einteilung": {
+          "gruppe": "cornflowerblue"
+        }
       }
     },
     "n": {
@@ -130,7 +149,10 @@
       "anteil_haeufigstes_isotop": 99.63,
       "additional_data": {
         "ionenradius_ladung": "3-",
-        "elektronegativitaet_oxidationszahl": "III"
+        "elektronegativitaet_oxidationszahl": "III",
+        "einteilung": {
+          "gruppe": "cornflowerblue"
+        }
       }
     },
     "o": {
@@ -148,7 +170,10 @@
       "anteil_haeufigstes_isotop": 99.762,
       "additional_data": {
         "ionenradius_ladung": "2-",
-        "elektronegativitaet_oxidationszahl": "II"
+        "elektronegativitaet_oxidationszahl": "II",
+        "einteilung": {
+          "gruppe": "cornflowerblue"
+        }
       }
     },
     "f": {
@@ -166,7 +191,10 @@
       "anteil_haeufigstes_isotop": 100,
       "additional_data": {
         "ionenradius_ladung": "1-",
-        "elektronegativitaet_oxidationszahl": "I"
+        "elektronegativitaet_oxidationszahl": "I",
+        "einteilung": {
+          "gruppe": "#ffff4c"
+        }
       }
     },
     "ne": {
@@ -181,7 +209,12 @@
       "ionisierungsenergie": 2081,
       "dichte": 0.9,
       "elektronegativitaet": "-",
-      "anteil_haeufigstes_isotop": 90.51
+      "anteil_haeufigstes_isotop": 90.51,
+      "additional_data": {
+        "einteilung": {
+          "gruppe": "#11fff3"
+        }
+      }
     },
     "na": {
       "elementname": "Natrium",
@@ -198,7 +231,10 @@
       "anteil_haeufigstes_isotop": 100,
       "additional_data": {
         "ionenradius_ladung": "1+",
-        "elektronegativitaet_oxidationszahl": "I"
+        "elektronegativitaet_oxidationszahl": "I",
+        "einteilung": {
+          "gruppe": "#ffd237"
+        }
       }
     },
     "mg": {
@@ -216,7 +252,10 @@
       "anteil_haeufigstes_isotop": 78.99,
       "additional_data": {
         "ionenradius_ladung": "2+",
-        "elektronegativitaet_oxidationszahl": "II"
+        "elektronegativitaet_oxidationszahl": "II",
+        "einteilung": {
+          "gruppe": "#ffb635"
+        }
       }
     },
     "al": {
@@ -234,7 +273,10 @@
       "anteil_haeufigstes_isotop": 100,
       "additional_data": {
         "ionenradius_ladung": "3+",
-        "elektronegativitaet_oxidationszahl": "III"
+        "elektronegativitaet_oxidationszahl": "III",
+        "einteilung": {
+          "gruppe": "#004600"
+        }
       }
     },
     "si": {
@@ -252,7 +294,10 @@
       "anteil_haeufigstes_isotop": 92.23,
       "additional_data": {
         "ionenradius_ladung": "3+",
-        "elektronegativitaet_oxidationszahl": "IV"
+        "elektronegativitaet_oxidationszahl": "IV",
+        "einteilung": {
+          "gruppe": "#00a400"
+        }
       }
     },
     "p": {
@@ -270,7 +315,10 @@
       "anteil_haeufigstes_isotop": 100,
       "additional_data": {
         "ionenradius_ladung": "3+",
-        "elektronegativitaet_oxidationszahl": "III"
+        "elektronegativitaet_oxidationszahl": "III",
+        "einteilung": {
+          "gruppe": "cornflowerblue"
+        }
       }
     },
     "s": {
@@ -288,7 +336,10 @@
       "anteil_haeufigstes_isotop": 95.02,
       "additional_data": {
         "ionenradius_ladung": "2-",
-        "elektronegativitaet_oxidationszahl": "II"
+        "elektronegativitaet_oxidationszahl": "II",
+        "einteilung": {
+          "gruppe": "cornflowerblue"
+        }
       }
     },
     "cl": {
@@ -306,7 +357,10 @@
       "anteil_haeufigstes_isotop": 75.77,
       "additional_data": {
         "ionenradius_ladung": "1-",
-        "elektronegativitaet_oxidationszahl": "I"
+        "elektronegativitaet_oxidationszahl": "I",
+        "einteilung": {
+          "gruppe": "#ffff4c"
+        }
       }
     },
     "ar": {
@@ -321,7 +375,12 @@
       "ionisierungsenergie": 1521,
       "dichte": 1.8,
       "elektronegativitaet": "-",
-      "anteil_haeufigstes_isotop": 99.6
+      "anteil_haeufigstes_isotop": 99.6,
+      "additional_data": {
+        "einteilung": {
+          "gruppe": "#11fff3"
+        }
+      }
     },
     "k": {
       "elementname": "Kalium",
@@ -338,7 +397,10 @@
       "anteil_haeufigstes_isotop": 93.258,
       "additional_data": {
         "ionenradius_ladung": "1+",
-        "elektronegativitaet_oxidationszahl": "I"
+        "elektronegativitaet_oxidationszahl": "I",
+        "einteilung": {
+          "gruppe": "#ffd237"
+        }
       }
     },
     "ca": {
@@ -356,7 +418,10 @@
       "anteil_haeufigstes_isotop": 96.941,
       "additional_data": {
         "ionenradius_ladung": "2+",
-        "elektronegativitaet_oxidationszahl": "II"
+        "elektronegativitaet_oxidationszahl": "II",
+        "einteilung": {
+          "gruppe": "#ffb635"
+        }
       }
     },
     "sc": {
@@ -374,7 +439,10 @@
       "anteil_haeufigstes_isotop": 100,
       "additional_data": {
         "ionenradius_ladung": "3+",
-        "elektronegativitaet_oxidationszahl": "III"
+        "elektronegativitaet_oxidationszahl": "III",
+        "einteilung": {
+          "gruppe": "yellowgreen"
+        }
       }
     },
     "ti": {
@@ -392,7 +460,10 @@
       "anteil_haeufigstes_isotop": 73.8,
       "additional_data": {
         "ionenradius_ladung": "4+",
-        "elektronegativitaet_oxidationszahl": "II"
+        "elektronegativitaet_oxidationszahl": "II",
+        "einteilung": {
+          "gruppe": "yellowgreen"
+        }
       }
     },
     "v": {
@@ -410,7 +481,10 @@
       "anteil_haeufigstes_isotop": 99.75,
       "additional_data": {
         "ionenradius_ladung": "+V",
-        "elektronegativitaet_oxidationszahl": "II"
+        "elektronegativitaet_oxidationszahl": "II",
+        "einteilung": {
+          "gruppe": "yellowgreen"
+        }
       }
     },
     "cr": {
@@ -428,7 +502,10 @@
       "anteil_haeufigstes_isotop": 83.79,
       "additional_data": {
         "ionenradius_ladung": "+VI",
-        "elektronegativitaet_oxidationszahl": "II"
+        "elektronegativitaet_oxidationszahl": "II",
+        "einteilung": {
+          "gruppe": "yellowgreen"
+        }
       }
     },
     "mn": {
@@ -446,7 +523,10 @@
       "anteil_haeufigstes_isotop": 100,
       "additional_data": {
         "ionenradius_ladung": "+VII",
-        "elektronegativitaet_oxidationszahl": "II"
+        "elektronegativitaet_oxidationszahl": "II",
+        "einteilung": {
+          "gruppe": "yellowgreen"
+        }
       }
     },
     "fe": {
@@ -464,7 +544,10 @@
       "anteil_haeufigstes_isotop": 91.7,
       "additional_data": {
         "ionenradius_ladung": "3+",
-        "elektronegativitaet_oxidationszahl": "II"
+        "elektronegativitaet_oxidationszahl": "II",
+        "einteilung": {
+          "gruppe": "yellowgreen"
+        }
       }
     },
     "co": {
@@ -482,7 +565,10 @@
       "anteil_haeufigstes_isotop": 100,
       "additional_data": {
         "ionenradius_ladung": "2+",
-        "elektronegativitaet_oxidationszahl": "II"
+        "elektronegativitaet_oxidationszahl": "II",
+        "einteilung": {
+          "gruppe": "yellowgreen"
+        }
       }
     },
     "ni": {
@@ -500,7 +586,10 @@
       "anteil_haeufigstes_isotop": 68.27,
       "additional_data": {
         "ionenradius_ladung": "2+",
-        "elektronegativitaet_oxidationszahl": "II"
+        "elektronegativitaet_oxidationszahl": "II",
+        "einteilung": {
+          "gruppe": "yellowgreen"
+        }
       }
     },
     "cu": {
@@ -518,7 +607,10 @@
       "anteil_haeufigstes_isotop": 69.17,
       "additional_data": {
         "ionenradius_ladung": "2+",
-        "elektronegativitaet_oxidationszahl": "I"
+        "elektronegativitaet_oxidationszahl": "I",
+        "einteilung": {
+          "gruppe": "yellowgreen"
+        }
       }
     },
     "zn": {
@@ -537,7 +629,10 @@
       "additional_data": {
         "ionenradius_ladung": "2+",
         "elektronegativitaet_oxidationszahl": "II",
-        "background_color": "forestgreen"
+        "background_color": "forestgreen",
+        "einteilung": {
+          "gruppe": "yellowgreen"
+        }
       }
     },
     "ga": {
@@ -555,7 +650,10 @@
       "anteil_haeufigstes_isotop": 60.1,
       "additional_data": {
         "ionenradius_ladung": "3+",
-        "elektronegativitaet_oxidationszahl": "III"
+        "elektronegativitaet_oxidationszahl": "III",
+        "einteilung": {
+          "gruppe": "#004600"
+        }
       }
     },
     "ge": {
@@ -573,7 +671,10 @@
       "anteil_haeufigstes_isotop": 36.5,
       "additional_data": {
         "ionenradius_ladung": "4+",
-        "elektronegativitaet_oxidationszahl": "IV"
+        "elektronegativitaet_oxidationszahl": "IV",
+        "einteilung": {
+          "gruppe": "#00a400"
+        }
       }
     },
     "as": {
@@ -591,7 +692,10 @@
       "anteil_haeufigstes_isotop": 100,
       "additional_data": {
         "ionenradius_ladung": "3+",
-        "elektronegativitaet_oxidationszahl": "III"
+        "elektronegativitaet_oxidationszahl": "III",
+        "einteilung": {
+          "gruppe": "#00a400"
+        }
       }
     },
     "se": {
@@ -609,7 +713,10 @@
       "anteil_haeufigstes_isotop": 49.82,
       "additional_data": {
         "ionenradius_ladung": "2-",
-        "elektronegativitaet_oxidationszahl": "II"
+        "elektronegativitaet_oxidationszahl": "II",
+        "einteilung": {
+          "gruppe": "#00a400"
+        }
       }
     },
     "br": {
@@ -627,7 +734,10 @@
       "anteil_haeufigstes_isotop": 50.7,
       "additional_data": {
         "ionenradius_ladung": "1-",
-        "elektronegativitaet_oxidationszahl": "I"
+        "elektronegativitaet_oxidationszahl": "I",
+        "einteilung": {
+          "gruppe": "#ffff4c"
+        }
       }
     },
     "kr": {
@@ -642,7 +752,12 @@
       "ionisierungsenergie": 1351,
       "dichte": 3.7,
       "elektronegativitaet": "-",
-      "anteil_haeufigstes_isotop": 57
+      "anteil_haeufigstes_isotop": 57,
+      "additional_data": {
+        "einteilung": {
+          "gruppe": "#11fff3"
+        }
+      }
     },
     "rb": {
       "elementname": "Rubidium",
@@ -659,7 +774,10 @@
       "anteil_haeufigstes_isotop": 72.17,
       "additional_data": {
         "ionenradius_ladung": "1+",
-        "elektronegativitaet_oxidationszahl": "I"
+        "elektronegativitaet_oxidationszahl": "I",
+        "einteilung": {
+          "gruppe": "#ffd237"
+        }
       }
     },
     "sr": {
@@ -677,7 +795,10 @@
       "anteil_haeufigstes_isotop": 82.58,
       "additional_data": {
         "ionenradius_ladung": "2+",
-        "elektronegativitaet_oxidationszahl": "II"
+        "elektronegativitaet_oxidationszahl": "II",
+        "einteilung": {
+          "gruppe": "#ffb635"
+        }
       }
     },
     "y": {
@@ -695,7 +816,10 @@
       "anteil_haeufigstes_isotop": 100,
       "additional_data": {
         "ionenradius_ladung": "3+",
-        "elektronegativitaet_oxidationszahl": "III"
+        "elektronegativitaet_oxidationszahl": "III",
+        "einteilung": {
+          "gruppe": "yellowgreen"
+        }
       }
     },
     "zr": {
@@ -713,7 +837,10 @@
       "anteil_haeufigstes_isotop": 51.45,
       "additional_data": {
         "ionenradius_ladung": "4+",
-        "elektronegativitaet_oxidationszahl": "II"
+        "elektronegativitaet_oxidationszahl": "II",
+        "einteilung": {
+          "gruppe": "yellowgreen"
+        }
       }
     },
     "nb": {
@@ -731,7 +858,10 @@
       "anteil_haeufigstes_isotop": 100,
       "additional_data": {
         "ionenradius_ladung": "+V",
-        "elektronegativitaet_oxidationszahl": "II"
+        "elektronegativitaet_oxidationszahl": "II",
+        "einteilung": {
+          "gruppe": "yellowgreen"
+        }
       }
     },
     "mo": {
@@ -749,7 +879,10 @@
       "anteil_haeufigstes_isotop": 24.13,
       "additional_data": {
         "ionenradius_ladung": "+VI",
-        "elektronegativitaet_oxidationszahl": "II"
+        "elektronegativitaet_oxidationszahl": "II",
+        "einteilung": {
+          "gruppe": "yellowgreen"
+        }
       }
     },
     "tc": {
@@ -768,7 +901,10 @@
       "additional_data": {
         "ionenradius_ladung": "+VII",
         "elektronegativitaet_oxidationszahl": "II",
-        "radioaktiv": true
+        "radioaktiv": true,
+        "einteilung": {
+          "gruppe": "yellowgreen"
+        }
       }
     },
     "ru": {
@@ -786,7 +922,10 @@
       "anteil_haeufigstes_isotop": 31.6,
       "additional_data": {
         "ionenradius_ladung": "4+",
-        "elektronegativitaet_oxidationszahl": "II"
+        "elektronegativitaet_oxidationszahl": "II",
+        "einteilung": {
+          "gruppe": "yellowgreen"
+        }
       }
     },
     "rh": {
@@ -804,7 +943,10 @@
       "anteil_haeufigstes_isotop": 100,
       "additional_data": {
         "ionenradius_ladung": "3+",
-        "elektronegativitaet_oxidationszahl": "II"
+        "elektronegativitaet_oxidationszahl": "II",
+        "einteilung": {
+          "gruppe": "yellowgreen"
+        }
       }
     },
     "pd": {
@@ -822,7 +964,10 @@
       "anteil_haeufigstes_isotop": 27.33,
       "additional_data": {
         "ionenradius_ladung": "2+",
-        "elektronegativitaet_oxidationszahl": "II"
+        "elektronegativitaet_oxidationszahl": "II",
+        "einteilung": {
+          "gruppe": "yellowgreen"
+        }
       }
     },
     "ag": {
@@ -840,7 +985,10 @@
       "anteil_haeufigstes_isotop": 51.83,
       "additional_data": {
         "ionenradius_ladung": "1+",
-        "elektronegativitaet_oxidationszahl": "I"
+        "elektronegativitaet_oxidationszahl": "I",
+        "einteilung": {
+          "gruppe": "yellowgreen"
+        }
       }
     },
     "cd": {
@@ -858,7 +1006,10 @@
       "anteil_haeufigstes_isotop": 28.72,
       "additional_data": {
         "ionenradius_ladung": "2+",
-        "elektronegativitaet_oxidationszahl": "II"
+        "elektronegativitaet_oxidationszahl": "II",
+        "einteilung": {
+          "gruppe": "yellowgreen"
+        }
       }
     },
     "in": {
@@ -876,7 +1027,10 @@
       "anteil_haeufigstes_isotop": 95.7,
       "additional_data": {
         "ionenradius_ladung": "3+",
-        "elektronegativitaet_oxidationszahl": "III"
+        "elektronegativitaet_oxidationszahl": "III",
+        "einteilung": {
+          "gruppe": "#004600"
+        }
       }
     },
     "sn": {
@@ -894,7 +1048,10 @@
       "anteil_haeufigstes_isotop": 32.4,
       "additional_data": {
         "ionenradius_ladung": "4+",
-        "elektronegativitaet_oxidationszahl": "II"
+        "elektronegativitaet_oxidationszahl": "II",
+        "einteilung": {
+          "gruppe": "#004600"
+        }
       }
     },
     "sb": {
@@ -912,7 +1069,10 @@
       "anteil_haeufigstes_isotop": 57.3,
       "additional_data": {
         "ionenradius_ladung": "3+",
-        "elektronegativitaet_oxidationszahl": "III"
+        "elektronegativitaet_oxidationszahl": "III",
+        "einteilung": {
+          "gruppe": "#00a400"
+        }
       }
     },
     "te": {
@@ -930,7 +1090,10 @@
       "anteil_haeufigstes_isotop": 33.8,
       "additional_data": {
         "ionenradius_ladung": "2-",
-        "elektronegativitaet_oxidationszahl": "II"
+        "elektronegativitaet_oxidationszahl": "II",
+        "einteilung": {
+          "gruppe": "#00a400"
+        }
       }
     },
     "i": {
@@ -948,7 +1111,10 @@
       "anteil_haeufigstes_isotop": 100,
       "additional_data": {
         "ionenradius_ladung": "1-",
-        "elektronegativitaet_oxidationszahl": "I"
+        "elektronegativitaet_oxidationszahl": "I",
+        "einteilung": {
+          "gruppe": "#ffff4c"
+        }
       }
     },
     "xe": {
@@ -963,7 +1129,12 @@
       "ionisierungsenergie": 1170,
       "dichte": 5.9,
       "elektronegativitaet": "-",
-      "anteil_haeufigstes_isotop": 26.9
+      "anteil_haeufigstes_isotop": 26.9,
+      "additional_data": {
+        "einteilung": {
+          "gruppe": "#11fff3"
+        }
+      }
     },
     "cs": {
       "elementname": "Caesium",
@@ -980,7 +1151,10 @@
       "anteil_haeufigstes_isotop": 100,
       "additional_data": {
         "ionenradius_ladung": "1+",
-        "elektronegativitaet_oxidationszahl": "I"
+        "elektronegativitaet_oxidationszahl": "I",
+        "einteilung": {
+          "gruppe": "#ffd237"
+        }
       }
     },
     "ba": {
@@ -998,7 +1172,10 @@
       "anteil_haeufigstes_isotop": 71.7,
       "additional_data": {
         "ionenradius_ladung": "2+",
-        "elektronegativitaet_oxidationszahl": "II"
+        "elektronegativitaet_oxidationszahl": "II",
+        "einteilung": {
+          "gruppe": "#ffb635"
+        }
       }
     },
     "la": {
@@ -1016,7 +1193,10 @@
       "anteil_haeufigstes_isotop": 99.91,
       "additional_data": {
         "ionenradius_ladung": "3+",
-        "elektronegativitaet_oxidationszahl": "III"
+        "elektronegativitaet_oxidationszahl": "III",
+        "einteilung": {
+          "gruppe": "#ff2d9c"
+        }
       }
     },
     "ce": {
@@ -1034,7 +1214,10 @@
       "anteil_haeufigstes_isotop": 88.48,
       "additional_data": {
         "ionenradius_ladung": "3+",
-        "elektronegativitaet_oxidationszahl": "III"
+        "elektronegativitaet_oxidationszahl": "III",
+        "einteilung": {
+          "gruppe": "#ff2d9c"
+        }
       }
     },
     "pr": {
@@ -1052,7 +1235,10 @@
       "anteil_haeufigstes_isotop": 100,
       "additional_data": {
         "ionenradius_ladung": "3+",
-        "elektronegativitaet_oxidationszahl": "II"
+        "elektronegativitaet_oxidationszahl": "II",
+        "einteilung": {
+          "gruppe": "#ff2d9c"
+        }
       }
     },
     "nd": {
@@ -1070,7 +1256,10 @@
       "anteil_haeufigstes_isotop": 27.13,
       "additional_data": {
         "ionenradius_ladung": "3+",
-        "elektronegativitaet_oxidationszahl": "II"
+        "elektronegativitaet_oxidationszahl": "II",
+        "einteilung": {
+          "gruppe": "#ff2d9c"
+        }
       }
     },
     "pm": {
@@ -1088,7 +1277,10 @@
       "anteil_haeufigstes_isotop": "?",
       "additional_data": {
         "ionenradius_ladung": "3+",
-        "elektronegativitaet_oxidationszahl": "II"
+        "elektronegativitaet_oxidationszahl": "II",
+        "einteilung": {
+          "gruppe": "#ff2d9c"
+        }
       }
     },
     "sm": {
@@ -1106,7 +1298,10 @@
       "anteil_haeufigstes_isotop": 26.7,
       "additional_data": {
         "ionenradius_ladung": "3+",
-        "elektronegativitaet_oxidationszahl": "II"
+        "elektronegativitaet_oxidationszahl": "II",
+        "einteilung": {
+          "gruppe": "#ff2d9c"
+        }
       }
     },
     "eu": {
@@ -1123,7 +1318,10 @@
       "elektronegativitaet": "1,2",
       "anteil_haeufigstes_isotop": 52.2,
       "additional_data": {
-        "ionenradius_ladung": "2+"
+        "ionenradius_ladung": "2+",
+        "einteilung": {
+          "gruppe": "#ff2d9c"
+        }
       }
     },
     "gd": {
@@ -1141,7 +1339,10 @@
       "anteil_haeufigstes_isotop": 24.84,
       "additional_data": {
         "ionenradius_ladung": "3+",
-        "elektronegativitaet_oxidationszahl": "II"
+        "elektronegativitaet_oxidationszahl": "II",
+        "einteilung": {
+          "gruppe": "#ff2d9c"
+        }
       }
     },
     "tb": {
@@ -1158,7 +1359,10 @@
       "elektronegativitaet": "1,2",
       "anteil_haeufigstes_isotop": 100,
       "additional_data": {
-        "ionenradius_ladung": "3+"
+        "ionenradius_ladung": "3+",
+        "einteilung": {
+          "gruppe": "#ff2d9c"
+        }
       }
     },
     "dy": {
@@ -1176,7 +1380,10 @@
       "anteil_haeufigstes_isotop": 28.2,
       "additional_data": {
         "ionenradius_ladung": "3+",
-        "elektronegativitaet_oxidationszahl": "I"
+        "elektronegativitaet_oxidationszahl": "I",
+        "einteilung": {
+          "gruppe": "#ff2d9c"
+        }
       }
     },
     "ho": {
@@ -1194,7 +1401,10 @@
       "anteil_haeufigstes_isotop": 100,
       "additional_data": {
         "ionenradius_ladung": "3+",
-        "elektronegativitaet_oxidationszahl": "II"
+        "elektronegativitaet_oxidationszahl": "II",
+        "einteilung": {
+          "gruppe": "#ff2d9c"
+        }
       }
     },
     "er": {
@@ -1212,7 +1422,10 @@
       "anteil_haeufigstes_isotop": 33.6,
       "additional_data": {
         "ionenradius_ladung": "3+",
-        "elektronegativitaet_oxidationszahl": "III"
+        "elektronegativitaet_oxidationszahl": "III",
+        "einteilung": {
+          "gruppe": "#ff2d9c"
+        }
       }
     },
     "tm": {
@@ -1230,7 +1443,10 @@
       "anteil_haeufigstes_isotop": 100,
       "additional_data": {
         "ionenradius_ladung": "3+",
-        "elektronegativitaet_oxidationszahl": "IV"
+        "elektronegativitaet_oxidationszahl": "IV",
+        "einteilung": {
+          "gruppe": "#ff2d9c"
+        }
       }
     },
     "yb": {
@@ -1247,7 +1463,10 @@
       "elektronegativitaet": "1,1",
       "anteil_haeufigstes_isotop": 31.8,
       "additional_data": {
-        "ionenradius_ladung": "3+"
+        "ionenradius_ladung": "3+",
+        "einteilung": {
+          "gruppe": "#ff2d9c"
+        }
       }
     },
     "lu": {
@@ -1265,7 +1484,10 @@
       "anteil_haeufigstes_isotop": 97.4,
       "additional_data": {
         "ionenradius_ladung": "3+",
-        "elektronegativitaet_oxidationszahl": "II"
+        "elektronegativitaet_oxidationszahl": "II",
+        "einteilung": {
+          "gruppe": "#ff2d9c"
+        }
       }
     },
     "hf": {
@@ -1283,7 +1505,10 @@
       "anteil_haeufigstes_isotop": 35.2,
       "additional_data": {
         "ionenradius_ladung": "4+",
-        "elektronegativitaet_oxidationszahl": "II"
+        "elektronegativitaet_oxidationszahl": "II",
+        "einteilung": {
+          "gruppe": "yellowgreen"
+        }
       }
     },
     "ta": {
@@ -1301,7 +1526,10 @@
       "anteil_haeufigstes_isotop": 99.988,
       "additional_data": {
         "ionenradius_ladung": "+V",
-        "elektronegativitaet_oxidationszahl": "II"
+        "elektronegativitaet_oxidationszahl": "II",
+        "einteilung": {
+          "gruppe": "yellowgreen"
+        }
       }
     },
     "w": {
@@ -1319,7 +1547,10 @@
       "anteil_haeufigstes_isotop": 30.67,
       "additional_data": {
         "ionenradius_ladung": "+VI",
-        "elektronegativitaet_oxidationszahl": "II"
+        "elektronegativitaet_oxidationszahl": "II",
+        "einteilung": {
+          "gruppe": "yellowgreen"
+        }
       }
     },
     "re": {
@@ -1337,7 +1568,10 @@
       "anteil_haeufigstes_isotop": 62.6,
       "additional_data": {
         "ionenradius_ladung": "+VII",
-        "elektronegativitaet_oxidationszahl": "II"
+        "elektronegativitaet_oxidationszahl": "II",
+        "einteilung": {
+          "gruppe": "yellowgreen"
+        }
       }
     },
     "os": {
@@ -1355,7 +1589,10 @@
       "anteil_haeufigstes_isotop": 41,
       "additional_data": {
         "ionenradius_ladung": "4+",
-        "elektronegativitaet_oxidationszahl": "II"
+        "elektronegativitaet_oxidationszahl": "II",
+        "einteilung": {
+          "gruppe": "yellowgreen"
+        }
       }
     },
     "ir": {
@@ -1373,7 +1610,10 @@
       "anteil_haeufigstes_isotop": 62.7,
       "additional_data": {
         "ionenradius_ladung": "4+",
-        "elektronegativitaet_oxidationszahl": "II"
+        "elektronegativitaet_oxidationszahl": "II",
+        "einteilung": {
+          "gruppe": "yellowgreen"
+        }
       }
     },
     "pt": {
@@ -1391,7 +1631,10 @@
       "anteil_haeufigstes_isotop": 33.8,
       "additional_data": {
         "ionenradius_ladung": "2+",
-        "elektronegativitaet_oxidationszahl": "II"
+        "elektronegativitaet_oxidationszahl": "II",
+        "einteilung": {
+          "gruppe": "yellowgreen"
+        }
       }
     },
     "au": {
@@ -1409,7 +1652,10 @@
       "anteil_haeufigstes_isotop": 100,
       "additional_data": {
         "ionenradius_ladung": "1+",
-        "elektronegativitaet_oxidationszahl": "I"
+        "elektronegativitaet_oxidationszahl": "I",
+        "einteilung": {
+          "gruppe": "yellowgreen"
+        }
       }
     },
     "hg": {
@@ -1427,7 +1673,10 @@
       "anteil_haeufigstes_isotop": 29.8,
       "additional_data": {
         "ionenradius_ladung": "2+",
-        "elektronegativitaet_oxidationszahl": "II"
+        "elektronegativitaet_oxidationszahl": "II",
+        "einteilung": {
+          "gruppe": "yellowgreen"
+        }
       }
     },
     "tl": {
@@ -1445,7 +1694,10 @@
       "anteil_haeufigstes_isotop": 70.5,
       "additional_data": {
         "ionenradius_ladung": "3+",
-        "elektronegativitaet_oxidationszahl": "III"
+        "elektronegativitaet_oxidationszahl": "III",
+        "einteilung": {
+          "gruppe": "#004600"
+        }
       }
     },
     "pb": {
@@ -1463,7 +1715,10 @@
       "anteil_haeufigstes_isotop": 52.4,
       "additional_data": {
         "ionenradius_ladung": "4+",
-        "elektronegativitaet_oxidationszahl": "II"
+        "elektronegativitaet_oxidationszahl": "II",
+        "einteilung": {
+          "gruppe": "#004600"
+        }
       }
     },
     "bi": {
@@ -1481,7 +1736,10 @@
       "anteil_haeufigstes_isotop": 100,
       "additional_data": {
         "ionenradius_ladung": "3+",
-        "elektronegativitaet_oxidationszahl": "III"
+        "elektronegativitaet_oxidationszahl": "III",
+        "einteilung": {
+          "gruppe": "#004600"
+        }
       }
     },
     "po": {
@@ -1500,7 +1758,10 @@
       "additional_data": {
         "ionenradius_ladung": "+VI",
         "radioaktiv": true,
-        "elektronegativitaet_oxidationszahl": "II"
+        "elektronegativitaet_oxidationszahl": "II",
+        "einteilung": {
+          "gruppe": "#004600"
+        }
       }
     },
     "at": {
@@ -1519,7 +1780,10 @@
       "additional_data": {
         "ionenradius_ladung": "1-",
         "elektronegativitaet_oxidationszahl": "I",
-        "radioaktiv": true
+        "radioaktiv": true,
+        "einteilung": {
+          "gruppe": "#ffff4c"
+        }
       }
     },
     "rn": {
@@ -1536,7 +1800,10 @@
       "elektronegativitaet": "-",
       "anteil_haeufigstes_isotop": "-",
       "additional_data": {
-        "radioaktiv": true
+        "radioaktiv": true,
+        "einteilung": {
+          "gruppe": "#11fff3"
+        }
       }
     },
     "fr": {
@@ -1555,7 +1822,10 @@
       "additional_data": {
         "ionenradius_ladung": "1+",
         "elektronegativitaet_oxidationszahl": "I",
-        "radioaktiv": true
+        "radioaktiv": true,
+        "einteilung": {
+          "gruppe": "#ffd237"
+        }
       }
     },
     "ra": {
@@ -1574,7 +1844,10 @@
       "additional_data": {
         "ionenradius_ladung": "2+",
         "elektronegativitaet_oxidationszahl": "II",
-        "radioaktiv": true
+        "radioaktiv": true,
+        "einteilung": {
+          "gruppe": "#ffb635"
+        }
       }
     },
     "ac": {
@@ -1592,7 +1865,10 @@
       "anteil_haeufigstes_isotop": "-",
       "additional_data": {
         "ionenradius_ladung": "3+",
-        "radioaktiv": true
+        "radioaktiv": true,
+        "einteilung": {
+          "gruppe": "#9b00ff"
+        }
       }
     },
     "th": {
@@ -1610,7 +1886,10 @@
       "anteil_haeufigstes_isotop": "-",
       "additional_data": {
         "ionenradius_ladung": "4+",
-        "radioaktiv": true
+        "radioaktiv": true,
+        "einteilung": {
+          "gruppe": "#9b00ff"
+        }
       }
     },
     "pa": {
@@ -1628,7 +1907,10 @@
       "anteil_haeufigstes_isotop": "-",
       "additional_data": {
         "ionenradius_ladung": "3+",
-        "radioaktiv": true
+        "radioaktiv": true,
+        "einteilung": {
+          "gruppe": "#9b00ff"
+        }
       }
     },
     "u": {
@@ -1646,7 +1928,10 @@
       "anteil_haeufigstes_isotop": "-",
       "additional_data": {
         "ionenradius_ladung": "4+",
-        "radioaktiv": true
+        "radioaktiv": true,
+        "einteilung": {
+          "gruppe": "#9b00ff"
+        }
       }
     },
     "np": {
@@ -1664,7 +1949,10 @@
       "anteil_haeufigstes_isotop": "-",
       "additional_data": {
         "ionenradius_ladung": "4+",
-        "radioaktiv": true
+        "radioaktiv": true,
+        "einteilung": {
+          "gruppe": "#9b00ff"
+        }
       }
     },
     "pu": {
@@ -1682,7 +1970,10 @@
       "anteil_haeufigstes_isotop": "-",
       "additional_data": {
         "ionenradius_ladung": "3+",
-        "radioaktiv": true
+        "radioaktiv": true,
+        "einteilung": {
+          "gruppe": "#9b00ff"
+        }
       }
     },
     "am": {
@@ -1701,7 +1992,10 @@
       "additional_data": {
         "ionenradius_ladung": "3+",
         "kuenstlich": true,
-        "radioaktiv": true
+        "radioaktiv": true,
+        "einteilung": {
+          "gruppe": "#9b00ff"
+        }
       }
     },
     "cm": {
@@ -1720,7 +2014,10 @@
       "additional_data": {
         "ionenradius_ladung": "3+",
         "kuenstlich": true,
-        "radioaktiv": true
+        "radioaktiv": true,
+        "einteilung": {
+          "gruppe": "#9b00ff"
+        }
       }
     },
     "bk": {
@@ -1739,7 +2036,10 @@
       "additional_data": {
         "ionenradius_ladung": "3+",
         "kuenstlich": true,
-        "radioaktiv": true
+        "radioaktiv": true,
+        "einteilung": {
+          "gruppe": "#9b00ff"
+        }
       }
     },
     "cf": {
@@ -1758,7 +2058,10 @@
       "additional_data": {
         "ionenradius_ladung": "3+",
         "kuenstlich": true,
-        "radioaktiv": true
+        "radioaktiv": true,
+        "einteilung": {
+          "gruppe": "#9b00ff"
+        }
       }
     },
     "es": {
@@ -1776,7 +2079,10 @@
       "anteil_haeufigstes_isotop": "-",
       "additional_data": {
         "kuenstlich": true,
-        "radioaktiv": true
+        "radioaktiv": true,
+        "einteilung": {
+          "gruppe": "#9b00ff"
+        }
       }
     },
     "fm": {
@@ -1794,7 +2100,10 @@
       "anteil_haeufigstes_isotop": "-",
       "additional_data": {
         "kuenstlich": true,
-        "radioaktiv": true
+        "radioaktiv": true,
+        "einteilung": {
+          "gruppe": "#9b00ff"
+        }
       }
     },
     "md": {
@@ -1812,7 +2121,10 @@
       "anteil_haeufigstes_isotop": "-",
       "additional_data": {
         "kuenstlich": true,
-        "radioaktiv": true
+        "radioaktiv": true,
+        "einteilung": {
+          "gruppe": "#9b00ff"
+        }
       }
     },
     "no": {
@@ -1831,7 +2143,10 @@
       "additional_data": {
         "ionenradius_ladung": "2+",
         "radioaktiv": true,
-        "kuenstlich": true
+        "kuenstlich": true,
+        "einteilung": {
+          "gruppe": "#9b00ff"
+        }
       }
     },
     "lr": {
@@ -1849,7 +2164,10 @@
       "anteil_haeufigstes_isotop": "-",
       "additional_data": {
         "kuenstlich": true,
-        "radioaktiv": true
+        "radioaktiv": true,
+        "einteilung": {
+          "gruppe": "#9b00ff"
+        }
       }
     },
     "rf": {
@@ -1867,7 +2185,10 @@
       "anteil_haeufigstes_isotop": "-",
       "additional_data": {
         "kuenstlich": true,
-        "radioaktiv": true
+        "radioaktiv": true,
+        "einteilung": {
+          "gruppe": "yellowgreen"
+        }
       }
     },
     "db": {
@@ -1885,7 +2206,10 @@
       "anteil_haeufigstes_isotop": "-",
       "additional_data": {
         "kuenstlich": true,
-        "radioaktiv": true
+        "radioaktiv": true,
+        "einteilung": {
+          "gruppe": "yellowgreen"
+        }
       }
     },
     "sg": {
@@ -1903,7 +2227,10 @@
       "anteil_haeufigstes_isotop": "-",
       "additional_data": {
         "kuenstlich": true,
-        "radioaktiv": true
+        "radioaktiv": true,
+        "einteilung": {
+          "gruppe": "yellowgreen"
+        }
       }
     },
     "bh": {
@@ -1921,7 +2248,10 @@
       "anteil_haeufigstes_isotop": "-",
       "additional_data": {
         "kuenstlich": true,
-        "radioaktiv": true
+        "radioaktiv": true,
+        "einteilung": {
+          "gruppe": "yellowgreen"
+        }
       }
     },
     "hs": {
@@ -1939,7 +2269,10 @@
       "anteil_haeufigstes_isotop": "-",
       "additional_data": {
         "kuenstlich": true,
-        "radioaktiv": true
+        "radioaktiv": true,
+        "einteilung": {
+          "gruppe": "yellowgreen"
+        }
       }
     },
     "mt": {
@@ -1957,7 +2290,10 @@
       "anteil_haeufigstes_isotop": "-",
       "additional_data": {
         "kuenstlich": true,
-        "radioaktiv": true
+        "radioaktiv": true,
+        "einteilung": {
+          "gruppe": "lightgray"
+        }
       }
     },
     "ds": {
@@ -1975,7 +2311,10 @@
       "anteil_haeufigstes_isotop": "-",
       "additional_data": {
         "kuenstlich": true,
-        "radioaktiv": true
+        "radioaktiv": true,
+        "einteilung": {
+          "gruppe": "lightgray"
+        }
       }
     },
     "rg": {
@@ -1993,7 +2332,10 @@
       "anteil_haeufigstes_isotop": "-",
       "additional_data": {
         "kuenstlich": true,
-        "radioaktiv": true
+        "radioaktiv": true,
+        "einteilung": {
+          "gruppe": "lightgray"
+        }
       }
     },
     "cn": {
@@ -2011,7 +2353,10 @@
       "anteil_haeufigstes_isotop": "-",
       "additional_data": {
         "kuenstlich": true,
-        "radioaktiv": true
+        "radioaktiv": true,
+        "einteilung": {
+          "gruppe": "lightgray"
+        }
       }
     },
     "nh": {
@@ -2029,7 +2374,10 @@
       "anteil_haeufigstes_isotop": "-",
       "additional_data": {
         "kuenstlich": true,
-        "radioaktiv": true
+        "radioaktiv": true,
+        "einteilung": {
+          "gruppe": "lightgray"
+        }
       }
     },
     "fl": {
@@ -2047,7 +2395,10 @@
       "anteil_haeufigstes_isotop": "-",
       "additional_data": {
         "kuenstlich": true,
-        "radioaktiv": true
+        "radioaktiv": true,
+        "einteilung": {
+          "gruppe": "lightgray"
+        }
       }
     },
     "mc": {
@@ -2065,7 +2416,10 @@
       "anteil_haeufigstes_isotop": "-",
       "additional_data": {
         "kuenstlich": true,
-        "radioaktiv": true
+        "radioaktiv": true,
+        "einteilung": {
+          "gruppe": "lightgray"
+        }
       }
     },
     "lv": {
@@ -2083,7 +2437,10 @@
       "anteil_haeufigstes_isotop": "-",
       "additional_data": {
         "kuenstlich": true,
-        "radioaktiv": true
+        "radioaktiv": true,
+        "einteilung": {
+          "gruppe": "lightgray"
+        }
       }
     },
     "ts": {
@@ -2101,7 +2458,10 @@
       "anteil_haeufigstes_isotop": "-",
       "additional_data": {
         "kuenstlich": true,
-        "radioaktiv": true
+        "radioaktiv": true,
+        "einteilung": {
+          "gruppe": "lightgray"
+        }
       }
     },
     "og": {
@@ -2119,7 +2479,10 @@
       "anteil_haeufigstes_isotop": "-",
       "additional_data": {
         "kuenstlich": true,
-        "radioaktiv": true
+        "radioaktiv": true,
+        "einteilung": {
+          "gruppe": "lightgray"
+        }
       }
     }
   }

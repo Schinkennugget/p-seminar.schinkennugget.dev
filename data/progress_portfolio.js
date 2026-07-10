@@ -18,7 +18,7 @@ const data = {
     grobe_struktur: "100%",
     texte: "100%",
     datenansicht: "100%",
-    automatisierung: "95%",
+    automatisierung: "100%",
     rechtliches: "100%",
     hosting: "100%",
     quellen: "100%",
@@ -28,7 +28,7 @@ const data = {
     startseite_bauen: "0%",
     experimente_konzept: "20%",
     experimente_bauen: "0%",
-    andere_einbauen: "5%"
+    andere_einbauen: "100%"
   }
 };
 

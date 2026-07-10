@@ -225,7 +225,7 @@ export async function insertPSE() {
 
       const isLocal = new URL(document.baseURI).host.includes('localhost');
       elementElem.href = isLocal ? `http://localhost:3000/${replaceUmlauts(alleElementeObj[key].elementname)}.html` : `https://p-seminar.schinkennugget.dev/${replaceUmlauts(alleElementeObj[key].elementname)}.html`;
-      elementElem.title = alleElementeObj[key].elementname;
+      // elementElem.title = alleElementeObj[key].elementname;
 
       const elementsymbolTextElem = document.createElement("span")
       elementsymbolTextElem.classList.add("pse-item-elementsymbol-text");
@@ -241,17 +241,17 @@ export async function insertPSE() {
 
 
       if ([
-          "h", "li", "na", "k", "rb", "cs", "fr", "be", "mg", "ca", "sr", "ba", "ra",
-          "b", "al", "ga", "in", "tl", "nh", "c", "si", "ge", "sn", "pb", "fl",
-          "n", "p", "as", "sb", "bi", "mc", "o", "s", "se", "te", "po", "lv",
-          "f", "cl", "br", "i", "at", "ts", "he", "ne", "ar", "kr", "xe", "rn", "og"
-        ].includes(key)) {
+        "h", "li", "na", "k", "rb", "cs", "fr", "be", "mg", "ca", "sr", "ba", "ra",
+        "b", "al", "ga", "in", "tl", "nh", "c", "si", "ge", "sn", "pb", "fl",
+        "n", "p", "as", "sb", "bi", "mc", "o", "s", "se", "te", "po", "lv",
+        "f", "cl", "br", "i", "at", "ts", "he", "ne", "ar", "kr", "xe", "rn", "og"
+      ].includes(key)) {
         elementElem.classList.add("hauptgruppe");
       } else if ([
-          "la", "ce", "pr", "nd", "pm", "sm", "eu", "gd", "tb", "dy", "ho", "er",
-          "tm", "yb", "ac", "th", "pa", "u", "np", "pu", "am", "cm", "bk",
-          "cf", "es", "fm", "md", "no", "lu", "lr"
-        ].includes(key)) {
+        "la", "ce", "pr", "nd", "pm", "sm", "eu", "gd", "tb", "dy", "ho", "er",
+        "tm", "yb", "ac", "th", "pa", "u", "np", "pu", "am", "cm", "bk",
+        "cf", "es", "fm", "md", "no", "lu", "lr"
+      ].includes(key)) {
         elementElem.classList.add("lanthanoid-actinoid");
       } else {
         elementElem.classList.add("nebengruppe");
@@ -263,7 +263,8 @@ export async function insertPSE() {
       elementElem.append(elementnameElem);
       elementElem.style.gridArea = key;
       elementElem.classList.add("pse-item");
-      const bgColorName = alleElementeObj[key]?.additional_data?.background_color ?? "lightgrey";
+
+      let bgColorName = alleElementeObj[key]?.additional_data.einteilung.gruppe ?? "lightgrey";
       const bgTinyColor = tinycolor(bgColorName);
       elementElem.style.backgroundColor = bgColorName;
       elementElem.classList.add(bgTinyColor.isDark() ? "light-text" : "dark-text");
@@ -288,7 +289,8 @@ export async function insertPSE() {
 
 
 
-      // Kleinste Ansicht: Braucht verschiedene Grid-Container, damit alle gleich breit sind
+      // Kleinste Ansicht: Braucht verschiedene Grid-Container, damit alle gleich breit sind.
+      // Deswegen wird das Element geklont und in einen von den drei Contaiern gesteckt
       const clonedElementElem = elementElem.cloneNode(true);
 
       // lu/lr ist in der kleinen ansicht in der nebengruppe, damit kein loch da ist
@@ -612,49 +614,60 @@ async function promptDaten() {
       const element = alleElementeObj[key]
 
       //Für jeden Datensatz eines Elements
-      for (let key in element) {
-        if (!element[key].additional_data) {
-          let answer = prompt(key + " " + element.elementname);
-          if (!answer) {
-            console.log(JSON.stringify(newAlleElementeObj));
-            return;
-          }
-          if (Number(answer)) {
-            answer = Number(answer);
-          }
-          element[key] = answer;
+      // for (let key in element) {
+      if (!element?.additional_data?.einteilung?.gruppe) {
+        let answer;
+        if (["h", "c", "n", "o", "p", "s"].includes(key)) answer = "nichtmetall";
+        if (["be", "mg", "ca", "sr", "ba", "ra"].includes(key)) answer = "erdalkalimetall";
+        if (["li", "na", "k", "rb", "cs", "fr"].includes(key)) answer = "alkalimetall";
+        if (["he", "ne", "ar", "kr", "xe", "rn"].includes(key)) answer = "edelgas";
+        if (["f", "cl", "br", "i", "at"].includes(key)) answer = "halogen";
+        if (["b", "si", "ge", "as", "se", "sb", "te"].includes(key)) answer = "halbmetall";
+        if (["al", "ga", "in", "sn", "pb", "bi", "tl", "bi", "po"].includes(key)) answer = "metalle";
+
+        if (!answer) answer = prompt(key + " " + element.elementname);
+        if (!answer) {
+          console.log(JSON.stringify(newAlleElementeObj));
+          return;
         }
-        // if (key == "elektronegativitaet" && !elektro.includes("(") && elektro != "-") {
-        //   let answer = prompt(key + " " + element.elementname, elektro + " (");
-        //   if (!answer) {
-        //     console.log(JSON.stringify(newAlleElementeObj));
-        //     return;
-        //   }
-        //   if (answer.includes("(")) {
-        //     answer += ")";
-        //   }
-        //   element[key] = answer;
-        // }
-        // if (key == "elektronegativitaet" && element.elektronegativitaet.includes(" (")) {
-        //   let elektro = element.elektronegativitaet.split(" (")[0];
-        //   let oxi = element.elektronegativitaet.split(" (")[1];
-        //   elektro = elektro.replace(",", ".");
-        //   elektro = Number(elektro);
+        if (Number(answer)) {
+          answer = Number(answer);
+        }
 
-        //   element.elektronegativitaet = elektro;
-
-        //   oxi = oxi.replace(")", "");
-        //   element.additional_data ??= {};
-        //   element.additional_data.elektronegativitaet_oxidationszahl = oxi;
-        // }
-
-
+        if (!element.additional_data) element.additional_data = {};
+        element.additional_data.einteilung = { gruppe: answer };
       }
+      // if (key == "elektronegativitaet" && !elektro.includes("(") && elektro != "-") {
+      //   let answer = prompt(key + " " + element.elementname, elektro + " (");
+      //   if (!answer) {
+      //     console.log(JSON.stringify(newAlleElementeObj));
+      //     return;
+      //   }
+      //   if (answer.includes("(")) {
+      //     answer += ")";
+      //   }
+      //   element[key] = answer;
+      // }
+      // if (key == "elektronegativitaet" && element.elektronegativitaet.includes(" (")) {
+      //   let elektro = element.elektronegativitaet.split(" (")[0];
+      //   let oxi = element.elektronegativitaet.split(" (")[1];
+      //   elektro = elektro.replace(",", ".");
+      //   elektro = Number(elektro);
+
+      //   element.elektronegativitaet = elektro;
+
+      //   oxi = oxi.replace(")", "");
+      //   element.additional_data ??= {};
+      //   element.additional_data.elektronegativitaet_oxidationszahl = oxi;
+      // }
+
+
+      // }
       newAlleElementeObj[key] = element;
     }
     console.log(JSON.stringify(newAlleElementeObj));
   } catch (err) {
-    console.error(err.name + " " + err.message);
+    console.error(err.name + " " + err.message + " " + err?.lineNumber + ":" + err?.columnNumber);
   }
 }
 // promptDaten();

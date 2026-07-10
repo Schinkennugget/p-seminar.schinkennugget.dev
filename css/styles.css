@@ -370,13 +370,11 @@ li.navbar-active {
   height: 17.5rem;
   min-width: 0;
   display: grid;
-  /*grid-template-columns: auto auto;*/
   font-size: 1.3rem;
   color: #fff;
   padding: 1rem;
   margin: 0;
   box-sizing: border-box;
-  /*background-color: forestgreen;*/
   grid-area: grafik;
   border-radius: 1rem;
   grid-template-areas:
@@ -1143,11 +1141,13 @@ footer a:hover {
 }
 
 .pse-item.dark-text {
-  color: #777;
+/*  color: #555;*/
+	  color: #000;
 }
 
 .pse-item.light-text {
-  color: #aaa;
+/*  color: #aaa;*/
+  color: #fff;
 }
 
 .pse-item.dark-text.has-content {
@@ -1181,9 +1181,9 @@ footer a:hover {
 }
 
 .pse-item.dark-text>.pse-item-elementsymbol .outlined {
-  --color: #777;
+  --color: #555;
   --line-width: clamp(0.03em, 0.13vw, 0.05em);
-  color: #777;
+  color: #555;
 }
 
 .pse-item.light-text .pse-item-elementsymbol .outlined {
@@ -1216,6 +1216,10 @@ footer a:hover {
   text-align: center;
   grid-area: name;
   font-size: 0.7em;
+}
+
+.pse-item-gruppe-nichtmetall {
+  background-color: lightblue;
 }
 
 @media screen and (min-width: 1700px) {
@@ -1352,7 +1356,7 @@ footer a:hover {
       "."
       "lanthanoide-actinoide";
     grid-template-rows: 7fr 10px 4fr 10px 4fr;
-    margin: 50.5px auto 5px auto;
+    margin: 55.5px auto 5px auto;
   }
 
   #hauptgruppen {
