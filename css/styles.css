@@ -1181,22 +1181,14 @@ footer a:hover {
 }
 
 .pse-item.dark-text>.pse-item-elementsymbol .outlined {
-  --color: #555;
+  --color: #000;
   --line-width: clamp(0.03em, 0.13vw, 0.05em);
   color: #555;
 }
 
 .pse-item.light-text .pse-item-elementsymbol .outlined {
-  --color: #aaa;
-  --line-width: clamp(0.03em, 0.13vw, 0.05em);
-}
-
-.pse-item.dark-text.has-content .pse-item-elementsymbol .outlined {
-  --color: #000;
-}
-
-.pse-item.light-text.has-content .pse-item-elementsymbol .outlined {
   --color: #fff;
+  --line-width: clamp(0.03em, 0.13vw, 0.05em);
 }
 
 .pse-item-elementsymbol>span:first-child {
