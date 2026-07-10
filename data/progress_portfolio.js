@@ -22,7 +22,7 @@ const data = {
     rechtliches: "100%",
     hosting: "100%",
     quellen: "100%",
-    pse: "85%",
+    pse: "1ß0%",
     startseite_konzept: "5%",
     startseite_recherche: "0%",
     startseite_bauen: "0%",

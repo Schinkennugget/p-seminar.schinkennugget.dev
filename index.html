@@ -51,7 +51,7 @@
   </nav>
 
   <style>
-    @media screen and (750px <= width < 1700px) {
+    @media screen and (750px <=width < 1700px) {
       @media screen and (max-height: 900px) {
         #pse-container {
           grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 10px 1fr 1fr;
@@ -132,9 +132,138 @@
 
   <nav id="pse-container"></nav>
 
-  <main>
+  <style>
+    #pse-legende {
+      margin: 15px 10px 5px 10px;
+      display: grid;
+      gap: 10px;
+      grid-template-rows: repeat(6, auto);
+      justify-content: center;
+      grid-auto-flow: column;
+    }
 
-    <noscript>Hinweis: JavaScript-Funktionen können nicht geladen werden, vermutlich weil dein Browser diese nicht unterstützt oder weil du JavaScript deaktiviert hast. Dadurch ist die Webseite visuell und funktional sehr stark eingeschränkt. <br /><a href="impressum.html">Impressum</a> &amp; <a href="datenschutz">Datenschutzerklärung</a></noscript>
+    @media screen and (min-width: 2350px) {
+      #pse-legende {
+        margin: 15px auto 5px auto;
+      }
+    }
+
+    .pse-legende-item {
+      display: inline-flex;
+      gap: 5px;
+      align-items: center;
+    }
+
+    @media (min-width: 500px) {
+      #pse-legende {
+        grid-template-rows: repeat(5, auto);
+      }
+    }
+
+    @media (min-width: 630px) {
+      #pse-legende {
+        grid-template-rows: repeat(4, auto);
+      }
+    }
+
+    @media (min-width: 750px) {
+      #pse-legende {
+        grid-template-rows: repeat(3, auto);
+      }
+    }
+
+    @media (min-width: 850px) {
+      #pse-legende {
+        grid-template-rows: repeat(2, auto);
+      }
+    }
+  </style>
+
+  <div id="pse-legende">
+    <div class="pse-legende-item">
+      <svg width="20" height="20">
+        <rect x="0" y="0" rx="0.2em" ry="0.2em" width="20" height="20" style="fill:cornflowerblue;" />
+      </svg>
+      <span>Nichtmetalle</span>
+    </div>
+
+    <div class="pse-legende-item">
+      <svg width="20" height="20">
+        <rect x="0" y="0" rx="0.2em" ry="0.2em" width="20" height="20" style="fill:#ffd237;" />
+      </svg>
+      <span>Alkalimetalle</span>
+    </div>
+
+    <div class="pse-legende-item">
+      <svg width="20" height="20">
+        <rect x="0" y="0" rx="0.2em" ry="0.2em" width="20" height="20" style="fill:#ffb635;" />
+      </svg>
+      <span>Erdalkalimetalle</span>
+    </div>
+
+    <div class="pse-legende-item">
+      <svg width="20" height="20">
+        <rect x="0" y="0" rx="0.2em" ry="0.2em" width="20" height="20" style="fill:#f04573;" />
+      </svg>
+      <span>Übergangsmetalle</span>
+    </div>
+
+    <div class="pse-legende-item">
+      <svg width="20" height="20">
+        <rect x="0" y="0" rx="0.2em" ry="0.2em" width="20" height="20" style="fill:#00a400;" />
+      </svg>
+      <span>Halbmetalle</span>
+    </div>
+
+    <div class="pse-legende-item">
+      <svg width="20" height="20">
+        <rect x="0" y="0" rx="0.2em" ry="0.2em" width="20" height="20" style="fill:#004600;" />
+      </svg>
+      <span>Metalle</span>
+    </div>
+
+    <div class="pse-legende-item">
+      <svg width="20" height="20">
+        <rect x="0" y="0" rx="0.2em" ry="0.2em" width="20" height="20" style="fill:#ff2d9c;" />
+      </svg>
+      <span>Lanthanoide</span>
+    </div>
+
+    <div class="pse-legende-item">
+      <svg width="20" height="20">
+        <rect x="0" y="0" rx="0.2em" ry="0.2em" width="20" height="20" style="fill:#9b00ff;" />
+      </svg>
+      <span>Actinoide</span>
+    </div>
+
+    <div class="pse-legende-item">
+      <svg width="20" height="20">
+        <rect x="0" y="0" rx="0.2em" ry="0.2em" width="20" height="20" style="fill:#ffff4c;" />
+      </svg>
+      <span>Halogene</span>
+    </div>
+
+    <div class="pse-legende-item">
+      <svg width="20" height="20">
+        <rect x="0" y="0" rx="0.2em" ry="0.2em" width="20" height="20" style="fill:#11fff3;" />
+      </svg>
+      <span>Edelgase</span>
+    </div>
+
+    <div class="pse-legende-item">
+      <svg width="20" height="20">
+        <rect x="0" y="0" rx="0.2em" ry="0.2em" width="20" height="20" style="fill:lightgrey;" />
+      </svg>
+      <span>Unbekannte</span>
+    </div>
+
+  </div>
+
+  <main>
+    <noscript>Hinweis: JavaScript-Funktionen können nicht geladen werden, vermutlich weil dein Browser diese nicht
+      unterstützt oder weil du JavaScript deaktiviert hast. Dadurch ist die Webseite visuell und funktional sehr stark
+      eingeschränkt. <br /><a href="impressum.html">Impressum</a> &amp; <a
+        href="datenschutz">Datenschutzerklärung</a></noscript>
 
     <p>
       To-Do:

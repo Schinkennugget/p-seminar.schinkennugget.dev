@@ -306,13 +306,13 @@ export async function insertPSE() {
         pseNebengruppenElem.append(clonedElementElem);
       }
     }
-    pseElem.innerHTML += `<div class="pse-item" id="pse-item-lanthanoide" style="grid-area: lx; display: none;">
+    pseElem.innerHTML += `<div class="pse-item" id="pse-item-lanthanoide" style="grid-area: lx; display: none; background-color: #ff2d9c; color: #fff;">
       <div class="pse-item-elementsymbol" style="letter-spacing: -1px;">La-Lu</div>
       <div class="pse-item-atommasse" hidden></div>
       <div class="pse-item-ordnungszahl">57-71</div>
       <div class="pse-item-elementname">Lanthanoide</div>
     </div>
-    <div class="pse-item" id="pse-item-actinoide" style="grid-area: ax; display: none;">
+    <div class="pse-item" id="pse-item-actinoide" style="grid-area: ax; display: none; background-color: #9b00ff; color: #fff;">
       <div class="pse-item-elementsymbol" style="letter-spacing: -1px;">Ac-Lr</div>
       <div class="pse-item-atommasse" hidden></div>
       <div class="pse-item-ordnungszahl">89-103</div>
