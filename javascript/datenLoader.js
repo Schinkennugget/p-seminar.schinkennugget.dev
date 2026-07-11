@@ -34,7 +34,7 @@ export async function generateAndInjectFavicon(elementName) {
   try {
     const elementObj = await findElementWithName(elementName);
     const FAVICON_TEXT = elementObj.elementsymbol;
-    const FAVICON_BG_COLOR = elementObj?.additional_data?.background_color;
+    const FAVICON_BG_COLOR = elementObj?.additional_data?.einteilung?.gruppe;
     const FAVICON_TEXT_COLOR = "#ffffff";
 
     let svgContent;
@@ -264,7 +264,7 @@ export async function insertPSE() {
       elementElem.style.gridArea = key;
       elementElem.classList.add("pse-item");
 
-      let bgColorName = alleElementeObj[key]?.additional_data.einteilung.gruppe ?? "lightgrey";
+      let bgColorName = alleElementeObj[key]?.additional_data?.einteilung?.gruppe ?? "lightgrey";
       const bgTinyColor = tinycolor(bgColorName);
       elementElem.style.backgroundColor = bgColorName;
       elementElem.classList.add(bgTinyColor.isDark() ? "light-text" : "dark-text");
@@ -385,7 +385,10 @@ export async function insertDatenIntoGrafik(elementName) {
 
         grafikEl.append(divEl);
 
-        grafikEl.style.backgroundColor = elementObj.additional_data.background_color || "darkgray";
+        let bgColorName = elementObj.additional_data?.einteilung?.gruppe ?? "lightgrey";
+        const bgTinyColor = tinycolor(bgColorName);
+        grafikEl.style.backgroundColor = bgColorName;
+        grafikEl.style.color = bgTinyColor.isLight() ? "#000" : "#fff";
       }
       // console.debug(grafikEl.outerHTML);
     }

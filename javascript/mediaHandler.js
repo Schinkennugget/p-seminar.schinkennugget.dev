@@ -14,21 +14,21 @@ export async function initialize() {
 
     // Container für Fullscreen in Dokument einfügen
     const fullscreenContainerEl = document.createElement("div");
-    fullscreenContainerEl.id = "fullscreen-img-container";
+    fullscreenContainerEl.id = "fullscreen-media-container";
 
     fullscreenContainerEl.innerHTML = `
     <div id="fullscreen-icons"></div>
-    <div id="fullscreen-img-wrapper">
+    <div id="fullscreen-media-wrapper">
     </div>
-    <div id="fullscreen-img-footer">
-      <div id="fullscreen-img-description">
+    <div id="fullscreen-media-footer">
+      <div id="fullscreen-media-description">
         <em>Keine Beschreibung verfügbar</em>
       </div>
-      <div id="fullscreen-img-license">
-        <strong>Titel:</strong> <span id="fullscreen-img-license-title"></span>&emsp;
-        <strong>Autor:</strong> <span id="fullscreen-img-license-author"></span>&emsp;
-        <strong>Quelle:</strong> <span id="fullscreen-img-license-source"></span>&emsp;
-        <strong>Lizenz:</strong> <span id="fullscreen-img-license-license"></span>
+      <div id="fullscreen-media-license">
+        <strong>Titel:</strong> <span id="fullscreen-media-license-title"></span>&emsp;
+        <strong>Autor:</strong> <span id="fullscreen-media-license-author"></span>&emsp;
+        <strong>Quelle:</strong> <span id="fullscreen-media-license-source"></span>&emsp;
+        <strong>Lizenz:</strong> <span id="fullscreen-media-license-license"></span>
       </div>
       <span hidden id="load-resolution">Höchste Auflösung laden</span>
     </div>`;
@@ -37,23 +37,39 @@ export async function initialize() {
     const iconCloseEl = lucide.createElement(lucide.X);
     const iconMaximizeEl = lucide.createElement(lucide.Maximize);
     const iconMinimizeEl = lucide.createElement(lucide.Minimize);
-    iconCloseEl.onclick = closeTextImgFullscreen;
+    iconCloseEl.onclick = closeTextMediaFullscreen;
     iconMinimizeEl.style.display = "none";
+    iconMinimizeEl.classList.add("fullscreen-media-minmax-icon")
+    iconMaximizeEl.classList.add("fullscreen-media-minmax-icon")
 
-    const wrapperEl = fullscreenContainerEl.querySelector("#fullscreen-img-wrapper")
-    new ResizeObserver(fitImage).observe(wrapperEl);
+    const wrapperEl = fullscreenContainerEl.querySelector("#fullscreen-media-wrapper")
+    new ResizeObserver(fitMedia).observe(wrapperEl);
 
     iconMaximizeEl.onclick = () => {
-      iconMaximizeEl.style.display = "none";
-      iconMinimizeEl.style.display = "";
-      maximized = true;
-      fitImage(wrapperEl);
+      const fullscreenMedia = document.querySelector("#fullscreen-media");
+
+      if (fullscreenMedia.tagName == "VIDEO") {
+        if (fullscreenMedia.requestFullscreen) {
+          fullscreenMedia.requestFullscreen();
+        } else if (fullscreenMedia.mozRequestFullScreen) { /* Firefox */
+          fullscreenMedia.mozRequestFullScreen();
+        } else if (fullscreenMedia.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+          fullscreenMedia.webkitRequestFullscreen();
+        } else if (fullscreenMedia.msRequestFullscreen) { /* IE/Edge */
+          fullscreenMedia.msRequestFullscreen();
+        }
+      } else {
+        iconMaximizeEl.style.display = "none";
+        iconMinimizeEl.style.display = "";
+        maximized = true;
+      }
+      fitMedia(wrapperEl);
     };
     iconMinimizeEl.onclick = () => {
       iconMaximizeEl.style.display = "";
       iconMinimizeEl.style.display = "none";
       maximized = false;
-      fitImage(wrapperEl);
+      fitMedia(wrapperEl);
     };
 
     fullscreenContainerEl.querySelector("#fullscreen-icons").append(iconMinimizeEl, iconMaximizeEl, iconCloseEl);
@@ -61,10 +77,10 @@ export async function initialize() {
     // Icons zum Weiterklicken
     const nextIconEl = lucide.createElement(lucide.ChevronRight);
     const backIconEl = lucide.createElement(lucide.ChevronLeft);
-    nextIconEl.id = "fullscreen-img-control-icon-next";
-    backIconEl.id = "fullscreen-img-control-icon-back";
-    nextIconEl.classList.add("fullscreen-img-control-icon");
-    backIconEl.classList.add("fullscreen-img-control-icon");
+    nextIconEl.id = "fullscreen-media-control-icon-next";
+    backIconEl.id = "fullscreen-media-control-icon-back";
+    nextIconEl.classList.add("fullscreen-media-control-icon");
+    backIconEl.classList.add("fullscreen-media-control-icon");
     fullscreenContainerEl.append(nextIconEl, backIconEl);
 
     mainEl.after(fullscreenContainerEl);
@@ -72,39 +88,41 @@ export async function initialize() {
 
 
     // Einstellungen für die kleinen Bilder
-    document.querySelectorAll(".text-img-wrapper").forEach(async wrapperElem => {
-      const imgElem = wrapperElem.querySelector("img")
-      wrapperElem.addEventListener("click", () => {
-        openTextImgFullscreen();
-        loadImgIntoFullscreen(imgElem);
-      });
+    document.querySelectorAll(".text-media-wrapper").forEach(async wrapperElem => {
+      const mediaElem = wrapperElem.querySelector("img, video")
+      const isVideo = mediaElem.tagName == "VIDEO";
+      if (!isVideo) {
+        wrapperElem.addEventListener("click", () => {
+          openTextMediaFullscreen();
+          loadMediaIntoFullscreen(mediaElem);
+        });
 
-      // Icon in jedem Bild
-      const enlargeIcon = lucide.createElement(lucide.Maximize2);
-      enlargeIcon.classList.add("text-img-enlarge-icon");
-      wrapperElem.append(enlargeIcon);
+        // Icon in jedem Bild
+        const enlargeIcon = lucide.createElement(lucide.Maximize2);
+        enlargeIcon.classList.add("text-media-enlarge-icon");
+        wrapperElem.append(enlargeIcon);
 
+        // Schließen mit Escape
+        window.addEventListener("keydown", event => {
+          if (
+            window.getComputedStyle(fullscreenContainerEl).display !== "none" &&
+            event.key === "Escape"
+          ) {
+            closeTextMediaFullscreen();
+          }
+        });
+      }
 
       // Lizenz laden
-      injectLicense(imgElem);
-
-      // Schließen mit Escape
-      window.addEventListener("keydown", event => {
-        if (
-          window.getComputedStyle(fullscreenContainerEl).display !== "none" &&
-          event.key === "Escape"
-        ) {
-          closeTextImgFullscreen();
-        }
-      });
+      injectLicense(mediaElem);
 
       // Schließen durch Klicken auf Hintergrund
       fullscreenContainerEl.addEventListener("click", event => {
         if (
           event.target === fullscreenContainerEl ||
-          event.target.id === "fullscreen-img-wrapper"
+          event.target.id === "fullscreen-media-wrapper"
         ) {
-          closeTextImgFullscreen();
+          closeTextMediaFullscreen();
         }
       });
     });
@@ -115,8 +133,8 @@ export async function initialize() {
 }
 
 
-function openTextImgFullscreen() {
-  const contEl = document.getElementById("fullscreen-img-container");
+function openTextMediaFullscreen() {
+  const contEl = document.getElementById("fullscreen-media-container");
   contEl.style.display = "grid";
   requestAnimationFrame(() => {
     contEl.style.opacity = "1";
@@ -124,16 +142,16 @@ function openTextImgFullscreen() {
   });
 }
 
-function closeTextImgFullscreen() {
-  const contEl = document.getElementById("fullscreen-img-container");
-  const imgEl = document.getElementById("fullscreen-img");
+function closeTextMediaFullscreen() {
+  const contEl = document.getElementById("fullscreen-media-container");
+  const mediaEl = document.getElementById("fullscreen-media");
 
   contEl.style.opacity = "0";
   contEl.style.backdropFilter = "blur(0)";
 
   contEl.addEventListener("transitionend", function handler() {
     contEl.style.display = "none";
-    imgEl?.remove(); // sicher auch wenn kein Bild geladen wurde
+    mediaEl?.remove(); // sicher auch wenn kein Bild geladen wurde
     contEl.removeEventListener("transitionend", handler);
   });
 }
@@ -141,40 +159,39 @@ function closeTextImgFullscreen() {
 
 
 
-function loadImgIntoFullscreen(smallImgElem) {
-  if (!smallImgElem) return;
+function loadMediaIntoFullscreen(smallmediaElem) {
+  if (!smallmediaElem) return;
 
-  const allImgs = [...document.querySelectorAll(".text-img-small img, .text-img-large img")];
-  const currentIndex = allImgs.indexOf(smallImgElem);
-  const backIcon = document.querySelector("#fullscreen-img-control-icon-back");
-  const nextIcon = document.querySelector("#fullscreen-img-control-icon-next");
-  const contEl = document.getElementById("fullscreen-img-container");
-  const wrapperEl = document.getElementById("fullscreen-img-wrapper");
+  const isVideo = smallmediaElem.tagName == "VIDEO";
+  const allMedia = [...document.querySelectorAll(".text-media-small img, .text-media-large img, .text-media-small video, .text-media-large video")];
+  const currentIndex = allMedia.indexOf(smallmediaElem);
+  const backIcon = document.querySelector("#fullscreen-media-control-icon-back");
+  const nextIcon = document.querySelector("#fullscreen-media-control-icon-next");
+  const contEl = document.getElementById("fullscreen-media-container");
+  const wrapperEl = document.getElementById("fullscreen-media-wrapper");
 
   // Vorherige Event-Handler und Bild entfernen
-  document.querySelector("#fullscreen-img")?.remove();
+  document.querySelector("#fullscreen-media")?.remove();
   window.removeEventListener("keydown", arrowLeftEventHandler)
   window.removeEventListener("keydown", arrowRightEventHandler);
 
   // sizes groß machen, damit die höhere Qualität geladen werden kann
-  if (smallImgElem.sizes) smallImgElem.sizes = "100vw";
-  const fullscreenImgEl = smallImgElem.cloneNode();
-  fullscreenImgEl.id = "fullscreen-img";
-  fullscreenImgEl.classList.remove("text-img-small", "text-img-large");
+  if (smallmediaElem.sizes) smallmediaElem.sizes = "100vw";
+  const fullscreenMediaEl = smallmediaElem.cloneNode();
+  fullscreenMediaEl.id = "fullscreen-media";
+  fullscreenMediaEl.classList.remove("text-media-small", "text-media-large");
 
-  wrapperEl.append(fullscreenImgEl);
-
-
+  wrapperEl.append(fullscreenMediaEl);
 
   // Funktion für Pfeil-Icons (nächstes/vorheriges Bild) & Pfeiltasten
   if (currentIndex === -1) {
-    console.warn("loadImgIntoFullscreen: Bild nicht in der Liste gefunden.");
+    console.warn("loadMediaIntoFullscreen: Bild nicht in der Liste gefunden.");
   }
 
   // Zurück
   if (currentIndex > 0) {
     backIcon.classList.add("enabled");
-    backIcon.onclick = () => loadImgIntoFullscreen(allImgs[currentIndex - 1]);
+    backIcon.onclick = () => loadMediaIntoFullscreen(allMedia[currentIndex - 1]);
     window.addEventListener("keydown", arrowLeftEventHandler);
   } else {
     backIcon.classList.remove("enabled");
@@ -182,9 +199,9 @@ function loadImgIntoFullscreen(smallImgElem) {
   }
 
   // Vor
-  if (currentIndex < allImgs.length - 1) {
+  if (currentIndex < allMedia.length - 1) {
     nextIcon.classList.add("enabled");
-    nextIcon.onclick = () => loadImgIntoFullscreen(allImgs[currentIndex + 1]);
+    nextIcon.onclick = () => loadMediaIntoFullscreen(allMedia[currentIndex + 1]);
     window.addEventListener("keydown", arrowRightEventHandler);
   } else {
     nextIcon.classList.remove("enabled");
@@ -196,7 +213,7 @@ function loadImgIntoFullscreen(smallImgElem) {
     if (event.key === "ArrowLeft" && event.altKey && contEl.style.display != "none") {
       window.removeEventListener("keydown", arrowLeftEventHandler);
       window.removeEventListener("keydown", arrowRightEventHandler);
-      loadImgIntoFullscreen(allImgs[currentIndex - 1]);
+      loadMediaIntoFullscreen(allMedia[currentIndex - 1]);
     }
   }
 
@@ -204,31 +221,31 @@ function loadImgIntoFullscreen(smallImgElem) {
     if (event.key === "ArrowRight" && event.altKey && contEl.style.display != "none") {
       window.removeEventListener("keydown", arrowLeftEventHandler);
       window.removeEventListener("keydown", arrowRightEventHandler);
-      loadImgIntoFullscreen(allImgs[currentIndex + 1]);
+      loadMediaIntoFullscreen(allMedia[currentIndex + 1]);
     }
   }
 
-  fitImage(wrapperEl);
+  fitMedia(wrapperEl);
 
 
   // Beschreibung laden
-  const descriptionEl = document.querySelector("#fullscreen-img-description");
-  const description = smallImgElem.alt?.trim();
-  const fallback = smallImgElem.nextElementSibling?.innerHTML;
+  const descriptionEl = document.querySelector("#fullscreen-media-description");
+  const description = smallmediaElem.alt?.trim();
+  const fallback = smallmediaElem.nextElementSibling?.innerHTML;
 
   descriptionEl.innerHTML = description || fallback || "<em>Keine Beschreibung verfügbar</em>";
 
   // Lizenz laden
-  document.querySelector("#fullscreen-img-license-title").innerHTML = smallImgElem.dataset.title || "<em>unbekannt</em>";
-  document.querySelector("#fullscreen-img-license-author").innerHTML = smallImgElem.dataset.author || "<em>unbekannt</em>";
-  document.querySelector("#fullscreen-img-license-source").innerHTML = smallImgElem.dataset.source || "<em>unbekannt</em>";
-  document.querySelector("#fullscreen-img-license-license").innerHTML = smallImgElem.dataset.license || "<em>unbekannt</em>";
+  document.querySelector("#fullscreen-media-license-title").innerHTML = smallmediaElem.dataset.title || "<em>unbekannt</em>";
+  document.querySelector("#fullscreen-media-license-author").innerHTML = smallmediaElem.dataset.author || "<em>unbekannt</em>";
+  document.querySelector("#fullscreen-media-license-source").innerHTML = smallmediaElem.dataset.source || "<em>unbekannt</em>";
+  document.querySelector("#fullscreen-media-license-license").innerHTML = smallmediaElem.dataset.license || "<em>unbekannt</em>";
 
   // Volle Auflösung laden
-  if (fullscreenImgEl.srcset) {
+  if (fullscreenMediaEl.srcset) {
     document.querySelector("#load-resolution").hidden = false;
     document.querySelector("#load-resolution").onclick = () => {
-      const srcset = smallImgElem.srcset;
+      const srcset = smallmediaElem.srcset;
       if (!srcset) return;
 
       const entries = srcset.split(',').map(entry => {
@@ -239,8 +256,8 @@ function loadImgIntoFullscreen(smallImgElem) {
 
       entries.sort((a, b) => b.width - a.width);
 
-      fullscreenImgEl.src = smallImgElem.src = entries[0].url;
-      fullscreenImgEl.srcset = smallImgElem.srcset = "";
+      fullscreenMediaEl.src = smallmediaElem.src = entries[0].url;
+      fullscreenMediaEl.srcset = smallmediaElem.srcset = "";
 
       document.querySelector("#load-resolution").hidden = true;
 
@@ -252,54 +269,47 @@ function loadImgIntoFullscreen(smallImgElem) {
 }
 
 // Bildgröße anpassen
-function fitImage(container) {
-  if (!container?.querySelector?.("img")) return;
+function fitMedia(container) {
+  if (!container?.querySelector?.("img, video")) return;
 
-  const img = container.querySelector("img");
-  const footer = document.querySelector("#fullscreen-img-footer");
+  const media = container.querySelector("img, video");
+  const footer = document.querySelector("#fullscreen-media-footer");
 
-  if (img.complete) {
-
-    // alert("exec");
-    // console.log("scroll: " + img.scrollWidth + " - " + img.scrollHeight);
-    // console.log("natural: " + img.naturalWidth + " - " + img.naturalHeight);
-    // console.log("client: " + img.clientWidth + " - " + img.clientHeight);
-    // console.log("offset: " + img.offsetWidth + " - " + img.offsetHeight);
-    // console.log("getClientBoundingRect: " + img.getBoundingClientRect().width + " - " + img.getBoundingClientRect().height);
+  if (media.complete) {
 
     footer.style.display = maximized ? "none" : "block";
-    document.querySelector("#fullscreen-img-container").style.padding = maximized ? "50.5px 0 0 0" : "";
+    document.querySelector("#fullscreen-media-container").style.padding = maximized ? "50.5px 0 0 0" : "";
 
-    const imgRatio = img.naturalWidth / img.naturalHeight;
+    const mediaRatio = media.naturalWidth / media.naturalHeight;
     const containerRatio = container.clientWidth / container.clientHeight;
     if (maximized) {
       container.style.display = "block";
-      if (imgRatio >= containerRatio) {
+      if (mediaRatio >= containerRatio) {
         // Bild breiter als der Container (z.B. Bild 16/9, cont 4/3) -> 
         // Höhe auf 100%
-        img.style.maxHeight = "none";
-        img.style.maxWidth = "none"
-        img.style.width = "auto";
-        img.style.height = "100%";
+        media.style.maxHeight = "none";
+        media.style.maxWidth = "none"
+        media.style.width = "auto";
+        media.style.height = "100%";
       } else {
-        img.style.maxHeight = "none";
-        img.style.maxWidth = "none"
-        img.style.width = "100%";
-        img.style.height = "auto";
+        media.style.maxHeight = "none";
+        media.style.maxWidth = "none"
+        media.style.width = "100%";
+        media.style.height = "auto";
       }
     } else {
       container.style.display = "";
-      img.style.maxHeight = "";
-      img.style.maxWidth = ""
-      img.style.width = "";
-      img.style.height = "";
+      media.style.maxHeight = "";
+      media.style.maxWidth = ""
+      media.style.width = "";
+      media.style.height = "";
     }
 
 
   } else {
-    img.addEventListener('load', () => {
+    media.addEventListener('load', () => {
       // alert("loaded");
-      fitImage(container);
+      fitMedia(container);
     }, { once: true });
   }
 }
@@ -319,11 +329,11 @@ async function injectLicense(elem) {
     // Sollte im Attribut schon als <a> stehen
     let license = elem.dataset.license || "";
 
-    const imgSrc = elem.src;
+    const mediaSrc = elem.src;
 
     // Information von WikiMedia abrufen
-    if (new URL(imgSrc).hostname === "upload.wikimedia.org") {
-      const filename = "File:" + decodeURIComponent(imgSrc.split("/").pop()); // exakter Name auf Commons
+    if (new URL(mediaSrc).hostname === "upload.wikimedia.org") {
+      const filename = "File:" + decodeURIComponent(mediaSrc.split("/").pop()); // exakter Name auf Commons
 
       const url = new URL("https://commons.wikimedia.org/w/api.php");
       url.searchParams.set("action", "query");
