@@ -680,13 +680,20 @@ div.text {
   line-height: 1.6rem;
   color: var(--text-muted);
   /*background-color: gold;*/
+  width: 100%;  
 }
 
 div.text-only {
   display: flex;
   justify-content: center;
   max-width: max(90%, 500px);
-  /* width: 100%; */
+  width: max(90%, 500px);
+}
+
+div.text-only-wide {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 div.text-media-small,

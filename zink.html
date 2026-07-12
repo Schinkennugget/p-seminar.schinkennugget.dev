@@ -14,24 +14,18 @@
   <link id="favicon-ico" rel="shortcut icon">
   <link id="favicon-apple" rel="apple-touch-icon" sizes="180x180">
   <link rel="manifest" href="images/favicon-zink/site.webmanifest">
-
-  <script>
-    //NUR FÜR DEVELOPMENT, DEAKTIVIERT CACHING
-    const v = Date.now(); // neuer Wert bei jedem Seitenaufruf
-    const linkCSS = document.createElement("link");
-    linkCSS.rel = "stylesheet";
-    linkCSS.href = "css/styles.css";
-
-    if (document.baseURI.includes("p-seminar.schinkennugget.dev")) {
-      linkCSS.href += "?v=" + v;
-    }
-    document.head.append(linkCSS);
-  </script>
+  <link rel="stylesheet" href="css/styles.css">
 
   <script type="module">
     import * as darkmode from "./javascript/darkmode.js";
     darkmode.initialize();
   </script>
+
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/mhchem.min.js"></script>
 
   <title>Zink</title>
 </head>
