@@ -33,7 +33,7 @@ class LabeledIcon extends HTMLElement {
     display: inline-flex;
     flex-dircetion: row;
     flex-wrap: nowrap;
-    gap: 5px;
+    gap: 0.3em;
     align-items: center;
     vertical-align: ${fontSize * -0.25 + "px"};`;
   }

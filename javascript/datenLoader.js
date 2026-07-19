@@ -35,7 +35,7 @@ export async function generateAndInjectFavicon(elementName) {
     const elementObj = await findElementWithName(elementName);
     const FAVICON_TEXT = elementObj.elementsymbol;
     const FAVICON_BG_COLOR = elementObj?.additional_data?.einteilung?.gruppe;
-    const FAVICON_TEXT_COLOR = "#ffffff";
+    const FAVICON_TEXT_COLOR =  tinycolor(FAVICON_BG_COLOR).isLight() ? "#fff" : "#000";
 
     let svgContent;
     let svgDataUrl;
@@ -306,14 +306,14 @@ export async function insertPSE() {
         pseNebengruppenElem.append(clonedElementElem);
       }
     }
-    pseElem.innerHTML += `<div class="pse-item" id="pse-item-lanthanoide" style="grid-area: lx; display: none; background-color: #ff2d9c; color: #fff;">
-      <div class="pse-item-elementsymbol" style="letter-spacing: -1px;">La-Lu</div>
+    pseElem.innerHTML += `<div class="pse-item" id="pse-item-lanthanoide" style="grid-area: lx; background-color: #ff2d9c; color: #fff;">
+      <div class="pse-item-elementsymbol" style="letter-spacing: -1px; display: none">La-Lu</div>
       <div class="pse-item-atommasse" hidden></div>
       <div class="pse-item-ordnungszahl">57-71</div>
       <div class="pse-item-elementname">Lanthanoide</div>
     </div>
-    <div class="pse-item" id="pse-item-actinoide" style="grid-area: ax; display: none; background-color: #9b00ff; color: #fff;">
-      <div class="pse-item-elementsymbol" style="letter-spacing: -1px;">Ac-Lr</div>
+    <div class="pse-item" id="pse-item-actinoide" style="grid-area: ax; background-color: #9b00ff; color: #fff;">
+      <div class="pse-item-elementsymbol" style="letter-spacing: -1px; display: none">Ac-Lr</div>
       <div class="pse-item-atommasse" hidden></div>
       <div class="pse-item-ordnungszahl">89-103</div>
       <div class="pse-item-elementname">Actinoide</div>
@@ -389,6 +389,7 @@ export async function insertDatenIntoGrafik(elementName) {
         const bgTinyColor = tinycolor(bgColorName);
         grafikEl.style.backgroundColor = bgColorName;
         grafikEl.style.color = bgTinyColor.isLight() ? "#000" : "#fff";
+        if (bgTinyColor.isDark) grafikEl.classList.add("dark-bg")
       }
       // console.debug(grafikEl.outerHTML);
     }
