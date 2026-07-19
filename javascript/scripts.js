@@ -65,7 +65,7 @@ export function addTextHeaderClickListener() {
   document.querySelectorAll("h2.text-header, h3.text-subheader").forEach(elem => {
     elem.addEventListener("click", event => {
 
-      navigator.clipboard.writeText(`${document.baseURI}#${event.currentTarget.parentElement.id}`);
+      navigator.clipboard.writeText(`${window.location.origin + window.location.pathname}#${elem.classList.contains("text-subheader") ? event.currentTarget.id : event.currentTarget.parentElement.id}`);
 
       const icon = event.currentTarget.querySelector(".text-header-icon");
 
