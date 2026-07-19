@@ -28,7 +28,6 @@ async function findElementWithName(name) {
   return null; // explizit null zurückgeben
 }
 
-// favicon.js
 
 export async function generateAndInjectFavicon(elementName) {
   try {
