@@ -190,10 +190,8 @@ address {
   margin-top: 0;
 }
 
-md-text p {
-  margin-top: 0.1rem;
-
-  background-color: green;
+experiment-link {
+  margin: 10px 0;
 }
 
 /* --- NAVBAR --- */
@@ -328,7 +326,7 @@ li.navbar-active {
   padding: 1.95rem;
   width: 100%;
   height: 5rem;
-  transition: background var(--animation-speed-fast) linear;
+  transition: background-color var(--animation-speed-fast) linear;
   user-select: none;
   -webkit-user-select: none;
 }

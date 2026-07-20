@@ -13,7 +13,6 @@
   <link id="favicon-svg" rel="icon" type="image/svg+xml">
   <link id="favicon-ico" rel="shortcut icon">
   <link id="favicon-apple" rel="apple-touch-icon" sizes="180x180">
-  <link rel="manifest" href="images/favicon-zink/site.webmanifest">
   <link rel="stylesheet" href="css/styles.css">
 
   <script type="module">
@@ -410,8 +409,9 @@ https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Feuerverzinkte_Oberfl�
           </p>
           <p>
             <span data-sources="16 17 18 19">Deshalb war Zink schon in den ersten Batterien ein Bestandteil. Über die Jahre haben sich dabei viele verschiedene Arten entwickelt. Das Leclanché-Element ist die erste Batterie, die mit Zink hergestellt wurde. Wir haben eine modernere Variante einer solchen Zelle nachgebaut:<br>
-              <a href="experimente/zink/batterie.html">LINK SCHÖNER MACHEN</a><br>
-            Außerdem gab es früher noch Quecksilberoxid-Zink-Batterien, diese werden aber wegen der Giftigkeit von Quecksilber nicht mehr genutzt. In bspw. Hörgeräten findet man heute noch Zink-Luft-Batterien. Zink-Kohle- und Zinkchlorid-Zellen waren früher bedeutsam, wurden aber durch die mittlerweile vorherrschende Alkali-Mangan-Batterie (im Bild) weitestgehend verdrängt.</span>
+              <!-- <a id="link-exp" href="experimente/zink/batterie.html">LINK SCHÖNER MACHEN</a><br> -->
+               <experiment-link href="experimente/zink/batterie.html"></experiment-link>
+              Außerdem gab es früher noch Quecksilberoxid-Zink-Batterien, diese werden aber wegen der Giftigkeit von Quecksilber nicht mehr genutzt. In bspw. Hörgeräten findet man heute noch Zink-Luft-Batterien. Zink-Kohle- und Zinkchlorid-Zellen waren früher bedeutsam, wurden aber durch die mittlerweile vorherrschende Alkali-Mangan-Batterie (im Bild) weitestgehend verdrängt.</span>
           </p>
         </div>
         <div class="text-media-small">
@@ -423,6 +423,29 @@ https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Feuerverzinkte_Oberfl�
           </a>
         </div>
       </div>
+      
+
+      <!-- <script type="module">
+        async function getMetaPreview(url) {
+          const response = await fetch(url);
+          const html = await response.text();
+
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(html, "text/html");
+
+          const title = doc.querySelector('meta[property="og:title"]')?.content
+            || doc.querySelector('title')?.textContent;
+          // const description = doc.querySelector('meta[property="og:description"]')?.content;
+          const image = doc.querySelector('meta[property="og:image"]')?.content;
+
+          return { title, image };
+        }
+
+        const meta = await getMetaPreview('experimente/zink/batterie.html');
+        document.querySelector("#link-exp").innerHTML =
+        `<img src="${meta.image}">
+        <h3>${meta.title}</h3>`;
+      </script> -->
 
       <div class="text-block">
         <div class="text">
@@ -559,6 +582,7 @@ https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Feuerverzinkte_Oberfl�
 
   <script type="module">
     import * as LabeledIcon from "./javascript/LabeledIcon.js";
+    import * as ExperimentLink from "./javascript/ExperimentLink.js";
     import * as staticContentLoader from "./javascript/staticContentLoader.js";
     staticContentLoader.injectFooter();
   </script>

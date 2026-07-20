@@ -35,7 +35,8 @@ class LabeledIcon extends HTMLElement {
     flex-wrap: nowrap;
     gap: 0.3em;
     align-items: center;
-    vertical-align: ${fontSize * -0.25 + "px"};`;
+    vertical-align: ${fontSize * -0.25 + "px"};
+    text-align: left;`;
   }
 
   connectedCallback() {
