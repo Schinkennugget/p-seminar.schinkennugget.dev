@@ -62,7 +62,7 @@ function spawnPoppingParticles({
 }
 
 export function addTextHeaderClickListener() {
-  document.querySelectorAll("h2.text-header, h3.text-subheader").forEach(elem => {
+  document.querySelectorAll("h2.text-header, h3.text-subheader[id], h3.text-header").forEach(elem => {
     elem.addEventListener("click", event => {
 
       navigator.clipboard.writeText(`${window.location.origin + window.location.pathname}#${elem.classList.contains("text-subheader") ? event.currentTarget.id : event.currentTarget.parentElement.id}`);

@@ -4,28 +4,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="keywords" content="Chemie, P-Seminar, WHG" />
-  <meta name="content" content="P-Seminar Chemie" />
+  <meta name="keywords" content="Chemie, P-Seminar, WHG, Messing, Experiment" />
+  <meta name="content" content="P-Seminar Chemie: Experiment Münze vergolden" />
   <meta name="author" content="Schinkennugget" />
-  <script>
-    //NUR FÜR DEVELOPMENT, DEAKTIVIERT CACHING
-    const v = Date.now(); // neuer Wert bei jedem Seitenaufruf
-    const linkCSS = document.createElement("link");
-    linkCSS.rel = "stylesheet";
-    linkCSS.href = "../../css/styles.css";
+  <link rel="stylesheet" href="../../css/styles.css">
 
-    if (document.baseURI.includes("p-seminar.schinkennugget.dev")) {
-      linkCSS.href += "?v=" + v;
-    }
-    document.head.append(linkCSS);
-  </script>
-  
+  <meta property="og:title" content="Experiment: Vergolden einer Kupfermünze" />
+  <meta property="og:image" content="https://p-seminar.schinkennugget.dev/experimente/zink/muenze-gold.jpeg" />
+  <meta property="og:type" content="website" />
+
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/mhchem.min.js"></script>
+
   <script type="module">
     import * as darkmode from "../../javascript/darkmode.js";
     darkmode.initialize();
   </script>
 
-  <title>Experiment Münze vergolden</title>
+  <title>Experiment: Münze vergolden</title>
 
 </head>
 
@@ -62,45 +61,117 @@
   </nav>
 
   <main>
-    <h2>Experiment: „Vergolden“ und „Versilbern“ von Kupfermünzen</h2>
-    <h3>Materialien</h3>
-    <ul>
-      <li>2 Kupfermünzen</li>
-      <li>Heizplatte</li>
-      <li>1 Becherglas (die Münzen sollten in dieses hineinpassen, ohne sich zu berühren)</li>
-      <li>Tiegelzange</li>
-      <li>Rührstab</li>
-      <li>Spatel</li>
-      <li>Bunsenbrenner</li>
-      <li>ein Stück dünne Pappe</li>
-    </ul>
+    <h2><labeled-icon icon="FlaskConical">Experiment: „Vergolden“ und „Versilbern“ von Kupfermünzen</labeled-icon></h2>
 
-    <h3>Chemikalien</h3>
-    <ul>
-      <li>20ml 10%-ige Natronlauge (NaOH<sub>(aq)</sub>)</li>
-      <li>2 kleine Spatelspitzen Zinkpulver</li>
-      <li>Ethanol</li>
-      <li>Salzsäure (HCl<sub>(aq)</sub>)</li>
-    </ul>
+    <div id="materialien" class="text-chapter">
+      <h3 tabindex="0" class="text-header">
+        Materialien
+        <i data-lucide="link" class="text-header-icon"></i>
+      </h3>
 
-    <h3>Durchführung</h3>
-    <ol>
-      <li>Zuerst müssen die Münzen gereinigt werden. Dazu sollten sie im Becherglas mit Salzsäure bedeckt werden. Für ca. eine Minute darin sauber werden lassen, dabei ab und zu umrühren und die Münzen mit der Tiegelzange umdrehen.</li>
-      <li>Die Münzen mit der Zange aus dem Becherglas holen, dieses ausleeren und auswaschen. Dann Schritt 1 mit Ethanol statt Salzsäure wiederholen.</li>
-      <li>Das Becherglas wieder ausleeren und gründlich säubern. Danach darin die 10%-ige Natronlauge und das Zinkpulver vermischen und die Münzen hineingeben.</li>
-      <li>Das Zink-Natronlauge-Gemisch mit dem Münzen auf der Heizplatte vorsichtig bis zum Sieden erhitzen, dann die Heizplatte ausschalten und die Münzen noch einige Minuten im Becherglas liegen lassen. Dabei immer wieder umrühren und die Münzen wenden, sodass sie von allen Seiten versilbert werden können.
-        <br /><br />
-        ⚠️ Dieser Schritt sollte im Abzug durchgeführt werden, da hier giftige Dämpfe entstehen können!
-      </li>
-      <li>Die Münzen mit der Tiegelzange aus dem Becherglas holen und die Zinkklumpen von ihnen abwaschen. Dabei unbedingt vorsichtig agieren, weil sonst die empfindliche Zinkschicht abgehen könnte. Das restliche Zink-Natronlauge-Gemisch der Lehrkraft zur Entsorgung geben.</li>
-      <li>Eine Münze kann jetzt so silbern gelassen werden. Die andere Münze immer wieder kurz durch die rauschende Flamme eines Bunsenbrenners schwenken, bis sie sich golden verfärbt hat.
-      </li>
-    </ol>
+      <div class="text-block text-only-wide">
+        <div class="text">
+          <ul>
+            <li>Stativ mit Klemme und Muffe</li>
+            <li>2 kleine Bechergläser</li>
+            <li>Reagenzglasklammer</li>
+            <li>(Lämpchen/Motor)</li>
+            <li>Voltmeter</li>
+            <li>Kabel</li>
+            <li>Krokodilklemmen</li>
+            <li>ein Stück dünne Pappe</li>
+          </ul>
+        </div>
+      </div>
 
-    <h3>Erklärung</h3>
-    <p>
-      Bei dem Experiment färbt sich die Münze, die erhitzt wurde, golden. Das Zink, das sich zuvor an der Oberfläche angelagert hat, hat einen Schmelzpunkt von 419,5 °C. Deshalb schmilzt es durch die Hitze der Flamme, die Zinkatome dringen so in die oberste Schicht der Kupfermünze ein. Dabei vermischen sie sich zu der Legierung Messing, welche eine goldene Farbe hat. Mehr zu Messing findest du im <a href="../../zink.html">Artikel über Zink</a>.
-    </p>
+      <h3 tabindex="0" class="text-subheader">
+        Chemikalien
+      </h3>
+
+      <div class="text-block text-only-wide">
+        <div class="text">
+          <ul>
+            <li>20ml 10%-ige Natronlauge (NaOH<sub>(aq)</sub>)</li>
+            <li>2 kleine Spatelspitzen Zinkpulver</li>
+            <li>Ethanol</li>
+            <li>Salzsäure (HCl<sub>(aq)</sub>)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div id="ghs-overview">
+      <div class="ghs">
+        <img src="/images/ghs/aetzend.svg">
+        <div>Natronlauge und Salzsäure sind ätzend</div>
+      </div>
+      <div class="ghs">
+        <img src="/images/ghs/entzuendlich.svg">
+        <div>Zinkpulver und eventuell entstehende Dämpfe sind entzündlich</div>
+      </div>
+    </div>
+
+    <div id="durchfuehrung" class="text-chapter">
+      <h3 tabindex="0" class="text-header">
+        Durchführung
+        <i data-lucide="link" class="text-header-icon"></i>
+      </h3>
+
+      <div class="text-block">
+        <div class="text">
+          <ol>
+            <li>Zuerst müssen die Münzen gereinigt werden. Dazu sollten sie im Becherglas mit Salzsäure bedeckt werden. Für ca. eine Minute darin sauber werden lassen, dabei ab und zu umrühren und die Münzen mit der Tiegelzange umdrehen.</li>
+            <li>Die Münzen mit der Zange aus dem Becherglas holen, dieses ausleeren und auswaschen. Dann Schritt 1 mit Ethanol statt Salzsäure wiederholen.</li>
+            <li>Das Becherglas wieder ausleeren und gründlich säubern. Danach darin die 10%-ige Natronlauge und das Zinkpulver vermischen und die Münzen hineingeben.</li>
+            <li>Das Zink-Natronlauge-Gemisch mit dem Münzen auf der Heizplatte vorsichtig bis zum Sieden erhitzen, dann die Heizplatte ausschalten und die Münzen noch einige Minuten im Becherglas liegen lassen. Dabei immer wieder umrühren und die Münzen wenden, sodass sie von allen Seiten versilbert werden können.
+            </li>
+            <li>Die Münzen mit der Tiegelzange aus dem Becherglas holen und die Zinkklumpen von ihnen abwaschen. Dabei unbedingt vorsichtig agieren, weil sonst die empfindliche Zinkschicht abgehen könnte. Das restliche Zink-Natronlauge-Gemisch der Lehrkraft zur Entsorgung geben.</li>
+            <li>Eine Münze kann jetzt so silbern gelassen werden. Die andere Münze immer wieder kurz durch die rauschende Flamme eines Bunsenbrenners schwenken, bis sie sich golden verfärbt hat.
+            </li>
+          </ol>
+        </div>
+        <div class="text-media-small">
+          <div class="text-media-wrapper">
+            <video src="muenze-feuer.mp4" preload="auto" controls data-license="<a href='https://creativecommons.org/licenses/by-sa/4.0/'>CC BY-SA 4.0</a>" data-author="Jakob D, Jakob K." data-source="Eigenes Werk" data-title="Münze durch die Flamme ziehen"></video>
+            <a class="text-media-footer">Schritt 5</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="beobachtung" class="text-chapter">
+      <h3 tabindex="0" class="text-header">
+        Beobachtung
+        <i data-lucide="link" class="text-header-icon"></i>
+      </h3>
+
+      <div class="text-block">
+        <div class="text">
+          <p>Die Münze wird golden.</p>
+        </div>
+        <div class="text-media-small">
+          <div class="text-media-wrapper">
+            <img src="muenze-gold.jpeg" data-license="<a href='https://creativecommons.org/licenses/by-sa/4.0/'>CC BY-SA 4.0</a>" data-source="Eigenes Bild" data-author="Jakob D., Jakob K." data-title="Goldene Münze">
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div id="erklaerung" class="text-chapter">
+      <h3 tabindex="0" class="text-header">
+        Erklärung
+        <i data-lucide="link" class="text-header-icon"></i>
+      </h3>
+
+      <div class="text-block text-only">
+        <div class="text">
+          <p>
+            Bei dem Experiment färbt sich die Münze, die erhitzt wurde, golden. Das Zink, das sich zuvor an der Oberfläche angelagert hat, hat einen Schmelzpunkt von 419,5 °C. Deshalb schmilzt es durch die Hitze der Flamme, die Zinkatome dringen so in die oberste Schicht der Kupfermünze ein. Dabei vermischen sie sich zu der Legierung Messing, welche eine goldene Farbe hat.
+          </p>
+        </div>
+      </div>
+    </div>
   </main>
 
 
@@ -113,18 +184,40 @@
     staticContentLoader.injectFooter();
   </script>
 
+  <script async type="module">
+    // import * as expandableHandler from "./javascript/expandableHandler.js";
+    // expandableHandler.addClickListener();
+    // expandableHandler.addDatenHoverEventListener();
+
+    // import * as sourceLoader from "./javascript/sourceLoader.js";
+    // sourceLoader.injectSourceNotes();
+
+    import * as mediaHandler from "../../javascript/mediaHandler.js";
+    mediaHandler.initialize();
+  </script>
+
+  <script type="module">
+    // import * as datenLoader from "./javascript/datenLoader.js";
+    import * as main from "../../javascript/scripts.js";
+
+    main.addTextHeaderClickListener();
+  </script>
+
   <script>
     lucide.createIcons();
   </script>
 
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js">
-    window.MathJax = {
-      tex: {
-        packages: {
-          '[+]': ['mhchem']
-        }
-      }
-    };
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false },
+          { left: "\\(", right: "\\)", display: false },
+          { left: "\\[", right: "\\]", display: true }
+        ]
+      });
+    });
   </script>
 </body>
 

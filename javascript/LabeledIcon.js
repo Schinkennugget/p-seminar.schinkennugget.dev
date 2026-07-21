@@ -15,8 +15,8 @@ class LabeledIcon extends HTMLElement {
     let fontSize = window.getComputedStyle(this).fontSize;
     fontSize = fontSize.slice(0, fontSize.length - 2);
     fontSize = Number(fontSize);
-    icon.style.height = (fontSize + fontSize * 0.25) + "px";
-    icon.style.width = (fontSize + fontSize * 0.25) + "px";
+    icon.style.height = (fontSize * 1.25) + "px";
+    icon.style.width = (fontSize * 1.25) + "px";
 
     if (!this.shadowRoot) {
       this.attachShadow({ mode: "open" });
@@ -30,9 +30,8 @@ class LabeledIcon extends HTMLElement {
       this.shadowRoot.append(document.createElement("slot"));
     }
     this.style.cssText = `
-    display: inline-flex;
-    flex-dircetion: row;
-    flex-wrap: nowrap;
+    display: inline-grid;
+    grid-template-columns: 1fr auto;
     gap: 0.3em;
     align-items: center;
     vertical-align: ${fontSize * -0.25 + "px"};

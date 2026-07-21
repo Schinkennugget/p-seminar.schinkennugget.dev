@@ -1,84 +1,90 @@
 "use strict";
 
 class ExperimentLink extends HTMLElement {
-  constructor() {
-    super();
-    this._anchor = document.createElement("a");
-    this._renderedHref = null;
-    this._pendingHref = null;
-  }
-
-  render = async () => {
-    const href = this.getAttribute("href");
-    if (!href) {
-      console.warn("An ExperimentLink could not be loaded, because there is no href attribute defined");
-      return;
+    constructor() {
+        super();
+        this._anchor = document.createElement("a");
+        this._renderedHref = null;
+        this._pendingHref = null;
     }
 
-    // schon fertig gerendert oder gerade am Laden für dieselbe href? dann nichts tun
-    if (href === this._renderedHref || href === this._pendingHref) {
-      return;
-    }
-    this._pendingHref = href;
+    render = async () => {
+        const href = this.getAttribute("href");
+        if (!href) {
+            console.warn("An ExperimentLink could not be loaded, because there is no href attribute defined");
+            return;
+        }
 
-    async function getMetaPreview(url) {
-      let title = "<em>Fehler beim Laden</em>";
-      let imageUrl = "";
+        // schon fertig gerendert oder gerade am Laden für dieselbe href? dann nichts tun
+        if (href === this._renderedHref || href === this._pendingHref) {
+            return;
+        }
+        this._pendingHref = href;
 
-      try {
-        const response = await fetch(url);
-        const html = await response.text();
+        async function getMetaPreview(url) {
+            let title = "<em>Fehler beim Laden</em>";
+            let imageUrl = "";
 
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(html, "text/html");
+            try {
+                const response = await fetch(url);
+                const html = await response.text();
 
-        title = doc.querySelector('meta[property="og:title"]')?.content
-          || doc.querySelector('title')?.textContent;
-        imageUrl = doc.querySelector('meta[property="og:image"]')?.content;
-      } catch {
-        console.warn(`Data for an ExperimentLink could not be fetched, maybe the href (${url}) is badly formatted`);
-      }
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, "text/html");
 
-      return { title, imageUrl };
-    }
+                title = doc.querySelector('meta[property="og:title"]')?.content
+                    || doc.querySelector('title')?.textContent;
+                imageUrl = doc.querySelector('meta[property="og:image"]')?.content;
+            } catch {
+                console.warn(`Data for an ExperimentLink could not be fetched, maybe the href (${url}) is badly formatted`);
+            }
 
-    if (!this.shadowRoot) {
-      this.attachShadow({ mode: "open" });
-    }
+            return { title, imageUrl };
+        }
 
-    const meta = await getMetaPreview(href);
+        if (!this.shadowRoot) {
+            this.attachShadow({ mode: "open" });
+        }
 
-    // falls sich href zwischenzeitlich geändert hat, Ergebnis verwerfen
-    if (this.getAttribute("href") !== href) {
-      return;
-    }
+        const meta = await getMetaPreview(href);
 
-    this._anchor.replaceChildren();
-    this._anchor.setAttribute("href", href);
+        // falls sich href zwischenzeitlich geändert hat, Ergebnis verwerfen
+        if (this.getAttribute("href") !== href) {
+            return;
+        }
 
-    const headerEl = document.createElement("h3");
-    headerEl.innerHTML = `<labeled-icon icon="FlaskConical">${meta.title}</labeled-icon>`;
-    const imgEl = document.createElement("img");
-    imgEl.src = meta.imageUrl;
+        this._anchor.replaceChildren();
+        this._anchor.setAttribute("href", href);
 
-    this._anchor.append(headerEl, imgEl);
+        const headerEl = document.createElement("h3");
+        headerEl.innerHTML = `<labeled-icon icon="FlaskConical">${meta.title}</labeled-icon>`;
+        const imgEl = document.createElement("img");
+        imgEl.src = meta.imageUrl;
 
-    const styleEl = document.createElement("style");
-    styleEl.innerHTML = `
+        this._anchor.append(headerEl, imgEl);
+
+        const styleEl = document.createElement("style");
+        styleEl.innerHTML = `
     a {
       color: var(--text-color);
       text-decoration: none;
       background-color: var(--bg-elevated);
-      transition: background-color var(--animation-speed-fast) linear;
+      transition: all var(--animation-speed-fast) linear;
       display: flex;
       justify-content: space-between;
-      border-radius: 18px;
+      border-radius: 22px;
       padding: 10px;
       margin: 0;
+      gap: 10px;
+      box-sizing: border-box;
     }
       
     a:hover {
       background-color: var(--bg-highlight)
+    }
+
+    a:active {
+      transform: scale(0.98);
     }
 
     h3 {
@@ -88,34 +94,35 @@ class ExperimentLink extends HTMLElement {
     img {
       display: block;
       max-width: 40%;
-      max-height: 150px;
-      height: auto;
+      max-height: 100px;
+      height: 100px;
       width: auto;
-      border-radius: 8px;
+      border-radius: 12px;
+      object-fit: contain;
     }`;
 
-    this.style.display = "block";
+        this.style.display = "block";
 
-    if (!this._anchor.isConnected) {
-      this.shadowRoot.appendChild(this._anchor);
-      this.shadowRoot.append(styleEl);
+        if (!this._anchor.isConnected) {
+            this.shadowRoot.appendChild(this._anchor);
+            this.shadowRoot.append(styleEl);
+        }
+
+        this._renderedHref = href;
+        this._pendingHref = null;
+    };
+
+    connectedCallback() {
+        this.render();
     }
 
-    this._renderedHref = href;
-    this._pendingHref = null;
-  };
+    static get observedAttributes() {
+        return ["href"];
+    }
 
-  connectedCallback() {
-    this.render();
-  }
-
-  static get observedAttributes() {
-    return ["href"];
-  }
-
-  attributeChangedCallback() {
-    this.render();
-  }
+    attributeChangedCallback() {
+        this.render();
+    }
 }
 
 customElements.define("experiment-link", ExperimentLink);
