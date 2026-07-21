@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="Chemie, P-Seminar, WHG, Experiment, Entfärbung, Aktivkohle" />
+    <meta name="content" content="P-Seminar Chemie: Experiment Entfärbung" />
+    <meta name="author" content="Schinkennugget" />
+    <link rel="stylesheet" href="../../css/styles.css">
+
+    <meta property="og:title" content="Experiment: Entfärbung durch Aktivkohle" />
+    <meta property="og:type" content="website" />
+
+    <!-- KaTeX -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/mhchem.min.js"></script>
+
+    <script type="module">
+        import * as darkmode from "../../javascript/darkmode.js";
+        darkmode.initialize();
+    </script>
+
+    <title>Experiment: Entfärbung durch Aktivkohle</title>
+
+</head>
+
+<body tabindex="0">
+
+    <nav>
+        <ul id="navbar">
+            <li class="navbar-item-left">
+                <a href="../../index.html" tabindex="0">
+                    <i data-lucide="house" class="navbar-icon"></i>
+                    <span class="navbar-text-1">Startseite</span>
+                </a>
+            </li>
+            <li class="navbar-item-left">
+                <a href="../alle-experimente.html" tabindex="0">
+                    <i data-lucide="flask-conical" class="navbar-icon"></i>
+                    <span class="navbar-text-2">Experimente</span>
+                </a>
+            </li>
+
+            <li class="navbar-item-right" tabindex="0" id="navbar-button-darkmode">
+                <span>
+                    <i data-lucide="sun" class="navbar-icon" id="navbar-icon-sun"></i>
+                    <i data-lucide="moon" class="navbar-icon" id="navbar-icon-moon"></i>
+                </span>
+            </li>
+            <li class="navbar-item-right" tabindex="0" onclick="window.print();">
+                <span>
+                    <i data-lucide="printer" class="navbar-icon"></i>
+                    <span class="navbar-text-3">Seite drucken</span>
+                </span>
+            </li>
+        </ul>
+    </nav>
+
+    <main>
+        <h2><labeled-icon icon="FlaskConical">Experiment: Entfärbung durch Aktivkohle</labeled-icon></h2>
+
+        <div id="materialien" class="text-chapter">
+            <h3 tabindex="0" class="text-header">
+                Materialien
+                <i data-lucide="link" class="text-header-icon"></i>
+            </h3>
+
+            <div class="text-block text-only-wide">
+                <div class="text">
+                    <ul>
+                        <li>Zwei Bechergläser</li>
+                        <li>Trichter</li>
+                        <li>Filterpapier</li>
+                        <li>Glasstab</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 tabindex="0" class="text-subheader">
+                Chemikalien
+            </h3>
+
+            <div class="text-block text-only-wide">
+                <div class="text">
+                    <ul>
+                        <li>Farblösung</li>
+                        <li>Aktivkohlepulver</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="ghs-overview">
+            <p>Aktivkohlepulver nicht einatmen, Schutzbrille gegen Staub tragen.</p>
+        </div>
+
+        <div id="durchfuehrung" class="text-chapter">
+            <h3 tabindex="0" class="text-header">
+                Durchführung
+                <i data-lucide="link" class="text-header-icon"></i>
+            </h3>
+
+            <div class="text-block text-only-wide">
+                <div class="text">
+                    <ol>
+                        <li>Die gefärbte Lösung in ein Becherglas geben.</li>
+                        <li>Aktivkohlepulver hinzufügen und die Mischun umrühren.</li>
+                        <li>Danach die Mischung durch Filterpapier in ein zweites Becherglas filtrieren.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <div id="beobachtung" class="text-chapter">
+            <h3 tabindex="0" class="text-header">
+                Beobachtung
+                <i data-lucide="link" class="text-header-icon"></i>
+            </h3>
+
+            <div class="text-block">
+                <div class="text">
+                    <p>Nach der Zugabe der Aktivkohle wurde die Mischung schwarz.
+                        Beim Filtern blieb die Aktivkohle im Filter zurück.
+                        Die Flüssigkeit war danach deutlich heller und weniger stark gefärbt.</p>
+                </div>
+                <div class="text-media-small">
+                    <div class="text-media-wrapper">
+                        <img src="entfaerbung-vorher.jpeg" data-license="<a href='https://creativecommons.org/licenses/by-sa/4.0/'>CC BY-SA 4.0</a>" data-source="Eigenes Bild" data-author="Bugrahan, Yannik O." data-title="Vor der Entfärbung">
+                    </div>
+                    <a href="entfaerbung-vorher.jpeg" class="text-media-footer">Vor der Entfärbung</a>
+                    <div class="text-media-wrapper">
+                        <img src="entfaerbung-nachher.jpeg" data-license="<a href='https://creativecommons.org/licenses/by-sa/4.0/'>CC BY-SA 4.0</a>" data-source="Eigenes Bild" data-author="Bugrahan, Yannik O." data-title="Nach der Entfärbung">
+                    </div>
+                    <a href="entfaerbung-nachher.jpeg" class="text-media-footer">Nach der Entfärbung</a>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="erklaerung" class="text-chapter">
+            <h3 tabindex="0" class="text-header">
+                Erklärung
+                <i data-lucide="link" class="text-header-icon"></i>
+            </h3>
+
+            <div class="text-block text-only">
+                <div class="text">
+                    <p>
+                        Bei diesem Versuch findet keine chemische Reaktion statt. Es handelt sich um Adsorption.
+                        Die Farbstoffteilchen lagern sich an der Oberfläche der Aktivkohle an.
+                        Beim Filtern bleiben Aktivkohle und Farbstoffe im Filter zurück. Dadurch wird die Lösung heller oder vollständig farblos.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script type="module">
+        import * as LabeledIcon from "../../javascript/LabeledIcon.js";
+        import * as staticContentLoader from "../../javascript/staticContentLoader.js";
+        staticContentLoader.injectFooter();
+    </script>
+
+    <script async type="module">
+        // import * as expandableHandler from "./javascript/expandableHandler.js";
+        // expandableHandler.addClickListener();
+        // expandableHandler.addDatenHoverEventListener();
+
+        // import * as sourceLoader from "./javascript/sourceLoader.js";
+        // sourceLoader.injectSourceNotes();
+
+        import * as mediaHandler from "../../javascript/mediaHandler.js";
+        mediaHandler.initialize();
+    </script>
+
+    <script type="module">
+        // import * as datenLoader from "./javascript/datenLoader.js";
+        import * as main from "../../javascript/scripts.js";
+
+        main.addTextHeaderClickListener();
+    </script>
+
+    <script>
+        lucide.createIcons();
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    { left: "$$", right: "$$", display: true },
+                    { left: "$", right: "$", display: false },
+                    { left: "\\(", right: "\\)", display: false },
+                    { left: "\\[", right: "\\]", display: true }
+                ]
+            });
+        });
+    </script>
+</body>
+
+</html>

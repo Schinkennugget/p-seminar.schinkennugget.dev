@@ -58,10 +58,13 @@ class ExperimentLink extends HTMLElement {
 
         const headerEl = document.createElement("h3");
         headerEl.innerHTML = `<labeled-icon icon="FlaskConical">${meta.title}</labeled-icon>`;
-        const imgEl = document.createElement("img");
-        imgEl.src = meta.imageUrl;
 
-        this._anchor.append(headerEl, imgEl);
+        this._anchor.append(headerEl);
+        if (meta.imageUrl !== "" && meta.imageUrl) {
+            const imgEl = document.createElement("img");
+            imgEl.src = meta.imageUrl;
+            this._anchor.append(imgEl);
+        }
 
         const styleEl = document.createElement("style");
         styleEl.innerHTML = `
@@ -77,6 +80,7 @@ class ExperimentLink extends HTMLElement {
       margin: 0;
       gap: 10px;
       box-sizing: border-box;
+      height: 100%;
     }
       
     a:hover {
