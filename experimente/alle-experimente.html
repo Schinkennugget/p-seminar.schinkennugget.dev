@@ -10,13 +10,8 @@
   <meta name="author" content="Schinkennugget" />
   <link rel="stylesheet" href="../css/styles.css" />
 
-  <!-- Vorübergehend -->
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <meta http-equiv="Pragma" content="no-cache">
-  <meta http-equiv="Expires" content="0">
-
   <title>Alle Experimente</title>
-  
+
   <script type="module">
     import * as darkmode from "../javascript/darkmode.js";
     darkmode.initialize();
@@ -55,31 +50,32 @@
     </ul>
   </nav>
 
-  <!-- <div id="burger-bar-background"></div> -->
 
   <main>
 
-    <p style="font-size: 10px;">Die Webseite ist derzeit noch in Arbeit. Einige Features funktionieren nur eingeschränkt oder gar nicht, hauptsächlich JavaScript-basierte, interaktive Funktionen.</p>
-
-    <noscript>Hinweis: JavaScript-Funktionen können nicht geladen werden, vermutlich weil dein Browser diese nicht unterstützt oder weil du JavaScript deaktiviert hast. Dadurch ist die Webseite visuell und funktional eingeschränkt.</noscript>
+    <noscript>Hinweis: JavaScript-Funktionen können nicht geladen werden, vermutlich weil dein Browser diese nicht
+      unterstützt oder weil du JavaScript deaktiviert hast. Dadurch ist die Webseite visuell und funktional sehr stark
+      eingeschränkt. <br /><a href="impressum.html">Impressum</a> &amp; <a href="datenschutz.html">Datenschutzerklärung</a></noscript>
 
     <div id="header-text">
       <h1>Alle Experimente</h1>
-
-      <p id="introduction">
-        Noch keine Experimente hochgeladen
-      </p>
     </div>
-    </header>
 
-    <search>
+    <!-- <search>
       <form method="" action="">
         <input type="text" name="exp-search" value="" placeholder="Experimente suchen" />
       </form>
-    </search>
+    </search> -->
 
-
-
+    <experiment-link href="zink/batterie.html"></experiment-link>
+    <experiment-link href="zink/muenze-vergolden.html"></experiment-link>
+    <experiment-link href="kohlenstoff/pharaoschlange.html"></experiment-link>
+    <experiment-link href="kohlenstoff/riesenseifenblase.html"></experiment-link>
+    <experiment-link href="kohlenstoff/entfaerbung.html"></experiment-link>
+    <experiment-link href="kohlenstoff/flamme-ersticken.html"></experiment-link>
+    <experiment-link href="magnesium/verbrennung.html"></experiment-link>
+    <experiment-link href="magnesium/ethansaeure.html"></experiment-link>
+    <experiment-link href="magnesium/redoxreaktion-kupfer.html"></experiment-link>
 
   </main>
 
@@ -90,6 +86,7 @@
 
   <script type="module">
     import * as LabeledIcon from "../javascript/LabeledIcon.js";
+    import * as ExperimentLink from "../javascript/ExperimentLink.js";
     import * as staticContentLoader from "../javascript/staticContentLoader.js";
     staticContentLoader.injectFooter();
   </script>

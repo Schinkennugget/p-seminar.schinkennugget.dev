@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="Chemie, P-Seminar, WHG, Experiment, Magnesium, Ethansäure, Essigsäure" />
+    <meta name="content" content="P-Seminar Chemie: Reaktion Mg mit Essigsäure" />
+    <meta name="author" content="Schinkennugget" />
+    <link rel="stylesheet" href="../../css/styles.css">
+
+    <meta property="og:title" content="Experiment: Reaktion mit Ethansäure" />
+    <meta property="og:type" content="website" />
+
+    <!-- KaTeX -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/mhchem.min.js"></script>
+
+    <script type="module">
+        import * as darkmode from "../../javascript/darkmode.js";
+        darkmode.initialize();
+    </script>
+
+    <title>Experiment: Reaktion mit Ethansäure</title>
+
+</head>
+
+<body tabindex="0">
+
+    <nav>
+        <ul id="navbar">
+            <li class="navbar-item-left">
+                <a href="../../index.html" tabindex="0">
+                    <i data-lucide="house" class="navbar-icon"></i>
+                    <span class="navbar-text-1">Startseite</span>
+                </a>
+            </li>
+            <li class="navbar-item-left">
+                <a href="../alle-experimente.html" tabindex="0">
+                    <i data-lucide="flask-conical" class="navbar-icon"></i>
+                    <span class="navbar-text-2">Experimente</span>
+                </a>
+            </li>
+
+            <li class="navbar-item-right" tabindex="0" id="navbar-button-darkmode">
+                <span>
+                    <i data-lucide="sun" class="navbar-icon" id="navbar-icon-sun"></i>
+                    <i data-lucide="moon" class="navbar-icon" id="navbar-icon-moon"></i>
+                </span>
+            </li>
+            <li class="navbar-item-right" tabindex="0" onclick="window.print();">
+                <span>
+                    <i data-lucide="printer" class="navbar-icon"></i>
+                    <span class="navbar-text-3">Seite drucken</span>
+                </span>
+            </li>
+        </ul>
+    </nav>
+
+    <main>
+        <h2><labeled-icon icon="FlaskConical">Experiment: Reaktion mit Ethansäure</labeled-icon></h2>
+
+        <div id="materialien" class="text-chapter">
+            <h3 tabindex="0" class="text-header">
+                Materialien
+                <i data-lucide="link" class="text-header-icon"></i>
+            </h3>
+
+            <div class="text-block text-only-wide">
+                <div class="text">
+                    <ul>
+                        <li>Reagenzglas</li>
+                        <li>Feuerzeug</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 tabindex="0" class="text-subheader">
+                Chemikalien
+            </h3>
+
+            <div class="text-block text-only-wide">
+                <div class="text">
+                    <ul>
+                        <li>Magnesiumpulver</li>
+                        <li>Ethansäure/Essigsäure</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="ghs-overview">
+            <div class="ghs">
+                <img src="/images/ghs/entzuendlich.svg">
+                <div>Magnesiumpulver ist leicht entflammbar, entzündet sich bei Kontakt mit Wasser. Sehr konzentrierte Ethansäure ist brennbar.</div>
+            </div>
+            <div class="ghs">
+                <img src="/images/ghs/aetzend.svg">
+                <div>Ethansäure ist ätzend</div>
+            </div>
+            <p>Schutzbrille und Schutzkleidung zum Schutz vor Spritzern tragen. Magnesiumbrände nicht mit Wasser löschen. </p>
+        </div>
+
+        <div id="durchfuehrung" class="text-chapter">
+            <h3 tabindex="0" class="text-header">
+                Durchführung
+                <i data-lucide="link" class="text-header-icon"></i>
+            </h3>
+
+            <div class="text-block text-only-wide">
+                <div class="text">
+                    <ol>
+                        <li>Magnesiumpulver in Reagenzglas füllen</li>
+                        <li>Ethansäure hinzufügen</li>
+                        <li>Gas mit Knallgasprobe untersuchen</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <div id="beobachtung" class="text-chapter">
+            <h3 tabindex="0" class="text-header">
+                Beobachtung
+                <i data-lucide="link" class="text-header-icon"></i>
+            </h3>
+
+            <div class="text-block text-only">
+                <div class="text">
+                    <p>Unmittelbar nach der Zugabe der Säure setzt eine starke Gasentwicklung ein. Bei der Knallgasprobe ist ein deutliches „Plopp“-Geräusch zu hören.</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="erklaerung" class="text-chapter">
+            <h3 tabindex="0" class="text-header">
+                Erklärung
+                <i data-lucide="link" class="text-header-icon"></i>
+            </h3>
+
+            <div class="text-block text-only">
+                <div class="text">
+                    <p>
+                        Magnesium reagiert mit Ethansäure unter Bildung von Magnesiumacetat und Wasserstoff. Der entstandene Wasserstoff konnte durch die Knallgasprobe nachgewiesen werden.
+                    </p>
+                    <p>
+                        Redoxreaktion:<br><br>
+                        Oxidation:<br>
+                        \( \ce{Mg -> Mg^2+ + 2 e^-} \)<br>
+                        Reduktion:<br>
+                        \( \ce{H2^+ + 2 e^- -> 2 H} \)<br>
+                        Gesamtreaktion:<br>
+                        \( \ce{Mg + 2 CH3COOH -> Mg(CH3COO) + H2} \)<br>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script type="module">
+        import * as LabeledIcon from "../../javascript/LabeledIcon.js";
+        import * as staticContentLoader from "../../javascript/staticContentLoader.js";
+        staticContentLoader.injectFooter();
+    </script>
+
+    <script async type="module">
+        // import * as expandableHandler from "./javascript/expandableHandler.js";
+        // expandableHandler.addClickListener();
+        // expandableHandler.addDatenHoverEventListener();
+
+        // import * as sourceLoader from "./javascript/sourceLoader.js";
+        // sourceLoader.injectSourceNotes();
+
+        import * as mediaHandler from "../../javascript/mediaHandler.js";
+        mediaHandler.initialize();
+    </script>
+
+    <script type="module">
+        // import * as datenLoader from "./javascript/datenLoader.js";
+        import * as main from "../../javascript/scripts.js";
+
+        main.addTextHeaderClickListener();
+    </script>
+
+    <script>
+        lucide.createIcons();
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    { left: "$$", right: "$$", display: true },
+                    { left: "$", right: "$", display: false },
+                    { left: "\\(", right: "\\)", display: false },
+                    { left: "\\[", right: "\\]", display: true }
+                ]
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="Chemie, P-Seminar, WHG, Experiment, Verbrennung, Magnesium" />
+    <meta name="content" content="P-Seminar Chemie: Verbrennung Magnesium" />
+    <meta name="author" content="Schinkennugget" />
+    <link rel="stylesheet" href="../../css/styles.css">
+
+    <meta property="og:title" content="Experiment: Verbrennung von Magnsiumband" />
+    <meta property="og:type" content="website" />
+
+    <!-- KaTeX -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/mhchem.min.js"></script>
+
+    <script type="module">
+        import * as darkmode from "../../javascript/darkmode.js";
+        darkmode.initialize();
+    </script>
+
+    <title>Experiment: Verbrennung von Magnsiumband</title>
+
+</head>
+
+<body tabindex="0">
+
+    <nav>
+        <ul id="navbar">
+            <li class="navbar-item-left">
+                <a href="../../index.html" tabindex="0">
+                    <i data-lucide="house" class="navbar-icon"></i>
+                    <span class="navbar-text-1">Startseite</span>
+                </a>
+            </li>
+            <li class="navbar-item-left">
+                <a href="../alle-experimente.html" tabindex="0">
+                    <i data-lucide="flask-conical" class="navbar-icon"></i>
+                    <span class="navbar-text-2">Experimente</span>
+                </a>
+            </li>
+
+            <li class="navbar-item-right" tabindex="0" id="navbar-button-darkmode">
+                <span>
+                    <i data-lucide="sun" class="navbar-icon" id="navbar-icon-sun"></i>
+                    <i data-lucide="moon" class="navbar-icon" id="navbar-icon-moon"></i>
+                </span>
+            </li>
+            <li class="navbar-item-right" tabindex="0" onclick="window.print();">
+                <span>
+                    <i data-lucide="printer" class="navbar-icon"></i>
+                    <span class="navbar-text-3">Seite drucken</span>
+                </span>
+            </li>
+        </ul>
+    </nav>
+
+    <main>
+        <h2><labeled-icon icon="FlaskConical">Experiment: Verbrennung von Magnesiumband</labeled-icon></h2>
+
+        <div id="materialien" class="text-chapter">
+            <h3 tabindex="0" class="text-header">
+                Materialien
+                <i data-lucide="link" class="text-header-icon"></i>
+            </h3>
+
+            <div class="text-block text-only-wide">
+                <div class="text">
+                    <ul>
+                        <li>Bunsenbrenner</li>
+                        <li>Tiegelzange</li>
+                        <li>Porzellanschale</li>
+                        <li>Schutzbrille</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 tabindex="0" class="text-subheader">
+                Chemikalien
+            </h3>
+
+            <div class="text-block text-only-wide">
+                <div class="text">
+                    <ul>
+                        <li>Magnesiumband</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="ghs-overview">
+            <div class="ghs">
+                <img src="/images/ghs/entzuendlich.svg">
+                <div>Magnesium ist entflammbar, entzündet sich bei Kontakt mit Wasser</div>
+            </div>
+            <p>Nicht direkt in die Flamme schauen. Magnesiumbrände nicht mit Wasser löschen. Schutzbrille tragen. Schutzkleidung empfohlen.</p>
+        </div>
+
+        <div id="durchfuehrung" class="text-chapter">
+            <h3 tabindex="0" class="text-header">
+                Durchführung
+                <i data-lucide="link" class="text-header-icon"></i>
+            </h3>
+
+            <div class="text-block text-only-wide">
+                <div class="text">
+                    <ol>
+                        <li>Halte das Magnesiumband mit einer Tiegelzange.</li>
+                        <li>Halt es anschließend in die Brennerflamme.</li>
+                        <li>Nach kurzer Zeit entzündet sich das Magnesium.</li>
+                        <li>Fange das entstandene Reaktionsprodukt in einer Porzellanschale auf.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <div id="beobachtung" class="text-chapter">
+            <h3 tabindex="0" class="text-header">
+                Beobachtung
+                <i data-lucide="link" class="text-header-icon"></i>
+            </h3>
+
+            <div class="text-block text-only">
+                <div class="text">
+                    <p>Das Magnesium verbrennt mit einer sehr hellen, weißen Flamme. Während der Reaktion entsteht starke Wärme. Nach dem Abbrennen bleibt ein weißes Pulver zurück.</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="erklaerung" class="text-chapter">
+            <h3 tabindex="0" class="text-header">
+                Erklärung
+                <i data-lucide="link" class="text-header-icon"></i>
+            </h3>
+
+            <div class="text-block text-only">
+                <div class="text">
+                    <p>
+                        Magnesium reagiert mit dem Sauerstoff der Luft zu Magnesiumoxid. Dabei handelt es sich um eine stark exotherme Redoxreaktion, bei der Licht- und Wärmeenergie frei werden.
+                    </p>
+                    <p>
+                        Redoxreaktion:<br><br>
+                        Oxidation:<br>
+                        \( \ce{2 Mg -> 2 Mg^2+ + 4 e^-} \)<br>
+                        Reduktion:<br>
+                        \( \ce{O2 + 4 e^- -> 2 O^2-} \)<br>
+                        Gesamtreaktion:<br>
+                        \( \ce{2 Mg + O2 -> 2 MgO} \)<br>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script type="module">
+        import * as LabeledIcon from "../../javascript/LabeledIcon.js";
+        import * as staticContentLoader from "../../javascript/staticContentLoader.js";
+        staticContentLoader.injectFooter();
+    </script>
+
+    <script async type="module">
+        // import * as expandableHandler from "./javascript/expandableHandler.js";
+        // expandableHandler.addClickListener();
+        // expandableHandler.addDatenHoverEventListener();
+
+        // import * as sourceLoader from "./javascript/sourceLoader.js";
+        // sourceLoader.injectSourceNotes();
+
+        import * as mediaHandler from "../../javascript/mediaHandler.js";
+        mediaHandler.initialize();
+    </script>
+
+    <script type="module">
+        // import * as datenLoader from "./javascript/datenLoader.js";
+        import * as main from "../../javascript/scripts.js";
+
+        main.addTextHeaderClickListener();
+    </script>
+
+    <script>
+        lucide.createIcons();
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    { left: "$$", right: "$$", display: true },
+                    { left: "$", right: "$", display: false },
+                    { left: "\\(", right: "\\)", display: false },
+                    { left: "\\[", right: "\\]", display: true }
+                ]
+            });
+        });
+    </script>
+</body>
+
+</html>
