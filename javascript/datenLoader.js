@@ -34,7 +34,7 @@ export async function generateAndInjectFavicon(elementName) {
     const elementObj = await findElementWithName(elementName);
     const FAVICON_TEXT = elementObj.elementsymbol;
     const FAVICON_BG_COLOR = elementObj?.additional_data?.einteilung?.gruppe;
-    const FAVICON_TEXT_COLOR =  tinycolor(FAVICON_BG_COLOR).isLight() ? "#fff" : "#000";
+    const FAVICON_TEXT_COLOR =  tinycolor(FAVICON_BG_COLOR).isDark() ? "#fff" : "#000";
 
     let svgContent;
     let svgDataUrl;
