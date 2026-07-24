@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="Chemie, P-Seminar, WHG, Experiment, Calcium, Nachweis" />
+    <meta name="content" content="P-Seminar Chemie: Quantitativer Nachweis Calcium" />
+    <meta name="author" content="Schinkennugget" />
+    <link rel="stylesheet" href="../../css/styles.css">
+
+    <meta property="og:title" content="Experiment: Quantitativer Nachweis" />
+    <meta property="og:type" content="website" />
+
+    <!-- KaTeX -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/mhchem.min.js"></script>
+
+    <script type="module">
+        import * as darkmode from "../../javascript/darkmode.js";
+        darkmode.initialize();
+    </script>
+
+    <title>Experiment: Quantitativer Nachweis von Calcium</title>
+
+</head>
+
+<body tabindex="0">
+
+    <nav>
+        <ul id="navbar">
+            <li class="navbar-item-left">
+                <a href="../../index.html" tabindex="0">
+                    <i data-lucide="house" class="navbar-icon"></i>
+                    <span class="navbar-text-1">Startseite</span>
+                </a>
+            </li>
+            <li class="navbar-item-left">
+                <a href="../alle-experimente.html" tabindex="0">
+                    <i data-lucide="flask-conical" class="navbar-icon"></i>
+                    <span class="navbar-text-2">Experimente</span>
+                </a>
+            </li>
+
+            <li class="navbar-item-right" tabindex="0" id="navbar-button-darkmode">
+                <span>
+                    <i data-lucide="sun" class="navbar-icon" id="navbar-icon-sun"></i>
+                    <i data-lucide="moon" class="navbar-icon" id="navbar-icon-moon"></i>
+                </span>
+            </li>
+            <li class="navbar-item-right" tabindex="0" onclick="window.print();">
+                <span>
+                    <i data-lucide="printer" class="navbar-icon"></i>
+                    <span class="navbar-text-3">Seite drucken</span>
+                </span>
+            </li>
+        </ul>
+    </nav>
+
+    <main>
+        <h2><labeled-icon icon="FlaskConical">Experiment: Quantitativer Nachweis von Calcium</labeled-icon></h2>
+
+        <div id="ziel" class="text-chapter">
+            <h3 tabindex="0" class="text-header">
+                Zielsetzung
+                <i data-lucide="link" class="text-header-icon"></i>
+            </h3>
+
+            <div class="text-block text-only">
+                <div class="text">
+                    <p>
+                        Die Zielsetzung dieses Versuchs befasst sich damit, eine in Wasser gelöste Calcium Tablette
+                        nach der enthaltenen Menge von Calcium zu prüfen und den errechneten Wert mit dem auf der
+                        Packung angegebenen Wert zu vergleichen. Dieses Experiment wird als quantitativer Nachweis
+                        bezeichnet, da die Quantität also die Menge an Calcium ermittelt wird.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div id="theorie" class="text-chapter">
+            <h3 tabindex="0" class="text-header">
+                Theoretische Grundlagen
+                <i data-lucide="link" class="text-header-icon"></i>
+            </h3>
+
+            <div class="text-block text-only">
+                <div class="text">
+                    <p>
+                        <strong>Chelatkomplexe/Metallkomplexe:</strong><br>
+                        Im Ablauf einer Komplexbildungsreaktion reagieren die Metall-Ionen (hier. Calcium-Ionen) und
+                        Komplexbildner (hier: EDTA) zu einem Komplex, aus einem zentralen Metall-lon, um welches
+                        herum sich Liganden befinden. Hierbei handelt es sich um ein Komplex, namens
+                        Chelatkomplex, welches durch die Titration gebildet wird.
+                    </p>
+                    <p>
+                        <strong>Rechnen mit molarer Masse - Benötigte Formeln:</strong>
+                        <em>Nutzen in Verbindung mit dem Experiment:</em><br>
+                        In dem wir die Probelösung mit der EDTA-Maßlösung titrieren, können wir das benötigte
+                        Volumen von EDTA in mL genau ablesen, welches benötigt wird, um einen Farbumschlag zu
+                        erzeugen bzw. bei dem die Calcium-Ionen die besondere Reaktion, namens
+                        Komplexbildungsreaktion, eingehen. Aus dem Volumen der EDTA-Maßlösung und der
+                        bekannten Stoffmengenkonzentration des EDTAs kann die Masse des enthaltenen Calcium
+                        berechnet werden
+                    </p>
+                    <p>
+                        <strong>Stoffmenge:</strong><br>
+                    <ul>
+                        <li>Die Stoffmenge gibt Auskunft über die Teilchenanzahl einer vorliegenden Stoffportion</li>
+                        <li>6,022 • 10<sup>23</sup> Teilchen definiert man als ein Teilchen (Avogadro-Konstante)</li>
+                        <li>Die Einheit der Stoffmenge n gibt man in mol an</li>
+                    </ul>
+                    </p>
+                    <p>
+                        <strong>Klärung der Variablen:</strong><br>
+                    <ul>
+                        <li>c<sub>EDTA-Maßlösung</sub>: Stoffkonzentrationsmenge der EDTA-Teilchen (in mol/L)</li>
+                        <li>n<sub>EDTA-Maßlösung</sub>: Stoffmenge der EDTA-Teilchen (in mol)</li>
+                        <li>V<sub>EDTA-Maßlösung</sub>: Volumen der benötigten EDTA-Maßlösung (in L)</li>
+                        <li>M<sub>Calcium</sub>: molare Masse Calcium (in g/mol)</li>
+                        <li>m<sub>Calcium</sub>: Masse Calcium (in g)</li>
+                        <li>n<sub>Calcium</sub>: Stoffmenge Calcium (in mol)</li>
+                    </ul>
+                    </p>
+                    <p>
+                        <strong>Formeln:</strong><br>
+                    <ul>
+                        <li>Stoffmengenkonzentration: \( c_{EDTA-Maßlösung} = \frac{n_{EDTA-Maßlösung}}{V_{EDTA-Maßlösung}} \)</li>
+                        <li>Molare Masse: \( M_{Calcium} = \frac{m_{Calcium}}{n_{Calcium}} \)</li>
+                    </ul>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div id="materialien" class="text-chapter">
+            <h3 tabindex="0" class="text-header">
+                Materialien
+                <i data-lucide="link" class="text-header-icon"></i>
+            </h3>
+
+            <div class="text-block text-only-wide">
+                <div class="text">
+                    <ul>
+                        <li>Erlenmeyerkolben</li>
+                        <li>Pipette</li>
+                        <li>Bürette</li>
+                        <li>pH-Wert-Messgerät</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 tabindex="0" class="text-subheader">
+                Chemikalien
+            </h3>
+
+            <div class="text-block text-only-wide">
+                <div class="text">
+                    <ul>
+                        <li>50mL Probelösung (nach Angabe Calcium-Tablette in Wasser lösen und 50 mL entnehmen)</li>
+                        <li>1mL Ammoniaklösung</li>
+                        <li>Eriochromschwarz T (Indikatortablette)</li>
+                        <li>EDTA-Maßlösung (c = 0,1mol/L)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="ghs-overview">
+            <div class="ghs">
+                <img src="/images/ghs/aetzend.svg">
+                <div>Ammoniaklösung verursacht schwere Verätzungen der Haut und schwere Augenschäden</div>
+            </div>
+            <div class="ghs">
+                <img src="/images/ghs/reizend.svg">
+                <div>Entweichendes Ammoniakgas reizt die Atemwege und Schleimhäute stark</div>
+            </div>
+            <div class="ghs">
+                <img src="/images/ghs/umwelt.svg">
+                <div>Ammoinak ist extrem giftig für Wasserorganismen mit langfristiger Wirkung</div>
+            </div>
+            <p>Schutzbrille und Schutzkleidung tragen. Chemikalien fachgemäß entsorgen, micht in den Abfluss geben. Nur in gut durchlüfteten Räumen oder im Abzug durchführen.</p>
+        </div>
+
+        <div id="durchfuehrung" class="text-chapter">
+            <h3 tabindex="0" class="text-header">
+                Durchführung
+                <i data-lucide="link" class="text-header-icon"></i>
+            </h3>
+
+            <div class="text-block">
+                <div class="text">
+                    <ol>
+                        <li>Calciumtablette nach auf der Packung angegebenen Verhältnis in Wasser lösen</li>
+                        <li>Lösung filtrieren</li>
+                        <li>50 mL entnehmen → Probelösung</li>
+                        <li>Probelösung in Erlenmeyerkolben oder Becherglas geben</li>
+                        <li>konzentrierte Ammoniaklösung in Probelösung hinzufügen, bis der pH-Wert 11 beträgt, und gut umrühren</li>
+                        <li>Erichromschwarz T in Form von Indikatortablette in die Probe geben</li>
+                        <li>Probelösung mit 50 mL EDTA-Maßlösung (c = 0,1 mol/L) titrieren (Anfangswert an der Bürette und Merken (Idealfall: bei Null anfangen; weniger
+                            rechnen))</li>
+                        <li>Farbumschlag beobachten</li>
+                        <li>Direkt danach Bürette zudrehen</li>
+                        <li>Wert des verbrauchten Volumen von EDTA-Stammlösung an der Bürette ablesen</li>
+                        <li>Stoffmenge von Calcium berechnen</li>
+                        <li>Errechneter Wert mit auf der Packung angegebener Menge vergleichen</li>
+                    </ol>
+                </div>
+                <div class="text-media-small">
+                    <div class="text-media-wrapper">
+                        <img src="aufbau_nachweis.png" data-license="<a href='https://creativecommons.org/licenses/by-sa/4.0/'>CC BY-SA 4.0</a>" data-source="Eigenes Bild" data-author="Amelia D." data-title="Versuchsaufbau Quantitativer Nachweis">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="beobachtung" class="text-chapter">
+            <h3 tabindex="0" class="text-header">
+                Beobachtung
+                <i data-lucide="link" class="text-header-icon"></i>
+            </h3>
+
+            <div class="text-block text-only">
+                <div class="text">
+                    <p>Schon bei der Hinzugabe von der Ammoniaklösung und dem Erreichen des richtigen pH-Werts
+                        färbt die Erichromschwarz T-Tablette die Probelösung in einer rötlichen Farbe, statt dem
+                        vorherigen braun-grün.</p>
+                    <p>
+                        Während der Titration wird die Farbe erst orange, dann gelblich, bis sie dann recht schlagartig
+                        ein leuchtendes grün erreicht. Anschließend kann beim Zudrehen der Bürette der Wert von 23,5
+                        mL EDTA-Stammlösung abgelesen werden.
+                    </p>
+                </div>
+            </div>
+            <div class="text-media-large">
+                <div class="text-media-wrapper">
+                    <img src="beobachtung_nachweis.png" data-license="<a href='https://creativecommons.org/licenses/by-sa/4.0/'>CC BY-SA 4.0</a>" data-source="Eigenes Bild" data-author="Amelia D." data-title="Beobachtung Quantitativer Nachweis">
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script type="module">
+        import * as LabeledIcon from "../../javascript/LabeledIcon.js";
+        import * as ExperimentLink from "../../javascript/ExperimentLink.js";
+        import * as staticContentLoader from "../../javascript/staticContentLoader.js";
+        staticContentLoader.injectFooter();
+    </script>
+
+    <script async type="module">
+        // import * as expandableHandler from "./javascript/expandableHandler.js";
+        // expandableHandler.addClickListener();
+        // expandableHandler.addDatenHoverEventListener();
+
+        // import * as sourceLoader from "./javascript/sourceLoader.js";
+        // sourceLoader.injectSourceNotes();
+
+        import * as mediaHandler from "../../javascript/mediaHandler.js";
+        mediaHandler.initialize();
+    </script>
+
+    <script type="module">
+        // import * as datenLoader from "./javascript/datenLoader.js";
+        import * as main from "../../javascript/scripts.js";
+
+        main.addTextHeaderClickListener();
+    </script>
+
+    <script>
+        lucide.createIcons();
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    { left: "$$", right: "$$", display: true },
+                    { left: "$", right: "$", display: false },
+                    { left: "\\(", right: "\\)", display: false },
+                    { left: "\\[", right: "\\]", display: true }
+                ]
+            });
+        });
+    </script>
+</body>
+
+</html>

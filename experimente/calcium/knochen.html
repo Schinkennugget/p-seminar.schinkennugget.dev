@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="keywords" content="Chemie, P-Seminar, WHG, Experiment, Calcium, Knochen" />
+  <meta name="content" content="P-Seminar Chemie: Knochen auflösen" />
+  <meta name="author" content="Schinkennugget" />
+  <link rel="stylesheet" href="../../css/styles.css">
+
+  <meta property="og:title" content="Experiment: Knochen auflösen" />
+  <meta property="og:image" content="https://p-seminar.schinkennugget.dev/experimente/XXXXX" />
+  <meta property="og:type" content="website" />
+
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/mhchem.min.js"></script>
+
+  <script type="module">
+    import * as darkmode from "../../javascript/darkmode.js";
+    darkmode.initialize();
+  </script>
+
+  <title>Experiment: Knochen auflösen</title>
+
+</head>
+
+<body tabindex="0">
+
+  <nav>
+    <ul id="navbar">
+      <li class="navbar-item-left">
+        <a href="../../index.html" tabindex="0">
+          <i data-lucide="house" class="navbar-icon"></i>
+          <span class="navbar-text-1">Startseite</span>
+        </a>
+      </li>
+      <li class="navbar-item-left">
+        <a href="../alle-experimente.html" tabindex="0">
+          <i data-lucide="flask-conical" class="navbar-icon"></i>
+          <span class="navbar-text-2">Experimente</span>
+        </a>
+      </li>
+
+      <li class="navbar-item-right" tabindex="0" id="navbar-button-darkmode">
+        <span>
+          <i data-lucide="sun" class="navbar-icon" id="navbar-icon-sun"></i>
+          <i data-lucide="moon" class="navbar-icon" id="navbar-icon-moon"></i>
+        </span>
+      </li>
+      <li class="navbar-item-right" tabindex="0" onclick="window.print();">
+        <span>
+          <i data-lucide="printer" class="navbar-icon"></i>
+          <span class="navbar-text-3">Seite drucken</span>
+        </span>
+      </li>
+    </ul>
+  </nav>
+
+  <main>
+    <h2><labeled-icon icon="FlaskConical">Experiment: Knochen auflösen</labeled-icon></h2>
+
+    <div id="ziel" class="text-chapter">
+      <h3 tabindex="0" class="text-header">
+        Zielsetzung
+        <i data-lucide="link" class="text-header-icon"></i>
+      </h3>
+
+      <div class="text-block text-only">
+        <div class="text">
+          <p>
+            Das Ziel des Knochenversuchs ist es, die in einem Knochen enthaltenen Calcium-Ionen aus
+            diesem zu lösen, um die daraus resultierenden Folgen für sowohl die Struktur als auch die
+            Eigenschaften dieses Knochens analysieren zu können.
+            Hierbei ist die zu beweisende These, dass das Entziehen von Calcium-Ionen aus einem
+            Knochen in den Verlust der Stabilität dessen Struktur resultiert.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div id="theorie" class="text-chapter">
+      <h3 tabindex="0" class="text-header">
+        Theoretische Grundlagen
+        <i data-lucide="link" class="text-header-icon"></i>
+      </h3>
+
+      <div class="text-block text-only">
+        <div class="text">
+          <p>
+            <strong>Säure-Base Reaktion:</strong><br>
+            Säure-Base Reaktionen, sind chemische Reaktionen bei denen Wasserstoff - Kationen (\( \ce{H^+} \))
+            von den Edukten, also Moleküle oder Molekül-Ionen, abgegeben bzw. angenommen werden.
+            Bei diesem Austausch heißt das Teilchen, welches das Proton (Bezeichnung für \( \ce{H^+} \) ) abgibt,
+            Protonendonator bzw. Säure, während das Teilchen, welches dieses annimmt, als
+            Protonenakzeptor bzw. Base bezeichnet wird. Weil bei diesem Reaktionstyp ein Teilchen ein
+            Proton „ablöst“, das von einem anderen Teilchen aufgenommen wird, nennt man diese
+            Reaktion auch Protolyse. Allgemein gilt also:<br>
+            (\( \ce{HA + B <=> A^- + HB^+} \))
+          </p>
+          <p>
+            <strong>Massenerhaltungsgesetz:</strong><br>
+            Der Massenerhaltungssatz (auch Massenerhaltungsgesetz) besagt, dass bei einer chemischen
+            Reaktion die Gesamtmasse der Ausgangsstoffe (Edukte) immer exakt gleich der Gesamtmasse
+            der Endstoffe (Produkte) ist. Masse kann bei chemischen Prozessen weder neu entstehen noch
+            vernichtet werden, sondern wird lediglich in ihrer atomaren Struktur umgruppiert => Masse geht
+            nicht verloren.
+          </p>
+          <p>
+            <strong>Chemische Zusammensetzung von Knochen:</strong><br>
+            Die Bestandteile eines Knochens können in zwei Gruppen, anorganisch und organisch,
+            unterteilt werden. Die Zusammensetzung sieht dann wie folgt aus:
+          <ul>
+            <li>
+              <strong>Anorganische Bestandteile (Mineralien)</strong>: Der Mineralanteil ist primär für die Härte des Knochens verantwortlich.
+              <ul>
+                <li>Ca. 85 - 90% Calciumphosphat</li>
+                <li>Ca. 10% Calciumcarbonat</li>
+                <li>Spurenelemente und Mineralstoffe: Magnesium, Natrium, Kalium, Fluorid und Citrat</li>
+              </ul>
+            </li>
+            <li>
+              <strong>Organische Bestandteile</strong>: Die organische Substanz fungiert als elastisches Gerüst, in das die Mineralien eingelagert sind.
+              <ul>
+                <li>Kollagen (Typ I): Macht etwa 90% des organischen Materials aus. Es ist ein Strukturprotein, das dem Knochen Biegsamkeit verleiht.</li>
+                <li>Nicht-kolagene Proteine (~10%):Hierzu gehören unter anderem Osteocalcin und Osteonectin, die essenziell für die Knochenbildung und -mineralisation sind.</li>
+              </ul>
+            </li>
+          </ul>
+          Für den Knochenversuch betrachten wir den anorganischen Bestandteil des Knochen-Aufbaus,
+          da dieser die für Stabilität sorgenden Calcium-Ionen enthält, die mit der Säure (Essigessenz)
+          reagieren.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div id="materialien" class="text-chapter">
+      <h3 tabindex="0" class="text-header">
+        Materialien
+        <i data-lucide="link" class="text-header-icon"></i>
+      </h3>
+
+      <div class="text-block text-only-wide">
+        <div class="text">
+          <ul>
+            <li>Knochen => in unserem Fall drei Hühnerknochen</li>
+            <li>Messer</li>
+            <li>Unterlage und Papiertücher</li>
+            <li>Großer Behälter (der Rand dessen muss mind. 7 - 8cm über dem Knochen liegen)</li>
+            <li>Parafilm</li>
+            <li>Wasserfester Stift (Beschriftung)</li>
+            <li>Handschuhe</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 tabindex="0" class="text-subheader">
+        Chemikalien
+      </h3>
+
+      <div class="text-block text-only-wide">
+        <div class="text">
+          <ul>
+            <li>Essigessenz</li>
+            <li>Destilliertes Wasser</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div id="durchfuehrung" class="text-chapter">
+      <h3 tabindex="0" class="text-header">
+        Durchführung
+        <i data-lucide="link" class="text-header-icon"></i>
+      </h3>
+
+      <div class="text-block">
+        <div class="text">
+          <ol>
+            <li>Fleischreste etc., die auf dem Knochen noch vorhanden sind, mithilfe eines Messers und Papiertüchern vom Knochen entfernen</li>
+            <li>Knochen in den großen Behälter legen</li>
+            <li>Wasser und Essigessenz so hinzugeben, dass die Lösung sauer genug ist</li>
+            <li>Behälter mithilfe von Parafilm gut verschließen, um einen nahezu Luftundurchlässigen Raum zu schaffen</li>
+            <li>Behälter beschriften (falls der Versuch in der Schule durchgeführt wird => Chemiefachschaft ist somit informiert und entsorgt nicht versehentlich den Inhalt des Behälters)</li>
+            <li>Den Knochen mehrere Wochen in der sauren Lösung lassen. Hierbei ist es selbstverständlich möglich und erwünscht, periodisch die
+              Entwicklung des Knochens zu verfolgen, indem dieser aus dem Behälter
+              genommen und (mit Handschuhen) inspiziert wird</li>
+          </ol>
+        </div>
+        <div class="text-media-small">
+          <div class="text-media-wrapper">
+            <img src="aufbau_knochen.png" data-license="<a href='https://creativecommons.org/licenses/by-sa/4.0/'>CC BY-SA 4.0</a>" data-source="Eigenes Bild" data-author="Amelia D." data-title="Versuchsaufbau Knochen">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="beobachtung" class="text-chapter">
+      <h3 tabindex="0" class="text-header">
+        Beobachtung
+        <i data-lucide="link" class="text-header-icon"></i>
+      </h3>
+
+      <div class="text-block text-only">
+        <div class="text">
+          <p>Nach der dritten Woche war bereits zu erkennen, dass die Knochen deutlich leichter und an
+            jeweils beiden Enden flexibel waren. Der mittlere Teil dieser war jedoch weiterhin unbiegsam.
+            Somit haben wir uns entschieden, weitere zwei Wochen abzuwarten. Daraufhin ist es uns
+            gelungen, die kompletten Knochen vollkommen biegsam werden zu lassen. Das Gewicht dieser
+            hat in den fünf vergangenen Wochen stark abgenommen und die Farbe hat sich ebenfalls stark
+            verändert. Vor dem Einlegen war der Knochen rosa und gräulich. Während der fünf Wochen
+            war die folgende Veränderung von einem gelblich- weißen Ton zu einem eher kalten grau Ton
+            mit einigen bläulichen bzw. lila Akzenten zu erkennen. Außerdem war ebenfalls bezüglich der
+            Farbe zu erkennen, dass sich diese Veränderung von außen nach innen abgespielt hat, d. h.
+            der Teil der als erstes seine Stabilität und Härte verloren hat (die beiden Enden) hat auch seine
+            Farbe als erstes verändert. Dadurch war ein Farbverlauf zu erkennen, der darauf hin gedeutet
+            hat, welche Teile des Knochens biegsam und welche weiterhin hart waren.</p>
+        </div>
+      </div>
+      <div class="text-media-large">
+        <div class="text-media-wrapper">
+          <img src="beobachtung1_knochen.png" data-license="<a href='https://creativecommons.org/licenses/by-sa/4.0/'>CC BY-SA 4.0</a>" data-source="Eigenes Bild" data-author="Amelia D." data-title="Beobachtung Knochen">
+        </div>
+      </div>
+      <div class="text-media-large">
+        <div class="text-media-wrapper">
+          <video controls preload="auto" src="beobachtung2_knochen.mp4" data-license="<a href='https://creativecommons.org/licenses/by-sa/4.0/'>CC BY-SA 4.0</a>" data-source="Eigenes Bild" data-author="Amelia D." data-title="Beobachtung 2 Knochen"></video>
+        </div>
+      </div>
+    </div>
+
+    <div id="reaktion" class="text-chapter">
+      <h3 tabindex="0" class="text-header">
+        Reaktion
+        <i data-lucide="link" class="text-header-icon"></i>
+      </h3>
+
+      <div class="text-block text-only">
+        <div class="text">
+          <p>
+            Wie bereits an der Reaktion zu erkennen ist, handelt es sich bei unserem Versuch um eine Säure-Base Reaktion. Das Calciumphosphat wird gespalten, da das Phosphat die Wasserstoff-Atome aufnimmt, die die Essigsäure wiederum abgibt. Somit finden sich die Calciumatome in der Lösung aquatisiert vor, d.h. die Wassermoleküle lagern um ein gelöstes Ion (Calcium-Kationen) an und bilden eine Hülle namens Hydrohülle. So lösen wir also das Calcium und „fangen es in der Lösung ein". Es ist möglich, die Präsenz von Calcium und die Menge dieses Elements nachzuweisen (qualitativer/quantitativer Nachweis von Calcium)<br>
+            \( \ce{Ca3(PO4)2 + 6 CH3COOH ->} \)<br>
+            \( \ce{3 Ca^2+ + 6 CH3COO^- + 2 H3PO4} \)
+          </p>
+          <experiment-link href="quantitativer_nachweis.html"></experiment-link>
+        </div>
+      </div>
+    </div>
+
+    <div id="exkurs" class="text-chapter">
+      <h3 tabindex="0" class="text-header">
+        Exkurs: Osteoporose
+        <i data-lucide="link" class="text-header-icon"></i>
+      </h3>
+
+      <div class="text-block text-only">
+        <div class="text">
+          <p>
+            Als Osteoporose bezeichnet man eine Erkrankung des Skelettsystems, die zu verminderter
+            Knochendichte führt. Die Ursache hierfür ist unter anderem, dass mit dem Alter der Körper
+            Calzium abbaut bzw. ein Calziummangel in diesem herrscht, verursacht durch beispielsweise
+            eine unausgewogene Ernährung. Mit dem Knochenversuch stellen wir diesen Abbau-Prozess
+            künstlich dar, was eine lehrreiche und interessante Darstellung der Auswirkungen dieser
+            Krankheit ist. Selbstverständlich kommt das Ergebnis unseres Experiments, also ein völlig
+            biegsamer und schwacher Knochen, nicht in dieser Form in Osteoporose-Patienten vor, da der
+            Körper niemals eine solch große Menge an Calcium abbauen würde.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div id="hinweis" class="text-chapter">
+      <h3 tabindex="0" class="text-header">
+        Hinweis
+        <i data-lucide="link" class="text-header-icon"></i>
+      </h3>
+
+      <div class="text-block text-only">
+        <div class="text">
+          <p>
+            Als Ergebnis des Knochen-Experiments werden, wie bereits festgestellt, die Calcium-Ionen
+            aus dem Knochen gelöst. Aus der Auswertung dieses Versuches wird deutlich, dass der
+            Knochen an Masse verliert, da diesem Bestandteile entzogen werden. Dank des
+            Massenerhaltungsgesetzes (siehe theoretische Grundlagen) ist es also möglich, Rückschlüsse
+            über den quantitativen Anteil an Calcium-lonen im Knochen zu ziehen. Hierzu muss lediglich
+            der Knochen vor und nach dem Einlegen in die verdünnte Essigessenz gewogen werden, und
+            die Differenz dieser ermittelt werden. Sogar der Prozentuale Anteil der Calcium-Ionen kann
+            anschließend, durch die Division von der Differenz beider Massen durch die ursprüngliche
+            Masse, ermittelt werden.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <h2>Mögliche Ergänzung: Knochen verbrennen</h2>
+
+    <div id="materialien" class="text-chapter">
+      <h3 tabindex="0" class="text-header">
+        Materialien
+        <i data-lucide="link" class="text-header-icon"></i>
+      </h3>
+
+      <div class="text-block">
+        <div class="text">
+          <ul>
+            <li>Knochen (sowohl den aus dem vorherigen Experiment, als auch einen, der nicht in Essig gelegt wurde)</li>
+            <li>Papiertücher</li>
+            <li>Bunsenbrenner</li>
+            <li>Tiegelzange</li>
+          </ul>
+        </div>
+        <div class="text-media-small">
+          <div class="text-media-wrapper">
+            <img src="knochen2_material.png" data-license="<a href='https://creativecommons.org/licenses/by-sa/4.0/'>CC BY-SA 4.0</a>" data-source="Eigenes Bild" data-author="Amelia D." data-title="Material Knochen 2">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="ghs-overview">
+      <p>Schutzbrille empfohlen. Lange Haare zusammenbinden.</p>
+    </div>
+
+    <div id="durchfuehrung" class="text-chapter">
+      <h3 tabindex="0" class="text-header">
+        Durchführung
+        <i data-lucide="link" class="text-header-icon"></i>
+      </h3>
+
+      <div class="text-block text-only-wide">
+        <div class="text">
+          <ol>
+            <li>Einen der in der Essigessenz (verdünnt) schwimmenden Knochen aus der Lösung entnehmen</li>
+            <li>Diesen gut mithilfe von Papiertüchern abtrocknen</li>
+            <li>Die Luftzufuhr des Bunsenbrenners ganz öffnen => rauschende Flamme</li>
+            <li>Den Knochen mit der Tiegelzange greifen</li>
+            <li>Den Knochen in die Flamme halten</li>
+            <li>Da wir nun den organischen Bestandteil des Knochens „zerstören" wollen ist es sinnvoll, den Knochen länger in die Flamme zu halten um möglichst viel Kollagen und weitere Proteine aus dem Kochen zu entfernen</li>
+            <li>Knochen beobachten und abkühlen lassen</li>
+            <li>Sobald genügend abgekühlt: Knochen in die Hand nehmen (Handschuhe) und zerbröseln</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    
+    
+    <div id="beobachtung" class="text-chapter">
+      <h3 tabindex="0" class="text-header">
+        Beobachtung
+        <i data-lucide="link" class="text-header-icon"></i>
+      </h3>
+
+      <div class="text-block">
+        <div class="text">
+          <p>
+            Der verbrannte Knochen ist nun noch leichter geworden und sieht kleiner bzw. verformt aus. Wenn er in die Hand genommen wird und auch nur ein leichter Druck auf ihn ausgeübt wird, wird er brüchig und bröselt auseinander. Er ist also porös geworden und kann kaum auf ihn ausgeübten Druck überstehen.
+          </p>
+        </div>
+      </div>
+      <div class="text-media-large">
+        <div class="text-media-wrapper">
+          <img src="knochen2_beobachtung.png" data-license="<a href='https://creativecommons.org/licenses/by-sa/4.0/'>CC BY-SA 4.0</a>" data-source="Eigenes Bild" data-author="Amelia D." data-title="Beobachtung Knochen 2">
+        </div>
+      </div>
+    </div>
+    
+    <div id="auswertung" class="text-chapter">
+      <h3 tabindex="0" class="text-header">
+        Auswertung
+        <i data-lucide="link" class="text-header-icon"></i>
+      </h3>
+
+      <div class="text-block text-only">
+        <div class="text">
+          <p>
+            Aus der Beobachtung kann der Schluss gezogen werden, dass durch die Verbrennung des organischen Bestandteils des Knochens, diesem weiter Härte aber vor allem Flexibilität/Elastizität entzogen wird. Er lässt sich nun nicht mehr biegen und stattdessen bricht er, wodurch ihm die Eigenschaft der Porosität zugeschrieben werden kann. Letztlich haben wir auch die Bedeutung des organischen Bestandteils des Skelettsystems dargestellt und bewiesen.
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script type="module">
+    import * as LabeledIcon from "../../javascript/LabeledIcon.js";
+    import * as ExperimentLink from "../../javascript/ExperimentLink.js";
+    import * as staticContentLoader from "../../javascript/staticContentLoader.js";
+    staticContentLoader.injectFooter();
+  </script>
+
+  <script async type="module">
+    // import * as expandableHandler from "./javascript/expandableHandler.js";
+    // expandableHandler.addClickListener();
+    // expandableHandler.addDatenHoverEventListener();
+
+    // import * as sourceLoader from "./javascript/sourceLoader.js";
+    // sourceLoader.injectSourceNotes();
+
+    import * as mediaHandler from "../../javascript/mediaHandler.js";
+    mediaHandler.initialize();
+  </script>
+
+  <script type="module">
+    // import * as datenLoader from "./javascript/datenLoader.js";
+    import * as main from "../../javascript/scripts.js";
+
+    main.addTextHeaderClickListener();
+  </script>
+
+  <script>
+    lucide.createIcons();
+  </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false },
+          { left: "\\(", right: "\\)", display: false },
+          { left: "\\[", right: "\\]", display: true }
+        ]
+      });
+    });
+  </script>
+</body>
+
+</html>
