@@ -91,7 +91,65 @@
     import * as LabeledIcon from "../javascript/LabeledIcon.js";
     import * as ExperimentLink from "../javascript/ExperimentLink.js";
     import * as staticContentLoader from "../javascript/staticContentLoader.js";
+    import { findElementWithName } from "../javascript/datenLoader.js";
+    import tinycolor from "../javascript/tinycolor.js"
+
     staticContentLoader.injectFooter();
+
+    document.querySelectorAll("experiment-link").forEach(async elem => {
+      const shadow = elem.shadowRoot;
+      if (!shadow) return;
+
+      const insertNewIcon = async header => {
+        const icon = header.querySelector("labeled-icon");
+        const headerText = icon.innerHTML;
+        if (icon) icon.remove();
+
+        const elementObj = await findElementWithName(elem.getAttribute("href").split('/')[0]);
+        const ICON_TEXT = elementObj.elementsymbol;
+        const ICON_BG_COLOR = elementObj?.additional_data?.einteilung?.gruppe;
+        const ICON_TEXT_COLOR = tinycolor(ICON_BG_COLOR).isDark() ? "#fff" : "#000";
+
+        const newIcon = document.createElement("div");
+        newIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+      <rect width="100" height="100" rx="15" fill="${ICON_BG_COLOR}"/>
+      <text
+        x="50" y="54"
+        dominant-baseline="middle"
+        text-anchor="middle"
+        font-family="Inter, Helvetica, Arial, sans-serif"
+        font-weight="bold"
+        font-size="${ICON_TEXT.length > 2 ? '36' : ICON_TEXT.length > 1 ? '48' : '60'}"
+        fill="${ICON_TEXT_COLOR}"
+      >${ICON_TEXT}</text>
+    </svg>`
+        header.innerHTML = "";
+        const span = document.createElement("span");
+        span.innerHTML = headerText;
+        span.prepend(newIcon);
+        span.style.display = "grid";
+        span.style.gridTemplateColumns = "25px 1fr";
+        span.style.alignItems = "center";
+        span.style.gap = "10px";
+        newIcon.style.height = newIcon.style.width = "25px";
+        header.append(span);
+      };
+
+      const existingHeader = shadow.querySelector("h3");
+      if (existingHeader) {
+        insertNewIcon(existingHeader);
+        return;
+      }
+
+      const observer = new MutationObserver(() => {
+        const header = shadow.querySelector("h3");
+        if (header) {
+          insertNewIcon(header);
+          observer.disconnect();
+        }
+      });
+      observer.observe(shadow, { childList: true, subtree: true });
+    });
   </script>
   <script>
     lucide.createIcons();

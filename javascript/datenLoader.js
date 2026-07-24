@@ -8,7 +8,7 @@ let alleElemente = null;
 export async function loadElemente() {
   try {
     if (!alleElemente) {
-      const response = await fetch('data/elements.json');
+      const response = await fetch('/data/elements.json');
       alleElemente = await response.json();
     }
     return alleElemente;
@@ -17,11 +17,12 @@ export async function loadElemente() {
   }
 }
 
-async function findElementWithName(name) {
+export async function findElementWithName(name) {
   const all = await loadElemente();
   const elemente = all.elements;
   for (let key in elemente) {
-    if (elemente[key].elementname === name) {
+    if (elemente[key].elementname.toUpperCase() === name.toUpperCase() ||
+      replaceUmlauts(elemente[key].elementname).toUpperCase() === name.toUpperCase()) {
       return elemente[key];
     }
   }
@@ -34,7 +35,7 @@ export async function generateAndInjectFavicon(elementName) {
     const elementObj = await findElementWithName(elementName);
     const FAVICON_TEXT = elementObj.elementsymbol;
     const FAVICON_BG_COLOR = elementObj?.additional_data?.einteilung?.gruppe;
-    const FAVICON_TEXT_COLOR =  tinycolor(FAVICON_BG_COLOR).isDark() ? "#fff" : "#000";
+    const FAVICON_TEXT_COLOR = tinycolor(FAVICON_BG_COLOR).isDark() ? "#fff" : "#000";
 
     let svgContent;
     let svgDataUrl;
