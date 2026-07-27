@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="de_DE">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="Chemie, P-Seminar, WHG" />
+    <meta name="color-scheme" content="dark light" />
+    <meta name="content" content="404" />
+    <meta name="author" content="Schinkennugget" />
+
+    <title>404; Redirect...</title>
+    <style>
+        html {
+            font-family:
+                Inter,
+                -apple-system,
+                Helvetica,
+                Arial,
+                sans-serif;
+        }
+    </style>
+</head>
+
+<body tabindex="0">
+
+    <main>
+        <h1>Error 404: Seite nicht gefunden</h1>
+        <p>
+            Diese Seite wurde nicht gefunden. Die Webseite wurde verlegt, du solltest auf <a href="periodensystem.github.io">periodensystem.github.io</a> umgeleitet werden.
+        </p>
+    </main>
+</body>
+
+<script>
+    let currentUrl = window.location.href;
+    let baseUrl = 'https://periodensystem.github.io'; // Replace with your new URL
+
+    let urlObject = new URL(currentUrl);
+    let searchParams = new URLSearchParams(urlObject.search);
+    searchParams.set('fromOldURL', true);
+
+    setTimeout(() => {
+        window.location.href = baseUrl + urlObject.pathname + urlObject.hash + '?' + searchParams.toString();
+    }, 3000); 
+</script>
+
+</html>
