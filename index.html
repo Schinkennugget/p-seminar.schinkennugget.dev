@@ -24,11 +24,12 @@
 
   <script>
     let timeLeft = 5;
+    const countdownEl = document.getElementById("countdown")
     let x = setInterval(function() {
       // If the count down is finished, write some text and clear the interval
       if (timeLeft <= 0) {
         clearInterval(x);
-        document.getElementById("countdown").innerHTML = "0...";
+        countdownEl.innerHTML = "0...";
       } else {
         // Otherwise, update the countdown display
         countdownEl.textContent = timeLeft;
