@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="de_DE">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="keywords" content="Chemie, P-Seminar, WHG" />
+  <meta name="color-scheme" content="dark light" />
+  <meta name="content" content="P-Seminar Chemie WHG 25/26: Startseite (alt)" />
+  <meta name="author" content="Schinkennugget" />
+  <meta http-equiv="refresh" content="5; URL=https://periodensystem.github.io">
+
+  <title>Redirect...</title>
+</head>
+
+<body tabindex="0">
+
+  <main>
+    <p>
+      Diese Seite wurde verlegt und ist ab sofort unter <a href="periodensystem.github.io">periodensystem.github.io</a> zu erreichen. 
+      Du solltest automatisch in <span id="countdown"></span> dorthin umgeleitet werden.
+    </p>
+  </main>
+
+  <script>
+    let timeLeft = 5;
+    let x = setInterval(function() {
+      // If the count down is finished, write some text and clear the interval
+      if (timeLeft <= 0) {
+        clearInterval(x);
+        document.getElementById("countdown").innerHTML = "0...";
+      } else {
+        // Otherwise, update the countdown display
+        countdownEl.textContent = timeLeft;
+        timeLeft--;
+      }
+    }, 1000);
+  </script>
+</body>
+
+
+</html>
