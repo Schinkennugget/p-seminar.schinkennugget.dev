@@ -29,6 +29,9 @@
         <p>
             Diese Seite wurde nicht gefunden. Die Webseite wurde verlegt, du solltest auf <a href="periodensystem.github.io">periodensystem.github.io</a> umgeleitet werden.
         </p>
+        <p>
+            Umleiten auf <span id="url"></span>...
+        </p>
     </main>
 </body>
 
@@ -39,6 +42,8 @@
     let urlObject = new URL(currentUrl);
     let searchParams = new URLSearchParams(urlObject.search);
     searchParams.set('fromOldURL', true);
+
+    document.querySelector("#url").innerHTML = baseUrl + urlObject.pathname + urlObject.hash + '?' + searchParams.toString();
 
     setTimeout(() => {
         window.location.href = baseUrl + urlObject.pathname + urlObject.hash + '?' + searchParams.toString();
