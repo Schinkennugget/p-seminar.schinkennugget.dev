@@ -43,7 +43,7 @@
     let searchParams = new URLSearchParams(urlObject.search);
     searchParams.set('fromOldURL', true);
 
-    document.querySelector("#url").innerHTML = baseUrl + urlObject.pathname + urlObject.hash + '?' + searchParams.toString();
+    document.querySelector("#url").innerHTML = baseUrl + urlObject.pathname + urlObject.hash;
 
     setTimeout(() => {
         window.location.href = baseUrl + urlObject.pathname + urlObject.hash + '?' + searchParams.toString();
